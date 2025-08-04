@@ -1,0 +1,49 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="QuasiRPG Core"
+config/description="The Visual Novel engine used to make QuasiRPG engine games like Pilgrimage to Zentih"
+run/main_scene="uid://bnubr7phxt3dx"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://Godot/icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://Godot/default_bus_layout.tres"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/borderless=true
+window/size/always_on_top=true
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[editor]
+
+movie_writer/movie_file="C:/Users/Matt/Videos/GodotCaptures/game_output.avi"
+
+[file_customization]
+
+folder_colors={
+"res://Game Files/": "red",
+"res://Game Files/Holotype Folder/": "pink",
+"res://Game Files/Holotype Folder/Database/": "orange",
+"res://Game Files/Test Game/": "pink",
+"res://Game Files/Test Game/Database/": "orange",
+"res://Godot/": "purple",
+"res://QuasiEngine/": "green",
+"res://QuasiEngine/Scenes/Core Scenes/": "teal",
+"res://QuasiEngine/Scenes/Core Scenes/RPG Main/": "teal",
+"res://QuasiEngine/Scenes/Core Scenes/VN Main/": "teal"
+}

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnubr7phxt3dx"]
+
+[ext_resource type="Script" uid="uid://hpd8t53jtgu3" path="res://QuasiEngine/Scenes/main.gd" id="1_62v3k"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_62v3k")

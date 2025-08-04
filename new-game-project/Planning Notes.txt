@@ -1,0 +1,5 @@
+
+
+Project GUI:
+	
+	Make button that automatically creates new game folder in game files that comes with all the folders a project needs. Ideally, theyre also color coded.

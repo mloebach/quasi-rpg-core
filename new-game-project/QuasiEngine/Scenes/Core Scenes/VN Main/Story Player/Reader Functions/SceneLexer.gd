@@ -40,6 +40,12 @@ const BUILT_IN_COMMANDS := {
 	IF = "if",
 	ELSE = "else",
 	ELIF = "elif",
+	GROUP = "group",
+	WHILE = "while",
+	DELAY = "delay",
+	AWAIT = "await",
+	TRANSITION = "trans",
+	RANDOM = "random",
 	CHOICE = "choice"
 }
 
@@ -112,7 +118,12 @@ func tokenize(input_text: String) -> Array[Token]:
 		if current_line.length() > 0:
 			
 			var starting_index = _first_character_index(current_line, 0)
-			var line_indent_depth = _get_indent_level(current_line, 0, 0)
+			var line_indent_depth = indent_depth
+			
+			#comments wont affect indentation
+			if script.get_current_line()[starting_index] != ";":
+				line_indent_depth = _get_indent_level(current_line, 0, 0)
+			
 			#indent depth of new line versus current depth
 			var depthDiff = line_indent_depth - indent_depth	
 			#positive depth = we need more begin blocks

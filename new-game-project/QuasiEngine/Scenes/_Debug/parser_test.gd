@@ -15,6 +15,6 @@ func _ready() -> void:
 	#print(text)
 	var tokens: Array = lexer.tokenize(text)
 	print("Tokens: " + str(tokens))
-	#var tree: SceneParser.SyntaxTree = parser.parse(tokens)
-	#print(tree.values)
+	var tree: SceneParser.SyntaxTree = parser.parse(tokens)
+	print(tree.values)
 	#var script: SceneTranspiler.StoryTree = transpiler.transpile(tree,0)

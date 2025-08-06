@@ -60,12 +60,12 @@ class FunctionExpression:
 
 #expression which hinges on a boolean to active
 class BlockFunctionExpression:
-	extends BaseExpression
+	extends FunctionExpression
 	
 	var block: Array
 	
-	func _init(_type: String, _value, _block: Array) -> void:
-		super(_type, _value)
+	func _init(_type: String, _value, _arguments:Array, _block: Array) -> void:
+		super(_type, _value, _arguments)
 		self.block = _block
 		
 	func _to_string() -> String:
@@ -73,21 +73,19 @@ class BlockFunctionExpression:
 
 #tree of conditional expressions
 class ConditionalTreeExpression:
-	extends BaseExpression
+	extends FunctionExpression
 	var if_block: BlockFunctionExpression
 	var else_block: Array
-	var elif_block: BlockFunctionExpression
 
 	func _init(
 		_type: String,
 		_value: String,
+		_arguments:Array,
 		_if_block: BlockFunctionExpression,
-		_elif_block:  BlockFunctionExpression,
 		_else_block: Array
 	) -> void:
-		super(_type, _value)
+		super(_type, _value, _arguments)
 		self.if_block = _if_block
-		self.elif_block = _elif_block
 		self.else_block = _else_block
 
 
@@ -121,6 +119,45 @@ class Parser:
 				arguments.append(expression)
 		return arguments
 		
+	## Returns expressions from an indented block
+	func parse_indented_block() -> Array:
+		var block_content := []
+
+		# Stack starts with 1 because we skip the first BEGIN_BLOCK token
+		var indent_stack := 1
+
+		print("Peek-" + peek_at_next_token().type)
+		if self.peek_at_next_token().type == SceneLexer.TOKEN_TYPES.BEGINBLOCK:
+			print("Skipping beginning block.")
+			self.move_to_next_token()
+
+		while not self.is_at_end_of_list():
+			var expression := self.parse_next_token()
+			
+
+			if expression == null:
+				continue
+
+			print(expression.type + "/" + expression.value + " - " + str(indent_stack))
+
+			if expression.type == SceneLexer.TOKEN_TYPES.BEGINBLOCK:
+				indent_stack += 1
+
+				# Recursively parse the block
+				block_content.append(parse_indented_block())
+			elif expression.type == SceneLexer.TOKEN_TYPES.ENDBLOCK:
+				indent_stack -= 1
+
+				if indent_stack == 0:
+					print("Exit block.")
+					return block_content
+				else:
+					break
+			else:
+				block_content.append(expression)
+		print("Block null.")
+		return []
+		
 	#parse next token ad return correct expression to the tree
 	func parse_next_token() -> BaseExpression:
 		var current_token := self.move_to_next_token()
@@ -131,7 +168,51 @@ class Parser:
 			
 			#find everything after until you hit newline
 			var arguments := self.find_expressions(SceneLexer.TOKEN_TYPES.NEWLINE)
-			#if self.peek_at_next_token().type = 
+			#commands that have a group of nested commands theyre assigned to
+			if (
+				current_token.value == SceneLexer.BUILT_IN_COMMANDS.GROUP ||
+				current_token.value == SceneLexer.BUILT_IN_COMMANDS.WHILE ||
+				current_token.value == SceneLexer.BUILT_IN_COMMANDS.DELAY ||
+				current_token.value == SceneLexer.BUILT_IN_COMMANDS.AWAIT ||
+				current_token.value == SceneLexer.BUILT_IN_COMMANDS.TRANSITION ||
+				current_token.value == SceneLexer.BUILT_IN_COMMANDS.RANDOM ||
+				current_token.value == SceneLexer.BUILT_IN_COMMANDS.CHOICE
+			):
+				print("Creating group at: " + current_token.type + "-" + current_token.value)
+				#starts on newline otherwise. should it automove?
+				if(self.peek_at_next_token().type == SceneLexer.TOKEN_TYPES.NEWLINE):
+					self.move_to_next_token()
+				return BlockFunctionExpression.new(current_token.type, current_token.value, arguments, parse_indented_block())
+			elif (
+				current_token.value == SceneLexer.BUILT_IN_COMMANDS.IF
+			):
+				print("Creating if group at: " + current_token.type + "-" + current_token.value)
+				if(self.peek_at_next_token().type == SceneLexer.TOKEN_TYPES.NEWLINE):
+					self.move_to_next_token()
+				var if_block = BlockFunctionExpression.new(current_token.type, current_token.value, arguments, parse_indented_block())
+				if(self.peek_at_next_token().type == SceneLexer.TOKEN_TYPES.ENDBLOCK):
+					self.move_to_next_token()
+				
+				var else_blocks = []
+				
+				print("after if line its: " + peek_at_next_token().type)
+				while peek_at_next_token().value == SceneLexer.BUILT_IN_COMMANDS.ELSE:
+					
+					#you dont want to include command
+					self.move_to_next_token()
+					
+					
+					var else_arguments := self.find_expressions(SceneLexer.TOKEN_TYPES.NEWLINE)
+					if(self.peek_at_next_token().type == SceneLexer.TOKEN_TYPES.NEWLINE):
+						self.move_to_next_token()
+					
+					else_blocks.append(
+						BlockFunctionExpression.new(current_token.type, SceneLexer.BUILT_IN_COMMANDS.ELSE, else_arguments, parse_indented_block())
+					)
+				
+				print("done with if/else")
+				return ConditionalTreeExpression.new(current_token.type, current_token.value, arguments, if_block, else_blocks)
+				
 			return FunctionExpression.new(current_token.type, current_token.value, arguments)
 		elif ( #no frills nothing fancy Base Expression
 			current_token.type in [
@@ -140,7 +221,9 @@ class Parser:
 				#newline is there to let commands know when to stop, otherwise junk
 				SceneLexer.TOKEN_TYPES.LABEL, #basic, all label info is in its token
 				SceneLexer.TOKEN_TYPES.SYMBOL, #always extension of command
-				SceneLexer.TOKEN_TYPES.PARAMETER#always extension of command
+				SceneLexer.TOKEN_TYPES.PARAMETER,#always extension of command
+				SceneLexer.TOKEN_TYPES.BEGINBLOCK,
+				SceneLexer.TOKEN_TYPES.ENDBLOCK
 				#SceneLexer.TOKEN_TYPES.GENERIC #this doesn
 			]
 		):

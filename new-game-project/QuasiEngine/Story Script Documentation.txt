@@ -1,0 +1,15 @@
+
+
+
+Comments:
+	; - Put ";" in front of a line to turn it into a comment.
+
+Inlining:
+	it's possible to run commands during generic text using inlining.
+	use <> in the middle of your code to have a command happen in the middle of text
+	ex:
+		Lorem ipsum<char Pihqura.Happy pos:75 wait:true> dolor sit amet.
+	You can also use <+ > to have conditions that only apply to specific parts of a print.
+	ex:
+		Lorem ipsum<+ speed:0.5> dolor sit amet.<+ speed:2.5 skip:true>
+		The first part of the sentence will run at half speed, the second part will run fullspeed.

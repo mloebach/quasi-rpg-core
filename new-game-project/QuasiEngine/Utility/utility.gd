@@ -8,8 +8,8 @@ func packed_string_array_to_str(array:PackedStringArray):
 	return returnString
 	
 #checks if a character('s first letter) is A-Z or a-z
-func is_char_ascii(char: String) -> bool:
-	var ascii = char.unicode_at(0)
+func is_char_ascii(chara: String) -> bool:
+	var ascii = chara.unicode_at(0)
 	if(ascii >= 65 && ascii <= 90) || (ascii >= 97 && ascii <= 122):
 		return true
 	else:

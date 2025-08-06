@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="VN_Database" load_steps=5 format=3 uid="uid://baavq2u41ffek"]
+
+[ext_resource type="Script" uid="uid://d1lrrn21y00" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/game_database.gd" id="1_4cxd5"]
+[ext_resource type="Script" uid="uid://blb3v24v1q1u8" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/scenario_script.gd" id="1_g6my2"]
+
+[sub_resource type="Resource" id="Resource_g6my2"]
+script = ExtResource("1_g6my2")
+script_name = "StartingScript"
+script_file = "res://Game Files/Test Game/Game Scripts/Script1.story"
+metadata/_custom_type_script = "uid://blb3v24v1q1u8"
+
+[sub_resource type="Resource" id="Resource_qk7uv"]
+script = ExtResource("1_g6my2")
+script_name = "Test_Story"
+script_file = "res://Game Files/Test Game/Game Scripts/Test_Story.story"
+metadata/_custom_type_script = "uid://blb3v24v1q1u8"
+
+[resource]
+script = ExtResource("1_4cxd5")
+initial_script = "Test_Story"
+script_pool = Array[ExtResource("1_g6my2")]([SubResource("Resource_g6my2"), SubResource("Resource_qk7uv")])
+metadata/_custom_type_script = "uid://d1lrrn21y00"

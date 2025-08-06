@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcah5h5nn3oqg"]
+
+[ext_resource type="Script" uid="uid://cuoyhrfcygvai" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Story Player/story_player.gd" id="1_ymrlv"]
+
+[node name="StoryPlayer" type="Node"]
+script = ExtResource("1_ymrlv")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="SFX_Stage" type="Node" parent="Audio"]
+
+[node name="Voice_Stage" type="Node" parent="Audio"]
+
+[node name="BGM_Stage" type="Node" parent="Audio"]
+
+[node name="RootViewportStage" type="Node2D" parent="."]
+
+[node name="MainStage" type="Node" parent="."]
+
+[node name="PrinterStage" type="Node" parent="."]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="MainUIVBox" type="VBoxContainer" parent="UILayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="PrimaryUIStage" type="Control" parent="UILayer/MainUIVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 12.0
+
+[node name="WikiStage" type="Control" parent="UILayer/MainUIVBox/PrimaryUIStage"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RibbonUIStage" type="Control" parent="UILayer/MainUIVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="UILayer/MainUIVBox/RibbonUIStage"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -83.0
+offset_right = 960.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="OptionsPanel" type="HBoxContainer" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSide" type="HBoxContainer" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer/MarginContainer/OptionsPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SaveButton" type="Button" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer/MarginContainer/OptionsPanel/LeftSide"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SAVE"
+
+[node name="LogButton" type="Button" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer/MarginContainer/OptionsPanel/LeftSide"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LOG"
+
+[node name="RightSide" type="HBoxContainer" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer/MarginContainer/OptionsPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="LeftSpace" type="Control" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer/MarginContainer/OptionsPanel/RightSide"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.45
+
+[node name="QuitButton" type="Button" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer/MarginContainer/OptionsPanel/RightSide"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "QUIT"

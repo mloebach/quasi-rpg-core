@@ -2,5 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hpd8t53jtgu3" path="res://QuasiEngine/Scenes/main.gd" id="1_62v3k"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node"]
 script = ExtResource("1_62v3k")
+
+[node name="ActiveScene" type="Node" parent="."]

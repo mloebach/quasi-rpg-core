@@ -1,0 +1,244 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxuegn6fpa1hu"]
+
+[ext_resource type="Texture2D" uid="uid://phhhx54hxaio" path="res://Game Files/Test Game/Visual Assets/Backgrounds/steppes.jpg" id="1_i8woa"]
+[ext_resource type="Script" uid="uid://caramyy3wk70y" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/title_scene_main.gd" id="1_renm7"]
+
+[sub_resource type="Gradient" id="Gradient_renm7"]
+offsets = PackedFloat32Array(0.135135, 1)
+colors = PackedColorArray(0, 0, 0, 0.592157, 0.237539, 0.237539, 0.237539, 0.301961)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_46df7"]
+gradient = SubResource("Gradient_renm7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_renm7"]
+bg_color = Color(0.161, 0.26495, 0.35, 1)
+
+[node name="TitleSceneMain" type="Node2D"]
+script = ExtResource("1_renm7")
+
+[node name="Background" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_i8woa")
+
+[node name="Main Layer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Layer"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+alignment = 1
+
+[node name="TopButtonsDistance" type="Control" parent="Main Layer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Layer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Main Layer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 150
+text = "QUAZI RPG CORE"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="TitleButtonsDistance" type="Control" parent="Main Layer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="Main Layer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="LeftSpace" type="Control" parent="Main Layer/VBoxContainer/ButtonsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Start Buttons" type="PanelContainer" parent="Main Layer/VBoxContainer/ButtonsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Main Layer/VBoxContainer/ButtonsHBox/Start Buttons"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Layer/VBoxContainer/ButtonsHBox/Start Buttons/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="NewGameButton" type="Button" parent="Main Layer/VBoxContainer/ButtonsHBox/Start Buttons/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "NEW GAME"
+
+[node name="SettingsButton" type="Button" parent="Main Layer/VBoxContainer/ButtonsHBox/Start Buttons/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "SETTINGS"
+
+[node name="QuitButton" type="Button" parent="Main Layer/VBoxContainer/ButtonsHBox/Start Buttons/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "QUIT"
+
+[node name="RightSpace" type="Control" parent="Main Layer/VBoxContainer/ButtonsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonsFloorDistance" type="Control" parent="Main Layer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="Upper Layer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Quit Menu" type="Control" parent="Upper Layer"]
+visible = false
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Background" type="TextureRect" parent="Upper Layer/Quit Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_46df7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Upper Layer/Quit Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SpaceAbove" type="Control" parent="Upper Layer/Quit Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Upper Layer/Quit Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="SpaceLeft" type="Control" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="PanelContainer" type="PanelContainer" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_renm7")
+
+[node name="MarginContainer" type="MarginContainer" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="SpaceAbove" type="Control" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="DisclaimerText" type="RichTextLabel" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 60
+text = "Are you sure you would like to quit?"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="SpaceBetween" type="Control" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SpaceAbove" type="Control" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="YesButton" type="Button" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 60
+text = "YES"
+
+[node name="SpaceBetween" type="Control" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="NoButton" type="Button" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 60
+text = "NO"
+
+[node name="SpaceBelow" type="Control" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SpaceBelow" type="Control" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SpaceRight" type="Control" parent="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="SpaceBelow" type="Control" parent="Upper Layer/Quit Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[connection signal="button_up" from="Main Layer/VBoxContainer/ButtonsHBox/Start Buttons/MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_button_up"]
+[connection signal="pressed" from="Main Layer/VBoxContainer/ButtonsHBox/Start Buttons/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/YesButton" to="." method="_on_quit_yes_button_pressed"]
+[connection signal="pressed" from="Upper Layer/Quit Menu/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/NoButton" to="." method="_on_quit_no_button_pressed"]

@@ -1,0 +1,3 @@
+
+Additive:
+	the "Load Scene"'s additive function puts two scenes in the same ActiveScene stage

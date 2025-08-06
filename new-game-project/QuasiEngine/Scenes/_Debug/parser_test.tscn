@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddnawhkmovaiq"]
+
+[ext_resource type="Script" uid="uid://b4mvnp8s2cch3" path="res://QuasiEngine/Scenes/_Debug/parser_test.gd" id="1_l6ao1"]
+
+[node name="ParserTest" type="Node2D"]
+script = ExtResource("1_l6ao1")
+example_script = "res://Game Files/Test Game/Game Scripts/Script1.story"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 1897.0
+offset_bottom = 1043.0
+theme_override_font_sizes/normal_font_size = 90
+text = "YOURE IN PARSER TEST RN"
+horizontal_alignment = 1
+vertical_alignment = 1

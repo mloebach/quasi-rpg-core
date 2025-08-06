@@ -20,10 +20,15 @@ config/icon="res://Godot/icon.svg"
 
 buses/default_bus_layout="res://Godot/default_bus_layout.tres"
 
+[autoload]
+
+Util="*res://QuasiEngine/Utility/utility.gd"
+GlobalData="*res://QuasiEngine/Scenes/global_data.gd"
+
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/borderless=true
 window/size/always_on_top=true
 window/stretch/mode="canvas_items"

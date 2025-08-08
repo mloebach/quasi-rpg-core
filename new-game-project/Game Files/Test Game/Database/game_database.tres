@@ -19,4 +19,5 @@ metadata/_custom_type_script = "uid://blb3v24v1q1u8"
 script = ExtResource("1_4cxd5")
 initial_script = "Test_Story"
 script_pool = Array[ExtResource("1_g6my2")]([SubResource("Resource_g6my2"), SubResource("Resource_qk7uv")])
+wait_by_default = true
 metadata/_custom_type_script = "uid://d1lrrn21y00"

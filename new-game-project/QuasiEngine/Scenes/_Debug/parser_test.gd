@@ -7,7 +7,7 @@ var lexer := SceneLexer.new()
 #turn array of tokens into branching tree of tokens
 var parser := SceneParser.new()
 #turn tree of tokens into branching tree of command nodes
-#var transpiler := SceneTranspiler.new()
+var transpiler := SceneTranspiler.new()
 
 
 func _ready() -> void:
@@ -17,4 +17,5 @@ func _ready() -> void:
 	print("Tokens: " + str(tokens))
 	var tree: SceneParser.SyntaxTree = parser.parse(tokens)
 	print(tree.values)
-	#var script: SceneTranspiler.StoryTree = transpiler.transpile(tree,0)
+	var script: SceneTranspiler.StoryTree = transpiler.transpile(tree,0)
+	print("bp")

@@ -18,6 +18,7 @@ func _ready() -> void:
 	#if we havent loaded the data onto the global checker yet, do that
 	if !GlobalData.script_data_loaded:
 		_get_all_node_trees()
+		GlobalData.load_options(game_db) #maybe move this as you figure out the load scri[t
 		GlobalData.script_data_loaded = true
 	
 	#initial script

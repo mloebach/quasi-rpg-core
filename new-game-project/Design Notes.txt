@@ -1,3 +1,30 @@
 
 Additive:
 	the "Load Scene"'s additive function puts two scenes in the same ActiveScene stage
+
+
+Rollback:
+	Don't implement rollback the way does it. No scrollwheel, and no "Back" button.
+	Tie rollback to the backlog where it's possible to load a save with the exact
+	state game was in at the backlog message, ala loading save.
+	Pihqura tells you to do this during the poll sections if youre not confident in your results.
+	
+Saving:
+	The plan is most likely to have saves tied to the character slots, which there are three of.
+	"Read messages" is most likely tied to your character. If you save backwards you can skip the mesasges.
+	There are two autosaves - the first saves every line. The second saves at automatic points.
+		Autosave, and Pointsave.
+		
+Chapter Select:
+	The game lets you choose the start of specific chapters from your file.
+	It's like ace attorney where you have to opt in to the episode to select it.
+	The only exception is the prologue. (The cutoffpoint is right before Kenne duel)
+	After you complete an episode, load will be completely blank.
+	The chapter select screen may have a specific UI...?
+	The player just doesnt have access to chapter select without beating prologue btw
+	CHapter select always starts locked, but unlocks as soon as you start the chapter.
+	Sections unlock as you reach their initial points
+	
+	
+Skip Messages:
+	Skip is in the game but only works with messages youve seen as character. Rollback allowing message skipping should work.

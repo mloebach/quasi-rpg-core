@@ -4,11 +4,11 @@ extends RefCounted
 #names of the possible expressions supposed by parser
 const EXPRESSION_TYPES := {
 	COMMAND = SceneLexer.TOKEN_TYPES.COMMAND,
-	LABEL = SceneLexer.TOKEN_TYPES.LABEL,
-	IF = SceneLexer.BUILT_IN_COMMANDS.IF,
-	ELSE = SceneLexer.BUILT_IN_COMMANDS.ELSE,
-	ELIF = SceneLexer.BUILT_IN_COMMANDS.ELIF,
-	GROUP = SceneLexer.BUILT_IN_COMMANDS.GROUP
+	LABEL = SceneLexer.TOKEN_TYPES.LABEL
+	#IF = SceneLexer.BUILT_IN_COMMANDS.IF,
+	#ELSE = SceneLexer.BUILT_IN_COMMANDS.ELSE,
+	#ELIF = SceneLexer.BUILT_IN_COMMANDS.ELIF,
+	#GROUP = SceneLexer.BUILT_IN_COMMANDS.GROUP
 }
 
 class SyntaxTree:

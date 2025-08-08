@@ -37,16 +37,15 @@ const BUILT_IN_COMMANDS := {
 	STOP_SFX = "stopSFX",
 	STOP_VOICE = "stopVoice",
 	SET_VARIABLE = "set",
-	IF = "if",
-	ELSE = "else",
-	ELIF = "elif",
-	GROUP = "group",
-	WHILE = "while",
-	DELAY = "delay",
-	AWAIT = "await",
-	TRANSITION = "trans",
-	RANDOM = "random",
-	CHOICE = "choice"
+	IF = "if", #not in transpiler yet
+	ELSE = "else", #not in transpiler yet
+	GROUP = "group", #not in transpiler yet
+	WHILE = "while", #not in transpiler yet
+	DELAY = "delay", #not in transpiler yet
+	AWAIT = "await", #not in transpiler yet
+	TRANSITION = "trans", #not in transpiler yet
+	RANDOM = "random", #not in transpiler yet
+	CHOICE = "choice" #not in transpiler yet
 }
 
 #var symbol_regex := RegEx.new()

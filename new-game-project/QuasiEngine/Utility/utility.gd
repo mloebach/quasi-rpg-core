@@ -15,6 +15,14 @@ func is_char_ascii(chara: String) -> bool:
 	else:
 		return false
 
+#converts float to string represnting time. assumes float is in seconds
+func float_to_time_string(time: float):
+	var seconds := fmod(time, 60.0)
+	var minutes := int(time / 60.00) % 60
+	var hours := int(time / 3600.00)
+	var time_string:String = "%d:%02d" % [hours, minutes]
+	return time_string
+
 #sets specific string to true or false based on string
 #doesnt touch it if string is somehow neither
 func str_to_bool(boolean : String, current : bool) -> bool:

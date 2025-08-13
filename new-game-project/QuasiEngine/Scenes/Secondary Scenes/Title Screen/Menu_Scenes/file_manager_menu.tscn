@@ -1,0 +1,121 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd2cxpqhksiut"]
+
+[ext_resource type="Script" uid="uid://jjhgbemxdobl" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/file_manager_menu.gd" id="1_pwdjv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvjfp"]
+bg_color = Color(0.1008, 0.10608, 0.18, 1)
+
+[node name="FileManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pwdjv")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="UpperTitle" type="MarginContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="VBox/UpperTitle"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dvjfp")
+
+[node name="MainStageVbox" type="VBoxContainer" parent="VBox/UpperTitle/PanelContainer"]
+layout_mode = 2
+
+[node name="TextMargins" type="MarginContainer" parent="VBox/UpperTitle/PanelContainer/MainStageVbox"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="FileText" type="RichTextLabel" parent="VBox/UpperTitle/PanelContainer/MainStageVbox/TextMargins"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 60
+text = "	----"
+fit_content = true
+
+[node name="StageMargins" type="MarginContainer" parent="VBox/UpperTitle/PanelContainer/MainStageVbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="LowerTitle" type="MarginContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="LowerBox" type="HBoxContainer" parent="VBox/LowerTitle"]
+visible = false
+layout_mode = 2
+
+[node name="SettingsButton" type="Button" parent="VBox/LowerTitle/LowerBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "SETTINGS"
+
+[node name="MiddleLeftSpace" type="Control" parent="VBox/LowerTitle/LowerBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.47
+
+[node name="TitleButton" type="Button" parent="VBox/LowerTitle/LowerBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "TITLE"
+
+[node name="ChosenFileLower" type="HBoxContainer" parent="VBox/LowerTitle"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="NGButton" type="Button" parent="VBox/LowerTitle/ChosenFileLower"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "New Game+"
+
+[node name="Control" type="Control" parent="VBox/LowerTitle/ChosenFileLower"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.41
+
+[node name="CopyButton" type="Button" parent="VBox/LowerTitle/ChosenFileLower"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "COPY"
+
+[node name="EraseButton" type="Button" parent="VBox/LowerTitle/ChosenFileLower"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "ERASE"
+
+[node name="Control2" type="Control" parent="VBox/LowerTitle/ChosenFileLower"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.41
+
+[node name="Popup Stage" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="button_up" from="VBox/LowerTitle/LowerBox/TitleButton" to="." method="_on_title_button_button_up"]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerSave" load_steps=2 format=3 uid="uid://d1pf7pwlr8vaa"]
+
+[ext_resource type="Script" uid="uid://d3nd2a0lxmwi5" path="res://QuasiEngine/Scenes/Save System/PlayerFileSave.gd" id="1_4myi1"]
+
+[resource]
+script = ExtResource("1_4myi1")
+player_name = "Madleomon"
+player_time_spent = 10000.0
+player_last_save_date = "5/24/11"
+current_location = "Hell"
+metadata/_custom_type_script = "uid://d3nd2a0lxmwi5"

@@ -1,0 +1,460 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckfq6tr2dtjer"]
+
+[ext_resource type="Texture2D" uid="uid://0cgsx50471h3" path="res://Game Files/Test Game/Visual Assets/Backgrounds/industrial-building.jpg" id="1_pwfqm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46df7"]
+bg_color = Color(0.14592, 0.1408, 0.16, 1)
+
+[node name="EpisodeSelector" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UpperTitle" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="EpisodeScroll" type="VBoxContainer" parent="UpperTitle"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="PlayerName" type="RichTextLabel" parent="UpperTitle/EpisodeScroll"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.82
+theme_override_font_sizes/normal_font_size = 80
+text = "PILGRIMAGE TO ZENITH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UpperTitle/EpisodeScroll"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.5
+theme_override_constants/separation = 30
+
+[node name="PrevButton" type="Button" parent="UpperTitle/EpisodeScroll/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Prev Episode"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UpperTitle/EpisodeScroll/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+theme_override_constants/separation = 20
+
+[node name="SidestoryButton" type="VBoxContainer" parent="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.12
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer/SidestoryButton"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
+theme_override_font_sizes/font_size = 30
+text = "Sidestory"
+
+[node name="EmptySpace" type="Control" parent="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer/SidestoryButton"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_pwfqm")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer/TextureRect/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="EpisodeLabel" type="RichTextLabel" parent="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/normal_font_size = 120
+text = "EPISODE 1"
+fit_content = true
+vertical_alignment = 2
+
+[node name="EpisodeLabel2" type="RichTextLabel" parent="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/normal_font_size = 60
+text = "INTO THE ARID SANDS MARCH"
+fit_content = true
+vertical_alignment = 2
+
+[node name="SidestoryButton2" type="VBoxContainer" parent="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.12
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer/SidestoryButton2"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
+theme_override_font_sizes/font_size = 30
+text = "Sidestory"
+
+[node name="EmptySpace" type="Control" parent="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer/SidestoryButton2"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NextButton" type="Button" parent="UpperTitle/EpisodeScroll/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Next Episode"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UpperTitle/EpisodeScroll"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Left" type="Control" parent="UpperTitle/EpisodeScroll/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="SelectorButtons" type="VBoxContainer" parent="UpperTitle/EpisodeScroll/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="StartButton" type="Button" parent="UpperTitle/EpisodeScroll/HBoxContainer2/SelectorButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Start Episode"
+
+[node name="ChapterSelectButton" type="Button" parent="UpperTitle/EpisodeScroll/HBoxContainer2/SelectorButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Chapter Select"
+
+[node name="Right" type="Control" parent="UpperTitle/EpisodeScroll/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="ChapterSelector" type="VBoxContainer" parent="UpperTitle"]
+visible = false
+layout_mode = 2
+
+[node name="EpisodeLabel" type="RichTextLabel" parent="UpperTitle/ChapterSelector"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "EPISODE 1"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EpisodeNameLabel" type="RichTextLabel" parent="UpperTitle/ChapterSelector"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 60
+text = "INTO THE MARCH OF THE ARID SANDS"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="UpperTitle/ChapterSelector"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.07
+
+[node name="ChapterPanel" type="PanelContainer" parent="UpperTitle/ChapterSelector"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_46df7")
+
+[node name="MarginContainer" type="MarginContainer" parent="UpperTitle/ChapterSelector/ChapterPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 30
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="EmptySpace" type="Control" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="Button1" type="HBoxContainer" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button1/Control"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 266.0
+offset_bottom = 77.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_font_sizes/normal_font_size = 40
+text = "Beginning"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Part 1"
+
+[node name="Button2" type="HBoxContainer" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button2/Control"]
+visible = false
+layout_mode = 2
+offset_left = 4.0
+offset_right = 266.0
+offset_bottom = 77.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_font_sizes/normal_font_size = 40
+text = "Beginning"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Part 1"
+
+[node name="Button3" type="HBoxContainer" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button3/Control"]
+visible = false
+layout_mode = 2
+offset_left = 4.0
+offset_right = 266.0
+offset_bottom = 77.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_font_sizes/normal_font_size = 40
+text = "Beginning"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Part 1"
+
+[node name="Button4" type="HBoxContainer" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button4/Control"]
+visible = false
+layout_mode = 2
+offset_left = 4.0
+offset_right = 266.0
+offset_bottom = 77.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_font_sizes/normal_font_size = 40
+text = "Beginning"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Part 1"
+
+[node name="Button5" type="HBoxContainer" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button5/Control"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 266.0
+offset_bottom = 77.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_font_sizes/normal_font_size = 40
+text = "Quest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Part 1"
+
+[node name="Button6" type="HBoxContainer" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button6/Control"]
+visible = false
+layout_mode = 2
+offset_left = 4.0
+offset_right = 266.0
+offset_bottom = 77.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_font_sizes/normal_font_size = 40
+text = "Beginning"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button6"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Part 1"
+
+[node name="Button7" type="HBoxContainer" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button7/Control"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 266.0
+offset_bottom = 77.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_font_sizes/normal_font_size = 40
+text = "Duel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button7"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Part 1"
+
+[node name="Button8" type="HBoxContainer" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button8"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button8/Control"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 266.0
+offset_bottom = 77.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_font_sizes/normal_font_size = 40
+text = "End"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/Button8"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Part 1"
+
+[node name="EmptySpace2" type="Control" parent="UpperTitle/ChapterSelector/ChapterPanel/MarginContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="LowerTitle2" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="LowerBox" type="HBoxContainer" parent="LowerTitle2"]
+layout_mode = 2
+
+[node name="MiddleLeftSpace" type="Control" parent="LowerTitle2/LowerBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.37
+
+[node name="BackButton" type="Button" parent="LowerTitle2/LowerBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "QUIT"

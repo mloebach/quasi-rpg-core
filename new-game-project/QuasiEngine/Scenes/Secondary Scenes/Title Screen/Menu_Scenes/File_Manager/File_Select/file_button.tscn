@@ -1,0 +1,113 @@
+[gd_scene load_steps=3 format=3 uid="uid://b67dptlbu1tw4"]
+
+[ext_resource type="Script" uid="uid://ctbjhaov8rj6j" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/file_button.gd" id="1_og0gr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xw7ev"]
+bg_color = Color(0.338876, 0.359706, 0.724406, 1)
+
+[node name="FileButton" type="HBoxContainer"]
+size_flags_vertical = 3
+script = ExtResource("1_og0gr")
+
+[node name="LeftSpace" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.16
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.01
+theme_override_styles/panel = SubResource("StyleBoxFlat_xw7ev")
+
+[node name="FileNumber" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 60
+text = "FILE 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.38
+theme_override_font_sizes/font_size = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="NewGameText" type="RichTextLabel" parent="Button/MarginContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 72
+text = "New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FileInfo" type="VBoxContainer" parent="Button/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Button/MarginContainer/FileInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="Button/MarginContainer/FileInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.13
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 72
+text = "Pihqura"
+fit_content = true
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Time Label" type="RichTextLabel" parent="Button/MarginContainer/FileInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "00:00"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Button/MarginContainer/FileInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="Quest Label" type="RichTextLabel" parent="Button/MarginContainer/FileInfo/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Quest 1"
+fit_content = true
+vertical_alignment = 1
+
+[node name="DateText" type="RichTextLabel" parent="Button/MarginContainer/FileInfo/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "07/15/1999"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RightSpace" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.52
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

@@ -1,0 +1,254 @@
+[gd_scene load_steps=6 format=3 uid="uid://do6c34g1gp37o"]
+
+[ext_resource type="Script" uid="uid://ciiq34jkveunp" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/loaded_file_ui.gd" id="1_55bgv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fhx"]
+bg_color = Color(0.192, 0.18, 0.24, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xw7ev"]
+bg_color = Color(0.338876, 0.359706, 0.724406, 1)
+
+[sub_resource type="Gradient" id="Gradient_upqu5"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t7dli"]
+gradient = SubResource("Gradient_upqu5")
+
+[node name="SaveContainer" type="PanelContainer"]
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_27fhx")
+script = ExtResource("1_55bgv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Start" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="File" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftSpace" type="Control" parent="VBoxContainer/File"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.13
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/File"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/File/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.52
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/File/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.29
+theme_override_styles/panel = SubResource("StyleBoxFlat_xw7ev")
+
+[node name="FileNumber" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 60
+text = "FILE 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FakeButton" type="PanelContainer" parent="VBoxContainer/File/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="NewGameText" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 72
+text = "New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FileInfo" type="VBoxContainer" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton/MarginContainer/FileInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton/MarginContainer/FileInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.13
+theme_override_font_sizes/normal_font_size = 72
+text = "Madleomon"
+fit_content = true
+
+[node name="TimePlayed" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton/MarginContainer/FileInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 40
+text = "00:00"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/File/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="AutoSaveRibbon" type="HBoxContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.28
+alignment = 2
+
+[node name="AutoSaveText" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveRibbon"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 36
+text = "	Auto Save:"
+fit_content = true
+
+[node name="DateText" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveRibbon"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 40
+text = "07/15/1999	"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="AutoSaveInfo" type="HBoxContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="InfoDock" type="VBoxContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Quest Marker" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 58
+text = "Quest 1"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LocationText" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 40
+text = "Magma Village"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock"]
+layout_mode = 2
+
+[node name="Wiki" type="Button" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+text = "Wiki"
+
+[node name="Characters" type="Button" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+text = "Status"
+
+[node name="Control2" type="Control" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.24
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.68
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_t7dli")
+
+[node name="RightSpace" type="Control" parent="VBoxContainer/File"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.13
+
+[node name="BottomButtons" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BottomButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Start" type="Control" parent="VBoxContainer/BottomButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer/BottomButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.94
+theme_override_font_sizes/font_size = 40
+text = "Continue"
+
+[node name="LoadButton" type="Button" parent="VBoxContainer/BottomButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+text = "Load"
+
+[node name="Chapterbnutton" type="Button" parent="VBoxContainer/BottomButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+text = "Chapters"
+
+[node name="ReturnButton" type="Button" parent="VBoxContainer/BottomButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+
+[node name="End" type="Control" parent="VBoxContainer/BottomButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="End" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[connection signal="button_up" from="VBoxContainer/BottomButtons/HBoxContainer/ReturnButton" to="." method="_on_return_button_button_up"]

@@ -1,0 +1,269 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbotdo7hm8h7g"]
+
+[ext_resource type="PackedScene" uid="uid://b67dptlbu1tw4" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/file_button.tscn" id="1_h6rsq"]
+[ext_resource type="Script" uid="uid://bpag1c3qu0slw" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/file_select_ui.gd" id="1_yoggj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fhx"]
+bg_color = Color(0.192, 0.18, 0.24, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xw7ev"]
+bg_color = Color(0.338876, 0.359706, 0.724406, 1)
+
+[node name="SaveContainer" type="PanelContainer"]
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_27fhx")
+script = ExtResource("1_yoggj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Start" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="File Stage" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="FileButton" parent="VBoxContainer/File Stage" instance=ExtResource("1_h6rsq")]
+visible = false
+layout_mode = 2
+
+[node name="File2" type="HBoxContainer" parent="VBoxContainer/File Stage"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftSpace" type="Control" parent="VBoxContainer/File Stage/File2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.16
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/File Stage/File2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.01
+theme_override_styles/panel = SubResource("StyleBoxFlat_xw7ev")
+
+[node name="FileNumber" type="RichTextLabel" parent="VBoxContainer/File Stage/File2/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 60
+text = "FILE 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/File Stage/File2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.38
+theme_override_font_sizes/font_size = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/File Stage/File2/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="NewGameText" type="RichTextLabel" parent="VBoxContainer/File Stage/File2/Button/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 72
+text = "New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FileInfo" type="VBoxContainer" parent="VBoxContainer/File Stage/File2/Button/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/File Stage/File2/Button/MarginContainer/FileInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/File Stage/File2/Button/MarginContainer/FileInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.13
+theme_override_font_sizes/normal_font_size = 72
+text = "Pihqura"
+fit_content = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/File Stage/File2/Button/MarginContainer/FileInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 40
+text = "00:00"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/File Stage/File2/Button/MarginContainer/FileInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="Quest Marker" type="RichTextLabel" parent="VBoxContainer/File Stage/File2/Button/MarginContainer/FileInfo/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 40
+text = "Quest 1"
+fit_content = true
+vertical_alignment = 1
+
+[node name="DateText" type="RichTextLabel" parent="VBoxContainer/File Stage/File2/Button/MarginContainer/FileInfo/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 40
+text = "07/15/1999"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RightSpace" type="Control" parent="VBoxContainer/File Stage/File2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.52
+
+[node name="File3" type="HBoxContainer" parent="VBoxContainer/File Stage"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftSpace" type="Control" parent="VBoxContainer/File Stage/File3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.16
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/File Stage/File3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.01
+theme_override_styles/panel = SubResource("StyleBoxFlat_xw7ev")
+
+[node name="FileNumber" type="RichTextLabel" parent="VBoxContainer/File Stage/File3/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 60
+text = "FILE 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/File Stage/File3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.38
+theme_override_font_sizes/font_size = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/File Stage/File3/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="NewGameText" type="RichTextLabel" parent="VBoxContainer/File Stage/File3/Button/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 72
+text = "New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FileInfo" type="VBoxContainer" parent="VBoxContainer/File Stage/File3/Button/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/File Stage/File3/Button/MarginContainer/FileInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/File Stage/File3/Button/MarginContainer/FileInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.13
+theme_override_font_sizes/normal_font_size = 72
+text = "Pihqura"
+fit_content = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/File Stage/File3/Button/MarginContainer/FileInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 40
+text = "00:00"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/File Stage/File3/Button/MarginContainer/FileInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="Quest Marker" type="RichTextLabel" parent="VBoxContainer/File Stage/File3/Button/MarginContainer/FileInfo/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 40
+text = "Quest 1"
+fit_content = true
+vertical_alignment = 1
+
+[node name="DateText" type="RichTextLabel" parent="VBoxContainer/File Stage/File3/Button/MarginContainer/FileInfo/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 40
+text = "07/15/1999"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RightSpace" type="Control" parent="VBoxContainer/File Stage/File3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.52
+
+[node name="File0" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftSpace" type="Control" parent="VBoxContainer/File0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.16
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/File0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.01
+theme_override_styles/panel = SubResource("StyleBoxFlat_xw7ev")
+
+[node name="FileNumber" type="RichTextLabel" parent="VBoxContainer/File0/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 60
+text = "FILE 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/File0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.38
+theme_override_font_sizes/font_size = 50
+text = "New Game"
+
+[node name="RightSpace" type="Control" parent="VBoxContainer/File0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.52
+
+[node name="End" type="Control" parent="VBoxContainer"]
+layout_mode = 2

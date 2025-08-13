@@ -14,6 +14,11 @@ Saving:
 	"Read messages" is most likely tied to your character. If you save backwards you can skip the mesasges.
 	There are two autosaves - the first saves every line. The second saves at automatic points.
 		Autosave, and Pointsave.
+	Maybe have three pointsave slots, which overwrite the oldest when they activate.
+	The one in slot one is ALWAYS the newest one.
+	
+	What if there's a gamestate resource that json turns into when you load it and the resource is what
+	lets you revert to previous saves in backlog
 		
 Chapter Select:
 	The game lets you choose the start of specific chapters from your file.
@@ -25,6 +30,10 @@ Chapter Select:
 	CHapter select always starts locked, but unlocks as soon as you start the chapter.
 	Sections unlock as you reach their initial points
 	
+Title Screen
+	Maybe skip title screen?
+	Or have a quick version of it if there's already a file on it
+	Something like STS title flow where it just kind of assumes the slot youre at is the one youre playing
 	
 Skip Messages:
 	Skip is in the game but only works with messages youve seen as character. Rollback allowing message skipping should work.

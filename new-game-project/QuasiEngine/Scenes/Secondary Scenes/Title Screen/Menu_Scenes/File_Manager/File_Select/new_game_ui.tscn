@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://cma22n6kvtl7g"]
+
+[ext_resource type="Script" uid="uid://dj7d618qpsbvg" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/new_game_ui.gd" id="1_d6w2o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fhx"]
+bg_color = Color(0.192, 0.18, 0.24, 1)
+
+[node name="SaveContainer" type="PanelContainer"]
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_27fhx")
+script = ExtResource("1_d6w2o")
+
+[node name="Name Field" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Control" type="MarginContainer" parent="Name Field"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 50
+
+[node name="NameField" type="LineEdit" parent="Name Field/Control"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Who are you?"
+max_length = 12
+
+[node name="BottomButtons" type="HBoxContainer" parent="Name Field"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Name Field/BottomButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Start" type="Control" parent="Name Field/BottomButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="ContinueButton" type="Button" parent="Name Field/BottomButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+text = "Confirm"
+
+[node name="ResetButton" type="Button" parent="Name Field/BottomButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+text = "Reset"
+
+[node name="ReturnButton" type="Button" parent="Name Field/BottomButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+
+[node name="End" type="Control" parent="Name Field/BottomButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Control2" type="Control" parent="Name Field"]
+layout_mode = 2
+
+[connection signal="button_up" from="Name Field/BottomButtons/HBoxContainer/ResetButton" to="." method="_on_reset_button_button_up"]
+[connection signal="button_up" from="Name Field/BottomButtons/HBoxContainer/ReturnButton" to="." method="_on_return_button_button_up"]

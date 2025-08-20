@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var game_db: VN_Database
+#@export var game_db: VN_Database
 
 @onready var story_stage = $StoryStage
 
@@ -18,15 +18,15 @@ func _ready() -> void:
 	#if we havent loaded the data onto the global checker yet, do that
 	if !GlobalData.script_data_loaded:
 		_get_all_node_trees()
-		GlobalData.load_options(game_db) #maybe move this as you figure out the load scri[t
+		GlobalData.load_options(GlobalData.game_db) #maybe move this as you figure out the load scri[t
 		GlobalData.script_data_loaded = true
 	
 	#initial script
-	_play_scene(game_db.initial_script, 0)
+	_play_scene(GlobalData.game_db.initial_script, 0)
 	
 	
 func _get_all_node_trees() -> void:
-	for story_file in game_db.script_pool:
+	for story_file in GlobalData.game_db.script_pool:
 		GlobalData.script_trees[story_file.script_name] = story_file.script_file
 	
 	

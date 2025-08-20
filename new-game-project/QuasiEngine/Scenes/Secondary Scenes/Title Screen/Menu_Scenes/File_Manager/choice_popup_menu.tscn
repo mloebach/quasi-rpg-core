@@ -2,21 +2,23 @@
 
 [ext_resource type="Script" uid="uid://bwxveyebfpvpd" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/choice_popup_menu.gd" id="1_f6344"]
 
-[sub_resource type="Gradient" id="Gradient_renm7"]
+[sub_resource type="Gradient" id="Gradient_f6344"]
 offsets = PackedFloat32Array(0.135135, 1)
 colors = PackedColorArray(0, 0, 0, 0.592157, 0.237539, 0.237539, 0.237539, 0.301961)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_46df7"]
-gradient = SubResource("Gradient_renm7")
+gradient = SubResource("Gradient_f6344")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_renm7"]
 bg_color = Color(0.161, 0.26495, 0.35, 1)
 
 [node name="Quit Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_f6344")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -80,6 +82,8 @@ theme_override_constants/margin_bottom = 10
 [node name="DisclaimerText" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 72
+bbcode_enabled = true
 text = "Are you sure you would like to quit?"
 fit_content = true
 horizontal_alignment = 1

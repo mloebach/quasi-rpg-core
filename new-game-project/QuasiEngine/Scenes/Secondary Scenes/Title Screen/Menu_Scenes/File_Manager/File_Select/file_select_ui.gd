@@ -27,9 +27,9 @@ func _unload_file_buttons() -> void:
 			
 func _on_file_selected(file_button : PlayerFileButton):
 	if file_button.file_status == PlayerFileButton.FileStatus.SavedFile:
-		swap_to_load_player_menu.emit(file_button.player_file)
+		swap_to_load_player_menu.emit(file_button.player_file, file_button.file_index)
 		#_swap_to_load(file_button.player_file)
 	elif file_button.file_status == PlayerFileButton.FileStatus.NewFile:
 		#print("new file!")
-		swap_to_new_player_menu.emit()
+		swap_to_new_player_menu.emit(file_button.file_index)
 		#_swap_to_new()

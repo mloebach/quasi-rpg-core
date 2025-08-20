@@ -17,6 +17,9 @@ Saving:
 	Maybe have three pointsave slots, which overwrite the oldest when they activate.
 	The one in slot one is ALWAYS the newest one.
 	
+	If you save naturally, the autosave slot overrwrites itself to be the one you just did.
+	So, autosave can always be relied upon to be the most up to date save
+	
 	What if there's a gamestate resource that json turns into when you load it and the resource is what
 	lets you revert to previous saves in backlog
 		

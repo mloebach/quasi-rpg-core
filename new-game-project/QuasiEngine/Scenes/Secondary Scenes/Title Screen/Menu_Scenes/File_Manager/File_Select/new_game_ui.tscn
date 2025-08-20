@@ -69,5 +69,6 @@ size_flags_stretch_ratio = 0.5
 [node name="Control2" type="Control" parent="Name Field"]
 layout_mode = 2
 
+[connection signal="button_up" from="Name Field/BottomButtons/HBoxContainer/ContinueButton" to="." method="_on_continue_button_button_up"]
 [connection signal="button_up" from="Name Field/BottomButtons/HBoxContainer/ResetButton" to="." method="_on_reset_button_button_up"]
 [connection signal="button_up" from="Name Field/BottomButtons/HBoxContainer/ReturnButton" to="." method="_on_return_button_button_up"]

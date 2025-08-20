@@ -1,18 +1,21 @@
 extends Node2D
 
-@onready var popup_menu_stage = $"Upper Layer/Popup Stage"
+@onready var popup_menu_stage = $"Canv/Upper Layer/Popup Stage"
 
-@onready var start_screen = $"Main Layer/StartScreen"
-@onready var file_select_button = $"Main Layer/StartScreen/ButtonsHBox/Start Buttons/MarginContainer/VBoxContainer/FilesButton"
-@onready var autoload_stage = $"Main Layer/Autoload Stage"
+@onready var start_screen = $"Canv/Main Layer/StartScreen"
+@onready var file_select_button = $"Canv/Main Layer/StartScreen/ButtonsHBox/Start Buttons/MarginContainer/VBoxContainer/FilesButton"
+@onready var autoload_stage = $"Canv/Main Layer/Autoload Stage"
 
-@onready var file_screen = $"Main Layer/FileScreen"
-@onready var file_screen_stage = $"Main Layer/FileScreen/Menu Stage"
+@onready var file_screen = $"Canv/Main Layer/FileScreen"
+@onready var file_screen_stage = $"Canv/Main Layer/FileScreen/Menu Stage"
 @onready var file_screen_menu = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/file_manager_menu.tscn")
 
 @onready var episode_select_menu = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/episode_selector_menu.tscn")
 
 @onready var quit_menu = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/choice_popup_menu.tscn")
+
+@onready var title_text = $"Canv/Main Layer/StartScreen/HBoxContainer/VBoxContainer/Title"
+@onready var subtitle_text = $"Canv/Main Layer/StartScreen/HBoxContainer/VBoxContainer/Subtitle"
 
 @export var quit_disclaimer_string : String = "Are you sure you would like to quit!?"
 
@@ -32,22 +35,26 @@ signal switch_scene
 
 func _ready() -> void:
 	_default_visibilty()
+	_update_title_string()
 
 func _default_visibilty() -> void:
 	start_screen.visible = true
 	file_screen.visible = false
-	#quit_menu.visible = false
-	#file_menu.visible = false
-	#file_menu_lower.visible = false
-	#new_game_menu.visible = false
-	#chosen_file_menu.visible = false
-	#chosen_file_lower_menu.visible = false
+	title_text.visible = true
+	subtitle_text.visible = true
+	
 	
 	if GlobalData.global_save.current_player_slot == -1:
 		file_select_button.visible = false
 	else:
 		file_select_button.visible = true
 
+func _update_title_string() -> void:
+	title_text.text = GlobalData.game_db.title_screen_string
+	subtitle_text.text = GlobalData.game_db.title_screen_subtitle
+	if !GlobalData.game_db.title_screen_subtitle_on:
+		subtitle_text.visible = false
+	
 func _on_quit_button_pressed() -> void:
 	var new_popup = quit_menu.instantiate()
 	popup_menu_stage.add_child(new_popup)
@@ -74,6 +81,7 @@ func _on_new_game_button_button_up() -> void:
 func _create_menu() -> Node:
 	var file_menu = file_screen_menu.instantiate()
 	file_menu.return_to_title.connect(_on_return_to_title)
+	file_menu.load_into_file_menu.connect(_on_skip_to_file_menu)
 	return file_menu
 	
 func _create_file_menu() -> void:
@@ -96,6 +104,11 @@ func _on_return_to_title() -> void:
 	_kill_autoload_objects()
 	_kill_filescreen_objects()
 	start_screen.visible = true
+	
+func _on_skip_to_file_menu() -> void:
+	_kill_autoload_objects()
+	_kill_filescreen_objects()
+	_on_files_button_button_up()
 	
 func _kill_autoload_objects() -> void:
 	for item in autoload_stage.get_children():

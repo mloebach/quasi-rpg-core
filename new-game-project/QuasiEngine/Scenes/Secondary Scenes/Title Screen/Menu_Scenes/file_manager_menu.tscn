@@ -1,9 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd2cxpqhksiut"]
+[gd_scene load_steps=9 format=3 uid="uid://cd2cxpqhksiut"]
 
 [ext_resource type="Script" uid="uid://jjhgbemxdobl" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/file_manager_menu.gd" id="1_pwdjv"]
+[ext_resource type="PackedScene" uid="uid://do6c34g1gp37o" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/loaded_file_ui.tscn" id="2_7mehb"]
+[ext_resource type="PackedScene" uid="uid://b2v03f0l7u0qp" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/settings_menu.tscn" id="2_55mvp"]
+[ext_resource type="PackedScene" uid="uid://bbotdo7hm8h7g" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/file_select_ui.tscn" id="3_emqlb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvjfp"]
 bg_color = Color(0.1008, 0.10608, 0.18, 1)
+
+[sub_resource type="Gradient" id="Gradient_renm7"]
+offsets = PackedFloat32Array(0.135135, 1)
+colors = PackedColorArray(0, 0, 0, 0.592157, 0.237539, 0.237539, 0.237539, 0.301961)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_55mvp"]
+gradient = SubResource("Gradient_renm7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55mvp"]
+bg_color = Color(0.188235, 0.152941, 0.258824, 1)
 
 [node name="FileManager" type="Control"]
 layout_mode = 3
@@ -15,9 +28,12 @@ grow_vertical = 2
 script = ExtResource("1_pwdjv")
 
 [node name="VBox" type="VBoxContainer" parent="."]
-layout_mode = 2
-offset_right = 1920.0
-offset_bottom = 1080.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="UpperTitle" type="MarginContainer" parent="VBox"]
 layout_mode = 2
@@ -29,6 +45,7 @@ theme_override_constants/margin_bottom = 50
 
 [node name="PanelContainer" type="PanelContainer" parent="VBox/UpperTitle"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_dvjfp")
 
 [node name="MainStageVbox" type="VBoxContainer" parent="VBox/UpperTitle/PanelContainer"]
@@ -52,6 +69,13 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 20
 
+[node name="SaveContainer" parent="VBox/UpperTitle/PanelContainer/MainStageVbox/StageMargins" instance=ExtResource("2_7mehb")]
+visible = false
+layout_mode = 2
+
+[node name="SaveContainer2" parent="VBox/UpperTitle/PanelContainer/MainStageVbox/StageMargins" instance=ExtResource("3_emqlb")]
+layout_mode = 2
+
 [node name="LowerTitle" type="MarginContainer" parent="VBox"]
 layout_mode = 2
 theme_override_constants/margin_left = 30
@@ -62,16 +86,28 @@ theme_override_constants/margin_bottom = 30
 visible = false
 layout_mode = 2
 
-[node name="SettingsButton" type="Button" parent="VBox/LowerTitle/LowerBox"]
+[node name="Copy Button" type="Button" parent="VBox/LowerTitle/LowerBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
-text = "SETTINGS"
+text = "COPY"
+
+[node name="Erase Button" type="Button" parent="VBox/LowerTitle/LowerBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "ERASE"
 
 [node name="MiddleLeftSpace" type="Control" parent="VBox/LowerTitle/LowerBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.47
+
+[node name="SettingsButton" type="Button" parent="VBox/LowerTitle/LowerBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "SETTINGS"
 
 [node name="TitleButton" type="Button" parent="VBox/LowerTitle/LowerBox"]
 layout_mode = 2
@@ -84,38 +120,195 @@ visible = false
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="NGButton" type="Button" parent="VBox/LowerTitle/ChosenFileLower"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 50
-text = "New Game+"
-
 [node name="Control" type="Control" parent="VBox/LowerTitle/ChosenFileLower"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.41
 
-[node name="CopyButton" type="Button" parent="VBox/LowerTitle/ChosenFileLower"]
+[node name="NGButton" type="Button" parent="VBox/LowerTitle/ChosenFileLower"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
 theme_override_font_sizes/font_size = 50
-text = "COPY"
+text = "New Game+"
 
-[node name="EraseButton" type="Button" parent="VBox/LowerTitle/ChosenFileLower"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBox/LowerTitle/ChosenFileLower"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="ChapterSelect" type="Button" parent="VBox/LowerTitle/ChosenFileLower/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
-text = "ERASE"
+text = "Chapter Select"
+
+[node name="ExtraButton" type="Button" parent="VBox/LowerTitle/ChosenFileLower/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Extra"
+
+[node name="QuitButton" type="Button" parent="VBox/LowerTitle/ChosenFileLower/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Cancel"
 
 [node name="Control2" type="Control" parent="VBox/LowerTitle/ChosenFileLower"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.41
 
-[node name="Popup Stage" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="AutoloadLower" type="HBoxContainer" parent="VBox/LowerTitle"]
+layout_mode = 2
+theme_override_constants/separation = 50
 
+[node name="Control" type="Control" parent="VBox/LowerTitle/AutoloadLower"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.41
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBox/LowerTitle/AutoloadLower"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FileSelectButton" type="Button" parent="VBox/LowerTitle/AutoloadLower/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "File Select"
+
+[node name="ExtraButton" type="Button" parent="VBox/LowerTitle/AutoloadLower/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Extra"
+
+[node name="QuitButton" type="Button" parent="VBox/LowerTitle/AutoloadLower/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Cancel"
+
+[node name="Control2" type="Control" parent="VBox/LowerTitle/AutoloadLower"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.41
+
+[node name="Settings Stage" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Settings Menu" parent="Settings Stage" instance=ExtResource("2_55mvp")]
+visible = false
+layout_mode = 1
+
+[node name="Popup Stage" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SaveMenu" type="Control" parent="Popup Stage"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="TextureRect" parent="Popup Stage/SaveMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_55mvp")
+
+[node name="SaveVBox" type="VBoxContainer" parent="Popup Stage/SaveMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpaceAbove" type="Control" parent="Popup Stage/SaveMenu/SaveVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="SaveHBox" type="HBoxContainer" parent="Popup Stage/SaveMenu/SaveVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="SpaceLeft" type="Control" parent="Popup Stage/SaveMenu/SaveVBox/SaveHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="SettingsPanel" type="PanelContainer" parent="Popup Stage/SaveMenu/SaveVBox/SaveHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_55mvp")
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup Stage/SaveMenu/SaveVBox/SaveHBox/SettingsPanel"]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup Stage/SaveMenu/SaveVBox/SaveHBox/SettingsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="SpaceAbove" type="Control" parent="Popup Stage/SaveMenu/SaveVBox/SaveHBox/SettingsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SpaceBelow" type="Control" parent="Popup Stage/SaveMenu/SaveVBox/SaveHBox/SettingsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SpaceRight" type="Control" parent="Popup Stage/SaveMenu/SaveVBox/SaveHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="SpaceBelow" type="Control" parent="Popup Stage/SaveMenu/SaveVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="Popup Stage" type="Control" parent="Popup Stage/SaveMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="button_up" from="VBox/LowerTitle/LowerBox/SettingsButton" to="." method="_on_settings_button_button_up"]
 [connection signal="button_up" from="VBox/LowerTitle/LowerBox/TitleButton" to="." method="_on_title_button_button_up"]
+[connection signal="button_up" from="VBox/LowerTitle/ChosenFileLower/VBoxContainer/QuitButton" to="." method="_on_load_quit_button_button_up"]
+[connection signal="button_up" from="VBox/LowerTitle/AutoloadLower/VBoxContainer/FileSelectButton" to="." method="_on_autoload_file_select_button_button_up"]
+[connection signal="button_up" from="VBox/LowerTitle/AutoloadLower/VBoxContainer/QuitButton" to="." method="_on_return_to_title"]

@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="PlayerSave" load_steps=2 format=3 uid="uid://d1pf7pwlr8vaa"]
+[gd_resource type="Resource" script_class="PlayerSave" load_steps=4 format=3 uid="uid://d1pf7pwlr8vaa"]
 
 [ext_resource type="Script" uid="uid://d3nd2a0lxmwi5" path="res://QuasiEngine/Scenes/Save System/PlayerFileSave.gd" id="1_4myi1"]
+[ext_resource type="Resource" uid="uid://d0fpfkcoko553" path="res://QuasiEngine/Scenes/_Debug/Test_saves/test_game_save.tres" id="1_hibp5"]
+[ext_resource type="Script" uid="uid://ckwrve8g1qv7a" path="res://QuasiEngine/Scenes/Save System/GameFileSave.gd" id="2_x12i5"]
 
 [resource]
 script = ExtResource("1_4myi1")
-player_name = "Madleomon"
+player_name = "Hakuno"
 player_time_spent = 10000.0
-player_last_save_date = "5/24/11"
-current_location = "Hell"
+auto_save = ExtResource("1_hibp5")
+point_saves = Array[ExtResource("2_x12i5")]([null, null, null])
+game_saves = Dictionary[int, ExtResource("2_x12i5")]({})
 metadata/_custom_type_script = "uid://d3nd2a0lxmwi5"

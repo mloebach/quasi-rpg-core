@@ -13,3 +13,11 @@ Inlining:
 	ex:
 		Lorem ipsum<+ speed:0.5> dolor sit amet.<+ speed:2.5 skip:true>
 		The first part of the sentence will run at half speed, the second part will run fullspeed.
+		
+		
+		
+		
+		
+INK
+
+The ink one uses similar commands but to a much more limited extent.

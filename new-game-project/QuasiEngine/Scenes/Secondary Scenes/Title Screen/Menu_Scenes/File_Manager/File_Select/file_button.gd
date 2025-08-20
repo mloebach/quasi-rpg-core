@@ -6,7 +6,7 @@ class_name PlayerFileButton
 
 @onready var name_text = $Button/MarginContainer/FileInfo/HBoxContainer/Name
 @onready var player_time = $"Button/MarginContainer/FileInfo/HBoxContainer/Time Label"
-@onready var quest_label = $"Button/MarginContainer/FileInfo/HBoxContainer2/Quest Label"
+@onready var location_label = $"Button/MarginContainer/FileInfo/HBoxContainer2/Quest Label"
 @onready var date_label = $Button/MarginContainer/FileInfo/HBoxContainer2/DateText
 @onready var file_number_text = $PanelContainer/FileNumber
 
@@ -35,8 +35,8 @@ func set_file_number(number: int):
 func load_file_info(player_save : PlayerSave):
 	name_text.text = player_save.player_name
 	player_time.text = Util.float_to_time_string(player_save.player_time_spent)
-	quest_label.text = player_save.current_location
-	date_label.text = player_save.player_last_save_date
+	location_label.text = player_save.auto_save.current_location
+	date_label.text = player_save.auto_save.date_saved
 	player_file = player_save
 	_set_file_to_saved()
 

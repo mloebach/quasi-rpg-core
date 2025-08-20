@@ -17,6 +17,9 @@ metadata/_custom_type_script = "uid://blb3v24v1q1u8"
 
 [resource]
 script = ExtResource("1_4cxd5")
+title_screen_string = "Pilgrimage to Zenith"
+title_screen_subtitle_on = true
+title_screen_subtitle = "Bizarro Draft"
 initial_script = "Test_Story"
 script_pool = Array[ExtResource("1_g6my2")]([SubResource("Resource_g6my2"), SubResource("Resource_qk7uv")])
 wait_by_default = true

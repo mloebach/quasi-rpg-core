@@ -6,10 +6,12 @@ class_name FileManagerMenu
 #@onready var new_game_menu = $UpperTitle/PanelContainer/NewGameVBox
 #@onready var chosen_file_menu = $UpperTitle/PanelContainer/ChosenFileVBox
 @onready var chosen_file_lower =  $VBox/LowerTitle/ChosenFileLower
+@onready var autoload_file_lower = $VBox/LowerTitle/AutoloadLower
 
 
 #@onready var main_stage_vbox = $UpperTitle/PanelContainer/MainStageVbox
 @onready var popup_stage = $"Popup Stage"
+@onready var settings_stage = $"Settings Stage"
 
 #@onready var name_text_field = $"UpperTitle/PanelContainer/NewGameVBox/MarginContainer/SaveContainer/Name Field/Control/NameField"
 @onready var ng_plus_button =  $VBox/LowerTitle/ChosenFileLower/NGButton
@@ -22,18 +24,24 @@ class_name FileManagerMenu
 @onready var new_game_menu = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/new_game_ui.tscn")
 @onready var file_select_menu = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/file_select_ui.tscn")
 @onready var popup_menu = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/choice_popup_menu.tscn")
+@onready var settings_menu = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/settings_menu.tscn")
 #@onready var file_button = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/file_button.tscn")
 
 @export var file_select_string = "	Please select a file."
-@export var chosen_file_string = "	Open this file?"
+@export var chosen_file_string = "	Continue?"
 @export var new_game_string = "	Please type your name."
+@export var autoload_file_string = "	Would you like to continue?"
 
 @export var title_screen_disclaimer_string = "Do you want to return to the title screen?"
+@export var confirm_name_disclaimer_string = "Is this your name?"
 
+var current_file_index : int
+var current_name : String
 
 #var file_menu_mode : FileMenuMode
 
 signal return_to_title
+signal load_into_file_menu
 
 enum FileMenuMode {
 	Autoload,
@@ -84,6 +92,7 @@ func _swap_to_file_select() -> void:
 	file_select_lower.visible = true
 	#new_game_menu.visible = false
 	chosen_file_lower.visible = false
+	autoload_file_lower.visible = false
 	#chosen_file_menu.visible = false
 	_unload_current_menu()
 	var file_select = file_select_menu.instantiate()
@@ -96,11 +105,12 @@ func _swap_to_file_select() -> void:
 	#_load_file_buttons()
 	
 
-func _swap_to_load(player_file : PlayerSave) -> Node:
+func _swap_to_load(player_file : PlayerSave, file_index: int) -> Node:
 	#file_select_menu.visible = false
 	file_select_lower.visible = false
 	#new_game_menu.visible = false
 	chosen_file_lower.visible = true
+	autoload_file_lower.visible = false
 	#chosen_file_menu.visible = true
 	_unload_current_menu()
 	
@@ -115,6 +125,7 @@ func _swap_to_load(player_file : PlayerSave) -> Node:
 func _load_file_info(player_save: PlayerSave) -> Node:
 	var file_info = chosen_file_menu.instantiate()
 	ui_stage.add_child(file_info)
+	file_info.load_file(player_save)
 	file_info.swap_to_file_select_menu.connect(_swap_to_file_select)
 	file_info.return_to_title.connect(_on_return_to_title)
 	if player_save.ng_plus_unlocked:
@@ -123,26 +134,31 @@ func _load_file_info(player_save: PlayerSave) -> Node:
 		ng_plus_button = false
 	return file_info
 	
-func _swap_to_new() -> void:
+func _swap_to_new(player_index: int) -> void:
 	#file_select_menu.visible = false
 	file_select_lower.visible = false
 	#new_game_menu.visible = true
 	chosen_file_lower.visible = false
+	autoload_file_lower.visible = false
 	#chosen_file_menu.visible = false
 	#_unload_file_buttons()
 	_unload_current_menu()
 	var new_menu = new_game_menu.instantiate()
 	ui_stage.add_child(new_menu)
+	new_menu.load_file(player_index)
 	#new_game_menu.swap_to_load_player_menu.connect(_swap_to_load)
 	new_menu.swap_to_file_select_menu.connect(_swap_to_file_select)
+	new_menu.start_new_file.connect(_on_start_new_file)
 	file_text.text = new_game_string
 	
 
 
 func _swap_to_autoload(current_file : PlayerSave) -> void:
-	var file_menu = _swap_to_load(current_file)
+	var file_menu = _swap_to_load(current_file, GlobalData.global_save.current_player_slot)
 	file_menu.file_menu_mode = FileMenuMode.Autoload
+	file_text.text = autoload_file_string
 	chosen_file_lower.visible = false
+	autoload_file_lower.visible = true
 
 
 func _on_return_to_title():
@@ -161,13 +177,51 @@ func _on_return_to_title():
 		#_swap_to_file_select()
 	#elif file_menu_mode == FileMenuMode.Autoload:
 		#return_to_title.emit()
-
-
-func _on_title_button_button_up() -> void:
+		
+func _create_popup(confirm_function : Callable, disclaimer_string: String = "") -> void:
 	var new_popup = popup_menu.instantiate()
 	popup_stage.add_child(new_popup)
-	new_popup.update_text(title_screen_disclaimer_string)
-	new_popup.pop_up_confirm.connect(_on_return_to_title)
+	if(disclaimer_string != ""):
+		new_popup.update_text(disclaimer_string)
+	new_popup.pop_up_confirm.connect(confirm_function)
+
+func _on_title_button_button_up() -> void:
+	_create_popup(_on_return_to_title, title_screen_disclaimer_string)
+	#var new_popup = popup_menu.instantiate()
+	#popup_stage.add_child(new_popup)
+	#new_popup.update_text(title_screen_disclaimer_string)
+	#new_popup.pop_up_confirm.connect(_on_return_to_title)
 
 #func _on_title_confirm_pressed() -> void:
 	#pass
+
+
+func _on_settings_button_button_up() -> void:
+	var new_settings_menu = settings_menu.instantiate()
+	settings_stage.add_child(new_settings_menu)
+	
+
+
+func _on_load_quit_button_button_up() -> void:
+	_swap_to_file_select()
+
+
+#func _on_autoload_quit_button_button_up() -> void:
+	 #_on_return_to_title()
+
+
+func _on_autoload_file_select_button_button_up() -> void:
+	load_into_file_menu.emit()
+
+func _on_start_new_file(player_name: String, slot_number: int) -> void:
+	current_file_index = slot_number
+	current_name = player_name
+	_create_popup(_start_new_file, 
+		"[b]" + player_name + "[/b]\n" + confirm_name_disclaimer_string
+		)
+
+func _start_new_file() -> void:
+	#save player name to file in the correct slot
+	#set current index in global save to new file
+	#print("New file for " + current_name + " created at slot " + str(current_file_index))
+	GlobalData.create_new_save(current_name, current_file_index)

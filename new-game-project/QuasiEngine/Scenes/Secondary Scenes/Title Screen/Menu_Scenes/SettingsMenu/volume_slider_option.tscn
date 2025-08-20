@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo4m2uo4jdja3"]
+
+[ext_resource type="Script" uid="uid://b7w0dym2kjqwx" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/SettingsMenu/volume_slider_option.gd" id="1_6hoyq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71awh"]
+bg_color = Color(0.1935, 0.2408, 0.43, 1)
+
+[sub_resource type="Theme" id="Theme_yr3sb"]
+default_base_scale = 1.0
+
+[node name="MainVolume" type="HBoxContainer"]
+theme_override_constants/separation = 12
+script = ExtResource("1_6hoyq")
+
+[node name="PlayTest" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_71awh")
+text = "Play"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VolumeLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Main Volume"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HSlider" type="HSlider" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = SubResource("Theme_yr3sb")
+value = 50.0
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.21
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ValueLabel" type="RichTextLabel" parent="MarginContainer3"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="drag_ended" from="MarginContainer2/HSlider" to="." method="_on_h_slider_drag_ended"]

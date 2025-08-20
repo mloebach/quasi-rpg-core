@@ -29,8 +29,6 @@ GlobalData="*res://QuasiEngine/Scenes/global_data.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/borderless=true
-window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -46,6 +44,8 @@ folder_colors={
 "res://Game Files/Holotype Folder/Database/": "orange",
 "res://Game Files/Test Game/": "pink",
 "res://Game Files/Test Game/Database/": "orange",
+"res://Game Files/Zenith Day August 23/": "pink",
+"res://Game Files/Zenith Day August 23/Database/": "orange",
 "res://Godot/": "purple",
 "res://QuasiEngine/": "green",
 "res://QuasiEngine/Scenes/Core Scenes/": "teal",

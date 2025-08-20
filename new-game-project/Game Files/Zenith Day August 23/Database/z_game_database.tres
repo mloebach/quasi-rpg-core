@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="VN_Database" load_steps=11 format=3 uid="uid://isas5au1qpcf"]
+
+[ext_resource type="Script" uid="uid://d1lrrn21y00" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/game_database.gd" id="1_5qp4a"]
+[ext_resource type="Script" uid="uid://blb3v24v1q1u8" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/scenario_script.gd" id="2_liopo"]
+
+[sub_resource type="Resource" id="Resource_c356s"]
+script = ExtResource("2_liopo")
+script_name = "Disclaimer"
+script_file = "res://Game Files/Zenith Day August 23/Game Scripts/Disclaimer.story"
+metadata/_custom_type_script = "uid://blb3v24v1q1u8"
+
+[sub_resource type="Resource" id="Resource_5qp4a"]
+script = ExtResource("2_liopo")
+script_name = "Prelude"
+script_file = "res://Game Files/Zenith Day August 23/Game Scripts/Prelude.story"
+metadata/_custom_type_script = "uid://blb3v24v1q1u8"
+
+[sub_resource type="Resource" id="Resource_liopo"]
+script = ExtResource("2_liopo")
+script_name = "Prologue"
+script_file = "res://Game Files/Zenith Day August 23/Game Scripts/Prologue.story"
+metadata/_custom_type_script = "uid://blb3v24v1q1u8"
+
+[sub_resource type="Resource" id="Resource_d2dka"]
+script = ExtResource("2_liopo")
+script_name = "Ep1"
+script_file = "res://Game Files/Zenith Day August 23/Game Scripts/Quest1_Meadow.story"
+metadata/_custom_type_script = "uid://blb3v24v1q1u8"
+
+[sub_resource type="Resource" id="Resource_vwo38"]
+script = ExtResource("2_liopo")
+script_name = "Ep2"
+script_file = "res://Game Files/Zenith Day August 23/Game Scripts/Quest2_Lightning.story"
+metadata/_custom_type_script = "uid://blb3v24v1q1u8"
+
+[sub_resource type="Resource" id="Resource_pyngs"]
+script = ExtResource("2_liopo")
+script_name = "Ep3"
+script_file = "res://Game Files/Zenith Day August 23/Game Scripts/Quest3_Inferno.story"
+metadata/_custom_type_script = "uid://blb3v24v1q1u8"
+
+[sub_resource type="Resource" id="Resource_7pjyd"]
+script = ExtResource("2_liopo")
+script_name = "Ep4"
+script_file = "res://Game Files/Zenith Day August 23/Game Scripts/Quest4_Ocean.story"
+metadata/_custom_type_script = "uid://blb3v24v1q1u8"
+
+[sub_resource type="Resource" id="Resource_phvnm"]
+script = ExtResource("2_liopo")
+script_name = "Ep5"
+script_file = "res://Game Files/Zenith Day August 23/Game Scripts/Quest5_Arctic.story"
+metadata/_custom_type_script = "uid://blb3v24v1q1u8"
+
+[resource]
+script = ExtResource("1_5qp4a")
+title_screen_string = "Pilgrimage to Zenith"
+title_screen_subtitle_on = true
+title_screen_subtitle = "Bizarro Draft (2023 Version)"
+initial_script = "Disclaimer"
+script_pool = Array[ExtResource("2_liopo")]([SubResource("Resource_c356s"), SubResource("Resource_5qp4a"), SubResource("Resource_liopo"), SubResource("Resource_d2dka"), SubResource("Resource_vwo38"), SubResource("Resource_pyngs"), SubResource("Resource_7pjyd"), SubResource("Resource_phvnm")])
+wait_by_default = true
+metadata/_custom_type_script = "uid://d1lrrn21y00"

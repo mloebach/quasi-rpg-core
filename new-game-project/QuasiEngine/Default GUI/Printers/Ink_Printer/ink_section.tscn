@@ -1,0 +1,143 @@
+[gd_scene load_steps=15 format=3 uid="uid://8h41h7sjlyis"]
+
+[ext_resource type="Script" uid="uid://bqbl2tsmv5h7k" path="res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_section.gd" id="1_n5b1b"]
+[ext_resource type="PackedScene" uid="uid://e0uto6p3o1th" path="res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_icon.tscn" id="2_t81nm"]
+[ext_resource type="FontFile" uid="uid://crwplc2sfeb6o" path="res://QuasiEngine/Default GUI/Fonts/SourceSans3-VariableFont_wght.ttf" id="3_6t3st"]
+[ext_resource type="FontFile" uid="uid://c0wmbdvfwlrdg" path="res://QuasiEngine/Default GUI/Fonts/Changa-VariableFont_wght.ttf" id="3_75d84"]
+[ext_resource type="FontFile" uid="uid://oepbsiol1c6v" path="res://QuasiEngine/Default GUI/Fonts/SourceSans3-Italic-VariableFont_wght.ttf" id="4_pjfv0"]
+
+[sub_resource type="Gradient" id="Gradient_pjfv0"]
+colors = PackedColorArray(0.2432, 0.2432, 0.64, 1, 0.1513, 0.152858, 0.17, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_avwnj"]
+gradient = SubResource("Gradient_pjfv0")
+fill = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2cxll"]
+texture = SubResource("GradientTexture2D_avwnj")
+
+[sub_resource type="Gradient" id="Gradient_75d84"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6t3st"]
+gradient = SubResource("Gradient_75d84")
+
+[sub_resource type="FontVariation" id="FontVariation_75d84"]
+base_font = ExtResource("3_6t3st")
+variation_opentype = {
+2003265652: 400
+}
+spacing_glyph = 1
+
+[sub_resource type="FontVariation" id="FontVariation_pjfv0"]
+base_font = ExtResource("4_pjfv0")
+variation_opentype = {
+2003265652: 400
+}
+
+[sub_resource type="FontVariation" id="FontVariation_avwnj"]
+base_font = ExtResource("3_6t3st")
+variation_opentype = {
+2003265652: 700
+}
+
+[sub_resource type="FontVariation" id="FontVariation_6t3st"]
+base_font = ExtResource("3_75d84")
+
+[node name="InkSectionVbox" type="PanelContainer"]
+offset_right = 166.0
+offset_bottom = 1175.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_2cxll")
+script = ExtResource("1_n5b1b")
+
+[node name="Margins" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="Margins"]
+layout_mode = 2
+
+[node name="IconVbox" type="VBoxContainer" parent="Margins/VBox"]
+layout_mode = 2
+
+[node name="TextContSeparator3" type="Control" parent="Margins/VBox/IconVbox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Icons" type="HBoxContainer" parent="Margins/VBox/IconVbox"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="BaseIcon" parent="Margins/VBox/IconVbox/Icons" instance=ExtResource("2_t81nm")]
+visible = false
+layout_mode = 2
+
+[node name="Cgs" type="HBoxContainer" parent="Margins/VBox/IconVbox"]
+layout_mode = 2
+alignment = 1
+
+[node name="CG" type="TextureRect" parent="Margins/VBox/IconVbox/Cgs"]
+visible = false
+custom_minimum_size = Vector2(942, 518)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_6t3st")
+expand_mode = 1
+
+[node name="TextContSeparator2" type="Control" parent="Margins/VBox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="TextBody" type="RichTextLabel" parent="Margins/VBox"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.313726)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/normal_font = SubResource("FontVariation_75d84")
+theme_override_fonts/italics_font = SubResource("FontVariation_pjfv0")
+theme_override_fonts/bold_font = SubResource("FontVariation_avwnj")
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+bbcode_enabled = true
+text = "Sample textSample textSample textSample textSample text"
+fit_content = true
+visible_characters_behavior = 2
+
+[node name="TextContSeparator" type="Control" parent="Margins/VBox"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="ContinueHbox" type="HBoxContainer" parent="Margins/VBox"]
+layout_mode = 2
+
+[node name="Left" type="Control" parent="Margins/VBox/ContinueHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Margins/VBox/ContinueHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_fonts/font = SubResource("FontVariation_6t3st")
+theme_override_font_sizes/font_size = 36
+text = "Continue."
+
+[node name="Right" type="Control" parent="Margins/VBox/ContinueHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Separator" type="RichTextLabel" parent="Margins/VBox"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "______________________________________________________"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_up" from="Margins/VBox/ContinueHbox/Button" to="." method="_on_button_button_up"]

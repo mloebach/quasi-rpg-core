@@ -1,7 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcah5h5nn3oqg"]
+[gd_scene load_steps=6 format=3 uid="uid://dcah5h5nn3oqg"]
 
 [ext_resource type="Script" uid="uid://cuoyhrfcygvai" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Story Player/story_player.gd" id="1_ymrlv"]
-[ext_resource type="PackedScene" uid="uid://co0rnx2l7ohui" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/Printers/ink_text_printer.tscn" id="2_1k2x4"]
+[ext_resource type="Shader" uid="uid://bhmikluoql0iy" path="res://QuasiEngine/Scenes/Shaders/balatroBG.gdshader" id="2_1k2x4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wemqa"]
+shader = ExtResource("2_1k2x4")
+shader_parameter/spin_rotation_speed = 3.5
+shader_parameter/move_speed = 4.0
+shader_parameter/offset = Vector2(0.5, 0)
+shader_parameter/colour_1 = Color(0.2695, 0.31625, 0.55, 1)
+shader_parameter/colour_2 = Color(0.46512, 0.3312, 0.48, 1)
+shader_parameter/colour_3 = Color(0.14516, 0.19, 0.1444, 1)
+shader_parameter/contrast = 2.0
+shader_parameter/lighting = 0.4
+shader_parameter/spin_amount = 0.25
+shader_parameter/pixel_filter = 740.0
+shader_parameter/is_rotating = false
+
+[sub_resource type="Gradient" id="Gradient_1k2x4"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wemqa"]
+gradient = SubResource("Gradient_1k2x4")
 
 [node name="StoryPlayer" type="Node"]
 script = ExtResource("1_ymrlv")
@@ -17,6 +37,26 @@ script = ExtResource("1_ymrlv")
 [node name="RootViewportStage" type="Node2D" parent="."]
 
 [node name="MainStage" type="Node" parent="."]
+
+[node name="Control" type="Control" parent="MainStage"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="TempBG" type="TextureRect" parent="MainStage/Control"]
+material = SubResource("ShaderMaterial_wemqa")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_wemqa")
+expand_mode = 1
 
 [node name="PrinterStage" type="Node" parent="."]
 
@@ -43,10 +83,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="InkTextPrinter" parent="UILayer/MainUIVBox/PrimaryUIStage/Printer Stage" instance=ExtResource("2_1k2x4")]
-visible = false
-layout_mode = 1
-
 [node name="Wiki Stage" type="Control" parent="UILayer/MainUIVBox/PrimaryUIStage"]
 anchors_preset = 0
 offset_right = 40.0
@@ -56,56 +92,30 @@ offset_bottom = 40.0
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="UILayer/MainUIVBox/RibbonUIStage"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+[node name="UpperUI" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -960.0
-offset_top = -83.0
-offset_right = 960.0
-offset_bottom = -3.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 10
+[node name="MainUpperUI" type="Control" parent="UILayer/UpperUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="OptionsPanel" type="HBoxContainer" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer/MarginContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="LeftSide" type="HBoxContainer" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer/MarginContainer/OptionsPanel"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="SaveButton" type="Button" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer/MarginContainer/OptionsPanel/LeftSide"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "SAVE"
-
-[node name="LogButton" type="Button" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer/MarginContainer/OptionsPanel/LeftSide"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "LOG"
-
-[node name="RightSide" type="HBoxContainer" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer/MarginContainer/OptionsPanel"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 2
-
-[node name="LeftSpace" type="Control" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer/MarginContainer/OptionsPanel/RightSide"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.45
-
-[node name="QuitButton" type="Button" parent="UILayer/MainUIVBox/RibbonUIStage/PanelContainer/MarginContainer/OptionsPanel/RightSide"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "QUIT"
+[node name="Popup_Stage" type="Control" parent="UILayer/UpperUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

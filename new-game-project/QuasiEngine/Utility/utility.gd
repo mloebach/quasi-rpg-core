@@ -1,4 +1,5 @@
 extends Node
+class_name Utility_Functions
 
 #merges all elements of packed string array into one string
 func packed_string_array_to_str(array:PackedStringArray):
@@ -16,11 +17,15 @@ func is_char_ascii(chara: String) -> bool:
 		return false
 
 #converts float to string represnting time. assumes float is in seconds
-func float_to_time_string(time: float):
+func float_to_time_string(time: float, secs: bool = false):
 	var seconds := fmod(time, 60.0)
 	var minutes := int(time / 60.00) % 60
 	var hours := int(time / 3600.00)
-	var time_string:String = "%d:%02d" % [hours, minutes]
+	var time_string:String
+	if secs:
+		time_string = "%d:%02d:%02d" % [hours, minutes, seconds]
+	else:
+		time_string = "%d:%02d" % [hours, minutes]
 	return time_string
 
 #sets specific string to true or false based on string

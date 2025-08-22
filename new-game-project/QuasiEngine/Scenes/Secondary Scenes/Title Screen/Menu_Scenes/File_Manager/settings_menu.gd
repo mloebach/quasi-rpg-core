@@ -1,6 +1,8 @@
 extends Control
 
 @onready var resolution_toggle = $VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MainSettings/PanelContainer/TabContainer/Graphics/Graphics/VBoxContainer/SliderVbox/Resolution/MarginContainer3/OptionButton
+@export var default_res_option := 2
+
 #var resolutions : Dictionary[String,Vector2] = {
 	#"1920x1080" = Vector2(1920,1080),
 	#"1280x720" = Vector2(1920,1080),
@@ -16,7 +18,8 @@ func _set_resolution_values() -> void:
 	resolution_toggle.clear()
 	for item in resolution_array:
 		#resolutionArray.append(item)
-		resolution_toggle.add_item(item)		
+		resolution_toggle.add_item(item)
+	resolution_toggle.selected = default_res_option
 
 func _on_yes_button_button_up() -> void:
 	_save_settings()

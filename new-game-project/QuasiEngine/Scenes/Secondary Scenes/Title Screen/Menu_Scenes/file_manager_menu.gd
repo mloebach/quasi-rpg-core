@@ -34,14 +34,17 @@ class_name FileManagerMenu
 
 @export var title_screen_disclaimer_string = "Do you want to return to the title screen?"
 @export var confirm_name_disclaimer_string = "Is this your name?"
+@export var autosave_load_disclaimer_string = "Load Autosave?"
 
 var current_file_index : int
 var current_name : String
+var current_player_file : PlayerSave
 
 #var file_menu_mode : FileMenuMode
 
 signal return_to_title
 signal load_into_file_menu
+signal switch_scene
 
 enum FileMenuMode {
 	Autoload,
@@ -128,6 +131,7 @@ func _load_file_info(player_save: PlayerSave) -> Node:
 	file_info.load_file(player_save)
 	file_info.swap_to_file_select_menu.connect(_swap_to_file_select)
 	file_info.return_to_title.connect(_on_return_to_title)
+	file_info.load_selected_file.connect(_on_load_autosave_of_selected)
 	if player_save.ng_plus_unlocked:
 		ng_plus_button.visible = true
 	else:
@@ -178,6 +182,12 @@ func _on_return_to_title():
 	#elif file_menu_mode == FileMenuMode.Autoload:
 		#return_to_title.emit()
 		
+func _on_load_autosave_of_selected(loaded_player_save : PlayerSave) -> void:
+	current_player_file = loaded_player_save
+	_create_popup(_load_game_file, 
+		autosave_load_disclaimer_string
+		)
+		
 func _create_popup(confirm_function : Callable, disclaimer_string: String = "") -> void:
 	var new_popup = popup_menu.instantiate()
 	popup_stage.add_child(new_popup)
@@ -186,6 +196,7 @@ func _create_popup(confirm_function : Callable, disclaimer_string: String = "") 
 	new_popup.pop_up_confirm.connect(confirm_function)
 
 func _on_title_button_button_up() -> void:
+	
 	_create_popup(_on_return_to_title, title_screen_disclaimer_string)
 	#var new_popup = popup_menu.instantiate()
 	#popup_stage.add_child(new_popup)
@@ -225,3 +236,10 @@ func _start_new_file() -> void:
 	#set current index in global save to new file
 	#print("New file for " + current_name + " created at slot " + str(current_file_index))
 	GlobalData.create_new_save(current_name, current_file_index)
+	GlobalData.current_scene_status = GlobalData.SceneTypes.in_game
+	switch_scene.emit("vn")
+	
+func _load_game_file() -> void:
+	GlobalData.global_save.current_player_slot = current_player_file.file_index
+	GlobalData.current_scene_status = GlobalData.SceneTypes.in_game
+	switch_scene.emit("vn")

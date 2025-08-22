@@ -42,7 +42,7 @@ class AsyncNode:
 
 	func _init(_next: int) -> void:
 		super(_next)
-		wait = Util.bool_to_str(GlobalData.wait_by_default)
+		wait = Util.bool_to_str(GlobalData.game_db.wait_by_default)
 
 #commands that have an audio element but cant loop
 class QuickAudioNode:
@@ -167,6 +167,23 @@ class CharNode:
 	
 	var look: String
 	var avatar: String
+	
+	func _init(_next: int, _id : String) -> void:
+		super(_next)
+		self.id = _id
+	
+	func _set_appearance(_id: String):
+		self.appearance = _id
+		
+	func _to_string() -> String:
+		return "{next:%s, id:%s, appearance:%s, pos:%s}" % [next, id, appearance, pos]
+		
+		
+#command which summons icon for ink print
+class IconNode:
+	extends ActorNode
+	
+	var look: String
 	
 	func _init(_next: int, _id : String) -> void:
 		super(_next)

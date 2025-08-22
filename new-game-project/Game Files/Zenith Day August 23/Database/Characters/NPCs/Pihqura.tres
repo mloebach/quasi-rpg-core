@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Char_Resource" load_steps=3 format=3 uid="uid://oniyjv13bima"]
+
+[ext_resource type="Script" uid="uid://kgm3wyx8dk7n" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd" id="1_li485"]
+[ext_resource type="Texture2D" uid="uid://cm0fguah8gudo" path="res://Game Files/Test Game/Visual Assets/Icons/PihquraNewIcon.png" id="1_pblm8"]
+
+[resource]
+script = ExtResource("1_li485")
+hint = ""
+name = "Pihqura"
+display_name = "Pihqura"
+use_character_color = true
+character_color = Color(0.13175, 0.085, 0.34, 1)
+DefaultSprite = "Default"
+sprite_resources = Dictionary[String, Texture2D]({})
+icon_resources = Dictionary[String, Texture2D]({
+"Default": ExtResource("1_pblm8")
+})
+metadata/_custom_type_script = "uid://kgm3wyx8dk7n"

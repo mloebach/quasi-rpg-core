@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://cigj4veevwr8i"]
+
+[ext_resource type="Script" uid="uid://lxjlmmht5n3h" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/ribbon_ui.gd" id="1_fnfd7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnfd7"]
+bg_color = Color(0.267867, 0.35, 0.238, 1)
+
+[node name="RibbonUI" type="PanelContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -83.0
+offset_right = 960.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_fnfd7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="OptionsPanel" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSide" type="HBoxContainer" parent="MarginContainer/OptionsPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SaveButton" type="Button" parent="MarginContainer/OptionsPanel/LeftSide"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SAVE"
+
+[node name="LogButton" type="Button" parent="MarginContainer/OptionsPanel/LeftSide"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LOG"
+
+[node name="AutoButton" type="Button" parent="MarginContainer/OptionsPanel/LeftSide"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fnfd7")
+toggle_mode = true
+text = "AUTO"
+
+[node name="RightSide" type="HBoxContainer" parent="MarginContainer/OptionsPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="LeftSpace" type="Control" parent="MarginContainer/OptionsPanel/RightSide"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.45
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/OptionsPanel/RightSide"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTINGS"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/OptionsPanel/RightSide"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "QUIT"
+
+[connection signal="toggled" from="MarginContainer/OptionsPanel/LeftSide/AutoButton" to="." method="_on_auto_button_toggled"]
+[connection signal="button_up" from="MarginContainer/OptionsPanel/RightSide/SettingsButton" to="." method="_on_settings_button_button_up"]
+[connection signal="button_up" from="MarginContainer/OptionsPanel/RightSide/QuitButton" to="." method="_on_quit_button_button_up"]

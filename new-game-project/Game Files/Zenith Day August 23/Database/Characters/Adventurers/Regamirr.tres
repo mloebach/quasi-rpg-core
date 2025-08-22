@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Char_Resource" load_steps=3 format=3 uid="uid://baxuu6w4841yk"]
+
+[ext_resource type="Texture2D" uid="uid://c8o1vifr6q4bb" path="res://Game Files/Test Game/Visual Assets/Icons/RegamirrIcon.png" id="1_cs5g6"]
+[ext_resource type="Script" uid="uid://kgm3wyx8dk7n" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd" id="2_vreeq"]
+
+[resource]
+script = ExtResource("2_vreeq")
+hint = ""
+name = "Regamirr"
+display_name = "Regamirr"
+use_character_color = true
+character_color = Color(0.13175, 0.085, 0.34, 1)
+DefaultSprite = "Default"
+sprite_resources = Dictionary[String, Texture2D]({})
+icon_resources = Dictionary[String, Texture2D]({
+"Default": ExtResource("1_cs5g6")
+})
+metadata/_custom_type_script = "uid://kgm3wyx8dk7n"

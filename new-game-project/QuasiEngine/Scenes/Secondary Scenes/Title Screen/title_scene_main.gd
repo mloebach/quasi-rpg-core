@@ -82,6 +82,7 @@ func _create_menu() -> Node:
 	var file_menu = file_screen_menu.instantiate()
 	file_menu.return_to_title.connect(_on_return_to_title)
 	file_menu.load_into_file_menu.connect(_on_skip_to_file_menu)
+	file_menu.switch_scene.connect(_on_switch_scene)
 	return file_menu
 	
 func _create_file_menu() -> void:
@@ -132,3 +133,6 @@ func _on_files_button_button_up() -> void:
 	start_screen.visible = false
 	file_screen.visible = true
 	_create_file_menu()
+	
+func _on_switch_scene(target_scene: String):
+	switch_scene.emit(target_scene)

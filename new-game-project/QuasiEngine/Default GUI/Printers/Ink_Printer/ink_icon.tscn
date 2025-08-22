@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://e0uto6p3o1th"]
+
+[ext_resource type="Script" uid="uid://mvqn2nfqjffe" path="res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_icon.gd" id="1_5ao4f"]
+[ext_resource type="Texture2D" uid="uid://cm0fguah8gudo" path="res://Game Files/Test Game/Visual Assets/Icons/PihquraNewIcon.png" id="1_5digj"]
+
+[node name="BaseIcon" type="PanelContainer"]
+custom_minimum_size = Vector2(180, 180)
+offset_right = 180.0
+offset_bottom = 180.0
+script = ExtResource("1_5ao4f")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_5digj")
+expand_mode = 1

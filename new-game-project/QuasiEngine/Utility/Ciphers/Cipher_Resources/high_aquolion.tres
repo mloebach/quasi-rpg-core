@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Cipher" load_steps=2 format=3 uid="uid://c41fnaiguajp5"]
+
+[ext_resource type="Script" uid="uid://b7s8di2ye2vtp" path="res://QuasiEngine/Utility/Ciphers/cipher_resource.gd" id="1_hs27v"]
+
+[resource]
+script = ExtResource("1_hs27v")
+name = "aquolion"
+expression = "aquolion(text)"
+variables = Dictionary[String, String]({})
+metadata/_custom_type_script = "uid://b7s8di2ye2vtp"

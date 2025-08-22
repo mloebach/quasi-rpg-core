@@ -269,4 +269,5 @@ size_flags_stretch_ratio = 0.5
 [node name="End" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 
+[connection signal="button_up" from="VBoxContainer/BottomButtons/HBoxContainer/ContinueButton" to="." method="_on_continue_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/BottomButtons/HBoxContainer/ReturnButton" to="." method="_on_return_button_button_up"]

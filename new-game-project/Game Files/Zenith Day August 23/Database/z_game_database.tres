@@ -53,9 +53,32 @@ metadata/_custom_type_script = "uid://blb3v24v1q1u8"
 
 [resource]
 script = ExtResource("1_5qp4a")
+characters = Array[String](["uid://chfvmspfsixeu", "uid://by5ijkuxo0ast", "uid://bhlvaxfkdbna", "uid://sd5ejr3deglq", "uid://b4tfcls0vjtwg"])
+cgs = Dictionary[String, String]({
+"BlackScreen": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/BlackScreen.png",
+"TitleScreenPlaceholder": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/title_screen_placeholder.png",
+"VSDarkHusk1": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk1.png",
+"VSDarkHusk10": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk10.png",
+"VSDarkHusk11": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk11.png",
+"VSDarkHusk12": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk12.png",
+"VSDarkHusk13": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk13.png",
+"VSDarkHusk14": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk14.png",
+"VSDarkHusk15": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk15.png",
+"VSDarkHusk2": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk2.png",
+"VSDarkHusk3": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk3.png",
+"VSDarkHusk4": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk4.png",
+"VSDarkHusk5": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk5.png",
+"VSDarkHusk6": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk6.png",
+"VSDarkHusk7": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk7.png",
+"VSDarkHusk8": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk8.png",
+"VSDarkHusk9": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk9.png",
+"WhiteScreen": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/WhiteScreen.png"
+})
 title_screen_string = "Pilgrimage to Zenith"
 title_screen_subtitle_on = true
 title_screen_subtitle = "Bizarro Draft (2023 Version)"
+default_printer = "Ink"
+printers = Array[String](["res://QuasiEngine/Default GUI/Printers/dialogue_printer.tres", "res://QuasiEngine/Default GUI/Printers/ink_printer.tres"])
 initial_script = "Disclaimer"
 script_pool = Array[ExtResource("2_liopo")]([SubResource("Resource_c356s"), SubResource("Resource_5qp4a"), SubResource("Resource_liopo"), SubResource("Resource_d2dka"), SubResource("Resource_vwo38"), SubResource("Resource_pyngs"), SubResource("Resource_7pjyd"), SubResource("Resource_phvnm")])
 wait_by_default = true

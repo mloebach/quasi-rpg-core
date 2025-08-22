@@ -1,4 +1,4 @@
-extends Resource
+extends RefCounted
 class_name GameSave
 
 #saves current state of game. saves things like

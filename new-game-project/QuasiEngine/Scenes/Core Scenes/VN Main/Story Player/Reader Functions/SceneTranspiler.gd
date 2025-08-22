@@ -74,6 +74,15 @@ func _transpile_command(story_tree: StoryTree, expression: SceneParser.BaseExpre
 			else: #pose not specified
 				command_node = TreeNode.CharNode.new(story_tree.index + 1, openingArg)
 				command_node.args.append("id")
+		SceneLexer.BUILT_IN_COMMANDS.ICON:
+			var openingArg: String = initial_value
+			if openingArg.split(".").size() > 1: #pose specified
+				command_node = TreeNode.IconNode.new(story_tree.index + 1, openingArg.split(".")[0])
+				command_node._set_appearance(openingArg.split(".")[1])
+				command_node.args.append_array(["id", "appearance"])
+			else: #pose not specified
+				command_node = TreeNode.IconNode.new(story_tree.index + 1, openingArg)
+				command_node.args.append("id")
 		SceneLexer.BUILT_IN_COMMANDS.SUMMON_PRINTER:
 			var openingArg: String = initial_value
 			if openingArg.split(".").size() > 1: #pose specified

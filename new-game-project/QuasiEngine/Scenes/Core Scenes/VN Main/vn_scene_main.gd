@@ -7,6 +7,10 @@ extends Node2D
 const STORY_PLAYER = preload("res://QuasiEngine/Scenes/Core Scenes/VN Main/Story Player/story_player.tscn")
 var _story_player: StoryPlayer
 
+var lexer := SceneLexer.new()
+var parser := SceneParser.new()
+var transpiler := SceneTranspiler.new()
+
 var current_script : String
 #var scene_trees : Dictionary[String, String] = {}
 var played_scripts : Array[String] = []
@@ -18,7 +22,7 @@ func _ready() -> void:
 	#if we havent loaded the data onto the global checker yet, do that
 	if !GlobalData.script_data_loaded:
 		_get_all_node_trees()
-		GlobalData.load_options(GlobalData.game_db) #maybe move this as you figure out the load scri[t
+		#GlobalData.load_options(GlobalData.game_db) #maybe move this as you figure out the load scri[t
 		GlobalData.script_data_loaded = true
 	
 	#initial script
@@ -27,7 +31,15 @@ func _ready() -> void:
 	
 func _get_all_node_trees() -> void:
 	for story_file in GlobalData.game_db.script_pool:
-		GlobalData.script_trees[story_file.script_name] = story_file.script_file
+		#GlobalData.script_trees[story_file.script_name] = story_file.script_file
+		var text := lexer.read_file_content(
+			#GlobalData.game_db.script_pool[story_file].script_file
+			story_file.script_file
+		)
+		var tokens : Array = lexer.tokenize(text)
+		var tree : SceneParser.SyntaxTree = parser.parse(tokens)
+		var story : SceneTranspiler.StoryTree = transpiler.transpile(tree, 0)
+		GlobalData.script_trees[story_file.script_name] = story
 	
 	
 func _play_scene(scene_path: String, start_index: int) -> void:
@@ -58,7 +70,7 @@ func _play_scene(scene_path: String, start_index: int) -> void:
 		_story_player.swap_out_of_vn.connect(_on_swapping_out_of_vn)
 
 	#edit this to feature story tree once that's in
-	_story_player.load_scene(destination_label, start_index)
+	_story_player.load_scene(GlobalData.script_trees[scene_to_load], destination_label, start_index)
 	if !played_scripts.has(scene_to_load):
 		played_scripts.append(scene_to_load)
 	
@@ -81,4 +93,5 @@ func _on_jump_into_scene(scene_to_load: String, index: int) -> void:
 	_play_scene(scene_to_load, index)
 	
 func _on_swapping_out_of_vn(scene_to_load: String, additive: String = "false"):
+	GlobalData.current_scene_status = GlobalData.SceneTypes.out_of_game
 	switch_scene.emit(scene_to_load, additive)

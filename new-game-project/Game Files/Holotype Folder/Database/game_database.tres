@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="VN_Database" load_steps=3 format=3 uid="uid://b8mmht05l14en"]
+[gd_resource type="Resource" script_class="VN_Database" load_steps=2 format=3 uid="uid://b8mmht05l14en"]
 
 [ext_resource type="Script" uid="uid://d1lrrn21y00" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/game_database.gd" id="1_vdt4a"]
-[ext_resource type="Script" uid="uid://blb3v24v1q1u8" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/scenario_script.gd" id="2_80vyx"]
 
 [resource]
 script = ExtResource("1_vdt4a")
-title_screen_string = "Pilgrimage to Zenith"
-title_screen_subtitle_on = true
-title_screen_subtitle = "Bizarro Draft"
-initial_script = ""
-script_pool = Array[ExtResource("2_80vyx")]([])
-wait_by_default = true
+title_screen_string = null
+title_screen_subtitle_on = null
+title_screen_subtitle = null
+default_printer = null
+printers = null
+initial_script = null
+script_pool = null
+wait_by_default = null
 metadata/_custom_type_script = "uid://d1lrrn21y00"

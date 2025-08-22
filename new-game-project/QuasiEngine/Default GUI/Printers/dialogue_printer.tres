@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PrinterResource" load_steps=3 format=3 uid="uid://dbs3aurrym64s"]
+
+[ext_resource type="PackedScene" uid="uid://b7dp41t6spfom" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/Printers/main_text_printer.tscn" id="1_r5ch1"]
+[ext_resource type="Script" uid="uid://dd21cknh3qsex" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/Printers/printer_resource.gd" id="2_4vk3j"]
+
+[resource]
+script = ExtResource("2_4vk3j")
+name = "Dialogue"
+autoReset = true
+autoDefault = true
+autoWait = true
+printer_object = ExtResource("1_r5ch1")
+metadata/_custom_type_script = "uid://dd21cknh3qsex"

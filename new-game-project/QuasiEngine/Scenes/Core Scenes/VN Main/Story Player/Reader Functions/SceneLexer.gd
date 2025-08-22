@@ -45,7 +45,8 @@ const BUILT_IN_COMMANDS := {
 	AWAIT = "await", #not in transpiler yet
 	TRANSITION = "trans", #not in transpiler yet
 	RANDOM = "random", #not in transpiler yet
-	CHOICE = "choice" #not in transpiler yet
+	CHOICE = "choice", #not in transpiler yet
+	ICON = "icon", #specific to ink printer
 }
 
 #var symbol_regex := RegEx.new()

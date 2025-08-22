@@ -34,7 +34,7 @@ func set_file_number(number: int):
 
 func load_file_info(player_save : PlayerSave):
 	name_text.text = player_save.player_name
-	player_time.text = Util.float_to_time_string(player_save.player_time_spent)
+	player_time.text = Util.float_to_time_string(player_save.player_time_spent, true)
 	location_label.text = player_save.auto_save.current_location
 	date_label.text = player_save.auto_save.date_saved
 	player_file = player_save

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PrinterResource" load_steps=3 format=3 uid="uid://cho4nde1b4pbe"]
+
+[ext_resource type="Script" uid="uid://dd21cknh3qsex" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/Printers/printer_resource.gd" id="1_815u4"]
+[ext_resource type="PackedScene" uid="uid://co0rnx2l7ohui" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/Printers/ink_text_printer.tscn" id="1_x3c50"]
+
+[resource]
+script = ExtResource("1_815u4")
+name = "Ink"
+autoReset = true
+autoDefault = true
+autoWait = true
+printer_object = ExtResource("1_x3c50")
+metadata/_custom_type_script = "uid://dd21cknh3qsex"

@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7dp41t6spfom"]
+
+[ext_resource type="Script" uid="uid://bbm0le2sejplb" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/Printers/main_text_printer.gd" id="1_yscet"]
+[ext_resource type="FontFile" uid="uid://dxf7n8oj6u3k7" path="res://QuasiEngine/Default GUI/Fonts/Digimon_Digicode_Font_by_Mooshimon.ttf" id="2_xwb0d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yscet"]
+bg_color = Color(0.0621059, 0.110866, 0.184905, 1)
+
+[node name="MainTextPrinter" type="Control"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_yscet")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = -30
+
+[node name="AuthorHbox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ToLeft2" type="Control" parent="VBoxContainer/AuthorHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/AuthorHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_yscet")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/AuthorHbox/PanelContainer"]
+custom_minimum_size = Vector2(0, 83)
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="SpeakerText" type="RichTextLabel" parent="VBoxContainer/AuthorHbox/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/italics_font_size = 45
+theme_override_font_sizes/normal_font_size = 45
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="Control" parent="VBoxContainer/AuthorHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.5
+
+[node name="TextHbox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ToLeft" type="Control" parent="VBoxContainer/TextHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TextHbox"]
+z_index = -1
+custom_minimum_size = Vector2(0, 320)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 9.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TextHbox/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 40
+
+[node name="MainText" type="RichTextLabel" parent="VBoxContainer/TextHbox/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/line_separation = 15
+theme_override_fonts/normal_font = ExtResource("2_xwb0d")
+theme_override_font_sizes/bold_italics_font_size = 45
+theme_override_font_sizes/italics_font_size = 45
+theme_override_font_sizes/normal_font_size = 45
+theme_override_font_sizes/bold_font_size = 45
+bbcode_enabled = true
+text = "Bakushin! Bakushin! Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!"
+fit_content = true
+meta_underlined = false
+hint_underlined = false
+visible_characters_behavior = 2
+
+[node name="ToRight" type="Control" parent="VBoxContainer/TextHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="meta_clicked" from="VBoxContainer/AuthorHbox/PanelContainer/MarginContainer/SpeakerText" to="." method="_on_speaker_text_meta_clicked"]
+[connection signal="meta_clicked" from="VBoxContainer/TextHbox/PanelContainer/MarginContainer/MainText" to="." method="_on_main_text_meta_clicked"]

@@ -45,6 +45,7 @@ var current_player_file : PlayerSave
 signal return_to_title
 signal load_into_file_menu
 signal switch_scene
+signal open_episode_select
 
 enum FileMenuMode {
 	Autoload,
@@ -243,3 +244,7 @@ func _load_game_file() -> void:
 	GlobalData.global_save.current_player_slot = current_player_file.file_index
 	GlobalData.current_scene_status = GlobalData.SceneTypes.in_game
 	switch_scene.emit("vn")
+
+
+func _on_chapter_select_button_up() -> void:
+	open_episode_select.emit()

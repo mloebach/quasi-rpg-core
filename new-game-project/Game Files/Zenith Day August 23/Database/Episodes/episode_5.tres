@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Episode_Resource" load_steps=4 format=3 uid="uid://b50torhn41c10"]
+
+[ext_resource type="Script" uid="uid://bbipppklny7he" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd" id="1_rm6sc"]
+
+[sub_resource type="Gradient" id="Gradient_rm6sc"]
+colors = PackedColorArray(0.286693, 0.501015, 1, 1, 0.509719, 0.793573, 0.964795, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1sw61"]
+gradient = SubResource("Gradient_rm6sc")
+
+[resource]
+script = ExtResource("1_rm6sc")
+main_title = "Into the Arctic Battlefield"
+number = 5
+level = 1
+episode_title = ""
+select_background = SubResource("GradientTexture1D_1sw61")
+metadata/_custom_type_script = "uid://bbipppklny7he"

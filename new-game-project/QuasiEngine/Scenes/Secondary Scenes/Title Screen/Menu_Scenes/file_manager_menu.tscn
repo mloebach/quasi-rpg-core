@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cd2cxpqhksiut"]
+[gd_scene load_steps=8 format=3 uid="uid://cd2cxpqhksiut"]
 
 [ext_resource type="Script" uid="uid://jjhgbemxdobl" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/file_manager_menu.gd" id="1_pwdjv"]
 [ext_resource type="PackedScene" uid="uid://do6c34g1gp37o" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/loaded_file_ui.tscn" id="2_7mehb"]
-[ext_resource type="PackedScene" uid="uid://b2v03f0l7u0qp" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/settings_menu.tscn" id="2_55mvp"]
 [ext_resource type="PackedScene" uid="uid://bbotdo7hm8h7g" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/file_select_ui.tscn" id="3_emqlb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvjfp"]
@@ -212,10 +211,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Settings Menu" parent="Settings Stage" instance=ExtResource("2_55mvp")]
-visible = false
-layout_mode = 1
-
 [node name="Popup Stage" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -309,6 +304,7 @@ grow_vertical = 2
 
 [connection signal="button_up" from="VBox/LowerTitle/LowerBox/SettingsButton" to="." method="_on_settings_button_button_up"]
 [connection signal="button_up" from="VBox/LowerTitle/LowerBox/TitleButton" to="." method="_on_title_button_button_up"]
+[connection signal="button_up" from="VBox/LowerTitle/ChosenFileLower/VBoxContainer/ChapterSelect" to="." method="_on_chapter_select_button_up"]
 [connection signal="button_up" from="VBox/LowerTitle/ChosenFileLower/VBoxContainer/QuitButton" to="." method="_on_load_quit_button_button_up"]
 [connection signal="button_up" from="VBox/LowerTitle/AutoloadLower/VBoxContainer/FileSelectButton" to="." method="_on_autoload_file_select_button_button_up"]
 [connection signal="button_up" from="VBox/LowerTitle/AutoloadLower/VBoxContainer/QuitButton" to="." method="_on_return_to_title"]

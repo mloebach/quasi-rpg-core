@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckfq6tr2dtjer"]
+[gd_scene load_steps=4 format=3 uid="uid://ckfq6tr2dtjer"]
 
+[ext_resource type="Script" uid="uid://c835pnmanmxlq" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/episode_selector_menu.gd" id="1_ahocn"]
 [ext_resource type="Texture2D" uid="uid://0cgsx50471h3" path="res://Game Files/Test Game/Visual Assets/Backgrounds/industrial-building.jpg" id="1_pwfqm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46df7"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ahocn")
 
 [node name="UpperTitle" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -101,7 +103,7 @@ text = "EPISODE 1"
 fit_content = true
 vertical_alignment = 2
 
-[node name="EpisodeLabel2" type="RichTextLabel" parent="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
+[node name="TitleLabel" type="RichTextLabel" parent="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/normal_font_size = 60
@@ -121,7 +123,7 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.9
 theme_override_font_sizes/font_size = 30
-text = "Sidestory"
+text = "Main Episode"
 
 [node name="EmptySpace" type="Control" parent="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer/SidestoryButton2"]
 visible = false
@@ -458,3 +460,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
 text = "QUIT"
+
+[connection signal="button_up" from="UpperTitle/EpisodeScroll/HBoxContainer/PrevButton" to="." method="_on_prev_button_button_up"]
+[connection signal="button_up" from="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer/SidestoryButton/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="UpperTitle/EpisodeScroll/HBoxContainer/VBoxContainer/SidestoryButton2/Button" to="." method="_on_lower_level_button_button_up"]
+[connection signal="button_up" from="UpperTitle/EpisodeScroll/HBoxContainer/NextButton" to="." method="_on_next_button_button_up"]
+[connection signal="pressed" from="UpperTitle/EpisodeScroll/HBoxContainer2/SelectorButtons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="button_up" from="LowerTitle2/LowerBox/BackButton" to="." method="_on_back_button_button_up"]

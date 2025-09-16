@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Episode_Resource" load_steps=4 format=3 uid="uid://dxay6p6a8c36q"]
+
+[ext_resource type="Script" uid="uid://bbipppklny7he" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd" id="1_2tdyh"]
+
+[sub_resource type="Gradient" id="Gradient_2tdyh"]
+offsets = PackedFloat32Array(0, 0.995536, 1)
+colors = PackedColorArray(0.517042, 0.363222, 0.787359, 1, 0.819737, 0.643708, 0.917475, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sft8x"]
+gradient = SubResource("Gradient_2tdyh")
+
+[resource]
+script = ExtResource("1_2tdyh")
+main_title = "Into the Star Salted Sea"
+number = 0
+episode_title = "Prologue"
+select_background = SubResource("GradientTexture1D_sft8x")
+metadata/_custom_type_script = "uid://bbipppklny7he"

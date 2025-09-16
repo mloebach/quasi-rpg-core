@@ -47,6 +47,12 @@ const BUILT_IN_COMMANDS := {
 	RANDOM = "random", #not in transpiler yet
 	CHOICE = "choice", #not in transpiler yet
 	ICON = "icon", #specific to ink printer
+	CLEAR_INK = "clearPrinter" #specific to ink printer
+}
+
+#reseved keywords and built in commands
+const DEBUG_COMMANDS := {
+	FIRST_SCRIPT = "firstScript" #makes game autoload last epiosde with this flag
 }
 
 #var symbol_regex := RegEx.new()

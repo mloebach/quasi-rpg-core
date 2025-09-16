@@ -20,6 +20,15 @@ var auto_save: GameSave
 var point_saves: Array[GameSave] = [null,null,null]
 var game_saves : Dictionary[int, GameSave]
 
+var unlocked_episodes : Dictionary[String, bool] = {
+	"Prelude" : true,
+	"Prologue" : false,
+	"Ep1" : false
+}
+
+
+
+
 #move these to player save
 
 

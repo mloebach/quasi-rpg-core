@@ -8,6 +8,7 @@ script = ExtResource("2_vreeq")
 hint = ""
 name = "Regamirr"
 display_name = "Regamirr"
+full_name = "Regamirr Tanglao"
 use_character_color = true
 character_color = Color(0.13175, 0.085, 0.34, 1)
 DefaultSprite = "Default"
@@ -15,4 +16,8 @@ sprite_resources = Dictionary[String, Texture2D]({})
 icon_resources = Dictionary[String, Texture2D]({
 "Default": ExtResource("1_cs5g6")
 })
+custom_variables = Dictionary[String, String]({
+"Role": "Marksman"
+})
+tags = Array[String](["Voyager"])
 metadata/_custom_type_script = "uid://kgm3wyx8dk7n"

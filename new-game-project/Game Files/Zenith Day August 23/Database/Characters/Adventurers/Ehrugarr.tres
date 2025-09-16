@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Char_Resource" load_steps=3 format=3 uid="uid://u2iw56uiobhv"]
+
+[ext_resource type="Texture2D" uid="uid://cy1n4cl2nhj6v" path="res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/EhrugarrIcon.png" id="1_fnk6e"]
+[ext_resource type="Script" uid="uid://kgm3wyx8dk7n" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd" id="1_nmvq8"]
+
+[resource]
+script = ExtResource("1_nmvq8")
+hint = ""
+name = "Ehrugarr"
+display_name = "Ehrugarr"
+full_name = "Ehrugarr Halili"
+use_character_color = false
+character_color = Color(0, 0, 0, 1)
+DefaultSprite = "Default"
+sprite_resources = Dictionary[String, Texture2D]({})
+icon_resources = Dictionary[String, Texture2D]({
+"Default": ExtResource("1_fnk6e")
+})
+custom_variables = Dictionary[String, String]({
+"Role": "Sands"
+})
+tags = Array[String](["Voyager"])
+metadata/_custom_type_script = "uid://kgm3wyx8dk7n"

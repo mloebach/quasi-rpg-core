@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Episode_Resource" load_steps=4 format=3 uid="uid://bm85jub1nh2bm"]
+
+[ext_resource type="Script" uid="uid://bbipppklny7he" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd" id="1_5oq2q"]
+
+[sub_resource type="Gradient" id="Gradient_2tdyh"]
+offsets = PackedFloat32Array(0, 0.995536, 1)
+colors = PackedColorArray(0.211765, 0.313726, 0.329412, 1, 0.624414, 0.768681, 0.631897, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sft8x"]
+gradient = SubResource("Gradient_2tdyh")
+
+[resource]
+script = ExtResource("1_5oq2q")
+main_title = "Into the Glowing Forest"
+number = 1
+level = 1
+episode_title = ""
+select_background = SubResource("GradientTexture1D_sft8x")
+metadata/_custom_type_script = "uid://bbipppklny7he"

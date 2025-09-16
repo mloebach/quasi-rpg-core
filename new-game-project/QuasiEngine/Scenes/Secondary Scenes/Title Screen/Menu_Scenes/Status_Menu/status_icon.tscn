@@ -1,0 +1,125 @@
+[gd_scene load_steps=8 format=3 uid="uid://cu7htfcobubds"]
+
+[ext_resource type="Shader" uid="uid://c5n7n0n4vmwex" path="res://QuasiEngine/Default GUI/Printers/Ink_Printer/outline_shader_test.gdshader" id="1_k3u1d"]
+[ext_resource type="Texture2D" uid="uid://cm0fguah8gudo" path="res://Game Files/Test Game/Visual Assets/Icons/PihquraNewIcon.png" id="2_ff7n2"]
+[ext_resource type="Script" uid="uid://bswd10m4c8atq" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/Status_Menu/status_icon.gd" id="3_ff7n2"]
+[ext_resource type="Texture2D" uid="uid://0xkj544aic0x" path="res://Game Files/Zenith Day August 23/GUI Assets/staticfilter.png" id="4_mhagw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1j4j"]
+shader = ExtResource("1_k3u1d")
+shader_parameter/allow_out_of_bounds = false
+shader_parameter/outline_thickness = 0.0
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_dd6me"]
+colors = PackedColorArray(0.016532, 0.007134, 0.0809152, 0.831373, 0.1628, 0.29678, 0.44, 0.831373)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ju8ia"]
+gradient = SubResource("Gradient_dd6me")
+
+[node name="Icon" type="Control"]
+material = SubResource("ShaderMaterial_d1j4j")
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_ff7n2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_ff7n2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="RedFilter" type="TextureRect" parent="VBoxContainer/Icon"]
+visible = false
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_ju8ia")
+expand_mode = 1
+
+[node name="BlueFilter" type="TextureRect" parent="VBoxContainer/Icon"]
+visible = false
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_ju8ia")
+expand_mode = 1
+
+[node name="FilterText" type="RichTextLabel" parent="VBoxContainer/Icon/BlueFilter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -126.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.617473, 0.613955, 0.787662, 1)
+theme_override_colors/font_shadow_color = Color(0.99558, 0.99558, 0.99558, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/normal_font_size = 28
+text = "SIGNAL LOST"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaticFilter" type="TextureRect" parent="VBoxContainer/Icon/BlueFilter"]
+modulate = Color(1, 1, 1, 0.270588)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_mhagw")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 22
+bbcode_enabled = true
+text = "Pihqura"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Role" type="RichTextLabel" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 22
+bbcode_enabled = true
+text = "Moon Cancer"
+fit_content = true
+horizontal_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

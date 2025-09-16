@@ -83,6 +83,7 @@ func _create_menu() -> Node:
 	file_menu.return_to_title.connect(_on_return_to_title)
 	file_menu.load_into_file_menu.connect(_on_skip_to_file_menu)
 	file_menu.switch_scene.connect(_on_switch_scene)
+	file_menu.open_episode_select.connect(_on_switch_to_episode_select)
 	return file_menu
 	
 func _create_file_menu() -> void:
@@ -100,11 +101,23 @@ func _create_autoload_menu() -> void:
 	file_menu.load_autoload(GlobalData.get_current_player_save())
 	
 	
+func _create_episode_menu() -> void:
+	var _episode_menu = episode_select_menu.instantiate()
+	file_screen_stage.add_child(_episode_menu)
+	_episode_menu.switch_to_file_select.connect(_on_skip_to_file_menu)
+	_episode_menu.load_chosen_episode.connect(_on_load_chosen_episode)
+	
 	
 func _on_return_to_title() -> void:
 	_kill_autoload_objects()
 	_kill_filescreen_objects()
 	start_screen.visible = true
+	
+func _on_switch_to_episode_select() -> void:
+	_kill_autoload_objects()
+	_kill_filescreen_objects()
+	_create_episode_menu()
+	file_screen.visible = true
 	
 func _on_skip_to_file_menu() -> void:
 	_kill_autoload_objects()
@@ -127,7 +140,9 @@ func _kill_filescreen_objects() -> void:
 	#chosen_file_menu.visible = false
 	
 	
-
+func _on_load_chosen_episode(episode: String):
+	GlobalData.opening_script = episode
+	_on_switch_scene("vn")
 
 func _on_files_button_button_up() -> void:
 	start_screen.visible = false

@@ -19,11 +19,13 @@ config/icon="res://Godot/icon.svg"
 [audio]
 
 buses/default_bus_layout="res://Godot/default_bus_layout.tres"
+general/text_to_speech=true
 
 [autoload]
 
 Util="*res://QuasiEngine/Utility/utility.gd"
 GlobalData="*res://QuasiEngine/Scenes/global_data.gd"
+Settings="*res://QuasiEngine/Scenes/GlobalData/settings.gd"
 
 [display]
 

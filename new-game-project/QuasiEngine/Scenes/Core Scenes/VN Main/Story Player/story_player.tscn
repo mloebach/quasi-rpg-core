@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcah5h5nn3oqg"]
+[gd_scene load_steps=10 format=3 uid="uid://dcah5h5nn3oqg"]
 
 [ext_resource type="Script" uid="uid://cuoyhrfcygvai" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Story Player/story_player.gd" id="1_ymrlv"]
 [ext_resource type="Shader" uid="uid://bhmikluoql0iy" path="res://QuasiEngine/Scenes/Shaders/balatroBG.gdshader" id="2_1k2x4"]
+[ext_resource type="Texture2D" uid="uid://8ts1mnrvujqm" path="res://Godot/icon.svg" id="3_wemqa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wemqa"]
 shader = ExtResource("2_1k2x4")
@@ -22,6 +23,15 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_wemqa"]
 gradient = SubResource("Gradient_1k2x4")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86j4b"]
+bg_color = Color(0.18315, 0.177, 0.3, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cro4p"]
+bg_color = Color(0.2622, 0.53314, 0.69, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wemqa"]
+bg_color = Color(0.2079, 0.291335, 0.33, 1)
 
 [node name="StoryPlayer" type="Node"]
 script = ExtResource("1_ymrlv")
@@ -83,10 +93,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Wiki Stage" type="Control" parent="UILayer/MainUIVBox/PrimaryUIStage"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Status Stage" type="Control" parent="UILayer/MainUIVBox/PrimaryUIStage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="RibbonUIStage" type="Control" parent="UILayer/MainUIVBox"]
 layout_mode = 2
@@ -111,6 +125,453 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="SaveMenu" type="PanelContainer" parent="UILayer/UpperUI/MainUpperUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SaveLabel" type="RichTextLabel" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 72
+text = "LOAD MENU"
+fit_content = true
+vertical_alignment = 1
+
+[node name="FileSelect" type="PanelContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer"]
+layout_mode = 2
+
+[node name="SaveColumns" type="HBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="SpecialSave" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AutosaveVbox" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AutosaveLabel" type="RichTextLabel" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/AutosaveVbox"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 42
+text = "AutoSave"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AutoSave" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/AutosaveVbox"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Pointsave1" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PointsaveLabel" type="RichTextLabel" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/HBoxContainer/Pointsave1"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+text = "Point Save 1"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AutoSave" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/HBoxContainer/Pointsave1"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="Pointsave2" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PointsaveLabel2" type="RichTextLabel" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/HBoxContainer/Pointsave2"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+text = "Point Save 1"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AutosaveLabel" type="RichTextLabel" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/HBoxContainer/Pointsave2"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 42
+text = "AutoSave"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AutoSave" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/HBoxContainer/Pointsave2"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="Pointsave3" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PointsaveLabel3" type="RichTextLabel" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/HBoxContainer/Pointsave3"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+text = "Point Save 1"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AutosaveLabel" type="RichTextLabel" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/HBoxContainer/Pointsave3"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 42
+text = "AutoSave"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AutoSave" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/HBoxContainer/Pointsave3"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="PointSave" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="PointSave2" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="PointSave3" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave"]
+layout_mode = 2
+
+[node name="BaseSave" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_constants/separation = 12
+
+[node name="HBox" type="HBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="LeftControl" type="Control" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="GridContainer" type="GridContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 5
+columns = 3
+
+[node name="SaveItem" type="PanelContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SaveBox" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem"]
+layout_mode = 2
+
+[node name="SaveIcon" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem/SaveBox"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="SaveItem2" type="PanelContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SaveBox" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem2"]
+layout_mode = 2
+
+[node name="SaveIcon" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem2/SaveBox"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="SaveItem3" type="PanelContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SaveBox" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem3"]
+layout_mode = 2
+
+[node name="SaveIcon" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem3/SaveBox"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="SaveItem4" type="PanelContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SaveBox" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem4"]
+layout_mode = 2
+
+[node name="SaveIcon" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem4/SaveBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="SaveItem5" type="PanelContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SaveBox" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem5"]
+layout_mode = 2
+
+[node name="SaveIcon" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem5/SaveBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="SaveItem6" type="PanelContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SaveBox" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem6"]
+layout_mode = 2
+
+[node name="SaveIcon" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem6/SaveBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="SaveItem7" type="PanelContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SaveBox" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem7"]
+layout_mode = 2
+
+[node name="SaveIcon" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem7/SaveBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="SaveItem8" type="PanelContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SaveBox" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem8"]
+layout_mode = 2
+
+[node name="SaveIcon" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem8/SaveBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="SaveItem9" type="PanelContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SaveBox" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem9"]
+layout_mode = 2
+
+[node name="SaveIcon" type="TextureRect" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/GridContainer/SaveItem9/SaveBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_wemqa")
+
+[node name="RightControl" type="Control" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave"]
+layout_mode = 2
+
+[node name="PageButton" type="Button" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_86j4b")
+text = "1"
+
+[node name="PageButton2" type="Button" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_86j4b")
+text = "1"
+
+[node name="PageButton3" type="Button" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_86j4b")
+text = "1"
+
+[node name="PageButton6" type="Button" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_86j4b")
+text = "1"
+
+[node name="PageButton5" type="Button" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_86j4b")
+text = "1"
+
+[node name="PageButton4" type="Button" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_86j4b")
+text = "1"
+
+[node name="MarginContainer2" type="MarginContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control2" type="Control" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="FileInfo" type="PanelContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer2/HBoxContainer/FileInfo"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer2/HBoxContainer/FileInfo/MarginContainer"]
+layout_mode = 2
+
+[node name="QuestLabel" type="RichTextLabel" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer2/HBoxContainer/FileInfo/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 42
+text = "Episode 1"
+fit_content = true
+
+[node name="LocationLabel" type="RichTextLabel" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer2/HBoxContainer/FileInfo/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 42
+text = "Burning Inferno"
+fit_content = true
+
+[node name="DateLabel" type="RichTextLabel" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer2/HBoxContainer/FileInfo/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 42
+text = "201/8/12 12:32 PM"
+fit_content = true
+
+[node name="Control3" type="Control" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="LoadButton" type="Button" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_cro4p")
+text = "LOAD"
+
+[node name="ExitButton" type="Button" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_wemqa")
+text = "EXIT"
+
+[node name="Control" type="Control" parent="UILayer/UpperUI/MainUpperUI/SaveMenu/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
 [node name="Popup_Stage" type="Control" parent="UILayer/UpperUI"]
 layout_mode = 1
 anchors_preset = 15
@@ -119,3 +580,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="TopLevelUI" type="Control" parent="UILayer/UpperUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TTSEnabledText" type="RichTextLabel" parent="UILayer/UpperUI/TopLevelUI"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 12.0
+offset_right = 569.0
+offset_bottom = 239.0
+theme_override_colors/default_color = Color(1, 1, 1, 0.513726)
+theme_override_font_sizes/normal_font_size = 44
+text = "TTS Enabled"

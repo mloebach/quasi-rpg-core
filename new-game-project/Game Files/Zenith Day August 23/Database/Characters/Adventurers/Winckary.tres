@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Char_Resource" load_steps=3 format=3 uid="uid://b8c66h638rxhx"]
+
+[ext_resource type="Script" uid="uid://kgm3wyx8dk7n" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd" id="1_45ixe"]
+[ext_resource type="Texture2D" uid="uid://bcw2juv6extnu" path="res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/WinckaryIcon.png" id="1_wehxe"]
+
+[resource]
+script = ExtResource("1_45ixe")
+hint = ""
+name = "Winckary"
+display_name = "Winckary"
+full_name = "Winckary Pandoro"
+use_character_color = false
+character_color = Color(0, 0, 0, 1)
+DefaultSprite = "Default"
+sprite_resources = Dictionary[String, Texture2D]({})
+icon_resources = Dictionary[String, Texture2D]({
+"Default": ExtResource("1_wehxe")
+})
+custom_variables = Dictionary[String, String]({
+"Role": "Heavens"
+})
+tags = Array[String](["Voyager"])
+metadata/_custom_type_script = "uid://kgm3wyx8dk7n"

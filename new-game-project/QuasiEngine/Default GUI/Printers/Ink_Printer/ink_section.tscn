@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://e0uto6p3o1th" path="res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_icon.tscn" id="2_t81nm"]
 [ext_resource type="FontFile" uid="uid://crwplc2sfeb6o" path="res://QuasiEngine/Default GUI/Fonts/SourceSans3-VariableFont_wght.ttf" id="3_6t3st"]
 [ext_resource type="FontFile" uid="uid://c0wmbdvfwlrdg" path="res://QuasiEngine/Default GUI/Fonts/Changa-VariableFont_wght.ttf" id="3_75d84"]
+[ext_resource type="PackedScene" uid="uid://cc45bvtrob4oq" path="res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_cg.tscn" id="3_avwnj"]
 [ext_resource type="FontFile" uid="uid://oepbsiol1c6v" path="res://QuasiEngine/Default GUI/Fonts/SourceSans3-Italic-VariableFont_wght.ttf" id="4_pjfv0"]
+[ext_resource type="PackedScene" uid="uid://c608ddey8i8hu" path="res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_choice_handler.tscn" id="7_2cxll"]
 
 [sub_resource type="Gradient" id="Gradient_pjfv0"]
 colors = PackedColorArray(0.2432, 0.2432, 0.64, 1, 0.1513, 0.152858, 0.17, 1)
@@ -15,11 +17,6 @@ fill = 2
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2cxll"]
 texture = SubResource("GradientTexture2D_avwnj")
-
-[sub_resource type="Gradient" id="Gradient_75d84"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_6t3st"]
-gradient = SubResource("Gradient_75d84")
 
 [sub_resource type="FontVariation" id="FontVariation_75d84"]
 base_font = ExtResource("3_6t3st")
@@ -75,16 +72,37 @@ alignment = 1
 visible = false
 layout_mode = 2
 
+[node name="BaseIcon2" parent="Margins/VBox/IconVbox/Icons" instance=ExtResource("2_t81nm")]
+visible = false
+layout_mode = 2
+
+[node name="BaseIcon3" parent="Margins/VBox/IconVbox/Icons" instance=ExtResource("2_t81nm")]
+visible = false
+layout_mode = 2
+
+[node name="BaseIcon4" parent="Margins/VBox/IconVbox/Icons" instance=ExtResource("2_t81nm")]
+visible = false
+layout_mode = 2
+
+[node name="BaseIcon5" parent="Margins/VBox/IconVbox/Icons" instance=ExtResource("2_t81nm")]
+visible = false
+layout_mode = 2
+
+[node name="BaseIcon6" parent="Margins/VBox/IconVbox/Icons" instance=ExtResource("2_t81nm")]
+visible = false
+layout_mode = 2
+
+[node name="BaseIcon7" parent="Margins/VBox/IconVbox/Icons" instance=ExtResource("2_t81nm")]
+visible = false
+layout_mode = 2
+
 [node name="Cgs" type="HBoxContainer" parent="Margins/VBox/IconVbox"]
 layout_mode = 2
 alignment = 1
 
-[node name="CG" type="TextureRect" parent="Margins/VBox/IconVbox/Cgs"]
+[node name="CG" parent="Margins/VBox/IconVbox/Cgs" instance=ExtResource("3_avwnj")]
 visible = false
-custom_minimum_size = Vector2(942, 518)
 layout_mode = 2
-texture = SubResource("GradientTexture1D_6t3st")
-expand_mode = 1
 
 [node name="TextContSeparator2" type="Control" parent="Margins/VBox"]
 custom_minimum_size = Vector2(0, 20)
@@ -112,14 +130,18 @@ visible_characters_behavior = 2
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="ContinueHbox" type="HBoxContainer" parent="Margins/VBox"]
+[node name="ContinueSection" type="VBoxContainer" parent="Margins/VBox"]
 layout_mode = 2
 
-[node name="Left" type="Control" parent="Margins/VBox/ContinueHbox"]
+[node name="ContinueHandler" type="HBoxContainer" parent="Margins/VBox/ContinueSection"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="Margins/VBox/ContinueHbox"]
+[node name="Left" type="Control" parent="Margins/VBox/ContinueSection/ContinueHandler"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Margins/VBox/ContinueSection/ContinueHandler"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
@@ -127,9 +149,13 @@ theme_override_fonts/font = SubResource("FontVariation_6t3st")
 theme_override_font_sizes/font_size = 36
 text = "Continue."
 
-[node name="Right" type="Control" parent="Margins/VBox/ContinueHbox"]
+[node name="Right" type="Control" parent="Margins/VBox/ContinueSection/ContinueHandler"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="ChoiceHandler" parent="Margins/VBox/ContinueSection" instance=ExtResource("7_2cxll")]
+visible = false
+layout_mode = 2
 
 [node name="Separator" type="RichTextLabel" parent="Margins/VBox"]
 visible = false
@@ -140,4 +166,4 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="button_up" from="Margins/VBox/ContinueHbox/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="Margins/VBox/ContinueSection/ContinueHandler/Button" to="." method="_on_button_button_up"]

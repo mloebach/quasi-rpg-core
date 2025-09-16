@@ -1,7 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxuegn6fpa1hu"]
+[gd_scene load_steps=8 format=3 uid="uid://bxuegn6fpa1hu"]
 
-[ext_resource type="Texture2D" uid="uid://phhhx54hxaio" path="res://Game Files/Test Game/Visual Assets/Backgrounds/steppes.jpg" id="1_i8woa"]
 [ext_resource type="Script" uid="uid://caramyy3wk70y" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/title_scene_main.gd" id="1_renm7"]
+[ext_resource type="Shader" uid="uid://bhmikluoql0iy" path="res://QuasiEngine/Scenes/Shaders/balatroBG.gdshader" id="2_renm7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_46df7"]
+shader = ExtResource("2_renm7")
+shader_parameter/spin_rotation_speed = 4.0
+shader_parameter/move_speed = 7.0
+shader_parameter/offset = Vector2(0.5, 0)
+shader_parameter/colour_1 = Color(0.5396, 0.56232, 0.71, 1)
+shader_parameter/colour_2 = Color(0.58546, 0.4672, 0.73, 1)
+shader_parameter/colour_3 = Color(0.2537, 0.406493, 0.43, 1)
+shader_parameter/contrast = 3.5
+shader_parameter/lighting = 1.0
+shader_parameter/spin_amount = 0.08
+shader_parameter/pixel_filter = 740.0
+shader_parameter/is_rotating = false
+
+[sub_resource type="Gradient" id="Gradient_w52ov"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dvjfp"]
+gradient = SubResource("Gradient_w52ov")
 
 [sub_resource type="Gradient" id="Gradient_46df7"]
 offsets = PackedFloat32Array(0.0539568, 0.877698, 1)
@@ -15,7 +36,7 @@ fill_to = Vector2(0, 1)
 script = ExtResource("1_renm7")
 
 [node name="Background" type="TextureRect" parent="."]
-visible = false
+material = SubResource("ShaderMaterial_46df7")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -25,7 +46,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_i8woa")
+texture = SubResource("GradientTexture1D_dvjfp")
 
 [node name="Canv" type="CanvasLayer" parent="."]
 
@@ -94,6 +115,8 @@ alignment = 1
 [node name="Title" type="RichTextLabel" parent="Canv/Main Layer/StartScreen/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
 theme_override_font_sizes/normal_font_size = 150
 text = "QUAZI RPG CORE"
 fit_content = true
@@ -162,6 +185,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
 
 [node name="FileScreen" type="Control" parent="Canv/Main Layer"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

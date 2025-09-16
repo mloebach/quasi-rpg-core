@@ -293,6 +293,23 @@ class JumpNode:
 	func _to_string() -> String:
 		return "{next:%s, path:%s}" % [next, path]
 		
+class ChoiceNode:
+	extends CommandNode
+	
+	var choice_summary: String #text for choice
+	var lock : String #whether or not choice should be locked
+	var goto: String #path to go to when selected by user. ignored with nesting
+	var gosub: String #subroutine to go to when selected by user. ignored with nesting
+	var set_variable: String #set variable with choice. ignored with nesting
+	var show: String #whether or not to show handler. true by default
+	var play: String #boolean. if no goto or go sub, continues script from next line. ignored with nesting
+	
+	func _init(_next: int, _text: String) -> void:
+		super(_next)
+		self.choice_summary = _text
+	
+	func _to_string() -> String:
+		return "{next:%s, text:%s}" % [next, choice_summary]
 		
 #command which makes game yield for a specific amt of time
 class WaitNode:

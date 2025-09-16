@@ -54,8 +54,13 @@ class_name VN_Database
 
 @export var script_pool: Array[ScenarioScript]
 
+@export var episodes: Array[Episode_Resource]
+
 
 @export_group("Options")
 
-
+## Option to display or skip splash screens.
+@export var boot_screen := true
 @export var wait_by_default := true
+## Boots up the game and starts a fresh save for the initially loaded script. Mostly for debugging purposes.
+@export var skip_to_new := false

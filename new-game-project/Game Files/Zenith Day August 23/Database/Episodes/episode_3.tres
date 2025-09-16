@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Episode_Resource" load_steps=4 format=3 uid="uid://dmrkqnwgfk0rm"]
+
+[ext_resource type="Script" uid="uid://bbipppklny7he" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd" id="1_vq1cp"]
+
+[sub_resource type="Gradient" id="Gradient_2tdyh"]
+offsets = PackedFloat32Array(0, 0.995536, 1)
+colors = PackedColorArray(0.627203, 0.351341, 0.204036, 1, 0.976471, 0.768627, 0.32549, 1, 0.94902, 0.976471, 0.0980392, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sft8x"]
+gradient = SubResource("Gradient_2tdyh")
+
+[resource]
+script = ExtResource("1_vq1cp")
+main_title = "Into the Moonlit Inferno"
+number = 3
+level = 1
+episode_title = ""
+select_background = SubResource("GradientTexture1D_sft8x")
+metadata/_custom_type_script = "uid://bbipppklny7he"

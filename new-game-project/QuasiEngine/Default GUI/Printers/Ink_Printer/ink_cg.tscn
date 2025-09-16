@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc45bvtrob4oq"]
+
+[ext_resource type="Script" uid="uid://cxip0eoulk7i7" path="res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_cg.gd" id="1_rlsw4"]
+
+[sub_resource type="Gradient" id="Gradient_75d84"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6t3st"]
+gradient = SubResource("Gradient_75d84")
+
+[node name="CG" type="TextureRect"]
+custom_minimum_size = Vector2(942, 518)
+texture = SubResource("GradientTexture1D_6t3st")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("1_rlsw4")

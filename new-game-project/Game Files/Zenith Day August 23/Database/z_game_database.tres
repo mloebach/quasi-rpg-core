@@ -1,7 +1,15 @@
-[gd_resource type="Resource" script_class="VN_Database" load_steps=11 format=3 uid="uid://isas5au1qpcf"]
+[gd_resource type="Resource" script_class="VN_Database" load_steps=19 format=3 uid="uid://isas5au1qpcf"]
 
 [ext_resource type="Script" uid="uid://d1lrrn21y00" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/game_database.gd" id="1_5qp4a"]
+[ext_resource type="Script" uid="uid://bbipppklny7he" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd" id="1_liopo"]
+[ext_resource type="Resource" uid="uid://dxay6p6a8c36q" path="res://Game Files/Zenith Day August 23/Database/Episodes/prologue.tres" id="2_c356s"]
 [ext_resource type="Script" uid="uid://blb3v24v1q1u8" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/scenario_script.gd" id="2_liopo"]
+[ext_resource type="Resource" uid="uid://bm85jub1nh2bm" path="res://Game Files/Zenith Day August 23/Database/Episodes/episode_1.tres" id="3_g43kq"]
+[ext_resource type="Resource" uid="uid://svtw26v0ff6e" path="res://Game Files/Zenith Day August 23/Database/Episodes/episode_2.tres" id="4_rgtlm"]
+[ext_resource type="Resource" uid="uid://dmrkqnwgfk0rm" path="res://Game Files/Zenith Day August 23/Database/Episodes/episode_3.tres" id="5_wo37o"]
+[ext_resource type="Resource" uid="uid://cco63wvrq774" path="res://Game Files/Zenith Day August 23/Database/Episodes/episode_4.tres" id="6_4qrbf"]
+[ext_resource type="Resource" uid="uid://b50torhn41c10" path="res://Game Files/Zenith Day August 23/Database/Episodes/episode_5.tres" id="7_bu5a7"]
+[ext_resource type="Resource" uid="uid://cp4pjuvtilnov" path="res://Game Files/Zenith Day August 23/Database/Episodes/intermezzo_sun.tres" id="8_g43kq"]
 
 [sub_resource type="Resource" id="Resource_c356s"]
 script = ExtResource("2_liopo")
@@ -53,10 +61,30 @@ metadata/_custom_type_script = "uid://blb3v24v1q1u8"
 
 [resource]
 script = ExtResource("1_5qp4a")
-characters = Array[String](["uid://chfvmspfsixeu", "uid://by5ijkuxo0ast", "uid://bhlvaxfkdbna", "uid://sd5ejr3deglq", "uid://b4tfcls0vjtwg"])
+characters = Array[String](["uid://chfvmspfsixeu", "uid://by5ijkuxo0ast", "uid://bhlvaxfkdbna", "uid://sd5ejr3deglq", "uid://b4tfcls0vjtwg", "uid://6chxjmlqcufa", "uid://bvrlt8dq56yp5", "uid://c8cdnhluxxh21", "uid://u2iw56uiobhv", "uid://dq7apca4ojeik", "uid://bh55y8a1m3lro", "uid://0q3nd4t15wim", "uid://dufqgawh8iqg7", "uid://brkkj5c1p2wui", "uid://brb7gxirm1g24", "uid://baxuu6w4841yk", "uid://bxoesxrb4u7pw", "uid://ddvr4e8xmuqha", "uid://b8c66h638rxhx", "uid://cwxy0q0vjgadq", "uid://dohdhev7ramgu", "uid://oniyjv13bima", "uid://dddpovljciw7h"])
 cgs = Dictionary[String, String]({
 "BlackScreen": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/BlackScreen.png",
+"BloodMoon": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prologue/BloodMoon.png",
+"BurningSensation": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep4/BurningSensation.png",
+"DeyacronIntro": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prologue/DeyacronIntro.png",
+"EhrugarrEliminated": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep5/EhrugarrEliminated.png",
+"EhrugarrEye": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep5/EhrugarrEye.png",
+"EhrugarrIntro": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prologue/EhrugarrIntro.png",
+"Gunshot": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep4/Gunshot.png",
+"JQ3Gun": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep4/JQ3Gun.png",
+"JQ3Speaks": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep2/JQ3Speaks.png",
+"Lock1": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep4/Lock1.png",
+"Lock2": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep4/Lock2.png",
+"Lock3": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep4/Lock3.png",
+"OzapoldIntro": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prologue/OzapoldIntro.png",
+"OzapoldShock": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep2/OzapoldShock.png",
+"RedScreen": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep5/RedScreen.png",
 "TitleScreenPlaceholder": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/title_screen_placeholder.png",
+"TrophistusGun": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep4/TrophistusGun.png",
+"TrophistusHotpot": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep4/TrophistusHotpot.png",
+"TrophistusIntro": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prologue/TrophistusIntro.png",
+"TrophistusStab": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep5/TrophistusStab.png",
+"TrueCulpexMark": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep3/TrueCulpexMark.png",
 "VSDarkHusk1": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk1.png",
 "VSDarkHusk10": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk10.png",
 "VSDarkHusk11": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk11.png",
@@ -72,7 +100,12 @@ cgs = Dictionary[String, String]({
 "VSDarkHusk7": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk7.png",
 "VSDarkHusk8": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk8.png",
 "VSDarkHusk9": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/VsBlackHusk9.png",
-"WhiteScreen": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/WhiteScreen.png"
+"VeveyaIntro": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prologue/VeveyaIntro.png",
+"VeveyaSad1": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep5/VeveyaSad1.png",
+"VeveyaSad2": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep5/VeveyaSad2.png",
+"WhiteScreen": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/WhiteScreen.png",
+"WorldMap": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prologue/Map.png",
+"ZenithianClock": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prologue/ZenithianClock.png"
 })
 title_screen_string = "Pilgrimage to Zenith"
 title_screen_subtitle_on = true
@@ -81,5 +114,8 @@ default_printer = "Ink"
 printers = Array[String](["res://QuasiEngine/Default GUI/Printers/dialogue_printer.tres", "res://QuasiEngine/Default GUI/Printers/ink_printer.tres"])
 initial_script = "Disclaimer"
 script_pool = Array[ExtResource("2_liopo")]([SubResource("Resource_c356s"), SubResource("Resource_5qp4a"), SubResource("Resource_liopo"), SubResource("Resource_d2dka"), SubResource("Resource_vwo38"), SubResource("Resource_pyngs"), SubResource("Resource_7pjyd"), SubResource("Resource_phvnm")])
+episodes = Array[ExtResource("1_liopo")]([ExtResource("2_c356s"), ExtResource("3_g43kq"), ExtResource("4_rgtlm"), ExtResource("5_wo37o"), ExtResource("6_4qrbf"), ExtResource("7_bu5a7"), ExtResource("8_g43kq")])
+boot_screen = false
 wait_by_default = true
+skip_to_new = true
 metadata/_custom_type_script = "uid://d1lrrn21y00"

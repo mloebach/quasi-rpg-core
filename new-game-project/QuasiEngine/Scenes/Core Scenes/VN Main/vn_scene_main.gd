@@ -26,7 +26,7 @@ func _ready() -> void:
 		GlobalData.script_data_loaded = true
 	
 	#initial script
-	_play_scene(GlobalData.game_db.initial_script, 0)
+	_play_scene(GlobalData.opening_script, 0)
 	
 	
 func _get_all_node_trees() -> void:
@@ -71,6 +71,7 @@ func _play_scene(scene_path: String, start_index: int) -> void:
 
 	#edit this to feature story tree once that's in
 	_story_player.load_scene(GlobalData.script_trees[scene_to_load], destination_label, start_index)
+	current_script = scene_to_load
 	if !played_scripts.has(scene_to_load):
 		played_scripts.append(scene_to_load)
 	

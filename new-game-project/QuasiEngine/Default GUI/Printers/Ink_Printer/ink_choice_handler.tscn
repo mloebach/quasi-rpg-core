@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c608ddey8i8hu"]
+
+[ext_resource type="Script" uid="uid://dh872cxob30ex" path="res://QuasiEngine/Default GUI/Printers/Ink_Printer/choice_handler.gd" id="1_7pytu"]
+[ext_resource type="PackedScene" uid="uid://wevc6r2mbfos" path="res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_choice.tscn" id="2_7pytu"]
+
+[node name="ChoiceHandler" type="PanelContainer"]
+script = ExtResource("1_7pytu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="ChoiceVbox" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Choice" parent="MarginContainer/ChoiceVbox" instance=ExtResource("2_7pytu")]
+visible = false
+layout_mode = 2

@@ -1,3 +1,5 @@
+@clearPrinter
+
 Prelude
 
 
@@ -71,7 +73,7 @@ No [b]Yes[/b]
 
 @cg VSDarkHusk3
 
-[There is a shi everyone’s behavior a er the Dark Husk’s third rotation of spells. If there’s any hope of breaking through the Dark Husk’s massive health bar, it’s through you, {zenith_name}.]
+[There is a shi everyone’s behavior after the Dark Husk’s third rotation of spells. If there’s any hope of breaking through the Dark Husk’s massive health bar, it’s through you, {zenith_name}.]
 [Nerinorin switches from using expensive damaging spells to cheaper single-target buffs applied to Zenith.]
 [After Ipholsia revives Lannus, she switches from applying defensive spells to exclusively using group healing spells.]
 [Lannus, once back up, switching from attacking to using Mana restoring items on the party.]
@@ -215,5 +217,25 @@ Lannus: “You’ll...”
 [The Dark Husk... has been defeated.]
 [The battle concludes.]
 
+[Cut back to the overworld. {zenith_name} is alone.]
+[The door to the Zenithian Bell is in the door behind them, and to save the world, {zenith_name} just has to walk to it and make the wish.]
+[{zenith_name}’s walking speed has been reduced to a crawl. All items in their inventory are gone.]
+[They feel incredibly tired.]
+
+[We eventually make it to the Zenithian Bell. It is inside a beautiful spring, filled with life.]
+[{zenith_name} weakly walks up to the bell, and rings it.]
+[Light erupts from the spring.]
+[{zenith_name} falls over, and fades into peacefully into flickers of spectral dust.]
+[Cut to a continent floating in the sky, covered in haze. A beam of white light erupts upwards, streaming straight into the sky.]
+[The screen gradually fades into white.]
+
+@cg WhiteScreen
+...
+@cg BlackScreen
+...
+[Shift in User Interface from RPG to Visual Novel]
+
+@firstScript Prologue
+@goto Prologue
 
 @stop

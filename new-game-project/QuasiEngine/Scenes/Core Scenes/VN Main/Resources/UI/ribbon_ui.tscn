@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cigj4veevwr8i"]
+[gd_scene load_steps=4 format=3 uid="uid://cigj4veevwr8i"]
 
 [ext_resource type="Script" uid="uid://lxjlmmht5n3h" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/ribbon_ui.gd" id="1_fnfd7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsgmd"]
+bg_color = Color(0.28512, 0.2448, 0.36, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnfd7"]
 bg_color = Color(0.267867, 0.35, 0.238, 1)
@@ -35,6 +38,15 @@ alignment = 1
 [node name="LeftSide" type="HBoxContainer" parent="MarginContainer/OptionsPanel"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="StatusButton" type="Button" parent="MarginContainer/OptionsPanel/LeftSide"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_wsgmd")
+text = "STATUS"
 
 [node name="SaveButton" type="Button" parent="MarginContainer/OptionsPanel/LeftSide"]
 layout_mode = 2
@@ -46,9 +58,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "LOG"
 
+[node name="PauseDebug" type="Button" parent="MarginContainer/OptionsPanel/LeftSide"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+text = "Pause"
+
 [node name="AutoButton" type="Button" parent="MarginContainer/OptionsPanel/LeftSide"]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fnfd7")
 toggle_mode = true
 text = "AUTO"
@@ -61,7 +82,7 @@ alignment = 2
 [node name="LeftSpace" type="Control" parent="MarginContainer/OptionsPanel/RightSide"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.45
+size_flags_stretch_ratio = 2.0
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/OptionsPanel/RightSide"]
 layout_mode = 2
@@ -73,6 +94,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "QUIT"
 
+[connection signal="button_up" from="MarginContainer/OptionsPanel/LeftSide/StatusButton" to="." method="_on_status_button_button_up"]
+[connection signal="toggled" from="MarginContainer/OptionsPanel/LeftSide/PauseDebug" to="." method="_on_log_button_toggled"]
 [connection signal="toggled" from="MarginContainer/OptionsPanel/LeftSide/AutoButton" to="." method="_on_auto_button_toggled"]
 [connection signal="button_up" from="MarginContainer/OptionsPanel/RightSide/SettingsButton" to="." method="_on_settings_button_button_up"]
 [connection signal="button_up" from="MarginContainer/OptionsPanel/RightSide/QuitButton" to="." method="_on_quit_button_button_up"]

@@ -8,7 +8,7 @@ const DEFAULT_POSE = "Default"
 @export_group("Name")
 @export var name : String
 @export var display_name : String
-
+@export var full_name: String
 
 @export_group("Visuals")
 
@@ -22,3 +22,7 @@ const DEFAULT_POSE = "Default"
 @export var DefaultSprite : String = DEFAULT_POSE
 @export var sprite_resources : Dictionary[String, Texture2D] = {}
 @export var icon_resources : Dictionary[String, Texture2D] = {}
+
+@export_group("Variables")
+@export var custom_variables : Dictionary[String, String] = {}
+@export var tags : Array[String] = []

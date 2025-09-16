@@ -18,6 +18,14 @@ class StoryTree:
 		nodes[index] = node
 		index += 1
 		
+	func find_label(_label : String) -> int:
+		var index := 0
+		for node in nodes.values(): #this might be slow
+			if node is TreeNode.LabelNode and node.label == _label:
+				return index
+			index+=1
+		return -1
+		
 #takes in syntax tree created from the parser and turns it into story tree usable by story player
 func transpile(syntax_tree: SceneParser.SyntaxTree, start_index: int) -> StoryTree:
 	var story_tree := StoryTree.new()
@@ -101,6 +109,8 @@ func _transpile_command(story_tree: StoryTree, expression: SceneParser.BaseExpre
 			else: #transition not specified
 				command_node = TreeNode.ViewportNode.new(story_tree.index + 1, openingArg)
 				command_node.args.append("id")
+		SceneLexer.BUILT_IN_COMMANDS.CHOICE:
+			command_node = TreeNode.ChoiceNode.new(story_tree.index + 1, initial_value)
 		SceneLexer.BUILT_IN_COMMANDS.PLAY_BGM:
 			#var openingArg: String = expression.arguments[0].value
 			#command_node = BGMCommandNode.new(story_tree.index + 1, expression.arguments[0].value)
@@ -123,7 +133,8 @@ func _transpile_command(story_tree: StoryTree, expression: SceneParser.BaseExpre
 		SceneLexer.BUILT_IN_COMMANDS.WAIT:
 			command_node = TreeNode.WaitNode.new(story_tree.index + 1, initial_value)
 			command_node.args.append("waitTime")
-		SceneLexer.BUILT_IN_COMMANDS.SET_VARIABLE:
+		SceneLexer.BUILT_IN_COMMANDS.SET_VARIABLE, \
+		SceneLexer.DEBUG_COMMANDS.FIRST_SCRIPT:
 			command_node = TreeNode.SetNode.new(story_tree.index + 1, initial_value)
 			command_node.args.append("expression")
 		SceneLexer.BUILT_IN_COMMANDS.LOAD_SCENE:
@@ -139,14 +150,23 @@ func _transpile_command(story_tree: StoryTree, expression: SceneParser.BaseExpre
 			command_node = TreeNode.JumpNode.new(story_tree.index+1, initial_value)
 			command_node.args.append("path")
 		SceneLexer.BUILT_IN_COMMANDS.STOP_SCRIPT, \
+		SceneLexer.BUILT_IN_COMMANDS.CLEAR_INK, \
 		SceneLexer.BUILT_IN_COMMANDS.STOP_VOICE, \
 		SceneLexer.BUILT_IN_COMMANDS.LOAD_TITLE:
 			command_node = TreeNode.CommandNode.new(story_tree.index + 1)
 		SceneLexer.BUILT_IN_COMMANDS.STOP_BGM, \
 		SceneLexer.BUILT_IN_COMMANDS.STOP_SFX:
 			command_node = TreeNode.AudioNode.new(story_tree.index + 1)
+		#CustomCommands.CUSTOM_COMMANDS:
+			#command_node = CustomCommands.CustomNode.new(story_tree.index + 1)
 		_:
-			push_error("Unrecognized command type `%s`" % expression.value)
+			var custcom = CustomCommands.new()
+			if custcom.custom_commands.find_key(expression.value):
+				print("Custom command ACTIVATE")
+				command_node = GlobalData.custom_command_functions.transpile_custom_command(initial_value, story_tree, expression)
+				#command_node = CustomCommands.CustomNode.new(story_tree.index + 1)
+			else:
+				push_error("Unrecognized command type `%s`" % expression.value)
 				
 	#now that it's figured out its identity, load its args into it
 	#it has to be bigger than one bc i think one is the smallest
@@ -172,7 +192,7 @@ func _transpile_command(story_tree: StoryTree, expression: SceneParser.BaseExpre
 		push_error("We don't know this command! - " + expression.value)
 		return command_node
 	command_node["command"] = expression.value
-	print(str(expression.value," CommandNode:", command_node))
+	#print(str(expression.value," CommandNode:", command_node))
 	return command_node
 
 #this is here to turn symbols back into one entity, ex score="Matt" would be two entities

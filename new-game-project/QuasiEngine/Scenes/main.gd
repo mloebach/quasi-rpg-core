@@ -1,6 +1,7 @@
 extends Node
 
 @export var project_scenes : Dictionary[String, PackedScene] = {
+	"splash": preload("res://QuasiEngine/Scenes/Secondary Scenes/Boot_Screen/boot_scene.tscn"),
 	"title": preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/title_scene_main.tscn"),
 	"vn": preload("res://QuasiEngine/Scenes/Core Scenes/VN Main/vn_scene_main.tscn")
 }
@@ -15,7 +16,12 @@ var current_scenes: Dictionary[String,Node]
 func _ready()-> void:
 	#boot into title screen asap. if there's anything else you wanna do
 	#put it before here.
-	_create_scene("title")
+	if(GlobalData.game_db.boot_screen):
+		_create_scene("splash")
+	elif(GlobalData.game_db.skip_to_new):
+		_create_scene("vn")
+	else:
+		_create_scene("title")
 	
 func _create_scene(scene_type: String):
 	#check to see if the scene is valid to begin with

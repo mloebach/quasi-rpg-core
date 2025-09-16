@@ -21,8 +21,8 @@ var ink_section_array : Array[InkSection]
 
 func initalize_printer(printer_data: PrinterResource):
 	super(printer_data)
-	_clear_all_text_items()
-	print("BTW, called from ink printer!")
+	clear_all_text_items()
+	#print("BTW, called from ink printer!")
 	
 	
 func set_printer_text(node: TreeNode.PrintNode):
@@ -57,13 +57,17 @@ func _create_cg() -> void:
 	print("CG on the way!")
 	#ink_section_array[ink_section_array.size()-1].icons.visible = true
 	ink_section_array[ink_section_array.size()-1].show_icons()
-	ink_section_array[ink_section_array.size()-1].cg.texture = load(
-		GlobalData.game_db.cgs[cg_queue.appearance]
+	#ink_section_array[ink_section_array.size()-1].cg.texture = load(
+		#GlobalData.game_db.cgs[cg_queue.appearance]
+	#)
+	
+	#ink_section_array[ink_section_array.size()-1].cg.visible = true
+	ink_section_array[ink_section_array.size()-1].create_cg(
+		load(GlobalData.game_db.cgs[cg_queue.appearance])
 	)
-	ink_section_array[ink_section_array.size()-1].cg.visible = true
 	cg_queue = null
 
-func _clear_all_text_items():
+func clear_all_text_items():
 	for child in ink_scroll.get_children():
 		child.queue_free()
 
@@ -72,30 +76,42 @@ func get_text_box() -> RichTextLabel:
 
 func await_input() -> void:
 	super()
-	ink_section_array[ink_section_array.size()-1].continue_button.visible = true
+	if choice_queue.size() > 0:
+		#ink_section_array[ink_section_array.size()-1].create_choice_handler()
+		_create_choices_on_printer()
+	else:
+		ink_section_array[ink_section_array.size()-1].continue_button.visible = true
 	scroll_to_bottom()
 	#scroll_container.set_v_scroll(scroll_container.get_v_scroll_bar().get_max())
 
 func end_line_procedure() -> void:
+	
 	ink_section_array[ink_section_array.size()-1].continue_button.visible = false
 
 #func _on_scroll_container_resized() -> void:
 	#print("RESIZE CONTAIN")
 	#scroll_container.set_v_scroll(ink_scroll.size.y)
+func create_choice_handler() -> ChoiceHandler:
+	return ink_section_array[ink_section_array.size()-1].create_choice_handler()
+	#var new_choice_handler = 
+	
 	
 func scroll_to_bottom() -> void:
 	await get_tree().create_timer(0.0).timeout #this function activates too early otherwise
 	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_EXPO)
 	tween.set_ease(Tween.EASE_IN_OUT)
-	print("Setting current to max - " + str(scroll_container.get_v_scroll_bar().value) + 
-	" vs " + str(scroll_container.get_v_scroll_bar().get_max()))
+	#print("Setting current to max - " + str(scroll_container.get_v_scroll_bar().value) + 
+	#" vs " + str(scroll_container.get_v_scroll_bar().get_max()))
 	
 	#set_deferred("scroll_vertical", scroll_container.get_v_scroll_bar().get_max())
+	var tween_time = 0.4
+	if(sweep):
+		tween_time = 0.0
 	
 	tween.tween_property(
 		scroll_container.get_v_scroll_bar(), "value",
-		scroll_container.get_v_scroll_bar().get_max(), 0.4
+		scroll_container.get_v_scroll_bar().get_max(), tween_time
 	 )
 	
 	#scroll_container.set_v_scroll(

@@ -1,6 +1,9 @@
 extends Control
 class_name TextPrinter
 
+#debug function which sets all wait times to zero to check if a script works
+@export var sweep : bool = false
+
 @export var secPerChar : float = 0.04
 @export var minimum_print_time : float = 0.7
 var _printer_traits: PrinterResource
@@ -11,17 +14,22 @@ var _input_timer := 0.0
 var _early_text := false
 #var _auto_timer := 0.0
 
+var choice_queue: Array[TreeNode.ChoiceNode]
+var choice_handler: ChoiceHandler
+
 signal command_done
 signal input_pressed
 signal end_print_line
+signal jump_selected
 
 #var skip_author := false
 
 func initalize_printer(printer_data: PrinterResource) -> void:
 	_printer_traits = printer_data
+	
 
 func set_printer_text(node: TreeNode.PrintNode):
-	print("Updating text! " + node.text)
+	#print("Updating text! " + node.text)
 
 	#swaps "text" for \"text\"
 	var node_text = node.text.trim_suffix("\"").trim_prefix("\"").replace("\\"+"\"", "\"")
@@ -37,8 +45,10 @@ func set_printer_text(node: TreeNode.PrintNode):
 	
 	var visible_index = 0
 	
+	
+	
 	if Util.str_to_bool(node.reset, _printer_traits.autoReset):
-		print("reseting text!")
+		#print("reseting text!")
 		clear_text()
 	else:
 		visible_index = get_text_box().length()
@@ -51,6 +61,9 @@ func set_printer_text(node: TreeNode.PrintNode):
 	elif(node.args.has("author")):
 		author_string = node.author
 		
+	
+	
+	
 	if(!get_author_text_box() == null):
 		get_author_text_box().clear()
 		
@@ -72,9 +85,13 @@ func set_printer_text(node: TreeNode.PrintNode):
 	
 	#scroll_to_bottom()
 	
+	GlobalData.tts_speak(node_text)
+	
 	var speed_multiplier = 1.0
 	if(node.args.has("speed")):
 		speed_multiplier = 1.0 / float(node.speed)
+	if(sweep): #debug function which eliminated waits
+		speed_multiplier = 0.0
 	var char_multiplier = 1.0
 
 	
@@ -117,8 +134,10 @@ func set_printer_text(node: TreeNode.PrintNode):
 			else:
 				char_multiplier = 1.0
 			#if Util.str_to_bool(node.wait, true):
+			
 			await get_tree().create_timer(secPerChar*speed_multiplier*char_multiplier).timeout
-			index+=1
+			if(!GlobalData.printer_paused):
+				index+=1
 	
 	
 	if(Util.str_to_bool(node.wait, true)):
@@ -135,40 +154,61 @@ func set_printer_text(node: TreeNode.PrintNode):
 		#figure out what to do with text marker when its time
 		#get_text_box().add_image(textDoneMarker, 28, 28, Color.WHITE, INLINE_ALIGNMENT_BOTTOM)
 		#_awaiting_input = true
-		await get_tree().create_timer(0.3).timeout
+		if(!sweep):
+			await get_tree().create_timer(0.3).timeout
 		await_input()
 		await input_pressed
 		
 
 		#textboxText.clear()
 		#textboxText.append_text(currentText)
-	print("sending end_print signal...")
+	#print("sending end_print signal...")
 	end_line_procedure()
 	end_print_line.emit()
 
+func _create_choices_on_printer():
+	if choice_queue.size() > 0:
+		if choice_handler == null: #create choice handler if there isn't one
+			if self is InkTextPrinter:
+				choice_handler = create_choice_handler()
+				
+		for choice in choice_queue:
+			choice_handler.add_choice(choice)
+		choice_queue.clear()
+		choice_handler.jump_selected.connect(_on_jump_selected)
+
+func _on_jump_selected(goto: String):
+	jump_selected.emit()
+
 func _process(delta: float) -> void:
+	
+	if(sweep):
+		minimum_print_time = 0.0
+	
 	if(_loading_text):
 		_input_timer += delta
 		#print("Waiting for input: " + str(_input_timer))
-		if(Input.is_action_just_pressed("advance_text") && _input_timer > minimum_print_time):
+		if((Input.is_action_just_pressed("advance_text") || sweep)&& _input_timer > minimum_print_time):
 			#_early_text = true
 			#_input_timer = 0
 			#get_text_box().visible_characters = -1
-			early_input()
+			if(!GlobalData.printer_paused):
+				early_input()
 			
 	
-	if(Input.is_action_just_pressed("advance_text") && _awaiting_input):
+	if(Input.is_action_just_pressed("advance_text") && _awaiting_input && !GlobalData.printer_paused):
 		print("input recieved! advancing text")
 		advance_text()
 		#_awaiting_input = false
 		#input_pressed.emit()
 		
-	if(_awaiting_input && GlobalData.auto_printer_on):
+	if(_awaiting_input && GlobalData.auto_printer_on && !GlobalData.printer_paused):
 		GlobalData.auto_timer += delta
 		print("AUTO TIMER: " + str(GlobalData.auto_timer))
-	if(GlobalData.auto_timer > GlobalData.auto_timer_wait):
+	if(GlobalData.auto_timer > GlobalData.auto_timer_wait || sweep):
 		#auto timer trigger
-		advance_text()
+		if(!GlobalData.printer_paused):
+			advance_text()
 
 func early_input():
 	_early_text = true
@@ -190,6 +230,9 @@ func end_line_procedure():
 	
 func scroll_to_bottom():
 	#this is a function for your children to work with
+	pass
+	
+func create_choice_handler():
 	pass
 	
 func await_input() -> void:

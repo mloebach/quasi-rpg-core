@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Char_Resource" load_steps=3 format=3 uid="uid://bh55y8a1m3lro"]
+
+[ext_resource type="Script" uid="uid://kgm3wyx8dk7n" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd" id="1_qtenq"]
+[ext_resource type="Texture2D" uid="uid://b2car0x4gcve2" path="res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/jq3Icon.png" id="1_rdd8d"]
+
+[resource]
+script = ExtResource("1_qtenq")
+hint = ""
+name = "JQ3"
+display_name = "JQ3"
+full_name = ""
+use_character_color = false
+character_color = Color(0, 0, 0, 1)
+DefaultSprite = "Default"
+sprite_resources = Dictionary[String, Texture2D]({})
+icon_resources = Dictionary[String, Texture2D]({
+"Default": ExtResource("1_rdd8d")
+})
+custom_variables = Dictionary[String, String]({
+"Role": "Lightning"
+})
+tags = Array[String](["Voyager"])
+metadata/_custom_type_script = "uid://kgm3wyx8dk7n"

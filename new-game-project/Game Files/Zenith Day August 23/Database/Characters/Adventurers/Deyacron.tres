@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Char_Resource" load_steps=3 format=3 uid="uid://c8cdnhluxxh21"]
+
+[ext_resource type="Texture2D" uid="uid://ur6y4tq8byfn" path="res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/DeyacronIcon.png" id="1_f1ne3"]
+[ext_resource type="Script" uid="uid://kgm3wyx8dk7n" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd" id="1_gss8k"]
+
+[resource]
+script = ExtResource("1_gss8k")
+hint = ""
+name = "Deyacron"
+display_name = "Deyacron"
+full_name = "Deyacron Laxamana"
+use_character_color = false
+character_color = Color(0, 0, 0, 1)
+DefaultSprite = "Default"
+sprite_resources = Dictionary[String, Texture2D]({})
+icon_resources = Dictionary[String, Texture2D]({
+"Default": ExtResource("1_f1ne3")
+})
+custom_variables = Dictionary[String, String]({
+"Role": "Arctic"
+})
+tags = Array[String](["Voyager"])
+metadata/_custom_type_script = "uid://kgm3wyx8dk7n"

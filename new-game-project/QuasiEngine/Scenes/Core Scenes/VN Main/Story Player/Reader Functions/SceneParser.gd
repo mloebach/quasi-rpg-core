@@ -182,7 +182,10 @@ class Parser:
 				#starts on newline otherwise. should it automove?
 				if(self.peek_at_next_token().type == SceneLexer.TOKEN_TYPES.NEWLINE):
 					self.move_to_next_token()
-				return BlockFunctionExpression.new(current_token.type, current_token.value, arguments, parse_indented_block())
+				if(self.peek_at_next_token().type== SceneLexer.TOKEN_TYPES.BEGINBLOCK):
+					return BlockFunctionExpression.new(current_token.type, current_token.value, arguments, parse_indented_block())
+				else:
+					return FunctionExpression.new(current_token.type, current_token.value, arguments)
 			elif (
 				current_token.value == SceneLexer.BUILT_IN_COMMANDS.IF
 			):

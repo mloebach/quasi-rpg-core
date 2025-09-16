@@ -4,7 +4,7 @@
 
 [node name="ParserTest" type="Node2D"]
 script = ExtResource("1_l6ao1")
-example_script = "res://Game Files/Test Game/Game Scripts/Indent Test.story"
+example_script = "res://Game Files/Zenith Day August 23/Game Scripts/Disclaimer.story"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_right = 1897.0

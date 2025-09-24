@@ -13,7 +13,5 @@ gradient = SubResource("Gradient_2tdyh")
 script = ExtResource("1_vq1cp")
 main_title = "Into the Moonlit Inferno"
 number = 3
-level = 1
-episode_title = ""
 select_background = SubResource("GradientTexture1D_sft8x")
 metadata/_custom_type_script = "uid://bbipppklny7he"

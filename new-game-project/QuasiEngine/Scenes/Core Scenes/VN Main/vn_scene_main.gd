@@ -11,10 +11,12 @@ var lexer := SceneLexer.new()
 var parser := SceneParser.new()
 var transpiler := SceneTranspiler.new()
 
-var current_script : String
+#var current_script : String
 #var scene_trees : Dictionary[String, String] = {}
 var played_scripts : Array[String] = []
 signal switch_scene
+
+#var subscript_stack: Array[StoryPlayer.ScenarioLine]
 
 
 func _ready() -> void:
@@ -54,7 +56,7 @@ func _play_scene(scene_path: String, start_index: int) -> void:
 	#split scene path [0] = scene, split scene path [1] = label
 	var split_scene_path = scene_path.split(".", 1)
 	if split_scene_path[0] == "":
-		scene_to_load = current_script
+		scene_to_load = GlobalData.current_script
 	else:
 		scene_to_load = split_scene_path[0]
 	if split_scene_path.size() > 1:
@@ -68,10 +70,12 @@ func _play_scene(scene_path: String, start_index: int) -> void:
 		_story_player.scene_finished.connect(_on_scene_finished)
 		_story_player.jump_into_scene.connect(_on_jump_into_scene)
 		_story_player.swap_out_of_vn.connect(_on_swapping_out_of_vn)
+		#_story_player.stack_subscript.connect(_on_stack_subscript)
 
 	#edit this to feature story tree once that's in
 	_story_player.load_scene(GlobalData.script_trees[scene_to_load], destination_label, start_index)
-	current_script = scene_to_load
+	GlobalData.current_script = scene_to_load
+	GlobalData.current_label = destination_label
 	if !played_scripts.has(scene_to_load):
 		played_scripts.append(scene_to_load)
 	
@@ -96,3 +100,6 @@ func _on_jump_into_scene(scene_to_load: String, index: int) -> void:
 func _on_swapping_out_of_vn(scene_to_load: String, additive: String = "false"):
 	GlobalData.current_scene_status = GlobalData.SceneTypes.out_of_game
 	switch_scene.emit(scene_to_load, additive)
+
+#func _on_stack_subscript(line: StoryPlayer.ScenarioLine) -> void:
+	#subscript_stack.append(line)

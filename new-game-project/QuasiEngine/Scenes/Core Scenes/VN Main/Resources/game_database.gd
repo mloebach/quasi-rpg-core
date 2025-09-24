@@ -64,3 +64,7 @@ class_name VN_Database
 @export var wait_by_default := true
 ## Boots up the game and starts a fresh save for the initially loaded script. Mostly for debugging purposes.
 @export var skip_to_new := false
+
+@export_group("Debug")
+## Zero wait time in dialogue, instantly skips to next line. Purely for testing.
+@export var sweep : bool = false

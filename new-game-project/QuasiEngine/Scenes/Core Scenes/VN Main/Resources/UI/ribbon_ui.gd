@@ -6,6 +6,11 @@ signal auto_toggled
 signal create_status_menu
 
 @onready var auto_button = $MarginContainer/OptionsPanel/LeftSide/AutoButton
+@onready var status_button = $MarginContainer/OptionsPanel/LeftSide/StatusButton
+
+func _ready() -> void:
+	#ZenithCustomCommands.update_ui.connect(_om_update_ui)
+	pass
 
 func _on_settings_button_button_up() -> void:
 	create_settings_menu.emit()
@@ -29,6 +34,12 @@ func _on_status_button_button_up() -> void:
 	GlobalData.pause_printer()
 	auto_button.set_pressed(false)
 
+func _om_update_ui(ui: String, visibile: bool):
+	match ui:
+		"status":
+			status_button = visible
+		_:
+			push_warning("Unknown ui updated " + ui)
 
 
 #this is going to be the current fake pause button

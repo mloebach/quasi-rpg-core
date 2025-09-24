@@ -12,7 +12,5 @@ gradient = SubResource("Gradient_enit1")
 script = ExtResource("1_enit1")
 main_title = "Into the Sunken Fortune"
 number = 4
-level = 1
-episode_title = ""
 select_background = SubResource("GradientTexture1D_v68iq")
 metadata/_custom_type_script = "uid://bbipppklny7he"

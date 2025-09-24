@@ -49,8 +49,8 @@ theme_override_constants/margin_bottom = 10
 
 [node name="SpeakerText" type="RichTextLabel" parent="VBoxContainer/AuthorHbox/PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/italics_font_size = 45
 theme_override_font_sizes/normal_font_size = 45
+theme_override_font_sizes/italics_font_size = 45
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
@@ -86,10 +86,10 @@ theme_override_constants/margin_bottom = 40
 layout_mode = 2
 theme_override_constants/line_separation = 15
 theme_override_fonts/normal_font = ExtResource("2_xwb0d")
-theme_override_font_sizes/bold_italics_font_size = 45
-theme_override_font_sizes/italics_font_size = 45
 theme_override_font_sizes/normal_font_size = 45
 theme_override_font_sizes/bold_font_size = 45
+theme_override_font_sizes/bold_italics_font_size = 45
+theme_override_font_sizes/italics_font_size = 45
 bbcode_enabled = true
 text = "Bakushin! Bakushin! Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!Bakushin! Bakushin!"
 fit_content = true

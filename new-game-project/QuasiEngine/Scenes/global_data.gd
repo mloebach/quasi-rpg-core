@@ -3,9 +3,11 @@
 extends Node
 class_name Global_Data
 
+
 #we're putting the story trees here so we don't need to do it over and over
 
 #var global_save : GlobalSave = preload("res://QuasiEngine/Scenes/_Debug/Test_saves/test_global_fresh.tres")
+const game_name : String = "Zenith Project"
 var global_save : GlobalSave = GlobalSave.new()
 var game_db: VN_Database = preload("res://Game Files/Zenith Day August 23/Database/z_game_database.tres")
 var current_scene_status = SceneTypes.out_of_game
@@ -19,6 +21,8 @@ var opening_script : String
 var script_trees : Dictionary [String, SceneTranspiler.StoryTree] = {
 	
 }
+var current_script: String = ""
+var current_label: String = ""
 
 var auto_printer_on := false
 var auto_timer := 0.0
@@ -93,11 +97,20 @@ func create_new_save(player_name: String, slot: int):
 	print("New file for " + player_name + " created at slot " + str(slot))
 	global_save.current_player_slot = slot
 	var new_save = PlayerSave.new()
+	
 	new_save.player_name = player_name
 	new_save.file_index = slot
 	global_save.player_saves[slot] = new_save
 	ingame_variables["zenith_name"] = "[" + player_name.to_upper() + "]"
+	var dir = DirAccess.open("user://" + game_name)
+	dir.make_dir(player_name)
 	#global_save.player_saves.append(new_save)
+	dir.change_dir(player_name)
+	dir.make_dir("Manual Saves")
+	dir.make_dir("Point Saves")
+	var file = FileAccess.open(dir, FileAccess.WRITE)
+	file.store_string("test global data")
+	file.close()
 	
 func _process(delta: float) -> void:
 	

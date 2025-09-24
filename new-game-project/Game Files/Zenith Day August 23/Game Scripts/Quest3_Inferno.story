@@ -1,6 +1,7 @@
 @clearPrinter
 
 [b]Episode 3:[/b] Into the Moonlight Inferno
+@set episode=3
 
 • This episode starts of with a Zenith Flashback.
 • We are currently in the Skychosen Lands. {zenith_name} is on their second dungeon.
@@ -541,6 +542,10 @@ Scene with the bandits
 • Out of the airship….pops Kennewick.
 • Surprise!
 • Kennewick is back, and she’s now a competitor.
+
+@status Kennewick.Active
+
+
 • The cast is…confused. Kennewick got eliminated, didn’t she? The process was fair and square. Well, maybe not that. But can
 an elimination be rolled back like that?
 • Pihqura decided this after a letter from Culpex arguing for her re-inclusion
@@ -791,6 +796,11 @@ Someone who is able to succeed in a broad amount of challenges?
 "Huh?"
 ▪ “Just kidding.”
 
+...
+
+@gosub Voting
+...
+
 ——————
 • The Challenge Begins. 
 ◦ (dear god this quest needs some more meat on its bones next draft)
@@ -1012,6 +1022,8 @@ on health, it would make no difference if he used it right at the start.
 ◦ Ehrugarr feels the energy return to him. He stands tall, he is now free from Regamirr’s control
 • A grand ringing is heard throughout the islands.
 • The third bell…has chosen it’s sacrifice.
+
+@status Regamirr.Eliminated
 ——————
 
 • Ehrugarr and Regamirr shake hands

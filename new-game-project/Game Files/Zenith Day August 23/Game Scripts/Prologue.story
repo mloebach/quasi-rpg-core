@@ -1,4 +1,5 @@
 @clearPrinter
+@set episode=0
 
 [b]Prologue[/b]
 
@@ -299,6 +300,9 @@ Does Qujeon accept?
 ...
 Qujeon is caught in their excitement, but also doesn’t know what to say.
 With no hesitation, they accept the contract.
+
+@status Quzeon.Active
+
 The worker casts magic on the stone. It’s light fades away and a brand is etched onto Qujeon’s hand - a glowing outline of a dagger.
 Qujeon is thanked for their cooperation. They tell Qujeon that the Pilgrimage will start in two weeks.
 By that time, they will need to meet up with the other adventurers at the [i]Graddian Airship Port.[/i]
@@ -580,6 +584,9 @@ As Yunyere helps Qujeon up, Yunyere notices the brand on his hand - the brand of
 After Qujeon asks where Yunyere is going, Yunyere reveals he is going to the Graddian Airship Port.
 Wait, the Graddian Airship Port?
 Yunyere takes his glove off and reveals the brand of the [b]Knight.[/b]
+
+@status Yunyere.Active
+
 He is also an adventurer in the Pilgrimage!
 Yunyere and Qujeon decide to accompany each other through the journey ahead. Better to work as a pair just in case they run into another big monster.
 
@@ -626,6 +633,8 @@ The man walks over, and shakes Regamirr’s hand.
 
 @cg OzapoldIntro
 “Miss Tanglao! This is [i]Ozapold Alonto[/i], reporting in! It is an honor to serve in this Pilgrimage, and I swear on my cannon I won’t let you or Sir Pihqura down!”
+@status Ozapold.Active
+
 
 @icon Quzeon
 Qujeon reacts... quite a wordy introduction.
@@ -650,6 +659,9 @@ They converge with the rest of the group.
 They introduce themselves.
 @icon Deyacron
 Her name is Deyacron Laxamana.
+
+@status Deyacron.Active
+
 She is a Bounty Knight that is an officer under the P.F.K.
 
 The P.F.K, aka the Peace Force Knights. They are a group of elite operators that work to protect Platorean citizens from monsters and other forces of evil.
@@ -683,9 +695,12 @@ Uelgwold:  “☜ ✠ ✌ ❄ ☹ ✡  ☟ ✌ ❄ ⚐ ❄ ⚐ ☠ ⚐ ⚐ ⚐  
 @icon JQ3
 “Well, looks like I’m part of a group project now. If we put our heads together, we’ll find Zenith. That’s how this works, right?”
 “[b]JQ3.[/b] Not really my name, but it’s most efficient if you refer to me like that.”
+@status JQ3.Active
 JQ3 converses with the other adventurers.
 
 The person she’s with is, allegedly, [i]Uelgwold Radiomoda.[/i] She has the brand of the Lightning, and Uelgwold has the brand of the Inferno. 
+@status Uelgwold.Active
+
 The question of what Uelgwold just said is asked. That is clearly [b]High Aquolion[/b] he spoke....something most people here
 can’t speak.
 Nobody here can speak it fluently, not even Regamirr. She can at most read a bit of it. 
@@ -697,7 +712,6 @@ Also, JQ3 isn’t her real name, but a codename.
 
 @icon JQ3
 “My real name is Jairatoubis Quijano the Third. It became a real a mouthful for most people, and you could prolly save yourself some time by just calling me JQ3.”
-
 JQ3 is an inventor, and is currently looking to make her next scientific breakthrough.
 
 @icon Uelgwold
@@ -731,6 +745,8 @@ We learn who this is.
 @icon Veveya
 
 This is [b]Veveya Tibayan.[/b] She takes off one of her gloves to reveal the brand of the [i]Sorcerer.[\i]
+
+@status Veveya.Active
 She works as a tutor for people who want to learn how to use magic.
 She comes from a family of mages and has several brothers. Out of everyone in her family, Veveya is surprised she was the one who got in.
 She’s loved Pilgrimages her whole life, and was excited to watch the Sixth Pilgrimage from afar. Now that she’s been chosen for a Pilgrimage, things will be different.
@@ -760,6 +776,8 @@ This is...another adventurer.
 @cg TrophistusIntro
 “Good tidings, my fellow adventurers. I hope everyone’s journey to day the Pilgrimage has treated them well.”
 “My name is Trophistus Sumulong, Chief Executive of the Graddian Sea Trade Market. And to you, you will also see me play the role of the Ocean. I am incredibly pleased to be a part of this adventure with you.”
+
+@status Trophistus.Active
 
 This is the third Graddian? 
 @icon Quzeon
@@ -808,6 +826,8 @@ The person with the camera introduces themselves first.
 @icon Culpex
 “Hey up! How do you do? Name’s [b]Culpex Oracion![/b] Say, I have never seen Graddian trees up this close before! Do they look that picturesque every day?”
 
+@status Culpex.Active
+
 Culpex introduces themselves further. They take off their gloves to reveal their brand of the [b]Meadow[/b], and make sure to shake everyone’s hand.
 They are a historian who works as an archivist in Breizan’s Museum of Fine Arts.
 They are super super pumped to finally enter the Floating Continent! They brought their expensive smoke camera and everything, they want to get everything they can in photo.
@@ -818,6 +838,8 @@ Culpex then turns to the man next to them, who has been quiet and in their own h
 @cg EhrugarrIntro
 “...Ehrugarr Halili.”
 “...I’m the one with the Sands brand.”
+@status Ehrugarr.Active
+
 “If any of us must battle, don’t you dare hold anything back. Give me a good fight.”
 “...”
 
@@ -851,6 +873,8 @@ A kid? Teenager? One of the adventurers in the game is someone this...obscure? S
 She looks incredibly skittish and out of place. But, there it is, there’s no mistake. The brand of the [b]Mountain[/b], on her arm.
 Can she even speak English / Common...? Do we have another Uelgwold?
 The Guard introduces the Mountain Adventurer to everyone in her place. This is [b]Liburri Canosa.[/b] She hails from a cave deep in Breizan’s mountain secluded from the rest of the world, and she was the most difficult adventurer for Pihqura to get a hold of.
+
+@status Liburri.Active
 She has no birth records due to her place of origin, but based on Pihqura’s research, she appears to be around seventeen years old.
 Since the contract responded to her, it appears she is needed in this game and will compete.
 
@@ -876,6 +900,8 @@ Someone asks why they went along with it for this long if they thought it was a 
 ...
 The guard speaks.
 [b]Havi Dimacuha[/b], you have been chosen as one of the fifteeen adventurers that will participate in the Sixth Zenith Pilgrimage.
+
+@status Havi.Active
 Havi doesn’t believe it.
 This is a joke, right?
 Nah, there’s no way they of all people would be a Zenith candidate.
@@ -959,6 +985,8 @@ They give the cast an evil glare, and pose dramatically.
 Regamirr sighs. Who the hell does this person think she is, attacking a government official?
 This can’t be Kennewick. This Kennewick’s personality is completely different!
 Kennewick holds her palm out - the brand of the [b]Underworld.[/b]
+@status Kennewick.Active
+
 Sure enough...this is the same Kennewick.
 Kennewick makes herself known with a speech to the other adventurers.
 After being drafted into the Pilgrimage, Kennewick made a discovery about her past - she is distant distant blood relatives to a warlock from Breizan’s past who ruled over East Breizan with an iron rule.
@@ -992,6 +1020,8 @@ Surprise! She was invisible this whole time.
 (PRETEND I FORMALLY INTRODUCED HER)
 Her name is [b]Winckary Pandoro.[/b] She is fighting under the [b]Heavens[/b] role.
 
+@status Winckary.Active
+
 We still have one last adventurer le to be revealed.
 The [b]Marksman[/b] adventurer.
 ...
@@ -1012,6 +1042,9 @@ Regamirr takes off her gloves.
 On her left palm...
 The cast react.
 “You…you have the Marksman brand!?”
+
+@status Regamirr.Active
+
 “But, how? You’ve [b]already[/b]…”
 The other participants are surprised.
 Regamirr closes her eyes.
@@ -1106,6 +1139,7 @@ And, in that field, staring upwards…
 
 @cg WhiteScreen
 Cut to white.
+
 ...
 
 Flash forward

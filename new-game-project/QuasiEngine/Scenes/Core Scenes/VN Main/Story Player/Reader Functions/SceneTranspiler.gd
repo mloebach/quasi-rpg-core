@@ -37,9 +37,42 @@ func transpile(syntax_tree: SceneParser.SyntaxTree, start_index: int) -> StoryTr
 				var node := TreeNode.LabelNode.new(story_tree.index+1, expression.value)
 				story_tree.append_node(node)
 			SceneParser.EXPRESSION_TYPES.COMMAND:
-				var node := _transpile_command(story_tree, expression)
-				if node == null: continue
-				story_tree.append_node(node)
+				
+				if expression is SceneParser.BlockFunctionExpression:
+					var original_value : int = story_tree.index
+					story_tree.index += UNIQUE_GROUP_ID_MODIFIER
+					
+					if expression.block != null:
+						var subtree := SceneParser.SyntaxTree.new()
+						subtree.values = expression.block
+						story_tree.index +=1
+						var block_tree : StoryTree = transpile(subtree, story_tree.index)
+						_copy_nodes(original_value, block_tree.nodes.keys(), story_tree, block_tree)
+					#for block in expression.value:
+						#var subtree := SceneParser.SyntaxTree.new()
+						#subtree.values = block.value
+						#story_tree.index += 1
+						#var block_tree : StoryTree = transpile(subtree, story_tree.index)
+						#_copy_nodes(original_value, block_tree.nodes.keys(), story_tree, block_tree)
+					story_tree.index = original_value
+					match expression.value:
+						SceneLexer.BUILT_IN_COMMANDS.CHOICE:
+							
+							var choices := []
+							#var initial_value = _build_value_from_symbol(expression)
+							#var command_node = TreeNode.ChoiceNode.new(story_tree.index + 1, initial_value)
+							var node := _transpile_command(story_tree, expression)
+							
+							#9/20/25 - come back to this later
+							#var branch_node = TreeNode.ChoiceBranchNode.new(story_tree.index+1, choices)
+							#story_tree.append_node(branch_node)
+							story_tree.append_node(node) #get rid of this after 9/20/25
+						_:
+							push_warning("Unknown Boxed Command!")
+				else:
+					var node := _transpile_command(story_tree, expression)
+					if node == null: continue
+					story_tree.append_node(node)
 			_:
 				push_error("Unrecognized expression of type: %s with value: %s" % [expression.type, expression.value])
 		
@@ -110,7 +143,10 @@ func _transpile_command(story_tree: StoryTree, expression: SceneParser.BaseExpre
 				command_node = TreeNode.ViewportNode.new(story_tree.index + 1, openingArg)
 				command_node.args.append("id")
 		SceneLexer.BUILT_IN_COMMANDS.CHOICE:
-			command_node = TreeNode.ChoiceNode.new(story_tree.index + 1, initial_value)
+			if expression is not SceneParser.BlockFunctionExpression:
+				command_node = TreeNode.ChoiceNode.new(story_tree.index + 1, initial_value)
+			else:
+				command_node = TreeNode.ChoiceNode.new(story_tree.index + 1 +UNIQUE_GROUP_ID_MODIFIER, initial_value)
 		SceneLexer.BUILT_IN_COMMANDS.PLAY_BGM:
 			#var openingArg: String = expression.arguments[0].value
 			#command_node = BGMCommandNode.new(story_tree.index + 1, expression.arguments[0].value)
@@ -184,6 +220,9 @@ func _transpile_command(story_tree: StoryTree, expression: SceneParser.BaseExpre
 				elif(arg_name == "as"):
 					command_node["authorOverride"] = arg_value
 					command_node.args.append("authorOverride")
+				elif(arg_name == "set"):
+					command_node["set_variable"] = arg_value
+					command_node.args.append("set_variable")
 				else:
 					command_node[arg_name] = arg_value
 					command_node.args.append(arg_name)
@@ -194,6 +233,17 @@ func _transpile_command(story_tree: StoryTree, expression: SceneParser.BaseExpre
 	command_node["command"] = expression.value
 	#print(str(expression.value," CommandNode:", command_node))
 	return command_node
+
+
+#adds nodes from source tree to target tree
+func _copy_nodes(original_value: int, nodes: Array, target_tree: StoryTree, source_tree: StoryTree)->void:
+	#source_tree.append_node() #there was a pass command node here
+	nodes.append(source_tree.nodes.keys().back())
+	
+	#add source trees notde to target tree
+	for node in nodes:
+		target_tree.nodes[node] = source_tree.nodes[node]
+		target_tree.index += 1
 
 #this is here to turn symbols back into one entity, ex score="Matt" would be two entities
 func _build_value_from_symbol(expression: SceneParser.BaseExpression):

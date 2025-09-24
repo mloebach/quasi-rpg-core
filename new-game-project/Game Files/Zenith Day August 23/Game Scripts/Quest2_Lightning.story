@@ -1,6 +1,7 @@
 @clearPrinter
 
 [b]Episode 2:[/b] Into the Maze of Lightning
+@set episode=2
 
 The challenge concludes, and the cast gather to the entrance of the forest.
 ...Kennewick is not present.
@@ -79,6 +80,8 @@ People are skeptical on how much they believe.
 ▪ …Readies their bat…
 ▪ And swings from the side, right in Kennewick’s chest!
 ◦ It’s a decisive blow! Kennewick is thrown out of the arena by the force of the swing, and knocked out cold.
+
+@status Kennewick.Eliminated
 
 • A grand ringing is heard throughout the forest.
 • The first bell…has chosen it’s sacrifice.
@@ -763,6 +766,13 @@ Ozapold: “WHAAAAAAAAT!? PREPOSTEROUS!”
 ◦ The tension Qujeon and Yunyere feel towards her is palpable to her.
 ◦ The safety of the group over the individual. If she must become the game’s enemy to stop catastrophe, she will.
 • Culpex says goodbye.
+@status Culpex.Eliminated
+
+...
+@gosub Voting
+...
+
+
 ◦ They allow Regamirr to keep their stolen weapons, and to return them to their rightful cultures.
 ◦ The Neptune Pearlshot is an artifact of the Flame People, the people in the next town.
 • Culpex runs off.
@@ -1057,7 +1067,7 @@ be moved by anything)
 • Yunyere looks down at Qujeon 
 • Yunyere’s health keeps dropping, the amount lost each second increasing little by little, until… 
 • Yunyere faints.
-
+@status Quzeon.Eliminated
 
 ———————————
 • Yunyere is revived

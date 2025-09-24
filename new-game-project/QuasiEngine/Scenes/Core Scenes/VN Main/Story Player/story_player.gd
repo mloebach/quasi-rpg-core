@@ -23,10 +23,15 @@ var _printer_objects: Dictionary[String, Node] = {}
 @onready var popup_ui = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/choice_popup_menu.tscn")
 @onready var settings_menu = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/settings_menu.tscn")
 
+var key : int
 var _scene_data := {}
 var _starting_index := 0
 var _input_command := false
 var _wait_command := true
+var break_story_loop := false
+
+var subscript_stack: Array[ScenarioLine]
+
 #var _auto_on := false
 
 var text_printer : TextPrinter
@@ -37,6 +42,8 @@ var gosub_stack : Array[ScenarioLine]
 signal scene_finished #current scene has run out of content
 signal jump_into_scene #end current scene early for new scene 
 signal swap_out_of_vn #when there needs to be a scene that isnt a vn
+#signal stack_subscript
+
 
 
 #change variable type if ever you need to shift commands
@@ -49,7 +56,7 @@ signal swap_out_of_vn #when there needs to be a scene that isnt a vn
 
 
 func _ready() -> void:
-	
+	_skip_to_new_funcs()
 	_load_ribbon_ui()
 	if !Settings.tts_toggle:
 		tts_toggle_text.visible = false
@@ -64,14 +71,15 @@ func load_scene(story: SceneTranspiler.StoryTree, label: String, index: int) -> 
 		print("found label!")
 		_starting_index = story.find_label(label) + index
 	else:
-		push_warning("Label not found! " + label)
+		if label != "":
+			push_warning("Label not found! :" + label)
 		_starting_index = index
 	return
 	
 	
 func run_scene() -> void:
 	print("running!")
-	var key : int = _starting_index
+	key = _starting_index
 	await get_tree().create_timer(0.0).timeout 
 	while key < _scene_data.size() && key != KEY_END_OF_SCENE:
 		#print("key " + str(key))
@@ -102,14 +110,20 @@ func run_scene() -> void:
 		#check conditional
 		if node is TreeNode.CommandNode && node.conditional != "":
 			
-			if !expressionCheck.check_conditional(node): #if conditional is false...
+			if !expressionCheck.check_conditional(node.conditional): #if conditional is false...
 				key = node.next #move on
 				continue
 	
 		var _new_actor = _evaluate_node(node, key)
 		
 		#if we jump, we don't care about the current script loop anymore.
-		if node is TreeNode.CommandNode && node.command == SceneLexer.BUILT_IN_COMMANDS.JUMP_TO:
+		if node is TreeNode.CommandNode && (
+				[
+					SceneLexer.BUILT_IN_COMMANDS.JUMP_TO,
+					SceneLexer.BUILT_IN_COMMANDS.SUBSCRIPT_JUMP_TO,
+					SceneLexer.BUILT_IN_COMMANDS.SUBSCRIPT_RETURN,
+				].has(node.command)
+			):
 			break
 		#special case for @stop
 		if node is TreeNode.CommandNode && node.command == SceneLexer.BUILT_IN_COMMANDS.STOP_SCRIPT:
@@ -120,6 +134,11 @@ func run_scene() -> void:
 		if _new_actor != null && _input_command:
 			await _new_actor.end_print_line
 			_input_command = false
+			if break_story_loop:
+				break_story_loop = false
+				break
+			
+			
 		#print("next key is " + str(node.next))
 		key = node.next
 	
@@ -141,12 +160,26 @@ func _evaluate_node(node: TreeNode.BaseNode, key: int):
 		SceneLexer.BUILT_IN_COMMANDS.CHOICE:
 			#_new_actor = _create_choice(node)
 			_create_choice(node)
+		SceneLexer.BUILT_IN_COMMANDS.SET_VARIABLE:	
+			_set_ingame_variable(node)
 		SceneLexer.BUILT_IN_COMMANDS.CLEAR_INK:
-			_new_actor = _clear_ink_printer(node)
+			_new_actor = _clear_ink_printer()
 		SceneLexer.BUILT_IN_COMMANDS.JUMP_TO:
 			jump_into_scene.emit(node.path, 0)
 			#var scenario_line = ScenarioLine.new(node.path, key)
 			#gosub_stack.push_back(scenario_line)
+		SceneLexer.BUILT_IN_COMMANDS.SUBSCRIPT_JUMP_TO:
+			#stack_subscript.emit(ScenarioLine.new(GlobalData.current_script, key))
+			print("Gosub entering!")
+			#var current_label = GlobalData.current_script + "." + GlobalData.current_label
+			var current_label = GlobalData.current_script
+			subscript_stack.append(ScenarioLine.new(current_label, node.next))
+			jump_into_scene.emit(node.path, 0)
+		SceneLexer.BUILT_IN_COMMANDS.SUBSCRIPT_RETURN:
+			#jump_into_scene.emit
+			print("Gosub exiting!")
+			var return_line = subscript_stack.pop_back()
+			jump_into_scene.emit(return_line.label, return_line.index)
 		SceneLexer.DEBUG_COMMANDS.FIRST_SCRIPT:
 			GlobalData.opening_script = node.expression
 		SceneLexer.BUILT_IN_COMMANDS.STOP_SCRIPT:
@@ -163,6 +196,11 @@ func _evaluate_node(node: TreeNode.BaseNode, key: int):
 	
 	return _new_actor
 
+
+func _skip_to_new_funcs():
+	if GlobalData.game_db.skip_to_new:
+		if !GlobalData.ingame_variables.has("zenith_name"):
+			GlobalData.ingame_variables["zenith_name"] = "ZENITH"
 
 func _print_command(node : TreeNode.PrintNode):
 	#print("Printing: " + node.text)
@@ -206,7 +244,7 @@ func _print_command(node : TreeNode.PrintNode):
 			#choice_handler.add_choice(choice)
 		#text_printer.choice_queue.clear()
 	
-func _clear_ink_printer(node: TreeNode.CommandNode):
+func _clear_ink_printer():
 	if text_printer is InkTextPrinter:
 		print("Clear command is valid!")
 		text_printer.clear_all_text_items()
@@ -239,6 +277,9 @@ func _cg_command(node: TreeNode.CGNode):
 	else:
 		print("Implementing CG!")
 		
+func _set_ingame_variable(node : TreeNode.SetNode):
+	var expression_check = ExpressionFunctions.new()
+	expression_check.set_variable(node.expression)
 	
 func _instantiate_object(_actorID: String, _storage : Dictionary[String,Node], _stage: Node, _asset: PackedScene) -> Node:
 	_storage[_actorID] = _asset.instantiate()
@@ -300,7 +341,9 @@ func _on_return_to_title()-> void:
 	swap_out_of_vn.emit("title")
 	
 func _on_jump_selected(goto: String):
+	
 	jump_into_scene.emit(goto, 0)
+	break_story_loop = true
 	
 class ScenarioLine:	
 	var index : int

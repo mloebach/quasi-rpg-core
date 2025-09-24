@@ -1,6 +1,7 @@
 @clearPrinter
 
 [b]Episode 4[/b]: Into the Sunken Fortune
+@set episode=4
 
 • We start this episode with a brief glimse of the formation of Winckary and Trophistus’s alliance that took place last episode
 ◦ Winckary agrees to the alliance for much of the same reason she agreed to with the other players
@@ -447,6 +448,13 @@ They talk about their plan going forward and what they learned.
 ◦ “I can’t accept this…”
 ◦ “For my village…for my people.”
 ◦ “I need to win this game…the right way!”
+
+
+
+——————
+
+@gosub Voting
+
 
 ——————
 
@@ -1964,6 +1972,9 @@ USELESS!”)
 • JQ3 is alive! At only 1 HP.
 • She charges her final attack.
 • JQ3 is eliminated
+
+@status JQ3.Eliminated
+
 ——————
 • A grand ringing is heard throughout the festival.
 • The fourth bell…has chosen it’s sacrifice.

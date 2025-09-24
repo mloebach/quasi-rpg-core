@@ -12,7 +12,5 @@ gradient = SubResource("Gradient_rm6sc")
 script = ExtResource("1_rm6sc")
 main_title = "Into the Arctic Battlefield"
 number = 5
-level = 1
-episode_title = ""
 select_background = SubResource("GradientTexture1D_1sw61")
 metadata/_custom_type_script = "uid://bbipppklny7he"

@@ -9,3 +9,8 @@ class_name GlobalSave
 
 var player_saves : Array[PlayerSave] = [null,null,null]
 @export var current_player_slot := -1
+var current_settings: SettingsOptions
+
+
+class SettingsOptions:
+	var main_volume = 50.0	

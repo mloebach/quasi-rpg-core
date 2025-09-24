@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="VN_Database" load_steps=19 format=3 uid="uid://isas5au1qpcf"]
+[gd_resource type="Resource" script_class="VN_Database" load_steps=21 format=3 uid="uid://isas5au1qpcf"]
 
 [ext_resource type="Script" uid="uid://d1lrrn21y00" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/game_database.gd" id="1_5qp4a"]
 [ext_resource type="Script" uid="uid://bbipppklny7he" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd" id="1_liopo"]
@@ -59,6 +59,18 @@ script_name = "Ep5"
 script_file = "res://Game Files/Zenith Day August 23/Game Scripts/Quest5_Arctic.story"
 metadata/_custom_type_script = "uid://blb3v24v1q1u8"
 
+[sub_resource type="Resource" id="Resource_g43kq"]
+script = ExtResource("2_liopo")
+script_name = "ScriptTesting"
+script_file = "res://Game Files/Zenith Day August 23/Game Scripts/ScriptTesting.story"
+metadata/_custom_type_script = "uid://blb3v24v1q1u8"
+
+[sub_resource type="Resource" id="Resource_rgtlm"]
+script = ExtResource("2_liopo")
+script_name = "Voting"
+script_file = "res://Game Files/Zenith Day August 23/Game Scripts/MilgramVoting.story"
+metadata/_custom_type_script = "uid://blb3v24v1q1u8"
+
 [resource]
 script = ExtResource("1_5qp4a")
 characters = Array[String](["uid://chfvmspfsixeu", "uid://by5ijkuxo0ast", "uid://bhlvaxfkdbna", "uid://sd5ejr3deglq", "uid://b4tfcls0vjtwg", "uid://6chxjmlqcufa", "uid://bvrlt8dq56yp5", "uid://c8cdnhluxxh21", "uid://u2iw56uiobhv", "uid://dq7apca4ojeik", "uid://bh55y8a1m3lro", "uid://0q3nd4t15wim", "uid://dufqgawh8iqg7", "uid://brkkj5c1p2wui", "uid://brb7gxirm1g24", "uid://baxuu6w4841yk", "uid://bxoesxrb4u7pw", "uid://ddvr4e8xmuqha", "uid://b8c66h638rxhx", "uid://cwxy0q0vjgadq", "uid://dohdhev7ramgu", "uid://oniyjv13bima", "uid://dddpovljciw7h"])
@@ -107,15 +119,8 @@ cgs = Dictionary[String, String]({
 "WorldMap": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prologue/Map.png",
 "ZenithianClock": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prologue/ZenithianClock.png"
 })
-title_screen_string = "Pilgrimage to Zenith"
-title_screen_subtitle_on = true
 title_screen_subtitle = "Bizarro Draft (2023 Version)"
-default_printer = "Ink"
-printers = Array[String](["res://QuasiEngine/Default GUI/Printers/dialogue_printer.tres", "res://QuasiEngine/Default GUI/Printers/ink_printer.tres"])
 initial_script = "Disclaimer"
-script_pool = Array[ExtResource("2_liopo")]([SubResource("Resource_c356s"), SubResource("Resource_5qp4a"), SubResource("Resource_liopo"), SubResource("Resource_d2dka"), SubResource("Resource_vwo38"), SubResource("Resource_pyngs"), SubResource("Resource_7pjyd"), SubResource("Resource_phvnm")])
+script_pool = Array[ExtResource("2_liopo")]([SubResource("Resource_c356s"), SubResource("Resource_5qp4a"), SubResource("Resource_liopo"), SubResource("Resource_d2dka"), SubResource("Resource_vwo38"), SubResource("Resource_pyngs"), SubResource("Resource_7pjyd"), SubResource("Resource_phvnm"), SubResource("Resource_g43kq"), SubResource("Resource_rgtlm")])
 episodes = Array[ExtResource("1_liopo")]([ExtResource("2_c356s"), ExtResource("3_g43kq"), ExtResource("4_rgtlm"), ExtResource("5_wo37o"), ExtResource("6_4qrbf"), ExtResource("7_bu5a7"), ExtResource("8_g43kq")])
-boot_screen = false
-wait_by_default = true
-skip_to_new = true
 metadata/_custom_type_script = "uid://d1lrrn21y00"

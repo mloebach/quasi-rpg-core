@@ -21,6 +21,18 @@ class LabelNode:
 	func _to_string() -> String:
 		return "{next:%s, label:%s}" % [next, label]
 
+#node which represents choice branch
+class ChoiceBranchNode:
+	extends BaseNode
+
+	var choices: Array[ChoiceNode]
+	
+	func _init(_next: int, _choices: Array[ChoiceNode]) -> void:
+		super(_next)
+		self.next = _next
+		self.choices = _choices
+
+
 #COMMAND NODES
 class CommandNode:
 	extends BaseNode
@@ -294,7 +306,7 @@ class JumpNode:
 		return "{next:%s, path:%s}" % [next, path]
 		
 class ChoiceNode:
-	extends CommandNode
+	extends AsyncNode
 	
 	var choice_summary: String #text for choice
 	var lock : String #whether or not choice should be locked

@@ -18,6 +18,7 @@ class_name InkSection
 signal continue_button_pressed
 signal skip_field_pressed
 
+
 func _ready() -> void:
 	continue_button.hide()
 	icons.visible = false
@@ -49,9 +50,10 @@ func create_cg(texture : Texture2D) -> void:
 	new_cg.change_cg(texture)
 	
 func create_choice_handler() -> ChoiceHandler:
-	var choice_handler = choice_handler.instantiate()
-	continue_stage.add_child(choice_handler)
-	return choice_handler
+	var _choice_handler = choice_handler.instantiate()
+	continue_stage.add_child(_choice_handler)
+	_choice_handler.play_next_line.connect(_on_button_button_up) #this is interchangable with continue button
+	return _choice_handler
 	
 
 func show_icons() -> void:

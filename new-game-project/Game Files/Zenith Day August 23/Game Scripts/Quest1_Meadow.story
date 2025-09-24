@@ -1,6 +1,7 @@
 @clearPrinter
 
 [b]Episode 1:[/b] Into the Glowing Forest
+@set episode=1
 
 
 When the cast steps out of the airship, they are met with the Skychosen Land’s rising sun.
@@ -588,6 +589,10 @@ Pihqura makes a declaration before the dream ends.
 “You are the protagonist of this story.”
 “Find the truth.”
 “Find yourself.”
+
+...
+
+@gosub Voting
 
 ...
 

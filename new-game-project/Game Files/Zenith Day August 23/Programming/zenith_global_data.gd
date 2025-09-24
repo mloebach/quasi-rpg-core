@@ -31,12 +31,13 @@ class StatusChar:
 	func _init(_character : Char_Resource):
 		name = _character.name
 		icon = _character.icon_resources["Default"]
-		status = CharacterStatus.Active
+		status = CharacterStatus.Locked
 	
 	
 enum CharacterStatus{
-	Active,
-	Eliminated,
+	Active, #currently running participant in game
+	Eliminated, #ejected from game
+	Locked, #we haven't met them yet
 	Unknown
 }
 

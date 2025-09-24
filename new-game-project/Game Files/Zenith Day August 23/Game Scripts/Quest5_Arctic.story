@@ -1,6 +1,8 @@
 @clearPrinter
 
 [b]Episode 5:[/b] Into the Arctic Battlefield
+@set episode=4
+
 • We start this episode from Pihqura’s perspective.
 • He is in a dream, alone in a castle.
 • The Dark Husk is in front of him.
@@ -295,7 +297,12 @@ Zenith flashback.
 • He proposes to her.
 • She agrees. After the journey with {zenith_name}, they are going to get engaged.
 
+——————
+
+@gosub Voting
+
 ———————
+
 
 The group enters the mansion
 ◦ There’s hot cocoa on the tables.
@@ -1061,6 +1068,8 @@ Cut back to the top of the train.
 • Ehrugarr reaches out to Trophistus
 • And…
 • [b][SCHING!][/b]
+
+@status Ehrugarr.Eliminated
 
 @cg RedScreen
 ...

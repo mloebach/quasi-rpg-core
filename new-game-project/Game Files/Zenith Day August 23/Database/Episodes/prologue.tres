@@ -12,7 +12,6 @@ gradient = SubResource("Gradient_2tdyh")
 [resource]
 script = ExtResource("1_2tdyh")
 main_title = "Into the Star Salted Sea"
-number = 0
 episode_title = "Prologue"
 select_background = SubResource("GradientTexture1D_sft8x")
 metadata/_custom_type_script = "uid://bbipppklny7he"

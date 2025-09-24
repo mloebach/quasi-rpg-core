@@ -2,7 +2,7 @@ extends Control
 class_name TextPrinter
 
 #debug function which sets all wait times to zero to check if a script works
-@export var sweep : bool = false
+#@export var sweep : bool = false
 
 @export var secPerChar : float = 0.04
 @export var minimum_print_time : float = 0.7
@@ -90,7 +90,7 @@ func set_printer_text(node: TreeNode.PrintNode):
 	var speed_multiplier = 1.0
 	if(node.args.has("speed")):
 		speed_multiplier = 1.0 / float(node.speed)
-	if(sweep): #debug function which eliminated waits
+	if(GlobalData.game_db.sweep): #debug function which eliminated waits
 		speed_multiplier = 0.0
 	var char_multiplier = 1.0
 
@@ -154,7 +154,7 @@ func set_printer_text(node: TreeNode.PrintNode):
 		#figure out what to do with text marker when its time
 		#get_text_box().add_image(textDoneMarker, 28, 28, Color.WHITE, INLINE_ALIGNMENT_BOTTOM)
 		#_awaiting_input = true
-		if(!sweep):
+		if(!GlobalData.game_db.sweep):
 			await get_tree().create_timer(0.3).timeout
 		await_input()
 		await input_pressed
@@ -166,29 +166,30 @@ func set_printer_text(node: TreeNode.PrintNode):
 	end_line_procedure()
 	end_print_line.emit()
 
-func _create_choices_on_printer():
-	if choice_queue.size() > 0:
-		if choice_handler == null: #create choice handler if there isn't one
-			if self is InkTextPrinter:
-				choice_handler = create_choice_handler()
-				
-		for choice in choice_queue:
-			choice_handler.add_choice(choice)
-		choice_queue.clear()
-		choice_handler.jump_selected.connect(_on_jump_selected)
+func create_choices_on_printer():
+	#if choice_queue.size() > 0:
+		#if choice_handler == null: #create choice handler if there isn't one
+			#if self is InkTextPrinter:
+				#choice_handler = create_choice_handler()
+				#
+		#for choice in choice_queue:
+			#choice_handler.add_choice(choice)
+		#choice_queue.clear()
+		#choice_handler.jump_selected.connect(_on_jump_selected)
+	pass
 
 func _on_jump_selected(goto: String):
-	jump_selected.emit()
+	jump_selected.emit(goto)
 
 func _process(delta: float) -> void:
 	
-	if(sweep):
+	if(GlobalData.game_db.sweep):
 		minimum_print_time = 0.0
 	
 	if(_loading_text):
 		_input_timer += delta
 		#print("Waiting for input: " + str(_input_timer))
-		if((Input.is_action_just_pressed("advance_text") || sweep)&& _input_timer > minimum_print_time):
+		if((Input.is_action_just_pressed("advance_text") || GlobalData.game_db.sweep)&& _input_timer > minimum_print_time):
 			#_early_text = true
 			#_input_timer = 0
 			#get_text_box().visible_characters = -1
@@ -205,7 +206,7 @@ func _process(delta: float) -> void:
 	if(_awaiting_input && GlobalData.auto_printer_on && !GlobalData.printer_paused):
 		GlobalData.auto_timer += delta
 		print("AUTO TIMER: " + str(GlobalData.auto_timer))
-	if(GlobalData.auto_timer > GlobalData.auto_timer_wait || sweep):
+	if(GlobalData.auto_timer > GlobalData.auto_timer_wait ||GlobalData.game_db.sweep):
 		#auto timer trigger
 		if(!GlobalData.printer_paused):
 			advance_text()

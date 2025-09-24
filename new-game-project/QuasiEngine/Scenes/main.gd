@@ -14,6 +14,20 @@ extends Node
 var current_scenes: Dictionary[String,Node]
 
 func _ready()-> void:
+	
+	#if we dont have the main directory yet, add it
+	var dir = DirAccess.open("user://")
+	
+	#dir.make_dir(GlobalData.game_name)
+	if !dir.file_exists("user://" + GlobalData.game_name):
+		dir.make_dir(GlobalData.game_name)
+		var global_data = FileAccess.open(dir.get_current_dir(), FileAccess.WRITE)
+		global_data.store_string("global data test")
+		global_data.close()
+		print("created zenith folder")
+	else:
+		print("user://" + GlobalData.game_name + "already exists")
+	
 	#boot into title screen asap. if there's anything else you wanna do
 	#put it before here.
 	if(GlobalData.game_db.boot_screen):

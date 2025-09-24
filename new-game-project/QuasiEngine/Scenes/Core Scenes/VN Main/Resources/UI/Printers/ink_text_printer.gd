@@ -26,7 +26,7 @@ func initalize_printer(printer_data: PrinterResource):
 	
 	
 func set_printer_text(node: TreeNode.PrintNode):
-	_create_ink_section(node)
+	_create_ink_section()
 	if(icon_queue.size() > 0):
 		_create_icons()
 	if(cg_queue != null):
@@ -35,7 +35,7 @@ func set_printer_text(node: TreeNode.PrintNode):
 	super(node)
 	#_scroll_to_bottom()
 	
-func _create_ink_section(node: TreeNode.PrintNode) -> InkSection:
+func _create_ink_section() -> InkSection:
 	var _ink_section = ink_section.instantiate()
 	ink_scroll.add_child(_ink_section)
 	ink_section_array.append(_ink_section)
@@ -78,7 +78,7 @@ func await_input() -> void:
 	super()
 	if choice_queue.size() > 0:
 		#ink_section_array[ink_section_array.size()-1].create_choice_handler()
-		_create_choices_on_printer()
+		create_choices_on_printer()
 	else:
 		ink_section_array[ink_section_array.size()-1].continue_button.visible = true
 	scroll_to_bottom()
@@ -95,7 +95,32 @@ func create_choice_handler() -> ChoiceHandler:
 	return ink_section_array[ink_section_array.size()-1].create_choice_handler()
 	#var new_choice_handler = 
 	
-	
+func create_choices_on_printer():
+	var reveal_time = 10000.0
+	var reveal = 0 #all of them have to be anti-reveal
+	if choice_queue.size() > 0:
+		if choice_handler == null: #create choice handler if there isn't one
+			choice_handler = create_choice_handler()
+				
+		for choice in choice_queue:
+			choice_handler.add_choice(choice)
+			if choice.args.has("time"):
+				if float(choice["time"]) < reveal_time:
+					reveal_time = float(choice["time"])
+			else:
+				reveal_time = 0.2
+			if choice.args.has("show") && Util.str_to_bool(choice["show"], true) == false:
+				reveal+=1
+				
+		
+		choice_handler.jump_selected.connect(_on_jump_selected)
+		#print("reveal-" + str(reveal))
+		if(reveal < choice_queue.size()): #if not all choices consented to hide
+			#print("revealing choices!")
+			var tween = get_tree().create_tween()
+			tween.tween_property(choice_handler, "modulate:a", 1.0, reveal_time).set_trans(Tween.TRANS_SINE)
+		choice_queue.clear()
+		
 func scroll_to_bottom() -> void:
 	await get_tree().create_timer(0.0).timeout #this function activates too early otherwise
 	var tween = get_tree().create_tween()
@@ -106,7 +131,7 @@ func scroll_to_bottom() -> void:
 	
 	#set_deferred("scroll_vertical", scroll_container.get_v_scroll_bar().get_max())
 	var tween_time = 0.4
-	if(sweep):
+	if(GlobalData.game_db.sweep):
 		tween_time = 0.0
 	
 	tween.tween_property(

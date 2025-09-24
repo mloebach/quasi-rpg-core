@@ -108,9 +108,9 @@ func create_new_save(player_name: String, slot: int):
 	dir.change_dir(player_name)
 	dir.make_dir("Manual Saves")
 	dir.make_dir("Point Saves")
-	var file = FileAccess.open(dir, FileAccess.WRITE)
-	file.store_string("test global data")
-	file.close()
+	#var file = FileAccess.open(dir + "", FileAccess.WRITE)
+	#file.store_string("test global data")
+	#file.close()
 	
 func _process(delta: float) -> void:
 	

@@ -17,13 +17,16 @@ func _ready()-> void:
 	
 	#if we dont have the main directory yet, add it
 	var dir = DirAccess.open("user://")
-	
+	print(dir.get_current_dir())
+	#print("does this exist = " + "user://" + GlobalData.game_name)
 	#dir.make_dir(GlobalData.game_name)
-	if !dir.file_exists("user://" + GlobalData.game_name):
+	if !dir.dir_exists(GlobalData.game_name):
 		dir.make_dir(GlobalData.game_name)
-		var global_data = FileAccess.open(dir.get_current_dir(), FileAccess.WRITE)
-		global_data.store_string("global data test")
-		global_data.close()
+		dir.change_dir(GlobalData.game_name)
+		_create_global_save(dir)
+		#var global_data = FileAccess.open(dir.get_current_dir()+"/globalsave.txt", FileAccess.WRITE)
+		#global_data.store_string("global data test")
+		#global_data.close()
 		print("created zenith folder")
 	else:
 		print("user://" + GlobalData.game_name + "already exists")
@@ -37,6 +40,12 @@ func _ready()-> void:
 	else:
 		_create_scene("title")
 	
+func _create_global_save(dir: DirAccess):
+	var global_data = FileAccess.open(dir.get_current_dir()+"/globalsave.txt", FileAccess.WRITE)
+	global_data.store_string("global data test")
+	global_data.close()
+	#assume we're already in the right folder	
+
 func _create_scene(scene_type: String):
 	#check to see if the scene is valid to begin with
 	if !project_scenes.has(scene_type):

@@ -1,0 +1,54 @@
+extends Node
+class_name Utility_Functions
+
+#merges all elements of packed string array into one string
+func packed_string_array_to_str(array:PackedStringArray):
+	var returnString: String = ""
+	for string in array:
+		returnString += string
+	return returnString
+	
+#checks if a character('s first letter) is A-Z or a-z
+func is_char_ascii(chara: String) -> bool:
+	var ascii = chara.unicode_at(0)
+	if(ascii >= 65 && ascii <= 90) || (ascii >= 97 && ascii <= 122):
+		return true
+	else:
+		return false
+
+#converts float to string represnting time. assumes float is in seconds
+func float_to_time_string(time: float, secs: bool = false):
+	var seconds := fmod(time, 60.0)
+	var minutes := int(time / 60.00) % 60
+	var hours := int(time / 3600.00)
+	var time_string:String
+	if secs:
+		time_string = "%d:%02d:%02d" % [hours, minutes, seconds]
+	else:
+		time_string = "%d:%02d" % [hours, minutes]
+	return time_string
+
+#sets specific string to true or false based on string
+#doesnt touch it if string is somehow neither
+func str_to_bool(boolean : String, current : bool) -> bool:
+	if boolean.to_lower() == "true": return true
+	elif boolean.to_lower() == "false": return false
+	return current
+
+func to_json(save_dict: Dictionary) -> JSON:
+	var json = JSON.new()
+	var error = json.parse(JSON.stringify(save_dict))
+	if error == OK:
+		var data_recieved = json.data
+		if typeof(data_recieved) == TYPE_DICTIONARY:
+			print(data_recieved) # Prints the array.
+		else:
+			print("Unexpected data")
+	else:
+		print("JSON Parse Error: ", json.get_error_message(), " in ", JSON.stringify(save_dict), " at line ", json.get_error_line())
+	return json
+
+#returns string value of a boolean
+func bool_to_str(boolean: bool):
+	if boolean: return "true"
+	return "false"

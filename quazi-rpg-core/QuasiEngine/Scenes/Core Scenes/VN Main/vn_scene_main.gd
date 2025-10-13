@@ -1,0 +1,107 @@
+extends Node2D
+
+#@export var game_db: VN_Database
+
+@onready var story_stage = $StoryStage
+
+const STORY_PLAYER = preload("res://QuasiEngine/Scenes/Core Scenes/VN Main/Story Player/story_player.tscn")
+var _story_player: StoryPlayer
+
+var lexer := SceneLexer.new()
+var parser := SceneParser.new()
+var transpiler := SceneTranspiler.new()
+
+#var current_script : String
+#var scene_trees : Dictionary[String, String] = {}
+var played_scripts : Array[String] = []
+signal switch_scene
+
+#var subscript_stack: Array[StoryPlayer.ScenarioLine]
+
+
+func _ready() -> void:
+	
+	#if we havent loaded the data onto the global checker yet, do that
+	if !GlobalData.script_data_loaded:
+		_get_all_node_trees()
+		#GlobalData.load_options(GlobalData.game_db) #maybe move this as you figure out the load scri[t
+		GlobalData.script_data_loaded = true
+	
+	#initial script
+	#_play_scene(GlobalData.opening_script, 0)
+	_play_scene(GlobalData.player_save.main_save.script_name, GlobalData.player_save.main_save.script_index)
+	
+	
+func _get_all_node_trees() -> void:
+	for story_file in GlobalData.game_db.script_pool:
+		#GlobalData.script_trees[story_file.script_name] = story_file.script_file
+		var text := lexer.read_file_content(
+			#GlobalData.game_db.script_pool[story_file].script_file
+			story_file.script_file
+		)
+		var tokens : Array = lexer.tokenize(text)
+		var tree : SceneParser.SyntaxTree = parser.parse(tokens)
+		var story : SceneTranspiler.StoryTree = transpiler.transpile(tree, 0)
+		GlobalData.script_trees[story_file.script_name] = story
+	
+	
+func _play_scene(scene_path: String, start_index: int) -> void:
+	
+	var scene_to_load = ""
+	var destination_label = ""
+	
+	#Scene.Label = jump to label Label in scene Scene
+	#Scene = jump to first point of scene
+	#.Label = jump to label Label in current scene
+	
+	#split scene path [0] = scene, split scene path [1] = label
+	var split_scene_path = scene_path.split(".", 1)
+	if split_scene_path[0] == "":
+		scene_to_load = GlobalData.current_script
+	else:
+		scene_to_load = split_scene_path[0]
+	if split_scene_path.size() > 1:
+		destination_label = split_scene_path[1]
+		
+	#create new story player if one doesn't exist
+	if !_story_player:
+		_story_player = STORY_PLAYER.instantiate()
+		story_stage.add_child(_story_player)
+		#add all signals here
+		_story_player.scene_finished.connect(_on_scene_finished)
+		_story_player.jump_into_scene.connect(_on_jump_into_scene)
+		_story_player.swap_out_of_vn.connect(_on_swapping_out_of_vn)
+		#_story_player.stack_subscript.connect(_on_stack_subscript)
+
+	#edit this to feature story tree once that's in
+	_story_player.load_scene(GlobalData.script_trees[scene_to_load], destination_label, start_index)
+	GlobalData.current_script = scene_to_load
+	GlobalData.player_save.main_save.script_name = scene_to_load
+	GlobalData.current_label = destination_label
+	if !played_scripts.has(scene_to_load):
+		played_scripts.append(scene_to_load)
+	
+	_story_player.run_scene()
+
+#func _read_file_content(path: String) -> String:
+	#if not FileAccess.file_exists(path):
+		#push_error("Could not find the script with path: %s" % path)
+		#return ""
+	#var file := FileAccess.open(path, FileAccess.READ)
+	#var script := file.get_as_text()
+	#file.close()
+	#return script
+
+#this does...nothing?
+func _on_scene_finished() -> void:
+	return
+	
+func _on_jump_into_scene(scene_to_load: String, index: int) -> void:
+	_play_scene(scene_to_load, index)
+	
+func _on_swapping_out_of_vn(scene_to_load: String, additive: String = "false"):
+	GlobalData.current_scene_status = GlobalData.SceneTypes.out_of_game
+	switch_scene.emit(scene_to_load, additive)
+
+#func _on_stack_subscript(line: StoryPlayer.ScenarioLine) -> void:
+	#subscript_stack.append(line)

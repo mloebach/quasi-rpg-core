@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://lhovhr4mjgw7"]
+
+[ext_resource type="Script" uid="uid://daqqt10qe5k62" path="res://QuasiEngine/Scenes/Save System/save_ui/save_slot_ui.gd" id="1_whkol"]
+
+[sub_resource type="Gradient" id="Gradient_kh122"]
+colors = PackedColorArray(0, 0, 0, 1, 0.44, 0.44, 0.44, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ass87"]
+gradient = SubResource("Gradient_kh122")
+
+[sub_resource type="Gradient" id="Gradient_ass87"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 0.16470589, 0.42352942)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v4u3g"]
+gradient = SubResource("Gradient_ass87")
+
+[sub_resource type="Gradient" id="Gradient_v4u3g"]
+offsets = PackedFloat32Array(0.96875)
+colors = PackedColorArray(0, 0, 0.5372549, 0.76862746)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fb2s8"]
+gradient = SubResource("Gradient_v4u3g")
+
+[node name="AutosaveVbox" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_whkol")
+
+[node name="AutosaveLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 42
+text = "AutoSave"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AutoSave" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("GradientTexture1D_ass87")
+expand_mode = 1
+
+[node name="HoverTexture" type="TextureRect" parent="AutoSave"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_v4u3g")
+expand_mode = 1
+
+[node name="ClickedTexture" type="TextureRect" parent="AutoSave"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_fb2s8")
+expand_mode = 1
+
+[connection signal="gui_input" from="AutoSave" to="." method="_on_auto_save_gui_input"]
+[connection signal="mouse_entered" from="AutoSave" to="." method="_on_auto_save_mouse_entered"]
+[connection signal="mouse_exited" from="AutoSave" to="." method="_on_auto_save_mouse_exited"]

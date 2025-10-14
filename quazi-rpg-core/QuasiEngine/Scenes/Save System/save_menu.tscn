@@ -63,9 +63,24 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
 
-[node name="AutosaveStage" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave"]
+[node name="AutoVBox" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Right" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/AutoVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="AutosaveStage" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/AutoVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Left" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/AutoVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
 
 [node name="PointsaveStage" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave"]
 layout_mode = 2
@@ -336,6 +351,7 @@ layout_mode = 2
 [node name="FileInfo" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -430,4 +446,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 
+[node name="PopupStage" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[connection signal="button_up" from="VBoxContainer/FileInfo/HBoxContainer/VBoxContainer/SaveButton" to="." method="_on_save_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/FileInfo/HBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_up"]

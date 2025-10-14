@@ -5,6 +5,7 @@ class_name ChoiceHandler
 @onready var choice = preload("res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_choice.tscn")
 
 signal jump_selected
+signal gosub_selected
 signal play_next_line
 
 func _ready() -> void:
@@ -26,12 +27,17 @@ func add_choice(node: TreeNode.ChoiceNode):
 	#new_choice.a = 0.0
 	new_choice.load_choice(node)
 	new_choice.jump_selected.connect(_on_jump_selected)
+	new_choice.gosub_selected.connect(_on_gosub_selected)
 	new_choice.choice_selected.connect(_on_choice_selected)
 	new_choice.play_next_line.connect(_on_play_next_line)
 	#train
 	
 func _on_jump_selected(goto: String):
 	jump_selected.emit(goto)
+	
+func _on_gosub_selected(gosub: String):
+	#print("Gosub selected!")
+	gosub_selected.emit(gosub)
 	
 func _on_play_next_line():
 	play_next_line.emit()

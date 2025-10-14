@@ -39,6 +39,7 @@ func load_file(player_save : PlayerSave):
 	loaded_file = player_save
 
 func _on_return_button_button_up() -> void:
+	GlobalData.player_save = null
 	if file_menu_mode == FileManagerMenu.FileMenuMode.Load:
 		swap_to_file_select_menu.emit()
 	elif file_menu_mode == FileManagerMenu.FileMenuMode.Autoload:

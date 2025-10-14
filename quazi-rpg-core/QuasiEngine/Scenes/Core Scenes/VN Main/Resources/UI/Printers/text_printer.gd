@@ -24,6 +24,7 @@ signal command_done
 signal input_pressed
 signal end_print_line
 signal jump_selected
+signal gosub_selected
 
 #var skip_author := false
 
@@ -185,6 +186,10 @@ func create_choices_on_printer():
 
 func _on_jump_selected(goto: String):
 	jump_selected.emit(goto)
+	
+func _on_gosub_selected(gosub: String):
+	print("Gosub selected!")
+	gosub_selected.emit(gosub, _current_node.next)
 
 func _process(delta: float) -> void:
 	
@@ -225,7 +230,9 @@ func advance_text():
 	_awaiting_input = false
 	GlobalData.auto_timer = 0.0
 	GlobalData.player_save.main_save.script_index = _current_node.next
-	create_autosave()
+	#dont create autosaves on skip_new_debug function
+	if !GlobalData.game_db.skip_to_new:
+		create_autosave()
 	input_pressed.emit()
 
 func create_autosave():

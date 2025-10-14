@@ -5,6 +5,7 @@ class_name Choice
 var choice_node : TreeNode.ChoiceNode
 
 signal jump_selected
+signal gosub_selected
 signal choice_selected
 signal play_next_line
 
@@ -23,6 +24,11 @@ func _on_button_button_up() -> void:
 	
 	if choice_node.args.has("goto"):
 		jump_selected.emit(choice_node.goto)
+		choice_selected.emit()
+		return
+	
+	if choice_node.args.has("gosub"):
+		gosub_selected.emit(choice_node.gosub)
 		choice_selected.emit()
 		return
 		

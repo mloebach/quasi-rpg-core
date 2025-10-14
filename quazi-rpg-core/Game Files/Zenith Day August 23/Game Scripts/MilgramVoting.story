@@ -121,8 +121,8 @@ Regamirr. Do you accept or reject?
 
 #VoteChoices
 ;Response accepted.
-@choice "Accept." set:Vote{episode}{current_vote}="Accept" play:true
-@choice "Reject." set:Vote{episode}{current_vote}="Reject" play:true
+@choice "Accept." set:Vote{int(episode)}{current_vote}="Accept" play:true
+@choice "Reject." set:Vote{int(episode)}{current_vote}="Reject" play:true
 
 
 @return

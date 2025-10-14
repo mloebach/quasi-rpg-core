@@ -31,7 +31,7 @@ var _input_command := false
 var _wait_command := true
 var break_story_loop := false
 
-var subscript_stack: Array[ScenarioLine]
+#var subscript_stack: Array[ScenarioLine]
 
 #var _auto_on := false
 
@@ -67,7 +67,8 @@ func _ready() -> void:
 
 
 func load_scene(story: SceneTranspiler.StoryTree, label: String, index: int) -> void:
-	_scene_data = story.nodes
+	_scene_data.clear()
+	_scene_data = story.nodes.duplicate()
 	if label != "" && story.find_label(label) != -1:
 		print("found label!")
 		_starting_index = story.find_label(label) + index
@@ -87,14 +88,18 @@ func run_scene() -> void:
 		print("get printer back in here!")
 		_load_printer(GlobalData.player_save.main_save.active_printer)
 	else:
-		
-		print("we don't need to load printer yet")
+		if text_printer == null:
+			#print("we don't need to load printer yet")
+			print("load default printer")
+			_load_printer(GlobalData.game_db.default_printer)
 	
 	await get_tree().create_timer(0.0).timeout 
 	while key < _scene_data.size() && key != KEY_END_OF_SCENE:
 		#print("key " + str(key))
+		#var node = TreeNode.BaseNode.new(_scene_data[key].next)
+		#node = _scene_data[key]
 		var node: TreeNode.BaseNode = _scene_data[key]
-		#var newActor : Node
+			
 		var expressionCheck = ExpressionFunctions.new()
 		_input_command = false
 		
@@ -102,8 +107,10 @@ func run_scene() -> void:
 			key = node.next
 			continue
 			
-		#change {} to variables they represent
+		var original_args := {}
+			
 		for arg in node.args:
+			original_args[arg] = node[arg]
 			var _sifted_array : PackedStringArray
 			var _left_side : PackedStringArray = node[arg].split("{")
 			for cut_string in _left_side:
@@ -113,6 +120,7 @@ func run_scene() -> void:
 				if index % 2 == 1:
 					_sifted_array[index] = expressionCheck.display_variable(_sifted_array[index], node)
 			node[arg] = "".join(_sifted_array)
+	
 		
 		#this is where the function that keeps track of which commands have happened would go
 		#i forgot the use case for it if there was one. the scope of it (global vs player vs save) wasnt clear so im not implementing yet
@@ -126,6 +134,8 @@ func run_scene() -> void:
 	
 		var _new_actor = _evaluate_node(node, key)
 		
+		
+		
 		#if we jump, we don't care about the current script loop anymore.
 		if node is TreeNode.CommandNode && (
 				[
@@ -134,6 +144,7 @@ func run_scene() -> void:
 					SceneLexer.BUILT_IN_COMMANDS.SUBSCRIPT_RETURN,
 				].has(node.command)
 			):
+			#node = original_node
 			break
 		#special case for @stop
 		if node is TreeNode.CommandNode && node.command == SceneLexer.BUILT_IN_COMMANDS.STOP_SCRIPT:
@@ -150,6 +161,10 @@ func run_scene() -> void:
 			
 			
 		#print("next key is " + str(node.next))
+		#node = original_node
+		print("Restoring Vars! - " +node.command)
+		for arg in original_args:
+			node[arg] = original_args[arg]
 		key = node.next
 	
 	scene_finished.emit()
@@ -159,6 +174,7 @@ func run_scene() -> void:
 func _evaluate_node(node: TreeNode.BaseNode, key: int):
 	var _new_actor : Node
 	var _actor_functions = ActorFunctions.new(self)
+	print("Command - " + node.command)
 	match node.command:
 		SceneLexer.BUILT_IN_COMMANDS.PRINT_LINE:
 			_new_actor = _print_command(node)
@@ -175,20 +191,27 @@ func _evaluate_node(node: TreeNode.BaseNode, key: int):
 		SceneLexer.BUILT_IN_COMMANDS.CLEAR_INK:
 			_new_actor = _clear_ink_printer()
 		SceneLexer.BUILT_IN_COMMANDS.JUMP_TO:
-			jump_into_scene.emit(node.path, 0)
+			var jump_node = TreeNode.JumpNode.new(node.next, node.path)
+			copy_args(jump_node, node)
+			
+			jump_into_scene.emit(jump_node.path, 0)
 			#var scenario_line = ScenarioLine.new(node.path, key)
 			#gosub_stack.push_back(scenario_line)
 		SceneLexer.BUILT_IN_COMMANDS.SUBSCRIPT_JUMP_TO:
 			#stack_subscript.emit(ScenarioLine.new(GlobalData.current_script, key))
 			print("Gosub entering!")
 			#var current_label = GlobalData.current_script + "." + GlobalData.current_label
+			#var current_label = GlobalData.current_script
+			#GlobalData.subscript_stack.append(ScenarioLine.new(current_label, node.next))
+			#jump_into_scene.emit(node.path, 0)
+			#_on_gosub_selected(node.path, node.next)
 			var current_label = GlobalData.current_script
-			subscript_stack.append(ScenarioLine.new(current_label, node.next))
+			GlobalData.subscript_stack.append(ScenarioLine.new(current_label, node.next))
 			jump_into_scene.emit(node.path, 0)
 		SceneLexer.BUILT_IN_COMMANDS.SUBSCRIPT_RETURN:
 			#jump_into_scene.emit
 			print("Gosub exiting!")
-			var return_line = subscript_stack.pop_back()
+			var return_line = GlobalData.subscript_stack.pop_back()
 			jump_into_scene.emit(return_line.label, return_line.index)
 		SceneLexer.DEBUG_COMMANDS.FIRST_SCRIPT:
 			GlobalData.opening_script = node.expression
@@ -268,6 +291,7 @@ func _load_printer(printer_name: String):
 		#text_printer.printer_type = GlobalData.game_db.default_printer
 	GlobalData.player_save.main_save.active_printer = printer_name
 	text_printer.jump_selected.connect(_on_jump_selected)
+	text_printer.gosub_selected.connect(_on_gosub_selected)
 	_printer_objects[printer_name].initalize_printer(printer_resource)
 #func _create_choices_on_printer():
 	#if text_printer.choice_queue.size() > 0:
@@ -279,6 +303,11 @@ func _load_printer(printer_name: String):
 			#choice_handler.add_choice(choice)
 		#text_printer.choice_queue.clear()
 	
+func copy_args(new_node, old_node):
+	new_node["args"] = old_node["args"]
+	for arg in old_node["args"]:
+			new_node[arg] = old_node[arg]
+	
 func _clear_ink_printer():
 	if text_printer is InkTextPrinter:
 		print("Clear command is valid!")
@@ -287,14 +316,21 @@ func _clear_ink_printer():
 func _icon_command(node: TreeNode.IconNode):
 	if text_printer is InkTextPrinter:
 		print("Icon command is valid!")
-		text_printer.icon_queue.append(node)
+		var icon_node = TreeNode.IconNode.new(node.next, node.id)
+		copy_args(icon_node, node)
+		#create printer if there isnt one, and let it be default
+		text_printer.icon_queue.append(icon_node)
 		
 func _create_choice(node: TreeNode.ChoiceNode):
 	
 	print("loading choice!")
 	#_wait_command = false
+	
+	var choice_node = TreeNode.ChoiceNode.new(node.next, node.choice_summary)
+	copy_args(choice_node, node)
+	
 	if text_printer != null:
-		text_printer.choice_queue.append(node)
+		text_printer.choice_queue.append(choice_node)
 	#if text_printer is InkTextPrinter:
 		#choice_queue.append(node)
 	
@@ -308,12 +344,16 @@ func _create_choice(node: TreeNode.ChoiceNode):
 func _cg_command(node: TreeNode.CGNode):
 	if text_printer is InkTextPrinter:
 		print("CG command is valid!")
+		var cg_node = TreeNode.CGNode.new(node.next, node.appearance)
+		copy_args(cg_node, node)
 		text_printer.cg_queue = node
 	else:
 		print("Implementing CG!")
 		
 func _set_ingame_variable(node : TreeNode.SetNode):
 	var expression_check = ExpressionFunctions.new()
+	var set_node = TreeNode.SetNode.new(node.next, node.expression)
+	copy_args(set_node, node)
 	expression_check.set_variable(node.expression)
 	
 func _instantiate_object(_actorID: String, _storage : Dictionary[String,Node], _stage: Node, _asset: PackedScene) -> Node:
@@ -388,6 +428,12 @@ func _on_return_to_title()-> void:
 func _on_jump_selected(goto: String):
 	
 	jump_into_scene.emit(goto, 0)
+	break_story_loop = true
+	
+func _on_gosub_selected(path: String, next: int):
+	var current_label = GlobalData.current_script
+	GlobalData.subscript_stack.append(ScenarioLine.new(current_label, next))
+	jump_into_scene.emit(path, 0)
 	break_story_loop = true
 	
 class ScenarioLine:	

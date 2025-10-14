@@ -82,7 +82,7 @@ theme_override_constants/margin_bottom = 10
 [node name="DisclaimerText" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 60
-theme_override_font_sizes/bold_font_size = 72
+theme_override_font_sizes/bold_font_size = 60
 bbcode_enabled = true
 text = "Are you sure you would like to quit?"
 fit_content = true

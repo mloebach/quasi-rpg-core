@@ -68,7 +68,7 @@ metadata/_custom_type_script = "uid://blb3v24v1q1u8"
 [sub_resource type="Resource" id="Resource_rgtlm"]
 script = ExtResource("2_liopo")
 script_name = "Voting"
-script_file = "res://Game Files/Zenith Day August 23/Game Scripts/MilgramVoting.story"
+script_file = "res://Game Files/Zenith Day August 23/Game Scripts/MilgramVoting2.story"
 metadata/_custom_type_script = "uid://blb3v24v1q1u8"
 
 [resource]

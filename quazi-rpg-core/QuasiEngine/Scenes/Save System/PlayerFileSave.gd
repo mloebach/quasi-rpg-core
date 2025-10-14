@@ -20,7 +20,8 @@ var ng_plus_unlocked := false
 var main_save : GameSave
 var auto_save_json: String #reference to json
 var point_saves: Array[GameSave] = [null,null,null]
-var game_saves : Dictionary[int, GameSave] #digit 1 = page, digit 2 = slot
+var game_saves : Dictionary[String, String] #digit 1 = page, digit 2 = slot
+var game_save_page: int = 1
 
 
 var unlocked_episodes : Dictionary[String, bool] = {
@@ -72,7 +73,8 @@ func main_to_json() ->JSON:
 		"ng_plus_unlocked": ng_plus_unlocked,
 		"auto_save_json": auto_save_json,
 		"point_saves": point_saves,
-		"game_saves": game_saves
+		"game_saves": game_saves,
+		"game_save_page": game_save_page
 	}
 	return Util.to_json(save_dict)
 

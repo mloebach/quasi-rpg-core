@@ -51,6 +51,10 @@ func display_variable(conditional: String, node: TreeNode.CommandNode) -> String
 		return ""
 	else:	
 		#print("conditional " + node.conditional + " is " + str(result))
+		#ignore if theyre casting it as such
+		if result is int && (conditional.substr(0,4) != "int(" && conditional.right(1) == ")"):
+			result = float(result) 
+			#json remembers all numbers as floats. this is for consistency, and to make int casting more clear
 		return str(result)
 
 func set_variable(expression: String) -> void:

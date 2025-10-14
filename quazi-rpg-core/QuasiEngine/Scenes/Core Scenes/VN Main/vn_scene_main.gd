@@ -29,8 +29,12 @@ func _ready() -> void:
 	
 	#initial script
 	#_play_scene(GlobalData.opening_script, 0)
-	_play_scene(GlobalData.player_save.main_save.script_name, GlobalData.player_save.main_save.script_index)
-	
+	if(!GlobalData.game_db.skip_to_new): #setting for skip to new, mainly for debug
+		_play_scene(GlobalData.player_save.main_save.script_name, GlobalData.player_save.main_save.script_index)
+	else:
+		GlobalData.player_save = PlayerSave.new()
+		GlobalData.player_save.main_save = GameSave.new()
+		_play_scene(GlobalData.opening_script, 0)
 	
 func _get_all_node_trees() -> void:
 	for story_file in GlobalData.game_db.script_pool:

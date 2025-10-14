@@ -5,6 +5,7 @@ extends RefCounted
 
 #most basic node object
 class BaseNode:
+	#extends Resource
 	var next: int
 	func _init(_next: int) -> void:
 		self.next = _next

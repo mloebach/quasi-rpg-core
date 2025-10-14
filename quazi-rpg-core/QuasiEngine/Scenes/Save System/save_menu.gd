@@ -11,7 +11,7 @@ const load_string = "LOAD GAME"
 @onready var special_save = $VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave
 @onready var base_save = $VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave
 
-@onready var autosave_stage = $VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/AutosaveStage
+@onready var autosave_stage = $VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/AutoVBox/AutosaveStage
 @onready var pointsave_stage = $VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage
 @onready var save_grid = $VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid
 
@@ -24,16 +24,25 @@ const load_string = "LOAD GAME"
 @onready var page_button_stage = $VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/PageButtonStage
 @onready var page_button = preload("res://QuasiEngine/Scenes/Save System/save_ui/page_button.tscn")
 
+@onready var popup_stage = $PopupStage
+@onready var popup_menu = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/choice_popup_menu.tscn")
+
+@onready var save_margin_left = $VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/LeftControl
+@onready var save_margin_right = $VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/RightControl
+
+var screenshot : Image
 
 var menu_mode = ""
 var file_menu_mode : FileManagerMenu.FileMenuMode
-var current_page := 1
-var page_count = 9
+var current_page := 3
+var page_count = 10
 var slots_per_page = 9
 var hover_color = Color(1.0, 1.0, 0.57, 0.188)
 var hovering := false
 
 var slot_selected : SaveSlotUI.SaveInfo
+
+#var save_game_string = ""
 
 signal swap_to_load_menu
 signal return_to_title
@@ -41,14 +50,27 @@ signal restore_ui
 signal unselect_all
 
 
+
 func _ready():
+	_get_screenshot()
 	ql_label.text = ""
 	slot_label.text = ""
 	date_label.text = ""
+	#current_page = GlobalData.player_save.game_save_page
 	_load_page_buttons()
 	_load_game_saves()
 
+func _get_screenshot():
+	hide()
+	screenshot = get_viewport().get_texture().get_image()
+	show()
+
+
 func save_mode():
+	#await get_tree().create_timer(0.0).timeout
+	var save_margins = 0.3
+	save_margin_left.set_stretch_ratio(save_margins)
+	save_margin_right.set_stretch_ratio(save_margins)
 	menu_mode = save_string
 	save_label.text = save_string
 	load_button.hide()
@@ -56,6 +78,10 @@ func save_mode():
 	special_save.visible = false
 
 func load_mode():
+	#await get_tree().create_timer(0.0).timeout
+	var save_margins = 0.1
+	save_margin_left.set_stretch_ratio(save_margins)
+	save_margin_right.set_stretch_ratio(save_margins)
 	menu_mode = load_string
 	save_label.text = load_string
 	_load_special_saves()
@@ -66,6 +92,7 @@ func load_mode():
 	
 	
 func _load_page_buttons():
+	current_page = GlobalData.player_save.game_save_page
 	for page in page_count:
 		var _page_button = page_button.instantiate()
 		page_button_stage.add_child(_page_button)
@@ -82,12 +109,17 @@ func _on_switch_to_page(page: int):
 		else:
 			button.disabled = false	
 	
-	for save in save_grid.get_children():
-		save.queue_free()
+	#for save in save_grid.get_children():
+		#save.queue_free()
+	_clear_saves()
 	if !slot_selected == null && !slot_selected.special_save:
 		_on_slot_unselected()
 		clear_text()
 	_load_game_saves()
+
+func _clear_saves():
+	for save in save_grid.get_children():
+		save.queue_free()
 
 func _load_special_saves():
 	_load_point_saves()
@@ -95,9 +127,11 @@ func _load_special_saves():
 	autosave_stage.add_child(auto_save_slot)
 	#auto_save_slot.empty = false
 	auto_save_slot.save_label.show()
-	
+	auto_save_slot.slot_label.hide()
 	auto_save_slot.load_image_from_path("autosave")
 	auto_save_slot.load_save_path("Auto Save", GlobalData.current_file_path()+"/auto.json") #put auto json path here
+	#auto_save_slot.save_info.slot_string = "Auto Save"
+	#auto_save_slot.save_label.text = auto_save_slot.save_info.slot_string
 	auto_save_slot.save_info.special_save = true
 	#auto_save_slot.mouse_hover.connect(_on_mouse_hover_over_save)
 	#auto_save_slot.mouse_exit.connect(_on_mouse_exit_hover_over_save)
@@ -108,10 +142,11 @@ func _load_point_saves():
 		var point_save_slot = save_slot.instantiate()
 		pointsave_stage.add_child(point_save_slot)
 		point_save_slot.save_label.show()
+		point_save_slot.slot_label.hide()
 		#auto_save_slot.load_image_from_path("autosave")
-		point_save_slot.load_save_path("Point Save " + str(save+1), GlobalData.current_file_path()+"/Point Saves/"+str(save)+".json")
+		point_save_slot.load_save_path("Point " + str(save+1), GlobalData.current_file_path()+"/Point Saves/"+str(save)+".json")
 		point_save_slot.save_info.special_save = true
-		point_save_slot.save_label.text = "Point " + str(save+1)
+		#point_save_slot.save_label.text = "Point " + str(save+1)
 		_setup_slot(point_save_slot)
 		
 func _load_game_saves():
@@ -122,12 +157,17 @@ func _load_game_saves():
 			save_grid.add_child(game_save_slot)
 			_setup_slot(game_save_slot)
 			var true_slot = ((current_page-1)*slots_per_page) + (slot - (current_page*100)) + 1
-			if GlobalData.player_save.game_saves.has(slot):
+			game_save_slot.save_info.index = slot
+			game_save_slot.slot_label.text = str(true_slot)
+			if GlobalData.player_save.game_saves.has(str(slot)):
 				#var auto_save_slot = save_slot.instantiate()
-				game_save_slot.empty = false
+				game_save_slot.save_info.empty = false
 				#var true_slot = (current_page*slots_per_page) + (slot - (current_page*100))
 				#game_save_slot.save_label.text = "Slot " + true_slot
-				game_save_slot.load_save_path("Slot " + str(true_slot), GlobalData.current_file_path()+"/Manual Saves/"+slot+".json")
+				game_save_slot.load_image_from_path("Save"+str(slot))
+				game_save_slot.load_save_path("Slot " + str(true_slot), GlobalData.current_file_path()+"/Manual Saves/Save"+str(slot)+".json")
+				#game_save_slot.slot_string = "Slot " + str(true_slot)
+				#game_save_slot.save_label = game_save_slot.slot_string
 				#_setup_slot(game_save_slot)
 			else:
 				
@@ -225,6 +265,8 @@ func _on_mouse_exit_hover_over_save():
 	
 
 func _on_exit_button_button_up() -> void:
+	GlobalData.player_save.game_save_page = current_page
+	GlobalData.save_player_file()
 	match menu_mode:
 		save_string:
 			restore_ui.emit()
@@ -234,3 +276,43 @@ func _on_exit_button_button_up() -> void:
 				swap_to_load_menu.emit()
 			elif file_menu_mode == FileManagerMenu.FileMenuMode.Autoload:
 				return_to_title.emit()
+
+
+func _on_save_button_button_up() -> void:
+	pass # Replace with function body.
+	_create_popup(_save_game, _save_game_string())
+		
+func _create_popup(confirm_function : Callable, disclaimer_string: String = "") -> void:
+	var new_popup = popup_menu.instantiate()
+	popup_stage.add_child(new_popup)
+	if(disclaimer_string != ""):
+		new_popup.update_text(disclaimer_string)
+	new_popup.pop_up_confirm.connect(confirm_function)
+	
+func _clear_popups():
+	for popup in popup_stage.get_children():
+		popup.queue_free()
+	
+func _save_game():
+	
+	screenshot.save_webp(GlobalData.current_file_path()+"/Screenshots/Save"+str(slot_selected.index)+".webp")
+	_write_game_save()
+	_clear_popups()
+	unselect_all.emit()
+	_on_slot_unselected()
+	clear_text()
+	_clear_saves()
+	_load_game_saves()
+	print("Saving game!")
+
+func _write_game_save():
+	GlobalData.player_save.main_save.date_saved = Time.get_datetime_string_from_system(false, true)
+	var save_path = GlobalData.current_file_path()+"/Manual Saves/Save"+str(slot_selected.index)+".json"
+	var auto = FileAccess.open(save_path, FileAccess.WRITE)
+	
+	auto.store_line(JSON.stringify(GlobalData.player_save.main_save.main_to_json().data))
+	auto.close()
+	GlobalData.player_save.game_saves[str(slot_selected.index)] = save_path
+
+func _save_game_string():
+	return "Save game at [b]" + slot_selected.slot_string + "[/b]?"

@@ -8,6 +8,7 @@ class_name Global_Data
 
 #var global_save : GlobalSave = preload("res://QuasiEngine/Scenes/_Debug/Test_saves/test_global_fresh.tres")
 const game_name : String = "Zenith Project"
+const main_folder : String = "user://"+game_name+"/"
 const global_save_path : String = "user://"+game_name+"/global_save.json"
 const settings_path : String = "user://"+game_name+"/settings.json"
 
@@ -30,6 +31,7 @@ var script_trees : Dictionary [String, SceneTranspiler.StoryTree] = {
 }
 var current_script: String = ""
 var current_label: String = ""
+var subscript_stack: Array[StoryPlayer.ScenarioLine]
 
 var auto_printer_on := false
 var auto_timer := 0.0
@@ -118,6 +120,9 @@ func get_char_fullname(name: String):
 		return characters[name].full_name
 		
 func get_character_icon(_id: String, _appearance: String):
+	if !characters.has(_id):
+		push_warning("ID %s is not a character!" % [_id])
+		return
 	if characters[_id].icon_resources.keys().has(_appearance):
 		return characters[_id].icon_resources[_appearance]
 	#elif _appearance == "" && _current_icon != "":
@@ -208,6 +213,9 @@ func _process(delta: float) -> void:
 #		print(get_current_player_save().player_name +" - " +str(get_current_player_save().player_time_spent))
 	#time += delta
 	
+func get_player_file_at(index: int):
+	
+	return global_save.player_names[index]
 	
 	
 func save_player_file():

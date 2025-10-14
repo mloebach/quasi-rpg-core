@@ -1,4 +1,8 @@
-Pilgrimage to Zenith
+@choice "Skip" play:true
+@set score=30
+@cg WhiteScreen
+;@icon Uelgwold
+Pilgrimage to Zenith {int(score)}
 
 @status Quzeon.Eliminated
 @status Culpex.Eliminated
@@ -6,15 +10,23 @@ Pilgrimage to Zenith
 @status JQ3.Eliminated
 @status Ehrugarr.Eliminated
 
-;@choice "When we were apart, it was a different story!"
+...
 
-@set score=1
+;@choice "When we were apart, it was a different story!" play:true
+;@choice "Skip this part"
+;	@icon Quzeon
+;	But I love this show!
+
+
+@set score=4
 @set big_bag=true
 @set with_one_cookie=false
-
-Score {1}
-@set episode=0
-@gosub Voting
+@cg Gunshot
+Score {score}
+@set episode={score}
+@set nextscript="Voting"
+;@goto {nextscript}
+@gosub {nextscript}
 
 
 #AfterChoice

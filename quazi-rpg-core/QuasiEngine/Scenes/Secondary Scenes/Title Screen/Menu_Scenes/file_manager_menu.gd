@@ -7,6 +7,7 @@ class_name FileManagerMenu
 #@onready var chosen_file_menu = $UpperTitle/PanelContainer/ChosenFileVBox
 @onready var chosen_file_lower =  $VBox/LowerTitle/ChosenFileLower
 @onready var autoload_file_lower = $VBox/LowerTitle/AutoloadLower
+@onready var cancel_lower = $VBox/LowerTitle/CancelBox
 
 
 #@onready var main_stage_vbox = $UpperTitle/PanelContainer/MainStageVbox
@@ -38,7 +39,9 @@ class_name FileManagerMenu
 
 var current_file_index : int
 var current_name : String
-var current_player_file : PlayerSave
+#var current_player_file : PlayerSave
+
+var option_index: int = -1
 
 #var file_menu_mode : FileMenuMode
 
@@ -47,6 +50,10 @@ signal load_into_file_menu
 signal switch_scene
 signal open_episode_select
 signal load_save_menu
+signal choose_erase_file
+signal choose_copy_file
+signal exit_to_normal
+signal erase_selected_file
 
 enum FileMenuMode {
 	Autoload,
@@ -105,7 +112,12 @@ func _swap_to_file_select() -> void:
 	file_select.swap_to_load_player_menu.connect(_swap_to_load)
 	file_select.swap_to_new_player_menu.connect(_swap_to_new)
 	file_text.text = file_select_string
-	
+	choose_erase_file.connect(file_select._on_choose_erase_file)
+	exit_to_normal.connect(file_select._on_exit_to_normal)
+	choose_copy_file.connect(file_select._on_copy_mode_on)
+	file_select.which_slot_to_copy.connect(_on_which_slot_to_copy)
+	file_select.erase_selected_file.connect(_on_erase_selected_file)
+	file_select.option_selected.connect(_on_exit_to_normal)
 	
 	#_load_file_buttons()
 	
@@ -124,11 +136,15 @@ func _swap_to_load(player_file : PlayerSave, file_index: int) -> Node:
 
 	file_text.text = chosen_file_string
 	
+	
+	
 	return file_info
 	#_unload_file_buttons()
 	
 func _load_file_info(player_save: PlayerSave) -> Node:
 	var file_info = chosen_file_menu.instantiate()
+	#GlobalData.player_save = current_player_file #put this here
+	GlobalData.player_save = player_save
 	ui_stage.add_child(file_info)
 	file_info.load_file(player_save)
 	file_info.swap_to_file_select_menu.connect(_swap_to_file_select)
@@ -186,7 +202,7 @@ func _on_return_to_title():
 		#return_to_title.emit()
 		
 func _on_load_autosave_of_selected(loaded_player_save : PlayerSave) -> void:
-	current_player_file = loaded_player_save
+	GlobalData.player_save = loaded_player_save
 	_create_popup(_load_game_file, 
 		autosave_load_disclaimer_string
 		)
@@ -243,7 +259,7 @@ func _start_new_file() -> void:
 	switch_scene.emit("vn")
 	
 func _load_game_file() -> void:
-	GlobalData.player_save = current_player_file
+	#GlobalData.player_save = current_player_file
 	
 	#var json = FileAccess.open(current_player_file.auto_save_json, FileAccess.READ)
 	#GlobalData.player_save.main_save = current_player_file.load_game_save(json)
@@ -260,3 +276,76 @@ func _on_chapter_select_button_up() -> void:
 func _on_load_save_menu(file_menu_mode: FileManagerMenu.FileMenuMode) -> void:
 	load_save_menu.emit(file_menu_mode)
 	#load_save_menu.swap_to_load_menu.connect(_swap_to_load)
+
+
+func _on_copy_button_button_up() -> void:
+	print("Copying file!")
+	file_text.text = "	Copy which file?"
+	choose_copy_file.emit()
+	file_select_lower.hide()
+	cancel_lower.show()
+
+func _on_which_slot_to_copy(index: int) -> void:
+	file_text.text = "	Copy File " + str(index) + " to which slot?"
+
+func _on_erase_button_button_up() -> void:
+	print("Erasing file!")
+	file_text.text = "	Erase which file?"
+	choose_erase_file.emit()
+	file_select_lower.hide()
+	cancel_lower.show()
+
+func _on_erase_selected_file(index: int):
+	option_index = index
+	_create_popup(_erase_file, "Erase the data in File " + str(index) + "?")
+	
+	
+func _erase_file():
+	
+	
+	var folder = GlobalData.main_folder + GlobalData.global_save.player_names[option_index-1]
+	print("erasing selected file! " + str(folder))
+	if DirAccess.dir_exists_absolute(folder):
+		remove_recursive(folder)
+	
+	_clear_popups()
+	_on_exit_to_normal()
+
+
+func remove_recursive(dir_path: String):
+	var dir = DirAccess.open(dir_path)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if dir.current_is_dir():
+				#recursively remove subdirectories
+				remove_recursive(dir_path.path_join(file_name))
+			else:
+				#remove files
+				DirAccess.remove_absolute(dir_path.path_join(file_name))
+		dir.list_dir_end()
+		#now remove empty directory
+		DirAccess.remove_absolute(dir_path.path_join(file_name))
+		print("Directory removed successfully!")
+	else:
+		push_error("An error occured while opening directory: " + dir_path)
+
+func _on_cancel_button_button_up() -> void:
+	print("Cancelling!")
+	_on_exit_to_normal()
+	#file_text.text = file_select_string
+	#exit_to_normal.emit()
+	#cancel_lower.hide()
+	#file_select_lower.show()
+	
+func _clear_popups():
+	for item in popup_stage.get_children():
+		item.queue_free()
+	
+func _on_exit_to_normal():
+	file_text.text = file_select_string
+	exit_to_normal.emit()
+	cancel_lower.hide()
+	file_select_lower.show()
+	

@@ -1,9 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://b67dptlbu1tw4"]
+[gd_scene load_steps=10 format=3 uid="uid://b67dptlbu1tw4"]
 
 [ext_resource type="Script" uid="uid://ctbjhaov8rj6j" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/file_button.gd" id="1_og0gr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xw7ev"]
 bg_color = Color(0.338876, 0.359706, 0.724406, 1)
+
+[sub_resource type="Gradient" id="Gradient_og0gr"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xyyqm"]
+gradient = SubResource("Gradient_og0gr")
+
+[sub_resource type="Gradient" id="Gradient_cb811"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.7176471)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0omdr"]
+gradient = SubResource("Gradient_cb811")
+
+[sub_resource type="Gradient" id="Gradient_xyyqm"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.22745098, 0.27058825, 1, 0.6627451)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_o5fan"]
+gradient = SubResource("Gradient_xyyqm")
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cb811"]
 
 [node name="FileButton" type="HBoxContainer"]
 anchors_preset = 15
@@ -11,6 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_og0gr")
 
@@ -19,27 +43,40 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.16
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="File" type="Control" parent="."]
 custom_minimum_size = Vector2(0, 190)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.01
+size_flags_stretch_ratio = 2.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="File"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="File/HBoxContainer"]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_xw7ev")
 
-[node name="FileNumber" type="RichTextLabel" parent="PanelContainer"]
+[node name="FileNumber" type="RichTextLabel" parent="File/HBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 60
 text = "FILE 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="File/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.38
+size_flags_stretch_ratio = 4.5
 theme_override_font_sizes/font_size = 50
 
-[node name="MarginContainer" type="MarginContainer" parent="Button"]
+[node name="MarginContainer" type="MarginContainer" parent="File/HBoxContainer/Button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,7 +88,7 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 20
 
-[node name="NewGameText" type="RichTextLabel" parent="Button/MarginContainer"]
+[node name="NewGameText" type="RichTextLabel" parent="File/HBoxContainer/Button/MarginContainer"]
 visible = false
 layout_mode = 2
 mouse_filter = 2
@@ -60,14 +97,14 @@ text = "New Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FileInfo" type="VBoxContainer" parent="Button/MarginContainer"]
+[node name="FileInfo" type="VBoxContainer" parent="File/HBoxContainer/Button/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Button/MarginContainer/FileInfo"]
+[node name="HBoxContainer" type="HBoxContainer" parent="File/HBoxContainer/Button/MarginContainer/FileInfo"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Name" type="RichTextLabel" parent="Button/MarginContainer/FileInfo/HBoxContainer"]
+[node name="Name" type="RichTextLabel" parent="File/HBoxContainer/Button/MarginContainer/FileInfo/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.13
@@ -78,7 +115,7 @@ fit_content = true
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 
-[node name="Time Label" type="RichTextLabel" parent="Button/MarginContainer/FileInfo/HBoxContainer"]
+[node name="Time Label" type="RichTextLabel" parent="File/HBoxContainer/Button/MarginContainer/FileInfo/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -87,12 +124,12 @@ text = "00:00"
 fit_content = true
 horizontal_alignment = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Button/MarginContainer/FileInfo"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="File/HBoxContainer/Button/MarginContainer/FileInfo"]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 2
 
-[node name="Quest Label" type="RichTextLabel" parent="Button/MarginContainer/FileInfo/HBoxContainer2"]
+[node name="Quest Label" type="RichTextLabel" parent="File/HBoxContainer/Button/MarginContainer/FileInfo/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -101,7 +138,7 @@ text = "Quest 1"
 fit_content = true
 vertical_alignment = 1
 
-[node name="DateText" type="RichTextLabel" parent="Button/MarginContainer/FileInfo/HBoxContainer2"]
+[node name="DateText" type="RichTextLabel" parent="File/HBoxContainer/Button/MarginContainer/FileInfo/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -111,9 +148,51 @@ fit_content = true
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="EraseMode" type="TextureRect" parent="File"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_xyyqm")
+
+[node name="LockMode" type="TextureRect" parent="File"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_0omdr")
+
+[node name="CopyMode" type="TextureRect" parent="File"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_o5fan")
+
+[node name="EraseSelected" type="TextureRect" parent="File"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_cb811")
+
 [node name="RightSpace" type="Control" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.52
+size_flags_stretch_ratio = 0.4
 
-[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="File/HBoxContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="File/HBoxContainer/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="File/HBoxContainer/Button" to="." method="_on_button_mouse_exited"]

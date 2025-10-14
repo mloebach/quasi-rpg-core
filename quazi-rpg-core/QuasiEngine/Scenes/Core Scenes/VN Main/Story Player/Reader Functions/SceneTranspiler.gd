@@ -42,6 +42,10 @@ func transpile(syntax_tree: SceneParser.SyntaxTree, start_index: int) -> StoryTr
 					var original_value : int = story_tree.index
 					story_tree.index += UNIQUE_GROUP_ID_MODIFIER
 					
+					
+					for block in expression.value:
+						pass
+					
 					if expression.block != null:
 						var subtree := SceneParser.SyntaxTree.new()
 						subtree.values = expression.block
@@ -58,7 +62,11 @@ func transpile(syntax_tree: SceneParser.SyntaxTree, start_index: int) -> StoryTr
 					match expression.value:
 						SceneLexer.BUILT_IN_COMMANDS.CHOICE:
 							
-							var choices := []
+							var choices : Array[TreeNode.ChoiceNode]
+							#var original_value : int = story_tree.index
+
+							
+							
 							#var initial_value = _build_value_from_symbol(expression)
 							#var command_node = TreeNode.ChoiceNode.new(story_tree.index + 1, initial_value)
 							var node := _transpile_command(story_tree, expression)

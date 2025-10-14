@@ -114,6 +114,7 @@ func create_choices_on_printer():
 				
 		
 		choice_handler.jump_selected.connect(_on_jump_selected)
+		choice_handler.gosub_selected.connect(_on_gosub_selected)
 		#print("reveal-" + str(reveal))
 		if(reveal < choice_queue.size()): #if not all choices consented to hide
 			#print("revealing choices!")

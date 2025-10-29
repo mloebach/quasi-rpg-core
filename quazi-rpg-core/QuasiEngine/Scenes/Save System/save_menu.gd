@@ -33,6 +33,7 @@ const load_string = "LOAD GAME"
 var screenshot : Image
 
 var menu_mode = ""
+var held_path = ""
 var file_menu_mode : FileManagerMenu.FileMenuMode
 var current_page := 3
 var page_count = 10
@@ -48,7 +49,7 @@ signal swap_to_load_menu
 signal return_to_title
 signal restore_ui
 signal unselect_all
-
+signal load_selected_file
 
 
 func _ready():
@@ -266,7 +267,13 @@ func _on_mouse_exit_hover_over_save():
 
 func _on_exit_button_button_up() -> void:
 	GlobalData.player_save.game_save_page = current_page
-	GlobalData.save_player_file()
+	#has to be handled differently due to how current_file_path_works
+	var path = GlobalData.main_folder + str(GlobalData.player_save.file_index)+"_"+GlobalData.player_save.player_name+"/player.json"
+	var player_data = FileAccess.open(path, FileAccess.WRITE)
+	player_data.store_line(
+		JSON.stringify(GlobalData.player_save.main_to_json().data)
+	)
+	player_data.close()
 	match menu_mode:
 		save_string:
 			restore_ui.emit()
@@ -313,6 +320,17 @@ func _write_game_save():
 	auto.store_line(JSON.stringify(GlobalData.player_save.main_save.main_to_json().data))
 	auto.close()
 	GlobalData.player_save.game_saves[str(slot_selected.index)] = save_path
+	GlobalData.save_player_file()
 
 func _save_game_string():
 	return "Save game at [b]" + slot_selected.slot_string + "[/b]?"
+
+func _load_game_string():
+	return "Load game at [b]" + slot_selected.slot_string + "[/b]?"
+
+func _on_load_button_button_up() -> void:
+	_create_popup(_load_game, _load_game_string())
+	
+func _load_game() -> void:
+	_clear_popups()
+	load_selected_file.emit(slot_selected.save_path)

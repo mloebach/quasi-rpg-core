@@ -1,0 +1,299 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdmcm0cka7hhs"]
+
+[ext_resource type="PackedScene" uid="uid://cc1vu867ooxhl" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/SettingsMenu/keybind_option.tscn" id="1_0vdgm"]
+[ext_resource type="Script" uid="uid://bf2v0xmsksdvh" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/SettingsMenu/SettingsMenuTabs/zenith_tab.gd" id="1_tiye5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_escd1"]
+bg_color = Color(0.3226987, 0.2533432, 0.48838133, 1)
+border_width_left = 30
+border_width_right = 30
+border_color = Color(0.8, 0.8, 0.8, 0.09803922)
+border_blend = true
+
+[sub_resource type="Theme" id="Theme_71awh"]
+default_base_scale = 1.0
+
+[node name="ZenithTab" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tiye5")
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Zenith Label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.63
+theme_override_font_sizes/normal_font_size = 40
+text = "[ZENITH] Options"
+vertical_alignment = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="RenamePlayer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+theme_override_constants/separation = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/RenamePlayer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextSizeOptionLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/RenamePlayer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Change Name"
+fit_content = true
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/RenamePlayer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="NameButton" type="Button" parent="MarginContainer/VBoxContainer/RenamePlayer/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_escd1")
+text = "ZENITHNAME"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/RenamePlayer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.21
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ChanceLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/RenamePlayer/MarginContainer3"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "2 Left"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerColor" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+theme_override_constants/separation = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PlayerColor"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ColorLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PlayerColor/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "[ZENITH] Color"
+fit_content = true
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/PlayerColor"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/PlayerColor/MarginContainer2"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme = SubResource("Theme_71awh")
+min_value = 0.7
+value = 49.7
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/PlayerColor/MarginContainer2"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+selected = 0
+item_count = 2
+popup/item_0/text = "Off"
+popup/item_0/id = 0
+popup/item_1/text = "On"
+popup/item_1/id = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="MarginContainer/VBoxContainer/PlayerColor/MarginContainer2"]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+edit_intensity = false
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/PlayerColor"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.21
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ValueLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PlayerColor/MarginContainer3"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="KeybindVbox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(0, 420)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Keybind" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+layout_mode = 2
+
+[node name="Keybind2" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+layout_mode = 2
+
+[node name="Keybind3" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+layout_mode = 2
+
+[node name="Keybind4" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+layout_mode = 2
+
+[node name="Keybind5" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+layout_mode = 2
+
+[node name="Keybind6" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+layout_mode = 2
+
+[node name="Keybind7" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+layout_mode = 2
+
+[node name="Keybind8" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "option to change zenith name (may limit to one change per player save)
+associated color
+zenith pronoun gender toggle (they them default)"
+fit_content = true
+
+[node name="PlayerPronouns" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+theme_override_constants/separation = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PlayerPronouns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PronounsLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PlayerPronouns/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "[ZENITH] Pronouns"
+fit_content = true
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/PlayerPronouns"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/PlayerPronouns/MarginContainer2"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme = SubResource("Theme_71awh")
+min_value = 0.7
+value = 49.7
+
+[node name="PronounToggle" type="OptionButton" parent="MarginContainer/VBoxContainer/PlayerPronouns/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+selected = 0
+item_count = 3
+popup/item_0/text = "They/Them"
+popup/item_0/id = 0
+popup/item_1/text = "He/Him"
+popup/item_1/id = 1
+popup/item_2/text = "She/Her"
+popup/item_2/id = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/PlayerPronouns"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.21
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ValueLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PlayerPronouns/MarginContainer3"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/RenamePlayer/MarginContainer2/NameButton" to="." method="_on_name_button_button_up"]
+[connection signal="color_changed" from="MarginContainer/VBoxContainer/PlayerColor/MarginContainer2/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/PlayerPronouns/MarginContainer2/PronounToggle" to="." method="_on_pronoun_toggle_item_selected"]

@@ -121,11 +121,13 @@ func _create_load_menu(file_menu_mode) -> void:
 	_load_menu.file_menu_mode = file_menu_mode
 	_load_menu.return_to_title.connect(_on_return_to_title)
 	_load_menu.swap_to_load_menu.connect(_on_skip_to_file_menu)
+	_load_menu.load_selected_file.connect(_on_load_selected_file)
 	
 	
 func _on_return_to_title() -> void:
 	_kill_autoload_objects()
 	_kill_filescreen_objects()
+	_default_visibilty()
 	start_screen.visible = true
 	
 func _on_switch_to_episode_select() -> void:
@@ -142,6 +144,10 @@ func _on_skip_to_file_menu() -> void:
 func _kill_autoload_objects() -> void:
 	for item in autoload_stage.get_children():
 		item.queue_free()
+	
+func _on_load_selected_file(path: String) -> void:
+	GlobalData.load_game_save(path)
+	switch_scene.emit("vn")
 	
 func _kill_filescreen_objects() -> void:
 	for item in file_screen_stage.get_children():

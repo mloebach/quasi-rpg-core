@@ -235,7 +235,7 @@ Lannus: “You’ll...”
 ...
 [Shift in User Interface from RPG to Visual Novel]
 
-@firstScript Prologue
+;@firstScript Prologue
 @goto Prologue
 
 @stop

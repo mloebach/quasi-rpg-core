@@ -3,6 +3,7 @@ class_name Zenith_Global_Data
 
 var roster_stats: Dictionary[String, CharacterStatus]
 var episode_list: Dictionary[String, Episode]
+#var zenith_pronoun: Pronouns = Pronouns.He
 
 func _init() -> void:
 	init_roster_stats()
@@ -24,6 +25,92 @@ func init_roster_stats() -> void:
 func get_char_status(name: String):
 	return roster_stats[name]
 
+
+func z_pro(pronoun:String) -> String:
+	var pro :=  get_z_pro(pronoun.to_lower())
+	if Util.is_char_lower(pronoun[0]): #if first character is lower assume all of them are
+		return pro
+	else:
+		if Util.is_word_upper(pronoun):
+			return Util.capitalize_full_string(pro)#capitalized word
+		else:
+			return Util.capitalize_string(pro)
+	
+func get_z_pro(pronoun:String) -> String:
+	match pronoun:
+		"they":
+			return pronoun_tree("they", "he", "she")
+			#match GlobalData.player_save.z_pronouns:
+				#Pronouns.They:
+					#return "they"
+				#Pronouns.He:
+					#return "he"
+				#Pronouns.She:
+					#return "they"
+				#_:
+					#return ""
+		"them":
+			return pronoun_tree("them", "him", "her")
+			#match GlobalData.player_save.z_pronouns:
+				#Pronouns.They:
+					#return "them"
+				#Pronouns.He:
+					#return "him"
+				#Pronouns.She:
+					#return "her"
+				#_:
+					#return ""
+		"their":
+			return pronoun_tree("their", "his", "her")
+			#match GlobalData.player_save.z_pronouns:
+				#Pronouns.They:
+					#return "their"
+				#Pronouns.He:
+					#return "his"
+				#Pronouns.She:
+					#return "her"
+				#_:
+					#return ""
+		"theirs":
+			#match GlobalData.player_save.z_pronouns:
+			return pronoun_tree("theirs", "his", "hers")
+				#Pronouns.They:
+					#return "theirs"
+				#Pronouns.He:
+					#return "his"
+				#Pronouns.She:
+					#return "hers"
+				#_:
+					#return ""
+		"themselves", "themself":
+			return pronoun_tree(pronoun, "himself", "herself")
+			#match GlobalData.player_save.z_pronouns:
+				#Pronouns.They:
+					#return pronoun
+				#Pronouns.He:
+					#return "himself"
+				#Pronouns.She:
+					#return "herself"
+				#_:
+					#return ""
+		"are they":
+			return pronoun_tree("are they", "is he", "is she")
+		_:
+			push_error("Unknown pronoun used in script - " + pronoun)
+			return ""
+		
+func pronoun_tree(they: String, he: String, she: String) -> String:
+	match GlobalData.player_save.z_pronouns:
+		Pronouns.They:
+			return they
+		Pronouns.He:
+			return he
+		Pronouns.She:
+			return she
+		_:
+			return ""
+
+
 class StatusChar:
 	var name: String
 	var icon: Texture2D
@@ -43,6 +130,12 @@ enum CharacterStatus{
 	Eliminated, #ejected from game
 	Locked, #we haven't met them yet
 	Unknown
+}
+
+enum Pronouns{
+	They,
+	He,
+	She
 }
 
 class Episode:

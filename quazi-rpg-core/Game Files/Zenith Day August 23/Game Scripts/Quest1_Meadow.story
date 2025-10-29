@@ -766,7 +766,7 @@ Not again, she can't be dealing with this [i]AGAIN.[/i]
 [b]END OF DEMO[\b]
 [b]TO BE CONTINUED…[\b]
 
-@firstScript Ep2
+;@firstScript Ep2
 @goto Ep2
 
 —————————

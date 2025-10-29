@@ -23,6 +23,9 @@ var point_saves: Array[GameSave] = [null,null,null]
 var game_saves : Dictionary[String, String] #digit 1 = page, digit 2 = slot
 var game_save_page: int = 1
 
+var z_renames_left := 2
+var z_color : String
+var z_pronouns : Zenith_Global_Data.Pronouns =  Zenith_Global_Data.Pronouns.They
 
 var unlocked_episodes : Dictionary[String, bool] = {
 	#"Prelude" : true,
@@ -74,7 +77,10 @@ func main_to_json() ->JSON:
 		"auto_save_json": auto_save_json,
 		"point_saves": point_saves,
 		"game_saves": game_saves,
-		"game_save_page": game_save_page
+		"game_save_page": game_save_page,
+		"z_renames_left": z_renames_left,
+		"z_color": z_color,
+		"z_pronouns": z_pronouns,
 	}
 	return Util.to_json(save_dict)
 

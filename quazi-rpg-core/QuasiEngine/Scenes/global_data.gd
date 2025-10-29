@@ -143,8 +143,8 @@ func create_new_save(player_name: String, slot: int):
 	new_save.file_index = slot
 	#new_save.auto_save = GameSave.new()
 	global_save.player_names[slot] = player_name
-	global_save.player_saves[player_name] = create_player_files(new_save)
-	global_save.current_player_slot = slot
+	global_save.player_saves[str(slot)+"_"+player_name] = create_player_files(new_save)
+	#global_save.current_player_slot = slot
 	player_save = new_save
 	#create_player_files(new_save)
 	
@@ -171,9 +171,10 @@ func create_first_autosave(dir: DirAccess, save:PlayerSave):
 	
 func create_player_files(save: PlayerSave):
 	var dir = DirAccess.open("user://" + game_name)
-	dir.make_dir(save.player_name)
+	var save_name = str(save.file_index)+"_"+save.player_name
+	dir.make_dir(save_name)
 	#global_save.player_saves.append(new_save)
-	dir.change_dir(save.player_name)
+	dir.change_dir(save_name)
 	dir.make_dir("Manual Saves")
 	dir.make_dir("Point Saves")
 	dir.make_dir("Screenshots")
@@ -184,9 +185,75 @@ func create_player_files(save: PlayerSave):
 	return dir.get_current_dir()+"/player.json"
 	
 	
-func load_game_save():
-	global_save.current_player_slot = player_save.file_index
-	var json = FileAccess.open(player_save.auto_save_json, FileAccess.READ)
+func copy_file_into_slot(file: int, slot: int):
+	
+	#var player_json_path = global_save.get_save_at_slot(file)
+	#var json = FileAccess.open(player_json_path, FileAccess.READ)
+	#var new_player_save = player_save.load_save(json)
+	#new_player_save.file_index = slot
+	#create_player_files(new_player_save)
+	copy_files_in_dir(main_folder+str(file)+"_"+global_save.player_names[file],main_folder+str(slot)+"_"+global_save.player_names[file])
+	
+	var player_folder = str(slot)+"_"+global_save.player_names[file]
+	var new_json = main_folder+player_folder+"/player.json"
+	global_save.player_names[slot] = global_save.player_names[file]
+	global_save.player_saves[player_folder] = new_json
+	
+	#update player.json to reflect correct path
+	var json = FileAccess.open(new_json, FileAccess.READ)
+	var new_player_save = player_save.load_save(json)
+	new_player_save.auto_save_json = main_folder + player_folder + "/auto.json"
+	new_player_save.file_index = slot
+	json.close()
+	for save in new_player_save.game_saves:
+		var split_save_path = new_player_save.game_saves[save].split(str(file)+"_"+global_save.player_names[file], true,1)
+		new_player_save.game_saves[save] = split_save_path[0] + player_folder +split_save_path[1]
+	var save_data = FileAccess.open(new_json, FileAccess.WRITE)
+	save_data.store_line(
+		JSON.stringify(new_player_save.main_to_json().data)
+	)
+	save_data.close()
+	#ingame_variables["zenith_name"] = "[" + player_name.to_upper() + "]"
+	#var new_save = PlayerSave.new()
+	#
+	#new_save.player_name = player_name
+	#new_save.file_index = slot
+	##new_save.auto_save = GameSave.new()
+	#global_save.player_names[slot] = player_name
+	#global_save.player_saves[str(slot)+"_"+player_name] = create_player_files(new_save)
+	##global_save.current_player_slot = slot
+	#player_save = new_save
+	##create_player_files(new_save)
+	
+	save_global()
+	
+func copy_files_in_dir(source_path: String, dest_path: String):
+	var dir_access = DirAccess.open(source_path)
+	if dir_access == null:
+		push_error("Can't access " + dir_access)
+	if not DirAccess.dir_exists_absolute(dest_path):
+		print("creating folder  - " + dest_path)
+		DirAccess.make_dir_recursive_absolute(dest_path)
+	dir_access.list_dir_begin()
+	var file_name = dir_access.get_next()
+	print("current file: " + file_name)
+	while file_name != "":
+		if dir_access.current_is_dir():
+			print("entering " + file_name)
+			copy_files_in_dir(source_path.path_join(file_name), dest_path.path_join(file_name))
+		else:
+			var source_file = source_path.path_join(file_name)
+			var dest_file = dest_path.path_join(file_name)
+			var error = DirAccess.copy_absolute(source_file, dest_file)
+			if error != OK:
+				push_error("Error copying file '", source_file, "' to '", dest_file, "': ", error)
+		file_name = dir_access.get_next()
+		print("current file: " + file_name)
+	dir_access.list_dir_end()
+
+func load_game_save(path: String):
+	#global_save.current_player_slot = player_save.file_index
+	var json = FileAccess.open(path, FileAccess.READ)
 	player_save.main_save = player_save.load_game_save(json)
 	current_scene_status = SceneTypes.in_game
 	custom_global_data.roster_stats = player_save.main_save.voyager_status
@@ -195,7 +262,7 @@ func load_game_save():
 	
 func get_screenshot(file_name: String):
 	var sshot = get_viewport().get_texture().get_image()
-	sshot.save_webp("user://"+game_name+"/"+global_save.get_current_save_name()+"/Screenshots/"+file_name+".webp")
+	sshot.save_webp(current_file_path()+"/Screenshots/"+file_name+".webp")
 	#sshot.save_webp_to_buffer(true)
 	#sshot.save_png("user://"+game_name+"/"+global_save.get_current_save_name()+"/Screenshots/"+file_name+".png")
 	
@@ -217,9 +284,15 @@ func get_player_file_at(index: int):
 	
 	return global_save.player_names[index]
 	
+func remove_player_save(index: int):
+	global_save.player_saves.erase(str(index-1) + "_" +get_player_file_at(index-1))
+	global_save.player_names[index-1] = ""
+	save_global()
+	
+
 	
 func save_player_file():
-	var player_data = FileAccess.open("user://"+game_name+"/"+player_save.player_name+"/player.json", FileAccess.WRITE)
+	var player_data = FileAccess.open(current_file_path()+"/player.json", FileAccess.WRITE)
 	player_data.store_line(
 		JSON.stringify(player_save.main_to_json().data)
 	)
@@ -236,7 +309,7 @@ func save_player_file():
 	#save_file.store_line(json_string)
 
 func current_file_path():
-	return  "user://" + game_name + "/" + global_save.get_current_save_name()
+	return  "user://" + game_name + "/" + str(global_save.current_player_slot) + "_"+ global_save.get_current_save_name()
 
 func local_file_path():
 	return  game_name + "/" + global_save.get_current_save_name()

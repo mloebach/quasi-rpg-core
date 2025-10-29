@@ -36,12 +36,15 @@ class_name FileManagerMenu
 @export var title_screen_disclaimer_string = "Do you want to return to the title screen?"
 @export var confirm_name_disclaimer_string = "Is this your name?"
 @export var autosave_load_disclaimer_string = "Load Autosave?"
+@export var autosave_deleted_load_disclaimer_string = "	Previous file was deleted. Load earlier file?"
 
 var current_file_index : int
 var current_name : String
 #var current_player_file : PlayerSave
 
 var option_index: int = -1
+var option_slot_index : int = -1
+var auto_path = ""
 
 #var file_menu_mode : FileMenuMode
 
@@ -54,6 +57,7 @@ signal choose_erase_file
 signal choose_copy_file
 signal exit_to_normal
 signal erase_selected_file
+signal refresh_files
 
 enum FileMenuMode {
 	Autoload,
@@ -116,8 +120,10 @@ func _swap_to_file_select() -> void:
 	exit_to_normal.connect(file_select._on_exit_to_normal)
 	choose_copy_file.connect(file_select._on_copy_mode_on)
 	file_select.which_slot_to_copy.connect(_on_which_slot_to_copy)
+	file_select.copy_to_slot.connect(_on_copy_to_slot)
 	file_select.erase_selected_file.connect(_on_erase_selected_file)
 	file_select.option_selected.connect(_on_exit_to_normal)
+	refresh_files.connect(file_select._on_files_refreshed)
 	
 	#_load_file_buttons()
 	
@@ -179,7 +185,10 @@ func _swap_to_new(player_index: int) -> void:
 func _swap_to_autoload(current_file : PlayerSave) -> void:
 	var file_menu = _swap_to_load(current_file, GlobalData.global_save.current_player_slot)
 	file_menu.file_menu_mode = FileMenuMode.Autoload
-	file_text.text = autoload_file_string
+	if GlobalData.global_save.autoload_save_deleted:
+		file_text.text = autosave_deleted_load_disclaimer_string
+	else:
+		file_text.text = autoload_file_string
 	chosen_file_lower.visible = false
 	autoload_file_lower.visible = true
 
@@ -201,8 +210,10 @@ func _on_return_to_title():
 	#elif file_menu_mode == FileMenuMode.Autoload:
 		#return_to_title.emit()
 		
-func _on_load_autosave_of_selected(loaded_player_save : PlayerSave) -> void:
+func _on_load_autosave_of_selected(loaded_player_save: PlayerSave) -> void:
 	GlobalData.player_save = loaded_player_save
+	GlobalData.global_save.autoload_save_deleted = false
+	auto_path = loaded_player_save.auto_save_json
 	_create_popup(_load_game_file, 
 		autosave_load_disclaimer_string
 		)
@@ -256,6 +267,8 @@ func _start_new_file() -> void:
 	#print("New file for " + current_name + " created at slot " + str(current_file_index))
 	GlobalData.create_new_save(current_name, current_file_index)
 	GlobalData.current_scene_status = GlobalData.SceneTypes.in_game
+	GlobalData.global_save.current_player_slot = current_file_index
+	GlobalData.save_global()
 	switch_scene.emit("vn")
 	
 func _load_game_file() -> void:
@@ -264,7 +277,7 @@ func _load_game_file() -> void:
 	#var json = FileAccess.open(current_player_file.auto_save_json, FileAccess.READ)
 	#GlobalData.player_save.main_save = current_player_file.load_game_save(json)
 	
-	GlobalData.load_game_save()
+	GlobalData.load_game_save(auto_path)
 	
 	
 	switch_scene.emit("vn")
@@ -286,7 +299,20 @@ func _on_copy_button_button_up() -> void:
 	cancel_lower.show()
 
 func _on_which_slot_to_copy(index: int) -> void:
+	option_index = index
 	file_text.text = "	Copy File " + str(index) + " to which slot?"
+
+func _on_copy_to_slot(index:int) -> void:
+	option_slot_index = index
+	var popup_string = "Copy File " + str(option_index) + " into Slot " + str(option_slot_index) + "?"
+	_create_popup(_copy_file, popup_string)
+
+func _copy_file():
+	print("Copying file!")
+	GlobalData.copy_file_into_slot(option_index-1, option_slot_index-1)
+	refresh_files.emit()
+	_clear_popups()
+	_on_exit_to_normal()
 
 func _on_erase_button_button_up() -> void:
 	print("Erasing file!")
@@ -300,30 +326,57 @@ func _on_erase_selected_file(index: int):
 	_create_popup(_erase_file, "Erase the data in File " + str(index) + "?")
 	
 	
+	
 func _erase_file():
 	
 	
-	var folder = GlobalData.main_folder + GlobalData.global_save.player_names[option_index-1]
+	var folder = GlobalData.main_folder + str(option_index-1) +"_"+ GlobalData.global_save.player_names[option_index-1]
 	print("erasing selected file! " + str(folder))
 	if DirAccess.dir_exists_absolute(folder):
 		remove_recursive(folder)
 	
+	GlobalData.remove_player_save(option_index)
+	
+	if GlobalData.global_save.current_player_slot == option_index-1:
+		var first_file = find_first_file(0)
+		print("new file - " + str(first_file))
+		if first_file == -1:
+			GlobalData.global_save.autoload_save_deleted = true
+			GlobalData.global_save.current_player_slot = -1
+		else:
+			GlobalData.global_save.current_player_slot = first_file
+	GlobalData.save_global()
+	refresh_files.emit()
 	_clear_popups()
 	_on_exit_to_normal()
 
+
+func find_first_file(index: int) -> int:
+		if index >= GlobalData.global_save.player_names.size():
+			return -1 #no file found
+		var name = GlobalData.global_save.player_names[index]
+		print("name - " + name + "," + str(index))
+		if name == "":
+			return find_first_file(index+1)
+		else:
+			return index
+		
 
 func remove_recursive(dir_path: String):
 	var dir = DirAccess.open(dir_path)
 	if dir:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
+		print("Filename: " +file_name +" at "+dir_path)
 		while file_name != "":
 			if dir.current_is_dir():
 				#recursively remove subdirectories
 				remove_recursive(dir_path.path_join(file_name))
 			else:
 				#remove files
+				#print("removing " + file_name)
 				DirAccess.remove_absolute(dir_path.path_join(file_name))
+			file_name = dir.get_next()
 		dir.list_dir_end()
 		#now remove empty directory
 		DirAccess.remove_absolute(dir_path.path_join(file_name))
@@ -344,6 +397,8 @@ func _clear_popups():
 		item.queue_free()
 	
 func _on_exit_to_normal():
+	option_index = -1
+	option_slot_index = -1
 	file_text.text = file_select_string
 	exit_to_normal.emit()
 	cancel_lower.hide()

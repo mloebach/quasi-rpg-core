@@ -450,5 +450,6 @@ size_flags_stretch_ratio = 0.3
 layout_mode = 2
 mouse_filter = 2
 
+[connection signal="button_up" from="VBoxContainer/FileInfo/HBoxContainer/VBoxContainer/LoadButton" to="." method="_on_load_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/FileInfo/HBoxContainer/VBoxContainer/SaveButton" to="." method="_on_save_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/FileInfo/HBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_up"]

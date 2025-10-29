@@ -30,6 +30,7 @@ signal file_selected
 signal which_slot_to_copy
 signal erase_selected_file
 signal option_confirmed
+signal copy_to_slot
 
 enum FileStatus {
 	NewFile,
@@ -80,6 +81,8 @@ func _on_button_button_up() -> void:
 	elif mode == FileSelect.FileSelectMode.Erase:
 		erase_selected_file.emit(file_index)
 		#option_confirmed.emit()
+	elif mode == FileSelect.FileSelectMode.CopyToSlot:
+		copy_to_slot.emit(file_index)
 		
 func _on_erase_mode_on():
 	mode = FileSelect.FileSelectMode.Erase
@@ -98,8 +101,12 @@ func _on_copy_mode_on():
 func _on_which_to_copy(index: int):
 	mode = FileSelect.FileSelectMode.CopyToSlot
 	if file_index != index:
-		button.disabled = false
-		lock_filter.hide()
+		if file_status == FileStatus.NewFile:
+			button.disabled = false
+			lock_filter.hide()
+		elif file_status == FileStatus.SavedFile:
+			button.disabled = true
+			lock_filter.show()
 	
 func _on_exit_to_normal():
 	mode = FileSelect.FileSelectMode.Normal

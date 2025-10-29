@@ -12,6 +12,7 @@ var player_names : Array[String] = ["","",""]
 #stores where json file is in memory
 var player_saves : Dictionary[String, String] = {}
 var current_player_slot := -1
+var autoload_save_deleted := false
 #var current_settings: SettingValues.SettingOptions = SettingValues.SettingOptions.new(Settings.default_res)
 
 #func _init() -> void:
@@ -19,11 +20,11 @@ var current_player_slot := -1
 
 #func get_current_save() -> PlayerSave:
 func get_current_save() -> String:
-	return player_saves[player_names[current_player_slot]]
+	return player_saves[str(current_player_slot)+"_"+player_names[current_player_slot]]
 
 #func get_save_at_slot(slot: int) -> PlayerSave:
 func get_save_at_slot(slot: int) -> String:
-	return player_saves[player_names[slot]]
+	return player_saves[str(slot)+"_"+player_names[slot]]
 
 func get_current_save_name() -> String:
 	return player_names[current_player_slot]
@@ -46,6 +47,7 @@ func main_to_json() ->JSON:
 		"player_names" : player_names,
 		"player_saves" : player_saves,
 		"current_player_slot" : current_player_slot,
+		"autoload_save_deleted" : autoload_save_deleted
 	}
 	return Util.to_json(save_dict)
 	

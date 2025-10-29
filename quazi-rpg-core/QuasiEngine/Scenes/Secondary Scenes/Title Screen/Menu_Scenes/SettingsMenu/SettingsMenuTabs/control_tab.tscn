@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdmcm0cka7hhs"]
+[gd_scene load_steps=2 format=3 uid="uid://b5lfi6m46y1ht"]
 
-[ext_resource type="PackedScene" uid="uid://cc1vu867ooxhl" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/SettingsMenu/keybind_option.tscn" id="1_0vdgm"]
+[ext_resource type="PackedScene" uid="uid://cc1vu867ooxhl" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/SettingsMenu/keybind_option.tscn" id="1_ipn8l"]
 
-[node name="ZenithTab" type="Control"]
+[node name="Controls" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-metadata/_tab_index = 4
+metadata/_tab_index = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -25,27 +25,25 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Zenith Label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CommandLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.63
 theme_override_font_sizes/normal_font_size = 40
-text = "Zenith Options"
+text = "Commands"
 vertical_alignment = 2
 
 [node name="MainKeyLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 32
-text = "turn this in"
+text = "Main Key"
 horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="SecondaryKeyLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -60,7 +58,6 @@ layout_mode = 2
 size_flags_stretch_ratio = 0.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -69,35 +66,26 @@ custom_minimum_size = Vector2(0, 420)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Keybind" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+[node name="Keybind" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_ipn8l")]
 layout_mode = 2
 
-[node name="Keybind2" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+[node name="Keybind2" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_ipn8l")]
 layout_mode = 2
 
-[node name="Keybind3" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+[node name="Keybind3" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_ipn8l")]
 layout_mode = 2
 
-[node name="Keybind4" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+[node name="Keybind4" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_ipn8l")]
 layout_mode = 2
 
-[node name="Keybind5" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+[node name="Keybind5" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_ipn8l")]
 layout_mode = 2
 
-[node name="Keybind6" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+[node name="Keybind6" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_ipn8l")]
 layout_mode = 2
 
-[node name="Keybind7" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+[node name="Keybind7" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_ipn8l")]
 layout_mode = 2
 
-[node name="Keybind8" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_0vdgm")]
+[node name="Keybind8" parent="MarginContainer/VBoxContainer/ScrollContainer/KeybindVbox" instance=ExtResource("1_ipn8l")]
 layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 50
-text = "turn tab this into resource prefab
-option to change zenith name (may limit to one change per player save)
-associated color
-zenith pronoun gender toggle (they them default)"
-fit_content = true

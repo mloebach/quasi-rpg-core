@@ -2118,6 +2118,6 @@ Pihqura’s mom, he feels nothing. His creator is Xerdegal.
 [b]Episode 4 END[\b]
 [b]11 Adventurers Remain[\b]
 
-@firstScript Ep5
+;@firstScript Ep5
 @goto Ep5
 @stop

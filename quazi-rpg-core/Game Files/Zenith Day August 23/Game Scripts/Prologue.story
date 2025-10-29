@@ -1227,7 +1227,7 @@ And finally, [b]{zenith_name}[/b]. We don’t know how old they were, or where t
 [b]Prologue END[/b]
 [b]15 Adventurers Remain[/b]
 
-@firstScript Ep1
+;@firstScript Ep1
 @goto Ep1
 
 @stop

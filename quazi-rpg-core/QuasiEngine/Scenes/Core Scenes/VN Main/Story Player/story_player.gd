@@ -175,7 +175,7 @@ func _evaluate_node(node: TreeNode.BaseNode, key: int):
 	var _new_actor : Node
 	var _actor_functions = ActorFunctions.new(self)
 	print("Command - " + node.command)
-	match node.command:
+	match node.command.to_lower():
 		SceneLexer.BUILT_IN_COMMANDS.PRINT_LINE:
 			_new_actor = _print_command(node)
 			_input_command = true
@@ -190,6 +190,8 @@ func _evaluate_node(node: TreeNode.BaseNode, key: int):
 			_set_ingame_variable(node)
 		SceneLexer.BUILT_IN_COMMANDS.CLEAR_INK:
 			_new_actor = _clear_ink_printer()
+		SceneLexer.BUILT_IN_COMMANDS.OPEN_URL:
+			_new_actor = _open_url(node)
 		SceneLexer.BUILT_IN_COMMANDS.JUMP_TO:
 			var jump_node = TreeNode.JumpNode.new(node.next, node.path)
 			copy_args(jump_node, node)
@@ -226,6 +228,7 @@ func _evaluate_node(node: TreeNode.BaseNode, key: int):
 				GlobalData.custom_command_functions.evaluate_node(node)
 			else:
 				print("Command failed to process! - " + str(node))
+		
 	
 	return _new_actor
 
@@ -312,6 +315,13 @@ func _clear_ink_printer():
 	if text_printer is InkTextPrinter:
 		print("Clear command is valid!")
 		text_printer.clear_all_text_items()
+	
+func _open_url(node: TreeNode.UrlNode):
+	var url_node = TreeNode.UrlNode.new(node.next, node.url)
+	copy_args(url_node, node)
+	
+	print("Opening URL: " + url_node.url)
+	OS.shell_open(url_node.url)
 	
 func _icon_command(node: TreeNode.IconNode):
 	if text_printer is InkTextPrinter:
@@ -423,6 +433,7 @@ func _on_return_to_title()-> void:
 	GlobalData.printer_paused = false
 	GlobalData.current_scene_status = GlobalData.SceneTypes.out_of_game
 	GlobalData.save_player_file()
+	#GlobalData.global_save.current_player_slot
 	swap_out_of_vn.emit("title")
 	
 func _on_jump_selected(goto: String):

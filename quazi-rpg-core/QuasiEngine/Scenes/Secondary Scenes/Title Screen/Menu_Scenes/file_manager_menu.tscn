@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd2cxpqhksiut"]
+[gd_scene load_steps=4 format=3 uid="uid://cd2cxpqhksiut"]
 
 [ext_resource type="Script" uid="uid://jjhgbemxdobl" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/file_manager_menu.gd" id="1_pwdjv"]
+[ext_resource type="PackedScene" uid="uid://cma22n6kvtl7g" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/new_game_ui.tscn" id="2_55mvp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvjfp"]
 bg_color = Color(0.1008, 0.10608, 0.18, 1)
@@ -55,6 +56,9 @@ theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 20
+
+[node name="SaveContainer" parent="VBox/UpperTitle/PanelContainer/MainStageVbox/StageMargins" instance=ExtResource("2_55mvp")]
+layout_mode = 2
 
 [node name="LowerTitle" type="MarginContainer" parent="VBox"]
 layout_mode = 2

@@ -13,6 +13,7 @@ signal which_slot_to_copy
 
 signal erase_selected_file
 signal option_selected
+signal copy_to_slot
 
 var mode = FileSelectMode.Normal
 
@@ -38,6 +39,7 @@ func _load_file_buttons() -> void:
 		which_slot_to_copy.connect(save_button._on_which_to_copy)
 		exit_to_normal.connect(save_button._on_exit_to_normal)
 		save_button.erase_selected_file.connect(_on_erase_selected_file)
+		save_button.copy_to_slot.connect(_on_copy_to_slot)
 		
 		save_button.option_confirmed.connect(_on_option_confirmed)
 		
@@ -64,6 +66,10 @@ func _on_file_selected(file_button : PlayerFileButton):
 		swap_to_new_player_menu.emit(file_button.file_index-1)
 		#_swap_to_new()
 
+func _on_files_refreshed():
+	_unload_file_buttons()
+	_load_file_buttons()
+
 func _on_choose_erase_file():
 	mode = FileSelectMode.Erase
 	erase_mode_on.emit()
@@ -79,6 +85,9 @@ func _on_exit_to_normal():
 func _on_which_slot_to_copy(index: int):
 	mode = FileSelectMode.CopyToSlot
 	which_slot_to_copy.emit(index)
+
+func _on_copy_to_slot(index: int):
+	copy_to_slot.emit(index)
 
 func _on_erase_selected_file(index: int):
 	erase_selected_file.emit(index)

@@ -35,6 +35,62 @@ func str_to_bool(boolean : String, current : bool) -> bool:
 	elif boolean.to_lower() == "false": return false
 	return current
 
+#takes takes new_string and old string, two strings that are almost same but
+#new string has a new character somewhere. this func returns the index in
+#new_string the new int is at
+
+func new_char_int(new_string: String, old_string):
+	
+	for i in old_string.length():
+		if new_string[i] != old_string[i]:
+			return i	
+	return old_string.length()
+
+func is_valid_name_char(chara: String) -> bool:
+	if is_char_ascii(chara):
+		return true
+	var ascii = chara.unicode_at(0)
+	match ascii:
+		39: #'
+			return true
+		45: #-
+			return true
+		_:
+			return false
+	
+
+func is_char_lower(chara: String):
+	var ascii = chara.unicode_at(0)
+	if(ascii >= 97 && ascii <= 122):
+		return true
+	else:
+		return false
+	
+func is_char_upper(chara: String):
+	var ascii = chara.unicode_at(0)
+	if(ascii >= 65 && ascii <= 90):
+		return true
+	else:
+		return false
+	
+func is_word_upper(word: String):
+	for chara in word:
+		if !is_char_upper(chara):
+			return false
+	return true
+	
+func capitalize_full_string(string:String):
+	var new_string = ""
+	for index in string.length():
+		new_string += char(string.unicode_at(index)-32)
+		#var ascii = chara.unicode_at(chara)
+	return new_string
+
+func capitalize_string(string:String):
+	string[0] = char(string.unicode_at(0)-32)
+	return string
+
+
 func to_json(save_dict: Dictionary) -> JSON:
 	var json = JSON.new()
 	var error = json.parse(JSON.stringify(save_dict))

@@ -360,6 +360,19 @@ class SetNode:
 		return "{next:%s, expression%s}" % [next, expression]
 		
 		
+class UrlNode:
+	extends CommandNode
+		
+	var url : String
+	var target: String
+	
+	func _init(_next:int, _url:String):
+		super(_next)
+		self.url= _url
+		
+	func _to_string() -> String:
+		return "{next:%s, url%s}" % [next, url]
+		
 #command which swaps out the vn scene for a different one
 class SceneSwapNode:
 	extends CommandNode

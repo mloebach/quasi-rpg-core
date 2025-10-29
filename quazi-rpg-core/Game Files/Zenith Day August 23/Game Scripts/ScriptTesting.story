@@ -2,7 +2,12 @@
 @set score=30
 @cg WhiteScreen
 ;@icon Uelgwold
-Pilgrimage to Zenith {int(score)}
+Ehrugarr: {test_func("2")} Pilgrimage to {z_pro("their")} {z_pro("Them")} {z_pro("THEMSELF")} Zenith: {int(score)}
+
+Ehrugarr: {test_func("2")} Pilgrimage to {z_pro("their")} {z_pro("Them")} {z_pro("THEMSELF")} Zenith: {int(score)}
+Ehrugarr: {test_func("2")} Pilgrimage to {z_pro("their")} {z_pro("Them")} {z_pro("THEMSELF")} Zenith: {int(score)}
+
+@openURL "https://godotengine.org"
 
 @status Quzeon.Eliminated
 @status Culpex.Eliminated

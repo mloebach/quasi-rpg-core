@@ -1305,6 +1305,6 @@ Trophistus could finally be the way business negotiations between Platore and Gr
 [b]Episode 2 END[\b]
 [b]12 Adventurers Remain[\b]
 
-@firstScript Ep3
+;@firstScript Ep3
 @goto Ep3
 @stop

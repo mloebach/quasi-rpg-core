@@ -1,0 +1,183 @@
+[gd_scene load_steps=2 format=3 uid="uid://i2jpix2ic18b"]
+
+[ext_resource type="Script" uid="uid://daofxven4fxp" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/SettingsMenu/SettingsMenuTabs/graphics_settings__tab.gd" id="1_82tu4"]
+
+[node name="Graphics" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_82tu4")
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 50
+text = "fullscreen vs no screen
+screen resolution drop down"
+fit_content = true
+
+[node name="Graphics" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Graphics"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Graphics/VBoxContainer"]
+layout_mode = 2
+
+[node name="CommandLabel" type="RichTextLabel" parent="Graphics/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.63
+theme_override_font_sizes/normal_font_size = 40
+text = "Screen Settings"
+vertical_alignment = 2
+
+[node name="Control" type="Control" parent="Graphics/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="SliderVbox" type="VBoxContainer" parent="Graphics/VBoxContainer"]
+custom_minimum_size = Vector2(0, 420)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Resolution" type="HBoxContainer" parent="Graphics/VBoxContainer/SliderVbox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="Graphics/VBoxContainer/SliderVbox/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ResolutionLabel" type="RichTextLabel" parent="Graphics/VBoxContainer/SliderVbox/Resolution/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Game Resolution"
+fit_content = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="Graphics/VBoxContainer/SliderVbox/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="OptionButton" type="OptionButton" parent="Graphics/VBoxContainer/SliderVbox/Resolution/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+
+[node name="Fullscreen" type="HBoxContainer" parent="Graphics/VBoxContainer/SliderVbox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="Graphics/VBoxContainer/SliderVbox/Fullscreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="BGMVolumeLabel" type="RichTextLabel" parent="Graphics/VBoxContainer/SliderVbox/Fullscreen/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Window Mode"
+fit_content = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="Graphics/VBoxContainer/SliderVbox/Fullscreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="FullScreen" type="OptionButton" parent="Graphics/VBoxContainer/SliderVbox/Fullscreen/MarginContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+selected = 0
+item_count = 3
+popup/item_0/text = "Windowed (default)"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless Fullscreen"
+popup/item_2/id = 2
+
+[node name="Resizable" type="HBoxContainer" parent="Graphics/VBoxContainer/SliderVbox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="Graphics/VBoxContainer/SliderVbox/Resizable"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ResizableLabel" type="RichTextLabel" parent="Graphics/VBoxContainer/SliderVbox/Resizable/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Resizable Window"
+fit_content = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="Graphics/VBoxContainer/SliderVbox/Resizable"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ResizeToggle" type="OptionButton" parent="Graphics/VBoxContainer/SliderVbox/Resizable/MarginContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+selected = 0
+item_count = 2
+popup/item_0/text = "False (default)"
+popup/item_0/id = 0
+popup/item_1/text = "True"
+popup/item_1/id = 1
+
+[node name="CheckButton" type="CheckButton" parent="Graphics/VBoxContainer/SliderVbox/Resizable/MarginContainer3"]
+visible = false
+layout_mode = 2
+
+[connection signal="item_selected" from="Graphics/VBoxContainer/SliderVbox/Resolution/MarginContainer3/OptionButton" to="." method="_on_dimension_option_button_item_selected"]
+[connection signal="item_selected" from="Graphics/VBoxContainer/SliderVbox/Fullscreen/MarginContainer3/FullScreen" to="." method="_on_window_mode_item_selected"]
+[connection signal="item_selected" from="Graphics/VBoxContainer/SliderVbox/Resizable/MarginContainer3/ResizeToggle" to="." method="_on_resize_toggle_item_selected"]

@@ -25,6 +25,8 @@ func _ready() -> void:
 	pass
 
 func load_file(player_save : PlayerSave):
+	#GlobalData.global_save.current_player_slot = player_save.file_index
+	GlobalData.player_save = player_save
 	file_number_text.text = "FILE " + "#"
 	player_name_text.text = player_save.player_name
 	time_played_text.text = Util.float_to_time_string(player_save.player_time_spent, true)
@@ -40,6 +42,7 @@ func load_file(player_save : PlayerSave):
 
 func _on_return_button_button_up() -> void:
 	GlobalData.player_save = null
+	#GlobalData.global_save.current_player_slot = -1
 	if file_menu_mode == FileManagerMenu.FileMenuMode.Load:
 		swap_to_file_select_menu.emit()
 	elif file_menu_mode == FileManagerMenu.FileMenuMode.Autoload:
@@ -50,8 +53,8 @@ func set_loaded_file(player_save : PlayerSave):
 
 
 func _on_continue_button_button_up() -> void:
+	#load_selected_file.emit(loaded_file)
 	load_selected_file.emit(loaded_file)
-
 
 func _on_load_button_button_up() -> void:
 	load_to_save_menu.emit(file_menu_mode)

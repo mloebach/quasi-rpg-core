@@ -1154,5 +1154,5 @@ on health, it would make no difference if he used it right at the start.
 [b]CEpisode 3 END[\b]
 [b]12 Adventurers Remain[\b]
 
-@firstScript Ep4
+;@firstScript Ep4
 @goto Ep4

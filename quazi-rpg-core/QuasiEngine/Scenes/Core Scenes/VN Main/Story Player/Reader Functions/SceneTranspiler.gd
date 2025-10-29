@@ -92,7 +92,7 @@ func _transpile_command(story_tree: StoryTree, expression: SceneParser.BaseExpre
 	transpile_index = 0
 	var initial_value = _build_value_from_symbol(expression)
 	
-	match expression.value:
+	match expression.value.to_lower():
 		SceneLexer.BUILT_IN_COMMANDS.PRINT_LINE:
 			command_node = TreeNode.PrintNode.new(story_tree.index + 1, initial_value)
 			command_node.args.append("text")
@@ -174,6 +174,9 @@ func _transpile_command(story_tree: StoryTree, expression: SceneParser.BaseExpre
 		SceneLexer.BUILT_IN_COMMANDS.MOVIE:
 			command_node = TreeNode.MovieNode.new(story_tree.index +1, initial_value)
 			command_node.args.append("movieName")
+		SceneLexer.BUILT_IN_COMMANDS.OPEN_URL:
+			command_node = TreeNode.UrlNode.new(story_tree.index+1, initial_value)
+			command_node.args.append("url")
 		SceneLexer.BUILT_IN_COMMANDS.WAIT:
 			command_node = TreeNode.WaitNode.new(story_tree.index + 1, initial_value)
 			command_node.args.append("waitTime")

@@ -33,10 +33,11 @@ const BUILT_IN_COMMANDS := {
 	SUBSCRIPT_RETURN = "return",
 	LOAD_TITLE = "title",
 	LOAD_SCENE = "loadScene",
-	STOP_BGM = "stopBGM",
-	STOP_SFX = "stopSFX",
-	STOP_VOICE = "stopVoice",
+	STOP_BGM = "stopbgm",
+	STOP_SFX = "stopsfx",
+	STOP_VOICE = "stopvoice",
 	SET_VARIABLE = "set",
+	OPEN_URL = "openurl",
 	IF = "if", #not in transpiler yet
 	ELSE = "else", #not in transpiler yet
 	GROUP = "group", #not in transpiler yet
@@ -47,7 +48,7 @@ const BUILT_IN_COMMANDS := {
 	RANDOM = "random", #not in transpiler yet
 	CHOICE = "choice", #not in transpiler yet
 	ICON = "icon", #specific to ink printer
-	CLEAR_INK = "clearPrinter" #specific to ink printer
+	CLEAR_INK = "clearprinter" #specific to ink printer
 }
 
 #reseved keywords and built in commands
@@ -183,14 +184,25 @@ func _get_indent_level(line: String, index: int, spaces: int):
 func _tokenize_command(current_line: String) -> Array[Token]:
 	if current_line.length() > 1:
 		#var splitter_array := _split_by_quotes(current_line, 0)
+		
+		if current_line == "@openURL \"godotengine.org\"":
+			pass
+		
 		var token_array : Array[Token] = []
 		var argument_list = _build_args_list(_split_by_quotes(current_line,0), 0)
 		#confirm the line in question is a command, then chop off the first argument
 		token_array.append(Token.new(TOKEN_TYPES.COMMAND, argument_list[0].split("@", true, 1)[1]))
 		argument_list.remove_at(0)
 		
+		#if current_line == "Pilgrimage to Zenith: {int(score)}":
+				##print((arg.left(1) + " and " + arg.right(1))
+				#pass
+		
 		for arg in argument_list:
-			if(arg.contains(":")):
+			#if current_line == "Pilgrimage to Zenith: {int(score)}":
+				##print((arg.left(1) + " and " + arg.right(1))
+				#pass
+			if(arg.contains(":") && !(arg.left(1)=="\"" && arg.right(1)=="\"")):
 				var colon_split = arg.split(":", false, 1)
 				token_array.append(Token.new(TOKEN_TYPES.PARAMETER, colon_split[0]))
 				if(colon_split.size() > 1):

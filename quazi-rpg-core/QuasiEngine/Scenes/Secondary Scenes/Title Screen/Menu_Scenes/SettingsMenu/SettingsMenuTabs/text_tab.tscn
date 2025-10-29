@@ -1,0 +1,356 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5qaqqe1jtjv7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yr3sb"]
+bg_color = Color(0.27, 0.27, 0.27, 1)
+
+[sub_resource type="Theme" id="Theme_yr3sb"]
+default_base_scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o11je"]
+bg_color = Color(0.26, 0.26, 0.26, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_escd1"]
+bg_color = Color(0.14, 0.14, 0.14, 1)
+
+[node name="Text" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CommandLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.63
+theme_override_font_sizes/normal_font_size = 40
+text = "Text Settings"
+vertical_alignment = 2
+
+[node name="MainKeyLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 32
+text = "Text Settings"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="SecondaryKeyLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 32
+text = "Secondary Key"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="OptionPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yr3sb")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 0
+
+[node name="SliderVbox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer"]
+custom_minimum_size = Vector2(0, 210)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextSpeedMod" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/TextSpeedMod"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="SpeedLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/TextSpeedMod/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Text Speed Modifier"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/TextSpeedMod"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/TextSpeedMod/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = SubResource("Theme_yr3sb")
+min_value = 0.4
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/TextSpeedMod"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.21
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ValueLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/TextSpeedMod/MarginContainer3"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "1.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AutoWaitTime" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/AutoWaitTime"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="AutoWaitLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/AutoWaitTime/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Auto Wait Time"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/AutoWaitTime"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/AutoWaitTime/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = SubResource("Theme_yr3sb")
+max_value = 3.0
+step = 0.0
+value = 1.0
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/AutoWaitTime"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.21
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ValueLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/AutoWaitTime/MarginContainer3"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "1.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox"]
+layout_mode = 2
+
+[node name="TextSize" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer/TextSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextSizeOptionLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer/TextSize/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Text Size"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer/TextSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer/TextSize/MarginContainer2"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme = SubResource("Theme_yr3sb")
+min_value = 0.7
+value = 49.7
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer/TextSize/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+selected = 1
+item_count = 4
+popup/item_0/text = "Small"
+popup/item_0/id = 0
+popup/item_1/text = "Default"
+popup/item_1/id = 1
+popup/item_2/text = "Large"
+popup/item_2/id = 2
+popup/item_3/text = "Extra Large"
+popup/item_3/id = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer/TextSize"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.21
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ValueLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer/TextSize/MarginContainer3"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="TextFont" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer/TextFont"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VoiceVolume" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer/TextFont/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Text Font"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer/TextFont"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer/TextFont/MarginContainer2"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme = SubResource("Theme_yr3sb")
+value = 50.0
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer/TextFont/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+selected = 0
+item_count = 2
+popup/item_0/text = "Standard"
+popup/item_0/id = 0
+popup/item_1/text = "Generic"
+popup/item_1/id = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer/TextFont"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.21
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ValueLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionPanel/MarginContainer/SliderVbox/HBoxContainer/TextFont/MarginContainer3"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TestPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o11je")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TestPanel"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TestPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 30
+text = "	Preview"
+fit_content = true
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/TestPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_escd1")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TestPanel/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 5
+
+[node name="SamplePrinter" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TestPanel/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "Sample printer."
+fit_content = true

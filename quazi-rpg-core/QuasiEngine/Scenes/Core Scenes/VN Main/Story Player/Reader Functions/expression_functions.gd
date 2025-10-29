@@ -31,20 +31,27 @@ func display_variable(conditional: String, node: TreeNode.CommandNode) -> String
 
 	_current_node = node
 	var expression: Expression = Expression.new()
+	var var_dict = GlobalData.ingame_variables.duplicate()
+	var_dict["GlobalData"] = "GlobalData"
+	
+	conditional = conditional.replace("(\\\"", "(\"").replace("\\\")", "\")")
+	#conditional = conditional.replace("\\\")", "\")")
+	
+	print("testing cond " + conditional)
 	
 	var result
 	if (
-		GlobalData.ingame_variables.has(conditional) &&
-		GlobalData.ingame_variables[conditional] is PackedStringArray
+		var_dict.has(conditional) &&
+		var_dict[conditional] is PackedStringArray
 		):
-		var newConditional = Util.packed_string_array_to_str(GlobalData.ingame_variables[conditional])
+		var newConditional = Util.packed_string_array_to_str(var_dict[conditional])
 		return newConditional
 	else:
-		var error = expression.parse(conditional, GlobalData.ingame_variables.keys())
+		var error = expression.parse(conditional, var_dict.keys())
 		if error != OK:
 			push_error("Expression parse error: " + expression.get_error_text())
 			return conditional
-		result = expression.execute(GlobalData.ingame_variables.values(), self)
+		result = expression.execute(var_dict.values(), self)
 	
 	if expression.has_execute_failed():
 		push_error("Variable (" + conditional + ") not present in database!" )
@@ -122,3 +129,11 @@ func set_variable_step(command: String) -> void:
 					type_string(typeof(result))
 				]
 			)
+
+
+func z_pro(pronoun:String) -> String:
+	print("Getting Z pronoun - " + pronoun)
+	return GlobalData.custom_global_data.z_pro(pronoun)
+
+func test_func(input: String):
+	return input

@@ -25,12 +25,16 @@ var default_values := {
 	"sfx_volume" : 50.0,
 	"voice_volume" : 50.0,
 	"tts_toggle" : false,
-	"current_tts_voice" : 0
+	"current_tts_voice" : 0,
+	"last_opened_tab" : ""
 }
 
 var tts_voices
 
 var settings_options : SettingOptions = SettingOptions.new()
+
+var last_opened_tab : String = ""
+
 #var current_window_size_index : int
 #var current_window_mode_index : int
 #var current_resizable_window_toggle : int #0 = false, 1=true
@@ -205,6 +209,8 @@ class SettingOptions:
 	var tts_toggle : bool
 	var current_tts_voice : int
 	
+	var last_opened_tab : String
+	
 	#func _init(default_res: int):
 		#current_window_mode_index = default_res
 	
@@ -218,6 +224,7 @@ class SettingOptions:
 			"sfx_volume" : sfx_volume,
 			"voice_volume" : voice_volume,
 			"tts_toggle" : tts_toggle,
-			"current_tts_voice" : current_tts_voice
+			"current_tts_voice" : current_tts_voice,
+			"last_opened_tab" : last_opened_tab
 		}
 		return dict

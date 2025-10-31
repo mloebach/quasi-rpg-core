@@ -5,13 +5,13 @@ extends Control
 
 signal restore_ui
 
-func _ready() -> void:
-	_load_icons()
+#func _ready() -> void:
+	#_load_icons()
 
 
-func _load_icons() -> void:
+func load_icons(icons: Dictionary) -> void:
 	print("loading status screen!")
-	for character in GlobalData.custom_global_data.roster_stats:
+	for character in icons:
 		print("loading character: " + character)
 		var new_icon = status_icon.instantiate()
 		grid_stage.add_child(new_icon)

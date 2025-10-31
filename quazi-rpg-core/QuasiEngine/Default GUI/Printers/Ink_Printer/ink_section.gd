@@ -18,6 +18,9 @@ class_name InkSection
 signal continue_button_pressed
 signal skip_field_pressed
 
+signal create_hover
+signal destroy_hover
+
 
 func _ready() -> void:
 	continue_button.hide()
@@ -39,10 +42,13 @@ func _show_panel() -> void:
 func _load_text(_text: String) -> void:
 	text_body.text = _text
 
-func create_icon(texture : Texture2D) -> void:
+func create_icon(texture : Texture2D, id: String) -> void:
 	var new_icon = base_icon.instantiate()
 	icon_stage.add_child(new_icon)
 	new_icon.change_icon(texture)
+	new_icon.character_tag = id
+	new_icon.create_tooltip.connect(_on_icon_create_hover)
+	new_icon.destroy_tooltip.connect(_on_hover_destroy)
 
 func create_cg(texture : Texture2D) -> void:
 	var new_cg = base_cg.instantiate()
@@ -80,3 +86,33 @@ func _on_button_button_up() -> void:
 #func kill_skip_field() -> void:
 	#if skip_area != null:
 		#skip_area.queue_free()
+
+
+func _on_text_body_meta_clicked(meta: Variant) -> void:
+	var json = JSON.new()
+	json.parse(meta)
+	if json.data.has("hover"): #abort if it has hover in there
+		return
+	#print("%s versus %s - out of %s" % [text_body.visible_characters,json.data.pos, text_body.text.length()])
+	if text_body.visible_characters > json.data.pos || text_body.visible_characters == -1:
+		print(str(meta))
+
+
+func _on_text_body_meta_hover_started(meta: Variant) -> void:
+	var json = JSON.new()
+	json.parse(meta)
+	##print("%s versus %s - out of %s" % [text_body.visible_characters,json.data.pos, text_body.text.length()])
+	##await 
+	#if text_body.visible_characters > json.data.pos || text_body.visible_characters == -1:
+	create_hover.emit(json.data)
+
+func _on_icon_create_hover(id: String):
+	var hover_data : Dictionary = {"wiki":id, "pos":0}
+	create_hover.emit(hover_data)
+
+func _on_text_body_meta_hover_ended(meta: Variant) -> void:
+	#destroy_hover.emit()
+	_on_hover_destroy()
+
+func _on_hover_destroy():
+	destroy_hover.emit()

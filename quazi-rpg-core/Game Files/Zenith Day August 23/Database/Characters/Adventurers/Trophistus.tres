@@ -5,14 +5,11 @@
 
 [resource]
 script = ExtResource("1_2r2bd")
-hint = ""
 name = "Trophistus"
 display_name = "Trophistus"
 full_name = "Trophistus Sumulong"
-use_character_color = false
-character_color = Color(0, 0, 0, 1)
-DefaultSprite = "Default"
-sprite_resources = Dictionary[String, Texture2D]({})
+use_character_color = true
+character_color = Color(0.59359986, 0.47039998, 0.84, 1)
 icon_resources = Dictionary[String, Texture2D]({
 "Default": ExtResource("1_acm7k")
 })

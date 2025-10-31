@@ -31,6 +31,7 @@ var current_tab : String = ""
 
 signal tts_toggled
 signal restore_ui
+signal update_z_tab
 #var resolutions : Dictionary[String,Vector2] = {
 	#"1920x1080" = Vector2(1920,1080),
 	#"1280x720" = Vector2(1920,1080),
@@ -63,11 +64,18 @@ func load_settings_tabs():
 	active_tabs["Audio"].tts_toggled.connect(_on_tts_toggled)
 	load_tab(text_tab, "Text")
 	load_tab(controls_tab, "Controls")
-	if GlobalData.current_scene_status == GlobalData.SceneTypes.in_game:
-		var z_tab = load_tab(zenith_tab, "[" + GlobalData.player_save.player_name.capitalize() + "]")
-		z_tab.create_name_field.connect(_on_create_name_field)
+	load_z_tab()
+	#if GlobalData.current_scene_status == GlobalData.SceneTypes.in_game:
+		#var z_tab = load_tab(zenith_tab, "[" + GlobalData.player_save.player_name.capitalize() + "]")
+		#z_tab.create_name_field.connect(_on_create_name_field)
+		#update_z_tab.connect(z_tab._on_update_z_tab)
 	#active_tabs["Graphics"].show()
 
+func load_z_tab():
+	if GlobalData.current_scene_status == GlobalData.SceneTypes.in_game:
+		var z_tab = load_tab(zenith_tab, "[" + GlobalData.player_save.player_name + "]")
+		z_tab.create_name_field.connect(_on_create_name_field)
+		update_z_tab.connect(z_tab._on_update_z_tab)
 
 func load_tab(tab_object, tab_name: String):
 	var new_tab = tab_object.instantiate()
@@ -113,7 +121,20 @@ func _on_exit_name_field() -> void:
 	for child in popup_stage.get_children():
 		child.queue_free()
 		
-func _on_accept_name_field() -> void:
+func _on_accept_name_field(input: String) -> void:
+	print(input)
+	active_tabs["[" + GlobalData.player_save.player_name + "]"].queue_free()
+	active_tabs.erase("[" + GlobalData.player_save.player_name + "]")
+	#change zenith name
+	GlobalData.player_save.z_renames_left -= 1
+	GlobalData.player_save.player_name = input
+	GlobalData.ingame_variables["zenith_name"] = "[" + input + "]"
+	#update_z_tab.emit()
+	GlobalData.create_autosave()
+	GlobalData.save_player_file()
+	load_z_tab()
+	active_tabs["[" + GlobalData.player_save.player_name + "]"].show()
+	
 	_on_exit_name_field()
 
 #func _load_values():

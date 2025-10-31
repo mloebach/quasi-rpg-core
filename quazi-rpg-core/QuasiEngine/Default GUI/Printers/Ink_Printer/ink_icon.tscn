@@ -20,3 +20,6 @@ theme_override_constants/margin_bottom = 6
 layout_mode = 2
 texture = ExtResource("1_5digj")
 expand_mode = 1
+
+[connection signal="mouse_entered" from="MarginContainer/TextureRect" to="." method="_on_texture_rect_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/TextureRect" to="." method="_on_texture_rect_mouse_exited"]

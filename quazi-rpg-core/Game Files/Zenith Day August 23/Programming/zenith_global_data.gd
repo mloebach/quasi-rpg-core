@@ -95,6 +95,10 @@ func get_z_pro(pronoun:String) -> String:
 					#return ""
 		"are they":
 			return pronoun_tree("are they", "is he", "is she")
+		"they are":
+			return pronoun_tree("they are", "he is", "she is")
+		"they're":
+			return pronoun_tree("they're", "he's", "she's")
 		_:
 			push_error("Unknown pronoun used in script - " + pronoun)
 			return ""

@@ -132,6 +132,9 @@ func run_scene() -> void:
 				key = node.next #move on
 				continue
 	
+	
+		
+	
 		var _new_actor = _evaluate_node(node, key)
 		
 		
@@ -326,10 +329,17 @@ func _open_url(node: TreeNode.UrlNode):
 func _icon_command(node: TreeNode.IconNode):
 	if text_printer is InkTextPrinter:
 		print("Icon command is valid!")
+		
 		var icon_node = TreeNode.IconNode.new(node.next, node.id)
 		copy_args(icon_node, node)
-		#create printer if there isnt one, and let it be default
+		#var icons = icon_node.id.split(",")
+		
 		text_printer.icon_queue.append(icon_node)
+		
+		#for icon in icons.size():
+			#var new_node = TreeNode.IconNode.new(node.next, node.id)
+			#create printer if there isnt one, and let it be default
+			#text_printer.icon_queue.append(icons[icon])
 		
 func _create_choice(node: TreeNode.ChoiceNode):
 	
@@ -386,11 +396,12 @@ func _load_ribbon_ui()-> void:
 	_ribbon_ui.return_to_title.connect(_on_title_button_clicked)
 	_ribbon_ui.create_status_menu.connect(_on_create_status_menu)
 	_ribbon_ui.create_save_menu.connect(_on_create_save_menu)
-	#_ribbon_ui.auto_toggled.connect(_on_auto_toggled)
+	_ribbon_ui.auto_toggled.connect(_on_auto_toggled)
 	
 	
-#func _on_auto_toggled(auto_status : bool) -> void:
+func _on_auto_toggled(auto_status : bool) -> void:
 	#_auto_on = auto_status
+	GlobalData.auto_printer_on = auto_status
 	
 func _on_create_settings_menu() -> void:
 	var new_settings_menu = settings_menu.instantiate()
@@ -404,6 +415,7 @@ func _on_create_status_menu() -> void:
 	upper_ui_stage.add_child(new_status_menu)
 	main_stage.visible = false
 	new_status_menu.restore_ui.connect(_restore_ui)
+	new_status_menu.load_icons(GlobalData.custom_global_data.roster_stats)
 
 
 func _on_create_save_menu() -> void:

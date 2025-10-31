@@ -268,7 +268,7 @@ func _on_mouse_exit_hover_over_save():
 func _on_exit_button_button_up() -> void:
 	GlobalData.player_save.game_save_page = current_page
 	#has to be handled differently due to how current_file_path_works
-	var path = GlobalData.main_folder + str(GlobalData.player_save.file_index)+"_"+GlobalData.player_save.player_name+"/player.json"
+	var path = GlobalData.main_folder + "Slot_" + str(GlobalData.player_save.file_index)+"/player.json"
 	var player_data = FileAccess.open(path, FileAccess.WRITE)
 	player_data.store_line(
 		JSON.stringify(GlobalData.player_save.main_to_json().data)

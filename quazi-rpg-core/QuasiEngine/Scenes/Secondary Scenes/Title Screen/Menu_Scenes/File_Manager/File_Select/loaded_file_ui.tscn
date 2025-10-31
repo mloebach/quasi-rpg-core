@@ -1,17 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://do6c34g1gp37o"]
+[gd_scene load_steps=5 format=3 uid="uid://do6c34g1gp37o"]
 
 [ext_resource type="Script" uid="uid://ciiq34jkveunp" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/loaded_file_ui.gd" id="1_55bgv"]
+[ext_resource type="Texture2D" uid="uid://cy3yc2cdnm43j" path="res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep4/JQ3Gun.png" id="2_4p883"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fhx"]
 bg_color = Color(0.192, 0.18, 0.24, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xw7ev"]
 bg_color = Color(0.338876, 0.359706, 0.724406, 1)
-
-[sub_resource type="Gradient" id="Gradient_upqu5"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_t7dli"]
-gradient = SubResource("Gradient_upqu5")
 
 [node name="SaveContainer" type="PanelContainer"]
 anchors_preset = 15
@@ -205,7 +201,7 @@ size_flags_stretch_ratio = 0.24
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.68
+size_flags_stretch_ratio = 0.8
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 40
@@ -213,7 +209,10 @@ theme_override_constants/margin_bottom = 20
 
 [node name="SaveThumbnail" type="TextureRect" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer"]
 layout_mode = 2
-texture = SubResource("GradientTexture2D_t7dli")
+size_flags_horizontal = 8
+texture = ExtResource("2_4p883")
+expand_mode = 3
+stretch_mode = 4
 
 [node name="RightSpace" type="Control" parent="VBoxContainer/File"]
 layout_mode = 2
@@ -269,6 +268,7 @@ size_flags_stretch_ratio = 0.5
 [node name="End" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 
+[connection signal="button_up" from="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock/HBoxContainer/Characters" to="." method="_on_characters_button_up"]
 [connection signal="button_up" from="VBoxContainer/BottomButtons/HBoxContainer/ContinueButton" to="." method="_on_continue_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/BottomButtons/HBoxContainer/LoadButton" to="." method="_on_load_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/BottomButtons/HBoxContainer/ReturnButton" to="." method="_on_return_button_button_up"]

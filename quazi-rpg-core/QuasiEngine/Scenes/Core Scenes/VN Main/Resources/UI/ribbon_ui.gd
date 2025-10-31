@@ -27,7 +27,8 @@ func _on_quit_button_button_up() -> void:
 
 
 func _on_auto_button_toggled(toggled_on: bool) -> void:
-	#auto_toggled.emit()
+	print("auto button pressed - %s" % toggled_on)
+	auto_toggled.emit(toggled_on)
 	GlobalData.auto_printer_on = toggled_on
 	GlobalData.auto_timer = 0.0 #reset timer
 

@@ -13,6 +13,7 @@ signal swap_to_file_select_menu
 signal return_to_title
 signal load_selected_file
 signal load_to_save_menu
+signal status_menu
 
 #signal swap_to_new_player_menu
 var file_menu_mode : FileManagerMenu.FileMenuMode
@@ -27,7 +28,7 @@ func _ready() -> void:
 func load_file(player_save : PlayerSave):
 	#GlobalData.global_save.current_player_slot = player_save.file_index
 	GlobalData.player_save = player_save
-	file_number_text.text = "FILE " + "#"
+	file_number_text.text = "FILE " + str(player_save.file_index+1)
 	player_name_text.text = player_save.player_name
 	time_played_text.text = Util.float_to_time_string(player_save.player_time_spent, true)
 	var json = FileAccess.open(player_save.auto_save_json, FileAccess.READ)
@@ -35,6 +36,13 @@ func load_file(player_save : PlayerSave):
 	last_date_played_text.text = auto.date_saved
 	quest_text.text = auto.current_quest
 	location_text.text = auto.current_location
+	#save_thumbnail.texture = GlobalData.current_file_path()
+	
+	var thumbnail = GlobalData.current_file_path() + "/Screenshots/autosave.webp"
+	var webp = Image.load_from_file(thumbnail)
+	#var webp = load(file)
+	if webp != null:
+		save_thumbnail.texture = ImageTexture.create_from_image(webp)
 
 #	save_thumbnail.texture = player_save.auto_save.thumbnail
 #come back to the above
@@ -58,3 +66,7 @@ func _on_continue_button_button_up() -> void:
 
 func _on_load_button_button_up() -> void:
 	load_to_save_menu.emit(file_menu_mode)
+
+
+func _on_characters_button_up() -> void:
+	status_menu.emit(loaded_file)

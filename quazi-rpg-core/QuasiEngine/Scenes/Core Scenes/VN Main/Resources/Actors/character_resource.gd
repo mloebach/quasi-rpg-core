@@ -26,3 +26,11 @@ const DEFAULT_POSE = "Default"
 @export_group("Variables")
 @export var custom_variables : Dictionary[String, String] = {}
 @export var tags : Array[String] = []
+
+func has_default_icon() -> bool:
+	if icon_resources.has(DefaultSprite):
+		return true
+	return false
+
+func get_default_icon() -> Texture2D:
+	return icon_resources[DefaultSprite]

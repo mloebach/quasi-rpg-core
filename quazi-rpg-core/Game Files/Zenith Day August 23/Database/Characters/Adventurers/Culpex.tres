@@ -5,14 +5,9 @@
 
 [resource]
 script = ExtResource("1_7qnp0")
-hint = ""
 name = "Culpex"
 display_name = "Culpex"
 full_name = "Culpex Oracion"
-use_character_color = false
-character_color = Color(0, 0, 0, 1)
-DefaultSprite = "Default"
-sprite_resources = Dictionary[String, Texture2D]({})
 icon_resources = Dictionary[String, Texture2D]({
 "Default": ExtResource("1_ltgp3")
 })

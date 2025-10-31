@@ -26,6 +26,7 @@ class_name FileManagerMenu
 @onready var file_select_menu = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/file_select_ui.tscn")
 @onready var popup_menu = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/choice_popup_menu.tscn")
 @onready var settings_menu = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/settings_menu.tscn")
+@onready var status_menu = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/status_menu.tscn")
 #@onready var file_button = preload("res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/file_button.tscn")
 
 @export var file_select_string = "	Please select a file."
@@ -157,6 +158,7 @@ func _load_file_info(player_save: PlayerSave) -> Node:
 	file_info.return_to_title.connect(_on_return_to_title)
 	file_info.load_selected_file.connect(_on_load_autosave_of_selected)
 	file_info.load_to_save_menu.connect(_on_load_save_menu)
+	file_info.status_menu.connect(_on_status_menu)
 	if player_save.ng_plus_unlocked:
 		ng_plus_button.visible = true
 	else:
@@ -313,6 +315,13 @@ func _copy_file():
 	refresh_files.emit()
 	_clear_popups()
 	_on_exit_to_normal()
+	
+func _on_status_menu(playersave: PlayerSave):
+	var _status_menu = status_menu.instantiate()
+	popup_stage.add_child(_status_menu)
+	var auto_json = FileAccess.open(playersave.auto_save_json, FileAccess.READ)
+	var auto_json_data = playersave.load_game_save(auto_json)
+	_status_menu.load_icons(auto_json_data.voyager_status)
 
 func _on_erase_button_button_up() -> void:
 	print("Erasing file!")
@@ -330,20 +339,21 @@ func _on_erase_selected_file(index: int):
 func _erase_file():
 	
 	
-	var folder = GlobalData.main_folder + str(option_index-1) +"_"+ GlobalData.global_save.player_names[option_index-1]
+	var folder = GlobalData.main_folder + "Slot_" + str(option_index-1)
 	print("erasing selected file! " + str(folder))
 	if DirAccess.dir_exists_absolute(folder):
 		remove_recursive(folder)
 	
-	GlobalData.remove_player_save(option_index)
+	GlobalData.remove_player_save(option_index-1)
 	
 	if GlobalData.global_save.current_player_slot == option_index-1:
+		
 		var first_file = find_first_file(0)
 		print("new file - " + str(first_file))
 		if first_file == -1:
-			GlobalData.global_save.autoload_save_deleted = true
 			GlobalData.global_save.current_player_slot = -1
 		else:
+			GlobalData.global_save.autoload_save_deleted = true
 			GlobalData.global_save.current_player_slot = first_file
 	GlobalData.save_global()
 	refresh_files.emit()

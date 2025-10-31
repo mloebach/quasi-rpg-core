@@ -1,7 +1,20 @@
 @choice "Skip" play:true
 @set score=30
-@cg WhiteScreen
+;@cg WhiteScreen
 ;@icon Uelgwold
+@status Quzeon.Eliminated
+@status Culpex.Eliminated
+@status Regamirr.Eliminated
+@status JQ3.Eliminated
+@status Ehrugarr.Eliminated
+
+@icon Uelgwold,Kennewick.Gloat
+I really love all the (!@cool awesome useful things,While {z_pro("they're")} up to some monkey business, I'm over here [i]standing[/i] on business!@Yunyere) he's been saying about (!@you,You good, {zenith_name}?) behind your back.
+
+@icon Trophistus
+@icon Ehrugarr
+If I hover over this text, I get to see a (!@tooltip,congrats for reading this!@JQ3) for the..................(@z_name,protagonist).
+Spacing test for (@Z_name,{z_pro("them")}) - (@yunyere) Lannus, (@Trophistus,That Fucker) Sumulong and (@z_name).
 Ehrugarr: {test_func("2")} Pilgrimage to {z_pro("their")} {z_pro("Them")} {z_pro("THEMSELF")} Zenith: {int(score)}
 
 Ehrugarr: {test_func("2")} Pilgrimage to {z_pro("their")} {z_pro("Them")} {z_pro("THEMSELF")} Zenith: {int(score)}

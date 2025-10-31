@@ -20,11 +20,13 @@ var autoload_save_deleted := false
 
 #func get_current_save() -> PlayerSave:
 func get_current_save() -> String:
-	return player_saves[str(current_player_slot)+"_"+player_names[current_player_slot]]
+	if player_saves.has("Slot_"+str(current_player_slot)):	
+		return player_saves["Slot_"+str(current_player_slot)]
+	return ""
 
 #func get_save_at_slot(slot: int) -> PlayerSave:
 func get_save_at_slot(slot: int) -> String:
-	return player_saves[str(slot)+"_"+player_names[slot]]
+	return player_saves["Slot_"+str(slot)]
 
 func get_current_save_name() -> String:
 	return player_names[current_player_slot]

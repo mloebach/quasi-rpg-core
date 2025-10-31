@@ -19,6 +19,7 @@ func _ready():
 	entry_field.input_selected.connect(_on_input_selected)
 	entry_field.exit_input_menu.connect(_on_exit_input_menu)
 	entry_stage.add_child(entry_field)
+	entry_field.field_setup()
 
 func _on_exit_input_menu() -> void:
 	swap_to_file_select_menu.emit()

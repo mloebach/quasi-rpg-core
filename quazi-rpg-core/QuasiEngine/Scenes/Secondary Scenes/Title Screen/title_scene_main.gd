@@ -99,6 +99,7 @@ func _create_file_menu() -> void:
 func _create_autoload_menu() -> void:
 	var file_menu = _create_menu()
 	autoload_stage.add_child(file_menu)
+	#if 
 	#file_menu.return_to_title.connect(_on_return_to_title)
 	file_menu.load_autoload(GlobalData.get_current_player_save())
 	

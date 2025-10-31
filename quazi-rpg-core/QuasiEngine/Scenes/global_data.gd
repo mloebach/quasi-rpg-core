@@ -61,11 +61,14 @@ var custom_global_data
 var custom_command_type = ZenithCustomCommands
 var custom_command_functions
 
+var keyword_links = {}
+
 
 func _ready() -> void:
 	_load_global_data()
 	_load_printers()
 	_load_characters()
+	_load_keyword_links()
 	_set_tts_voices()
 	custom_command_functions = custom_command_type.new()
 	custom_global_data = custom_global_data_type.new()
@@ -77,7 +80,14 @@ func get_current_player_save() -> PlayerSave:
 #func get_current_player_save() -> String:
 	#pla
 	var player_save = PlayerSave.new()
-	var json = FileAccess.open(global_save.get_current_save(), FileAccess.READ)
+	var current_save = global_save.get_current_save()
+	if current_save == "":
+		push_warning("Previous save was deleted through outside means!")
+		for index in global_save.player_names.size():
+			if global_save.player_saves.has("Slot_" + str(index)):
+				current_save = global_save.player_saves["Slot_" + str(index)]
+				break
+	var json = FileAccess.open(current_save, FileAccess.READ)
 	return player_save.load_save(json)
 	
 func _load_global_data() -> void:
@@ -98,7 +108,23 @@ func _load_global_data() -> void:
 			global_save[i].assign(node_data[i])
 		else:
 			global_save[i] = node_data[i]
-		
+	#check to see if all folders are active
+	print("checking folders")
+	for folder in global_save.player_names.size():
+		if DirAccess.dir_exists_absolute(main_folder + "Slot_" + str(folder)):
+			if !global_save.player_saves.has("Slot_" + str(folder)):
+				var player_json_path = main_folder + "Slot_" + str(folder) + "/player.json"
+				global_save.player_saves["Slot_" + str(folder)] = player_json_path
+				var player_json = FileAccess.open(player_json_path, FileAccess.READ)
+				var player_item = player_save.load_save(player_json)
+				
+				global_save.player_names[folder] = player_item.player_name
+	#check to see which folders are inactive and delete them
+	for save in global_save.player_names.size():
+		if !DirAccess.dir_exists_absolute(main_folder + "Slot_" + str(save)):
+			global_save.player_saves.erase("Slot_"+str(save))
+			global_save.player_names[save] = ""
+	save_global()
 	
 func _load_printers() -> void:
 	for printer_resource_path in game_db.printers:
@@ -119,7 +145,7 @@ func get_char_fullname(name: String):
 	else:
 		return characters[name].full_name
 		
-func get_character_icon(_id: String, _appearance: String):
+func get_character_icon(_id: String, _appearance: String = "Default"):
 	if !characters.has(_id):
 		push_warning("ID %s is not a character!" % [_id])
 		return
@@ -143,7 +169,7 @@ func create_new_save(player_name: String, slot: int):
 	new_save.file_index = slot
 	#new_save.auto_save = GameSave.new()
 	global_save.player_names[slot] = player_name
-	global_save.player_saves[str(slot)+"_"+player_name] = create_player_files(new_save)
+	global_save.player_saves["Slot_" + str(slot)] = create_player_files(new_save)
 	#global_save.current_player_slot = slot
 	player_save = new_save
 	#create_player_files(new_save)
@@ -167,11 +193,12 @@ func create_first_autosave(dir: DirAccess, save:PlayerSave):
 	var auto_data = FileAccess.open(dir.get_current_dir()+"/auto.json", FileAccess.WRITE)
 	auto_data.store_line(JSON.stringify(save.main_save.main_to_json().data))
 	auto_data.close()
+	get_screenshot("autosave")
 	return dir.get_current_dir()+"/auto.json"
 	
 func create_player_files(save: PlayerSave):
 	var dir = DirAccess.open("user://" + game_name)
-	var save_name = str(save.file_index)+"_"+save.player_name
+	var save_name = "Slot_" + str(save.file_index)
 	dir.make_dir(save_name)
 	#global_save.player_saves.append(new_save)
 	dir.change_dir(save_name)
@@ -192,9 +219,9 @@ func copy_file_into_slot(file: int, slot: int):
 	#var new_player_save = player_save.load_save(json)
 	#new_player_save.file_index = slot
 	#create_player_files(new_player_save)
-	copy_files_in_dir(main_folder+str(file)+"_"+global_save.player_names[file],main_folder+str(slot)+"_"+global_save.player_names[file])
+	copy_files_in_dir(main_folder+"Slot_"+str(file),main_folder+"Slot_"+str(slot))
 	
-	var player_folder = str(slot)+"_"+global_save.player_names[file]
+	var player_folder = "Slot_" + str(slot)
 	var new_json = main_folder+player_folder+"/player.json"
 	global_save.player_names[slot] = global_save.player_names[file]
 	global_save.player_saves[player_folder] = new_json
@@ -206,8 +233,9 @@ func copy_file_into_slot(file: int, slot: int):
 	new_player_save.file_index = slot
 	json.close()
 	for save in new_player_save.game_saves:
-		var split_save_path = new_player_save.game_saves[save].split(str(file)+"_"+global_save.player_names[file], true,1)
-		new_player_save.game_saves[save] = split_save_path[0] + player_folder +split_save_path[1]
+		var split_save_path = new_player_save.game_saves[save].split("Slot_"+str(file), true,1)
+		##new_player_save.game_saves[save] = split_save_path[0] + player_folder +split_save_path[1]
+		new_player_save.game_saves[save] = main_folder + player_folder + split_save_path[1]
 	var save_data = FileAccess.open(new_json, FileAccess.WRITE)
 	save_data.store_line(
 		JSON.stringify(new_player_save.main_to_json().data)
@@ -230,7 +258,7 @@ func copy_file_into_slot(file: int, slot: int):
 func copy_files_in_dir(source_path: String, dest_path: String):
 	var dir_access = DirAccess.open(source_path)
 	if dir_access == null:
-		push_error("Can't access " + dir_access)
+		push_error("Can't access " + str(dir_access))
 	if not DirAccess.dir_exists_absolute(dest_path):
 		print("creating folder  - " + dest_path)
 		DirAccess.make_dir_recursive_absolute(dest_path)
@@ -255,6 +283,8 @@ func load_game_save(path: String):
 	#global_save.current_player_slot = player_save.file_index
 	var json = FileAccess.open(path, FileAccess.READ)
 	player_save.main_save = player_save.load_game_save(json)
+	global_save.current_player_slot = player_save.file_index
+	save_global()
 	current_scene_status = SceneTypes.in_game
 	custom_global_data.roster_stats = player_save.main_save.voyager_status
 	ingame_variables = player_save.main_save.variables
@@ -285,11 +315,17 @@ func get_player_file_at(index: int):
 	return global_save.player_names[index]
 	
 func remove_player_save(index: int):
-	global_save.player_saves.erase(str(index-1) + "_" +get_player_file_at(index-1))
-	global_save.player_names[index-1] = ""
+	global_save.player_saves.erase("Slot_" + str(index))
+	global_save.player_names[index] = ""
 	save_global()
 	
-
+func create_autosave():
+	
+	player_save.main_save.date_saved = Time.get_datetime_string_from_system(false, true)
+	var auto = FileAccess.open(player_save.auto_save_json, FileAccess.WRITE)
+	
+	auto.store_line(JSON.stringify(player_save.main_save.main_to_json().data))
+	auto.close()
 	
 func save_player_file():
 	var player_data = FileAccess.open(current_file_path()+"/player.json", FileAccess.WRITE)
@@ -309,7 +345,8 @@ func save_player_file():
 	#save_file.store_line(json_string)
 
 func current_file_path():
-	return  "user://" + game_name + "/" + str(global_save.current_player_slot) + "_"+ global_save.get_current_save_name()
+	#return  "user://" + game_name + "/" + "Slot_"+ global_save.get_current_player_slot()
+	return "user://" + game_name + "/" + "Slot_"+ str(player_save.file_index)
 
 func local_file_path():
 	return  game_name + "/" + global_save.get_current_save_name()
@@ -324,6 +361,18 @@ func pause_printer():
 
 
 	#Settings.settings_options.to_j
+
+func _load_keyword_links():
+	#this is going to include wiki links, but lets start with characters first
+	for character in characters:
+		var new_link = KeywordLink.new()
+		if characters[character].use_character_color:
+			new_link.color = characters[character].character_color
+		if characters[character].has_default_icon():
+			new_link.thumbnail_on = true
+			new_link.thumbnail = characters[character].get_default_icon()
+		new_link.hover_text = "This is " + character + "."
+		keyword_links[character.to_lower()] = new_link
 
 func _set_tts_voices():
 	# One-time steps.
@@ -341,6 +390,14 @@ func tts_speak(line: String):
 		DisplayServer.tts_speak(
 			line, Settings.tts_voices[Settings.get_current_tts_voice()], int(Settings.settings_options.voice_volume)
 		)
+
+
+class KeywordLink:
+	var color: Color = TextPrinter.link_color
+	var hover_text: String = ""
+	var wiki_link: String
+	var thumbnail_on := false
+	var thumbnail : Texture2D
 
 	#await get_tree().create_timer(1).timeout
 #

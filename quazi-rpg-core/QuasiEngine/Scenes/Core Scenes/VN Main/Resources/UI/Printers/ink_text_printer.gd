@@ -5,12 +5,17 @@ class_name InkTextPrinter
 @onready var ink_scroll = $FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll
 @onready var ink_section = preload("res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_section.tscn")
 
+@onready var hover_stage = $HoverStage
+@onready var hover_object = preload("res://QuasiEngine/Default GUI/Printers/Other_UI/tooltip.tscn")
 
 
 var icon_queue: Array[TreeNode.IconNode]
 var cg_queue: TreeNode.CGNode = null
 
 var ink_section_array : Array[InkSection]
+
+var hovering_link : Dictionary = {}
+var hover_text
 #var current_index = 0
 
 #func _ready() -> void:
@@ -41,6 +46,8 @@ func _create_ink_section() -> InkSection:
 	ink_section_array.append(_ink_section)
 	_ink_section.continue_button_pressed.connect(_on_continue_button_pressed)
 	_ink_section.skip_field_pressed.connect(_on_skip_field_pressed)
+	_ink_section.create_hover.connect(_on_create_hover)
+	_ink_section.destroy_hover.connect(_on_destroy_hover)
 	return _ink_section
 
 func _create_icons() -> void:
@@ -48,10 +55,13 @@ func _create_icons() -> void:
 	ink_section_array[ink_section_array.size()-1].show_icons()
 	for icon in icon_queue:
 		#var icon_string = icon.value.split(".", false, 1)
+		
 		ink_section_array[ink_section_array.size()-1].create_icon(
-			GlobalData.get_character_icon(icon.id, icon.appearance)
+			GlobalData.get_character_icon(icon.id, icon.appearance), icon.id
 		)
 	icon_queue.clear()
+
+
 
 func _create_cg() -> void:
 	print("CG on the way!")
@@ -74,6 +84,48 @@ func clear_all_text_items():
 func get_text_box() -> RichTextLabel:
 	return ink_section_array[ink_section_array.size()-1].text_body
 
+func _on_create_hover(hover_link: Dictionary) -> void:
+	#var json = JSON.new()
+	#json.parse(hover_link)
+	
+	hovering_link = hover_link
+	
+	
+	
+	#var new_hover = hover_object.instantiate()
+	#hover_stage.add_child(new_hover)
+	#new_hover.position = get_viewport().get_mouse_position()
+	#new_hover.position.y += 15
+	#new_hover.setup_tooltip(GlobalData.keyword_links[hover_link["wiki"].to_lower()])
+	#new_hover.show()
+
+func _process(delta: float) -> void:
+	
+	super(delta)
+	
+	if (hovering_link != {}
+		&& (hovering_link["pos"] < get_text_box().visible_characters || -1 == get_text_box().visible_characters)
+		 && hover_text == null):
+		hover_text = hover_object.instantiate()
+		hover_stage.add_child(hover_text)
+		hover_text.position = get_viewport().get_mouse_position()
+		hover_text.position.y += 18
+		
+		if hover_text.position.x > (get_viewport().get_visible_rect().size.x * 0.5):
+			hover_text.position.x -= 480
+		
+		if hovering_link.has("hover"):
+			hover_text.setup_tooltip(hovering_link)
+		else:
+			hover_text.setup_tooltip_link(GlobalData.keyword_links[hovering_link["wiki"].to_lower()])
+		hover_text.show()
+
+func _on_destroy_hover() -> void:
+	hovering_link = {}
+	hover_text = null
+	for hover in hover_stage.get_children():
+		hover.queue_free()
+
 func await_input() -> void:
 	super()
 	if choice_queue.size() > 0:
@@ -87,6 +139,7 @@ func await_input() -> void:
 func end_line_procedure() -> void:
 	
 	ink_section_array[ink_section_array.size()-1].continue_button.visible = false
+	
 
 #func _on_scroll_container_resized() -> void:
 	#print("RESIZE CONTAIN")
@@ -145,6 +198,7 @@ func scroll_to_bottom() -> void:
 	#)
 	print("New value - " + str(scroll_container.get_v_scroll_bar().value) + 
 	" vs " + str(scroll_container.get_v_scroll_bar().get_max()))
+	_on_destroy_hover()
 
 func _on_skip_field_pressed() -> void:
 	early_input()

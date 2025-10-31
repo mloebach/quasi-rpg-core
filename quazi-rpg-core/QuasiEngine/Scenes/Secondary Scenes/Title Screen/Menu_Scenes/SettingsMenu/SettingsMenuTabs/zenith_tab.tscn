@@ -74,6 +74,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="TextSizeOptionLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/RenamePlayer/MarginContainer"]
 layout_mode = 2
+tooltip_text = "Changes the name the world refers to [you] as. This can only be done twice per game, so use this wisely."
 theme_override_font_sizes/normal_font_size = 40
 text = "Change Name"
 fit_content = true
@@ -128,6 +129,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="ColorLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PlayerColor/MarginContainer"]
 layout_mode = 2
+tooltip_text = "Adjusts the color associated with [you]."
 theme_override_font_sizes/normal_font_size = 40
 text = "[ZENITH] Color"
 fit_content = true
@@ -163,7 +165,7 @@ popup/item_1/id = 1
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="MarginContainer/VBoxContainer/PlayerColor/MarginContainer2"]
 layout_mode = 2
-color = Color(1, 1, 1, 1)
+color = Color(0.65, 0.65, 0.65, 1)
 edit_alpha = false
 edit_intensity = false
 
@@ -243,6 +245,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="PronounsLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PlayerPronouns/MarginContainer"]
 layout_mode = 2
+tooltip_text = "Adjusts the pronouns characters use when referring to [you]. Can be changed freely."
 theme_override_font_sizes/normal_font_size = 40
 text = "[ZENITH] Pronouns"
 fit_content = true

@@ -34,6 +34,10 @@ placeholder_text = "Who are you?"
 max_length = 12
 context_menu_enabled = false
 emoji_menu_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
 [node name="BottomButtons" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

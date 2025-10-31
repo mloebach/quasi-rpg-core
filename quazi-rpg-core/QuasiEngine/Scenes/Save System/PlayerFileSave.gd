@@ -24,7 +24,7 @@ var game_saves : Dictionary[String, String] #digit 1 = page, digit 2 = slot
 var game_save_page: int = 1
 
 var z_renames_left := 2
-var z_color : String
+var z_color : String = Color.SLATE_GRAY.to_html()
 var z_pronouns : Zenith_Global_Data.Pronouns =  Zenith_Global_Data.Pronouns.They
 
 var unlocked_episodes : Dictionary[String, bool] = {

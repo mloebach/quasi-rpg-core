@@ -13,9 +13,10 @@ signal create_name_field
 
 func _ready() -> void:
 	#resolution_toggle.selected = Settings.settings_options.current_window_size_index
-	color_picker.color = Color.from_string(GlobalData.player_save.z_color, Color.WHITE)
+	color_picker.color = Color.from_string(GlobalData.player_save.z_color, Color.SLATE_GRAY)
 	pronoun_toggle.selected = GlobalData.player_save.z_pronouns
 	set_zenith_labels()
+	
 	
 	
 func set_zenith_labels():
@@ -24,6 +25,11 @@ func set_zenith_labels():
 	rename_counter.text = "%s Left" % GlobalData.player_save.z_renames_left
 	color_label.text = "%s Color" % GlobalData.player_save.player_name
 	pronoun_label.text = "%s Pronouns" % GlobalData.player_save.player_name
+	if GlobalData.player_save.z_renames_left == 0:
+		rename_button.disabled = true
+
+func _on_update_z_tab():
+	set_zenith_labels()
 
 
 func _on_pronoun_toggle_item_selected(index: int) -> void:

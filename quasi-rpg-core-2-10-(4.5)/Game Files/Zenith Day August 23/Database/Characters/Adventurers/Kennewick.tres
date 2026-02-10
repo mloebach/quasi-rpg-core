@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Char_Resource" load_steps=5 format=3 uid="uid://0q3nd4t15wim"]
+
+[ext_resource type="Texture2D" uid="uid://dpg4adjpdioa2" path="res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/KennewickIcon.png" id="1_5qq4i"]
+[ext_resource type="Script" uid="uid://kgm3wyx8dk7n" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd" id="1_hn1fm"]
+[ext_resource type="Texture2D" uid="uid://b56hlendc17qw" path="res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/Other/KennewickCrying.png" id="2_1ad38"]
+[ext_resource type="Texture2D" uid="uid://bln8ut3crol6" path="res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/Other/KennewickGloat.png" id="3_p1xpa"]
+
+[resource]
+script = ExtResource("1_hn1fm")
+hint = ""
+name = "Kennewick"
+display_name = "Kennewick"
+full_name = "Kennewick Celda"
+use_character_color = false
+character_color = Color(0, 0, 0, 1)
+DefaultSprite = "Default"
+sprite_resources = Dictionary[String, Texture2D]({})
+icon_resources = Dictionary[String, Texture2D]({
+"Crying": ExtResource("2_1ad38"),
+"Default": ExtResource("1_5qq4i"),
+"Gloat": ExtResource("3_p1xpa")
+})
+custom_variables = Dictionary[String, String]({
+"Role": "Inferno"
+})
+tags = Array[String](["Voyager"])
+metadata/_custom_type_script = "uid://kgm3wyx8dk7n"

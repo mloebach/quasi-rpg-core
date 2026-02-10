@@ -1,0 +1,38 @@
+config_version=5
+
+[application]
+
+config/name="Quasi RPG Core 2/10 (4.5)"
+run/main_scene="uid://bnubr7phxt3dx"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="DuoDecillion Games"
+config/features=PackedStringArray("4.5")
+
+[audio]
+
+general/text_to_speech=true
+
+[autoload]
+
+Util="*res://QuasiEngine/Utility/utility.gd"
+GlobalData="*res://QuasiEngine/Scenes/global_data.gd"
+Settings="*res://QuasiEngine/Scenes/GlobalData/settings.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[editor]
+
+movie_writer/movie_file="C:/Users/Matt/Videos/GodotCaptures/output.avi"
+
+[input]
+
+advance_text={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}

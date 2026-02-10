@@ -1,0 +1,14 @@
+
+The big restructure
+-What the hell do I do with the cipher code in the old Utility.gd?
+
+Nested commands
+	If possible, figure out way to disable all ways to jump out of loop with await to babyproof it
+	-gosub
+	-goto
+	-Choice with gosub or goto
+
+Project GUI:
+	
+	Make button that automatically creates new game folder in game files that comes with all the folders a project needs. Ideally, theyre also color coded.
+	Make button that automatically creates .story file in designated Game Folder

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Char_Resource" load_steps=3 format=3 uid="uid://dddpovljciw7h"]
+
+[ext_resource type="Texture2D" uid="uid://b28sln24deug7" path="res://Game Files/Zenith Day August 23/Visual Assets/Icons/BlackIcon.png" id="1_fq80c"]
+[ext_resource type="Script" uid="uid://kgm3wyx8dk7n" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd" id="1_uml0g"]
+
+[resource]
+script = ExtResource("1_uml0g")
+hint = ""
+name = "Unknown"
+display_name = "Unknown"
+use_character_color = false
+character_color = Color(0, 0, 0, 1)
+DefaultSprite = "Default"
+sprite_resources = Dictionary[String, Texture2D]({})
+icon_resources = Dictionary[String, Texture2D]({
+"Default": ExtResource("1_fq80c")
+})
+metadata/_custom_type_script = "uid://kgm3wyx8dk7n"

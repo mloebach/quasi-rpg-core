@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cma22n6kvtl7g"]
+
+[ext_resource type="Script" uid="uid://dj7d618qpsbvg" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/new_game_ui.gd" id="1_d6w2o"]
+[ext_resource type="PackedScene" uid="uid://5kdkewydjlq6" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/name_entry_field.tscn" id="2_ilex8"]
+
+[node name="SaveContainer" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+script = ExtResource("1_d6w2o")
+
+[node name="Name Field" parent="." instance=ExtResource("2_ilex8")]
+visible = false
+layout_mode = 2

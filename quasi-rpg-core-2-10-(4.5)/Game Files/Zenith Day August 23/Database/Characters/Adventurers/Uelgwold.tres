@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Char_Resource" load_steps=3 format=3 uid="uid://6chxjmlqcufa"]
+
+[ext_resource type="Texture2D" uid="uid://cuy4moggi47ga" path="res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/UelgwoldIcon.png" id="1_hr1pm"]
+[ext_resource type="Script" uid="uid://kgm3wyx8dk7n" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd" id="1_mk1wq"]
+
+[resource]
+script = ExtResource("1_mk1wq")
+hint = ""
+name = "Uelgwold"
+display_name = "Uelgwold"
+full_name = "Uelgwold Radiomoda"
+use_character_color = false
+character_color = Color(0, 0, 0, 1)
+DefaultSprite = "Default"
+sprite_resources = Dictionary[String, Texture2D]({})
+icon_resources = Dictionary[String, Texture2D]({
+"Default": ExtResource("1_hr1pm")
+})
+custom_variables = Dictionary[String, String]({
+"Role": "Underworld"
+})
+tags = Array[String](["Voyager"])
+metadata/_custom_type_script = "uid://kgm3wyx8dk7n"

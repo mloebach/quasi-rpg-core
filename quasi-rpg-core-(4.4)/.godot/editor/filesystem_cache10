@@ -1,0 +1,290 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1770710243
+Bug Report.txt::TextFile::-1::1770709987::0::1::::<><><>0<>0<><>::
+Design Notes.txt::TextFile::-1::1770709987::0::1::::<><><>0<>0<><>::
+export_presets.cfg::TextFile::-1::1770709987::0::1::::<><><>0<>0<><>::
+Planning Notes.txt::TextFile::-1::1770709987::0::1::::<><><>0<>0<><>::
+Structure Guide.txt::TextFile::-1::1770709987::0::1::::<><><>0<>0<><>::
+::res://Game Files/::1770709987
+::res://Game Files/Holotype Folder/::1770709987
+::res://Game Files/Holotype Folder/Database/::1770709987
+game_database.tres::Resource/VN_Database::4728167199210000009::1770709987::0::1::::<><><>0<>0<><>::uid://d1lrrn21y00::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/game_database.gd
+::res://Game Files/Holotype Folder/Game Scripts/::1770709987
+::res://Game Files/Holotype Folder/GUI Assets/::1770709987
+windows_icon.svg::CompressedTexture2D::3238022431840930103::1770709987::1770710246::1::::<><><>0<>0<>f67b3a01e9fc0429b9fd84ff40c277b0<>res://.godot/imported/windows_icon.svg-98f1bf2ae1b4d9d083620221a9350f51.ctex::
+::res://Game Files/Holotype Folder/Programming/::1770709987
+custom_commands.gd::GDScript::5510066690647848542::1770709987::0::1::::<>Node<><>0<>0<><>::
+::res://Game Files/Test Game/::1770709987
+::res://Game Files/Test Game/Database/::1770709987
+game_database.tres::Resource/VN_Database::2387725763622791822::1770709987::0::1::::<><><>0<>0<><>::uid://d1lrrn21y00::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/game_database.gd<>uid://blb3v24v1q1u8::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/scenario_script.gd
+::res://Game Files/Test Game/Game Scripts/::1770709987
+::res://Game Files/Test Game/GUI Assets/::1770709987
+windows_icon.svg::CompressedTexture2D::6216450968234002225::1770709987::1770710246::1::::<><><>0<>0<>22cae9b009b96574ff1a32dbbff7e80a<>res://.godot/imported/windows_icon.svg-49d1ecfcda9ec284e9f550e6f97ae15d.ctex::
+::res://Game Files/Test Game/Visual Assets/::1770709987
+::res://Game Files/Test Game/Visual Assets/Backgrounds/::1770709987
+industrial-building.jpg::CompressedTexture2D::1759247548262929250::1770709987::1770710246::1::::<><><>0<>0<>5d0a6f9e857feac35757a509de4e3ec9<>res://.godot/imported/industrial-building.jpg-0ed239f25fd191cdda82d1bc5fb7e35e.ctex::
+steppes.jpg::CompressedTexture2D::1067722074064675430::1770709987::1770710246::1::::<><><>0<>0<>fc620326ee253916ecb7c7a697b56bad<>res://.godot/imported/steppes.jpg-309151e06db0f0ed6a03de8ac88bec2e.ctex::
+::res://Game Files/Test Game/Visual Assets/Icons/::1770709987
+PihquraNewIcon.png::CompressedTexture2D::5667032285450755812::1770709987::1770710246::1::::<><><>0<>0<>07dc9ba0a11eddf3972d547b33950510<>res://.godot/imported/PihquraNewIcon.png-940de40d3b197ce6ac1cef659151e98b.ctex::
+RegamirrIcon.png::CompressedTexture2D::7119591068207352807::1770709987::1770710246::1::::<><><>0<>0<>68b6a849f26a8fd7cfa842e580fbfbd2<>res://.godot/imported/RegamirrIcon.png-27b649550a3f299b5b5765cd2d43165b.ctex::
+::res://Game Files/Test Game/Visual Assets/Video Files/::1770709987
+danteclownvideo.ogv::VideoStreamTheora::1438321277809065915::1770709987::0::1::::<><><>0<>0<><>::
+::res://Game Files/Zenith Day August 23/::1770709987
+::res://Game Files/Zenith Day August 23/Database/::1770709987
+z_game_database.tres::::-1::1770709987::0::1::::<><><>0<>0<><>::
+::res://Game Files/Zenith Day August 23/Database/Characters/::1770709987
+Unknown.tres::Resource/Char_Resource::7376958591656879199::1770709987::0::1::::<><><>0<>0<><>::uid://b28sln24deug7::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/BlackIcon.png<>uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd
+::res://Game Files/Zenith Day August 23/Database/Characters/Adventurers/::1770709987
+Culpex.tres::Resource/Char_Resource::3896184377588693012::1770709987::0::1::::<><><>0<>0<><>::uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd<>uid://cu5jm2n65ploh::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/CulpexIcon.png
+Deyacron.tres::Resource/Char_Resource::7093407714845110196::1770709987::0::1::::<><><>0<>0<><>::uid://ur6y4tq8byfn::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/DeyacronIcon.png<>uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd
+Ehrugarr.tres::Resource/Char_Resource::1460041720037693111::1770709987::0::1::::<><><>0<>0<><>::uid://cy1n4cl2nhj6v::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/EhrugarrIcon.png<>uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd
+Havi.tres::Resource/Char_Resource::8348370530709702514::1770709987::0::1::::<><><>0<>0<><>::uid://ls6wrl42n5ha::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/HaviIcon.png<>uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd
+JQ3.tres::Resource/Char_Resource::2941540025086858076::1770709987::0::1::::<><><>0<>0<><>::uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd<>uid://b2car0x4gcve2::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/jq3Icon.png
+Kennewick.tres::Resource/Char_Resource::1789474629402591780::1770709987::0::1::::<><><>0<>0<><>::uid://dpg4adjpdioa2::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/KennewickIcon.png<>uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd<>uid://b56hlendc17qw::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/Other/KennewickCrying.png<>uid://bln8ut3crol6::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/Other/KennewickGloat.png
+Liburri.tres::Resource/Char_Resource::8574343033606119900::1770709987::0::1::::<><><>0<>0<><>::uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd<>uid://bd5sk72ygakxo::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/LiburriIcon.png
+Ozapold.tres::Resource/Char_Resource::3600899625145624592::1770709987::0::1::::<><><>0<>0<><>::uid://dps2dfemm04ck::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/OzapoldIcon.png<>uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd
+Quzeon.tres::Resource/Char_Resource::3583650283010624251::1770709987::0::1::::<><><>0<>0<><>::uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd<>uid://bkalwt3u5fh1i::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/QuzeonIcon.png
+Regamirr.tres::Resource/Char_Resource::2435153091342351802::1770709987::0::1::::<><><>0<>0<><>::uid://c8o1vifr6q4bb::::res://Game Files/Test Game/Visual Assets/Icons/RegamirrIcon.png<>uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd
+Trophistus.tres::Resource/Char_Resource::4029941622569777892::1770709987::0::1::::<><><>0<>0<><>::uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd<>uid://dii73ee4emwh6::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/TrophIcon.png
+Uelgwold.tres::Resource/Char_Resource::2180449492265378538::1770709987::0::1::::<><><>0<>0<><>::uid://cuy4moggi47ga::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/UelgwoldIcon.png<>uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd
+Veveya.tres::Resource/Char_Resource::7414264753862729390::1770709987::0::1::::<><><>0<>0<><>::uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd<>uid://d3u8vq5i2lwgs::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/VeveyaIcon.png
+Winckary.tres::Resource/Char_Resource::4708719282512475321::1770709987::0::1::::<><><>0<>0<><>::uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd<>uid://bcw2juv6extnu::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/WinckaryIcon.png
+Yunyere.tres::Resource/Char_Resource::6365979348400426518::1770709987::0::1::::<><><>0<>0<><>::uid://g8cq0osbg7i::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/YunyereIcon.png<>uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd
+::res://Game Files/Zenith Day August 23/Database/Characters/Legends/::1770709987
+Dark Husk.tres::Resource/Char_Resource::1271421471953567534::1770709987::0::1::::<><><>0<>0<><>::uid://bayfh7jkmga11::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Legends/DarkHuskIcon.png<>uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd
+Ipholsia.tres::Resource/Char_Resource::5275782616841623352::1770709987::0::1::::<><><>0<>0<><>::uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd<>uid://2qk17mqu04oe::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Legends/IpholsiaIcon.png
+Lannus.tres::Resource/Char_Resource::4461428089802474230::1770709987::0::1::::<><><>0<>0<><>::uid://bktkstabi7rk0::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Legends/LannusIcon.png<>uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd
+Nerinorin.tres::Resource/Char_Resource::4133386628909243775::1770709987::0::1::::<><><>0<>0<><>::uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd<>uid://bbrjbe3a05xfm::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Legends/NerinorinIcon.png
+Zenith.tres::Resource/Char_Resource::85344912280046294::1770709987::0::1::::<><><>0<>0<><>::uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd<>uid://uy72tv8f5k3n::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Legends/Zenith Placeholder.png
+::res://Game Files/Zenith Day August 23/Database/Characters/NPCs/::1770709987
+Lyelye.tres::Resource/Char_Resource::8156551401836767328::1770709987::0::1::::<><><>0<>0<><>::uid://bw4d0xoc2jq::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/NPCs/IphlyelIcon.png<>uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd
+Pihqura.tres::Resource/Char_Resource::1010009823100911104::1770709987::0::1::::<><><>0<>0<><>::uid://kgm3wyx8dk7n::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/character_resource.gd<>uid://0ybn01elrst1::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/NPCs/PihquraIcon.png<>uid://d3673a65npyii::::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/Other/PihquraHologramIcon.png
+::res://Game Files/Zenith Day August 23/Database/Episodes/::1770709987
+episode_1.tres::Resource/Episode_Resource::3298649908372407330::1770709987::0::1::::<><><>0<>0<><>::uid://bbipppklny7he::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd
+episode_2.tres::Resource/Episode_Resource::1307945495655455182::1770709987::0::1::::<><><>0<>0<><>::uid://bbipppklny7he::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd
+episode_3.tres::Resource/Episode_Resource::8037259056253816722::1770709987::0::1::::<><><>0<>0<><>::uid://bbipppklny7he::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd
+episode_4.tres::Resource/Episode_Resource::145413345910996365::1770709987::0::1::::<><><>0<>0<><>::uid://bbipppklny7he::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd
+episode_5.tres::Resource/Episode_Resource::4544874965003821077::1770709987::0::1::::<><><>0<>0<><>::uid://bbipppklny7he::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd
+intermezzo_sun.tres::Resource/Episode_Resource::5886468887643369629::1770709987::0::1::::<><><>0<>0<><>::uid://bbipppklny7he::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd<>uid://0xkj544aic0x::::res://Game Files/Zenith Day August 23/GUI Assets/staticfilter.png
+prologue.tres::Resource/Episode_Resource::8775118857974895102::1770709987::0::1::::<><><>0<>0<><>::uid://bbipppklny7he::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd
+::res://Game Files/Zenith Day August 23/Game Scripts/::1770709987
+::res://Game Files/Zenith Day August 23/GUI Assets/::1770709987
+staticfilter.png::CompressedTexture2D::1802826643184770449::1770709987::1770710246::1::::<><><>0<>0<>0c52feb263027fc0738f2cdafdd860f4<>res://.godot/imported/staticfilter.png-a6b96d5fe1847a7e8cf89a525396ed42.ctex::
+windows_icon.svg::CompressedTexture2D::1625504193508556932::1770709987::1770710246::1::::<><><>0<>0<>4c86ca51b698c68f5852233f980018c0<>res://.godot/imported/windows_icon.svg-6760f7608fa780e6a1eaacc96234af78.ctex::
+::res://Game Files/Zenith Day August 23/GUI Assets/Fonts/::1770709987
+Reactor7.ttf::FontFile::2130465277862689208::1770709987::1770710245::1::::<><><>0<>0<>6d04f8c120a39511f9888079c7b0f853<>res://.godot/imported/Reactor7.ttf-40b0f5b4ceabd48a75cbc5975f988b3d.fontdata::
+::res://Game Files/Zenith Day August 23/Programming/::1770709987
+zenith_custom_commands.gd::GDScript::6499462104429304215::1770709987::0::1::::ZenithCustomCommands<>StoryPlayer<><>0<>0<><>::
+zenith_global_data.gd::GDScript::9145740807506554919::1770709987::0::1::::Zenith_Global_Data<>RefCounted<><>0<>0<><>::
+::res://Game Files/Zenith Day August 23/Visual Assets/::1770709988
+::res://Game Files/Zenith Day August 23/Visual Assets/CGs/::1770709988
+BlackScreen.png::CompressedTexture2D::7598339856136620418::1770709987::1770710245::1::::<><><>0<>0<>c8c574a0659f09d5df7de28621ddbcb5<>res://.godot/imported/BlackScreen.png-544aa3d4c3b3cd18e7c5c3d8108d28be.ctex::
+title_screen_placeholder.png::CompressedTexture2D::5806594868100640223::1770709987::1770710245::1::::<><><>0<>0<>1771901e0b301f55ef731c56a765052a<>res://.godot/imported/title_screen_placeholder.png-e23e1639cd8854e7a79b06b8d965d48e.ctex::
+WhiteScreen.png::CompressedTexture2D::3626434192750425487::1770709987::1770710245::1::::<><><>0<>0<>2bd16266bc37083a8aed88a61fc7147a<>res://.godot/imported/WhiteScreen.png-54653af9f74df353868ac1d56eb6dfaa.ctex::
+::res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep2/::1770709987
+JQ3Speaks.png::CompressedTexture2D::7340487828372028165::1770709987::1770710247::1::::<><><>0<>0<>f20a8560ee249f9f24478882c10731b3<>res://.godot/imported/JQ3Speaks.png-3ab9a8cbad9a4234d9ea894e4ee71508.ctex::
+OzapoldShock.png::CompressedTexture2D::2154281919699680098::1770709987::1770710246::1::::<><><>0<>0<>7acf544ba928e80e2cedec47e9d5ed38<>res://.godot/imported/OzapoldShock.png-09e2bcc8ecccce8b1687642bd73abd99.ctex::
+::res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep3/::1770709987
+TrueCulpexMark.png::CompressedTexture2D::7268555234133201789::1770709987::1770710246::1::::<><><>0<>0<>3b139f8c00137d00dae3293573944305<>res://.godot/imported/TrueCulpexMark.png-9842361b5ce4eb700d4a207c1c345d77.ctex::
+::res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep4/::1770709987
+BurningSensation.png::CompressedTexture2D::3743545221678049255::1770709987::1770710246::1::::<><><>0<>0<>42eb22847814db81cdf5e666253d13db<>res://.godot/imported/BurningSensation.png-b667a928a04e28f48e319c65ab9f5163.ctex::
+Gunshot.png::CompressedTexture2D::5680071356778859924::1770709987::1770710246::1::::<><><>0<>0<>bfd3868e02eec68fb8325e6e899159dc<>res://.godot/imported/Gunshot.png-323bedfbf1e012c7cb5e08bc37803bce.ctex::
+JQ3Gun.png::CompressedTexture2D::6516638392601105477::1770709987::1770710245::1::::<><><>0<>0<>5cc445b2d11b697edbd32e7eae30652d<>res://.godot/imported/JQ3Gun.png-0ca665d731f31d022ea12a3be5347040.ctex::
+Lock1.png::CompressedTexture2D::2063962291823156291::1770709987::1770710245::1::::<><><>0<>0<>608fd9f5ddba56bab1ffe972e1eadb90<>res://.godot/imported/Lock1.png-9f46fd3ca9bde0241fdcf8d7b8867760.ctex::
+Lock2.png::CompressedTexture2D::8932651492122439939::1770709987::1770710245::1::::<><><>0<>0<>70eda6084fe320e955651297aa4620ef<>res://.godot/imported/Lock2.png-35d5659c73db5a74c290fd58853df7fb.ctex::
+Lock3.png::CompressedTexture2D::560966879779418063::1770709987::1770710245::1::::<><><>0<>0<>ec6385cb18a6c4eca7597bbe9c20e74c<>res://.godot/imported/Lock3.png-441bb523e329355d8d11176734c82793.ctex::
+TrophistusGun.png::CompressedTexture2D::176148021098859771::1770709987::1770710245::1::::<><><>0<>0<>12e1e83e573db0dbf0b9619a959d5cfa<>res://.godot/imported/TrophistusGun.png-b2f1ec95f6f545f406383099c6eb777f.ctex::
+TrophistusHotpot.png::CompressedTexture2D::462054073382732800::1770709987::1770710245::1::::<><><>0<>0<>8e95e5dc3bc5c20d65925761a92ae4d4<>res://.godot/imported/TrophistusHotpot.png-e938a74d0be1d09b6477f07f7172f82f.ctex::
+::res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep5/::1770709987
+EhrugarrEliminated.png::CompressedTexture2D::5649202332774719571::1770709987::1770710246::1::::<><><>0<>0<>2c9826b22e0abfc60c2cc46722cc34b7<>res://.godot/imported/EhrugarrEliminated.png-7e788ea171e68815b5a59aa11e208334.ctex::
+EhrugarrEye.png::CompressedTexture2D::7592209619194202549::1770709987::1770710245::1::::<><><>0<>0<>ce85d486ebde1717501be2ab69810aa4<>res://.godot/imported/EhrugarrEye.png-7d1ed0629a883c5891d7896bf2946f9b.ctex::
+RedScreen.png::CompressedTexture2D::2621315380919159002::1770709987::1770710248::1::::<><><>0<>0<>7dbdead5bbef9f9db4e6c8721950b71d<>res://.godot/imported/RedScreen.png-590bba8c8eb28370500167caa9fd93cd.ctex::
+TrophistusStab.png::CompressedTexture2D::9063954717600865268::1770709987::1770710248::1::::<><><>0<>0<>925f491040373ccb3003ff89b55585a5<>res://.godot/imported/TrophistusStab.png-2052feef58920a77aae6e5f51a492e41.ctex::
+VeveyaSad1.png::CompressedTexture2D::4538404905748339237::1770709987::1770710248::1::::<><><>0<>0<>55853319366628612fd9b46f5f4bae82<>res://.godot/imported/VeveyaSad1.png-fbcb6cfb70383bef848c1c39fa58a731.ctex::
+VeveyaSad2.png::CompressedTexture2D::3387702503094720750::1770709987::1770710248::1::::<><><>0<>0<>0f6bcda6ce2516ffa53beed859026af7<>res://.godot/imported/VeveyaSad2.png-84317496bb12c2275aa54e1da602c5e4.ctex::
+::res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prelude/::1770709988
+VsBlackHusk1.png::CompressedTexture2D::4356592117873896092::1770709987::1770710249::1::::<><><>0<>0<>5bb65e334b1e2dfccdb5a67d64845eab<>res://.godot/imported/VsBlackHusk1.png-5b20e0b433ab75027a95fcd63e4d53d3.ctex::
+VsBlackHusk2.png::CompressedTexture2D::4117528696894958611::1770709988::1770710248::1::::<><><>0<>0<>b9bc169e595642835c41b5f8d56cb036<>res://.godot/imported/VsBlackHusk2.png-3cfeb1bc89d928b578fd9890e3196287.ctex::
+VsBlackHusk3.png::CompressedTexture2D::4212973706407751044::1770709988::1770710248::1::::<><><>0<>0<>29da0f62008d2d2dfc50b9277254c727<>res://.godot/imported/VsBlackHusk3.png-9d86d374a1af6501bf5283305ece15d5.ctex::
+VsBlackHusk4.png::CompressedTexture2D::8263148911462494162::1770709988::1770710248::1::::<><><>0<>0<>897672041b59ac1a48e8447d30f1be80<>res://.godot/imported/VsBlackHusk4.png-d596b07116ffd85cabad7bfced6bf148.ctex::
+VsBlackHusk5.png::CompressedTexture2D::3435571394365094964::1770709988::1770710248::1::::<><><>0<>0<>15c1e09a93d87a60a6d486ab77b06d89<>res://.godot/imported/VsBlackHusk5.png-37102693d36b11b88a223445e21a3ee3.ctex::
+VsBlackHusk6.png::CompressedTexture2D::7449786103964344707::1770709988::1770710248::1::::<><><>0<>0<>f958add98fb3bef107ad02c97b826408<>res://.godot/imported/VsBlackHusk6.png-cb82e5e36f7764e421d459c7054db6b7.ctex::
+VsBlackHusk7.png::CompressedTexture2D::5208472614530067962::1770709988::1770710248::1::::<><><>0<>0<>43039f00b82c5a3189180dc01ec9da50<>res://.godot/imported/VsBlackHusk7.png-acd8a0dd2698e12fe7e39dc05fb493a7.ctex::
+VsBlackHusk8.png::CompressedTexture2D::7360154752146085136::1770709988::1770710247::1::::<><><>0<>0<>23ea7394cb92ad40e478c24758a8ef5c<>res://.godot/imported/VsBlackHusk8.png-380b416968dc02a5d602f61a324970ac.ctex::
+VsBlackHusk9.png::CompressedTexture2D::8511400759067167558::1770709988::1770710247::1::::<><><>0<>0<>97c195d41c92d77998b278c0fe6689e7<>res://.godot/imported/VsBlackHusk9.png-d2d89215314e960ce3c4c4ca33b1b2c3.ctex::
+VsBlackHusk10.png::CompressedTexture2D::6714409851321560663::1770709988::1770710247::1::::<><><>0<>0<>4c4e8ed9937b316a2e690dd2f91ecd5a<>res://.godot/imported/VsBlackHusk10.png-cf8039d96e886e07cfd68612510a4c36.ctex::
+VsBlackHusk11.png::CompressedTexture2D::2429515418547578914::1770709988::1770710247::1::::<><><>0<>0<>fd923ed27a2786d64e41980dd02c2e8c<>res://.godot/imported/VsBlackHusk11.png-041b7d958e4247f686d8d4478637dc57.ctex::
+VsBlackHusk12.png::CompressedTexture2D::6791534433000043020::1770709988::1770710247::1::::<><><>0<>0<>c0d8a14774a8e2b91317969ebc2b5bfe<>res://.godot/imported/VsBlackHusk12.png-59f1f932f59f3b2068a6d77c7bdcb909.ctex::
+VsBlackHusk13.png::CompressedTexture2D::7887499775815010016::1770709988::1770710247::1::::<><><>0<>0<>70b6510b289f301802e3267aebaafd6c<>res://.godot/imported/VsBlackHusk13.png-16eb9ba60e0af27f5667c9bb116be32b.ctex::
+VsBlackHusk14.png::CompressedTexture2D::2324368684825661100::1770709988::1770710247::1::::<><><>0<>0<>c227cec9d7e3376193aa96c157d30f7b<>res://.godot/imported/VsBlackHusk14.png-1b98d9eb7923d9118c07ea0a5b77c419.ctex::
+VsBlackHusk15.png::CompressedTexture2D::3373872124892721572::1770709988::1770710246::1::::<><><>0<>0<>87f5619dc10da1dfd0526c3377be6649<>res://.godot/imported/VsBlackHusk15.png-c80ca5885d4e027bfdbc4efd7526d8d8.ctex::
+::res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prologue/::1770709988
+BloodMoon.png::CompressedTexture2D::2776483636121909823::1770709988::1770710246::1::::<><><>0<>0<>a10dc7356f856a922aefcfcd3a43ae3d<>res://.godot/imported/BloodMoon.png-5f674921a7a4f63e304267bd7ae4bf70.ctex::
+DeyacronIntro.png::CompressedTexture2D::4351566763689353959::1770709988::1770710248::1::::<><><>0<>0<>be8f46d32746bf8c4cca252574b3e3f2<>res://.godot/imported/DeyacronIntro.png-28cdcbafbdfff749d2df2ea802e1ea50.ctex::
+EhrugarrIntro.png::CompressedTexture2D::8296212695013197691::1770709988::1770710245::1::::<><><>0<>0<>c994c8c0627bf2cbd4ae8bbd899d78d6<>res://.godot/imported/EhrugarrIntro.png-018f72d4c0086f68f9cdb16c2906aeb4.ctex::
+Map.png::CompressedTexture2D::8541870788999638697::1770709988::1770710245::1::::<><><>0<>0<>8263324859ea85c73f2548f48bedb825<>res://.godot/imported/Map.png-0ced4305f506485b288db59d0c9dc225.ctex::
+OzapoldIntro.png::CompressedTexture2D::4802843994893919175::1770709988::1770710245::1::::<><><>0<>0<>b849052899a2067cf3eb15f656a0c43a<>res://.godot/imported/OzapoldIntro.png-968d39bb12f7ba7e88f73e402fca5f8d.ctex::
+TrophistusIntro.png::CompressedTexture2D::3981522541904946931::1770709988::1770710245::1::::<><><>0<>0<>7f8a0ba8a6143fce1e1f1ea55aaf18ac<>res://.godot/imported/TrophistusIntro.png-4b2c6e652504ac5a81d0a3dd38601a1a.ctex::
+VeveyaIntro.png::CompressedTexture2D::3753268217365525926::1770709988::1770710245::1::::<><><>0<>0<>e53ab1313056a2d6572001ad8aea728e<>res://.godot/imported/VeveyaIntro.png-150029448639e217037d56190bbe7657.ctex::
+ZenithianClock.png::CompressedTexture2D::1494009069531780912::1770709988::1770710247::1::::<><><>0<>0<>1b5b8ce0252b4dbd6d6eb3292e3ffdfa<>res://.godot/imported/ZenithianClock.png-a5bc4a88c8a7bbe7f9903f63c491fddd.ctex::
+::res://Game Files/Zenith Day August 23/Visual Assets/Icons/::1770709988
+BlackIcon.png::CompressedTexture2D::4350757203241786220::1770709988::1770710245::1::::<><><>0<>0<>976cfce437c19bf33cce37fbb92bb31f<>res://.godot/imported/BlackIcon.png-f9c8a46c0d59459e9d448e08847377f5.ctex::
+::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/::1770709988
+CulpexIcon.png::CompressedTexture2D::6239118894892502279::1770709988::1770710245::1::::<><><>0<>0<>57ba4293d607c9325845bf6a7ba12092<>res://.godot/imported/CulpexIcon.png-04533d9b3d6dc4cfb1e3526a470c1d07.ctex::
+DeyacronIcon.png::CompressedTexture2D::1440797933708712943::1770709988::1770710245::1::::<><><>0<>0<>8fe32a372ae6974071223771126b2af8<>res://.godot/imported/DeyacronIcon.png-ec33158c28572e4eb127f520e3d49ff0.ctex::
+EhrugarrIcon.png::CompressedTexture2D::6511888668517703807::1770709988::1770710245::1::::<><><>0<>0<>055056a8d2d68b1b284bc8ab4d73f2d1<>res://.godot/imported/EhrugarrIcon.png-e730d6770a7dda0fc289099065a33e9d.ctex::
+HaviIcon.png::CompressedTexture2D::811158505077155550::1770709988::1770710245::1::::<><><>0<>0<>1bb0c8766575fd75c8cb290b22d333f4<>res://.godot/imported/HaviIcon.png-06ea782329504e9a95dec4eb72dda45d.ctex::
+jq3Icon.png::CompressedTexture2D::4285679925864481735::1770709988::1770710245::1::::<><><>0<>0<>9a711c173961bf1f6c9c5efb7b23c0d1<>res://.godot/imported/jq3Icon.png-84260e74c1f48939b4ac8ffa3f2ba91d.ctex::
+KennewickIcon.png::CompressedTexture2D::8226241937123536227::1770709988::1770710245::1::::<><><>0<>0<>81c54bb6a6d2ba4fadaf633346465586<>res://.godot/imported/KennewickIcon.png-bc5c7579c3bfca59b5b147fa43b794c0.ctex::
+LiburriIcon.png::CompressedTexture2D::2660031034593241188::1770709988::1770710245::1::::<><><>0<>0<>4d3266801059f24d5537285d6d85ae4c<>res://.godot/imported/LiburriIcon.png-11214cd10cddc768daa7adec756b949b.ctex::
+OzapoldIcon.png::CompressedTexture2D::8250898490767519818::1770709988::1770710245::1::::<><><>0<>0<>531c1316d9078a264a2c359aaeb4c80b<>res://.godot/imported/OzapoldIcon.png-9e6c10e5b4c49c0a2cf2c048811f2f91.ctex::
+QuzeonIcon.png::CompressedTexture2D::3089017336606944160::1770709988::1770710245::1::::<><><>0<>0<>01d797e99851be7ed0c6ee464892f7dd<>res://.godot/imported/QuzeonIcon.png-7a978ab120d4cd2ef53f84c490ce0c8f.ctex::
+RegamirrIcon.png::CompressedTexture2D::1399464800651654169::1770709988::1770710245::1::::<><><>0<>0<>35eac908dad956c35aee7195448aefe0<>res://.godot/imported/RegamirrIcon.png-e6892f307bfa90925a83af354cf72395.ctex::
+TrophIcon.png::CompressedTexture2D::7739280985809992613::1770709988::1770710245::1::::<><><>0<>0<>63b0ad957a5f98a182d7356bc188d0df<>res://.godot/imported/TrophIcon.png-98a8fdc7aaa50a027c3927d8d48efb4a.ctex::
+UelgwoldIcon.png::CompressedTexture2D::6227946273441579380::1770709988::1770710245::1::::<><><>0<>0<>81c3a0bc1a8f1fcbd1a55f55bff5f7e7<>res://.godot/imported/UelgwoldIcon.png-6d9afe7019460a60fa732a6e164d57d6.ctex::
+VeveyaIcon.png::CompressedTexture2D::9167879277576458814::1770709988::1770710245::1::::<><><>0<>0<>74a62cebad8dcf9462b9e4743cc0d797<>res://.godot/imported/VeveyaIcon.png-33248c67d1d66e4760696edcf8a4a7cb.ctex::
+WinckaryIcon.png::CompressedTexture2D::2573871196830985010::1770709988::1770710245::1::::<><><>0<>0<>f310acf5e3118dc523980f3b2b1767bc<>res://.godot/imported/WinckaryIcon.png-342266741a08629a26dc1ee9ac8953fc.ctex::
+YunyereIcon.png::CompressedTexture2D::14394378527371784::1770709988::1770710245::1::::<><><>0<>0<>b8b4a8193e1b022e9d300272ac2679c8<>res://.godot/imported/YunyereIcon.png-f1cead7f89d38cd28b66b7cdfcdabb98.ctex::
+::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Adventurers/Other/::1770709988
+KennewickCrying.png::CompressedTexture2D::4556526596208141126::1770709988::1770710245::1::::<><><>0<>0<>db95f4375b26041dbe6eaf445acae12b<>res://.godot/imported/KennewickCrying.png-2ab5e8c0abc569de7372704cd74814a7.ctex::
+KennewickGloat.png::CompressedTexture2D::93746332131351605::1770709988::1770710245::1::::<><><>0<>0<>8ddaa40e9617ead02a944170e7fc8f95<>res://.godot/imported/KennewickGloat.png-ac71d6f131a290c91ab7a6255bb9485e.ctex::
+PihquraHologramIcon.png::CompressedTexture2D::9190538378587916480::1770709988::1770710245::1::::<><><>0<>0<>8ac96596dcb3a653c6ec0e13cf4ec9e9<>res://.godot/imported/PihquraHologramIcon.png-3cc0723d261d273c2f03e2ea9ffb2031.ctex::
+::res://Game Files/Zenith Day August 23/Visual Assets/Icons/Legends/::1770709988
+DarkHuskIcon.png::CompressedTexture2D::2436283530432773630::1770709988::1770710245::1::::<><><>0<>0<>6b142b243aa1cd90c94aa99a93d85236<>res://.godot/imported/DarkHuskIcon.png-86c44291fc412aba3af3f7979bd676a8.ctex::
+IpholsiaIcon.png::CompressedTexture2D::1928784122900590428::1770709988::1770710245::1::::<><><>0<>0<>565650442d4f317ec02ee1de36f31731<>res://.godot/imported/IpholsiaIcon.png-0cdc70876d1e8173d9376d895a582c3c.ctex::
+LannusIcon.png::CompressedTexture2D::3128172609619570001::1770709988::1770710245::1::::<><><>0<>0<>bab1aaa0ebbd3a65d49c8a000dc2ac1b<>res://.godot/imported/LannusIcon.png-1c707d73d587e1e7590b5227487cbf4b.ctex::
+NerinorinIcon.png::CompressedTexture2D::2492252441261491218::1770709988::1770710245::1::::<><><>0<>0<>7d83d018321919a586c9e15983c51a5b<>res://.godot/imported/NerinorinIcon.png-dacd4c9d2a0c08e977b0695cc547259b.ctex::
+Zenith Placeholder.png::CompressedTexture2D::1455314130953829133::1770709988::1770710245::1::::<><><>0<>0<>9dff478f7bc765328d027f61d93dbf40<>res://.godot/imported/Zenith Placeholder.png-705c8a3a6b0f7ac8c32bcd1bee4a811e.ctex::
+::res://Game Files/Zenith Day August 23/Visual Assets/Icons/NPCs/::1770709988
+IphlyelIcon.png::CompressedTexture2D::3452136872158398::1770709988::1770710245::1::::<><><>0<>0<>97ddb5fbbcf142b24c6a55a549f48994<>res://.godot/imported/IphlyelIcon.png-e7ca96539b768f5442e9babdd4ab8af0.ctex::
+PihquraIcon.png::CompressedTexture2D::1804351442807573792::1770709988::1770710245::1::::<><><>0<>0<>b5edf4de24e466880d72ba16c0a7a145<>res://.godot/imported/PihquraIcon.png-2b73215d851199b8e3c7f495e56d1e08.ctex::
+::res://Godot/::1770709988
+default_bus_layout.tres::AudioBusLayout::9074605612109267940::1770709988::0::1::::<><><>0<>0<><>::
+icon.svg::CompressedTexture2D::2356595005057449504::1770709988::1770710245::1::::<><><>0<>0<>8663c4b26f37f3e3e980253ed11c775a<>res://.godot/imported/icon.svg-ebe728e99ae17fadf353a36d282be471.ctex::
+::res://QuasiEngine/::1770709988
+Documentation.txt::TextFile::-1::1770709988::0::1::::<><><>0<>0<><>::
+Story Script Documentation.txt::TextFile::-1::1770709988::0::1::::<><><>0<>0<><>::
+::res://QuasiEngine/Default GUI/::1770709988
+DuoDecLogo.png::CompressedTexture2D::663522582775678158::1770709988::1770710245::1::::<><><>0<>0<>48a7f3129f5790de8d17d00db11f140d<>res://.godot/imported/DuoDecLogo.png-96312135397c4902be8372a64e3ab7b4.ctex::
+::res://QuasiEngine/Default GUI/Fonts/::1770709988
+Changa-Bold.ttf::FontFile::7706027430785371688::1770709988::1770710245::1::::<><><>0<>0<>afd2bec99bbaf2b4a44b3f020caeaaf4<>res://.godot/imported/Changa-Bold.ttf-611e9ba48c58633f0081e67d2ae5d6f6.fontdata::
+Changa-VariableFont_wght.ttf::FontFile::6573709348901401032::1770709988::1770710245::1::::<><><>0<>0<>af0c4e294a14b7d3ba3fa95ed979f600<>res://.godot/imported/Changa-VariableFont_wght.ttf-adc18f2a041c1eaf2d0efe1d324e790e.fontdata::
+digicode_variant.tres::FontVariation::7795239556170693811::1770709988::0::1::::<><><>0<>0<><>::uid://dxf7n8oj6u3k7::::res://QuasiEngine/Default GUI/Fonts/Digimon_Digicode_Font_by_Mooshimon.ttf
+Digimon_Digicode_Font_by_Mooshimon.ttf::FontFile::8785895257962618004::1770709988::1770710245::1::::<><><>0<>0<>300e923a86b7628744fd7ab266386c60<>res://.godot/imported/Digimon_Digicode_Font_by_Mooshimon.ttf-72a8bcdd06ff2c227cf6dddb809e48d4.fontdata::
+SourceSans3-Italic-VariableFont_wght.ttf::FontFile::991814821064653179::1770709988::1770710245::1::::<><><>0<>0<>5deb326d1c4b0b2ddf526916d7ab942d<>res://.godot/imported/SourceSans3-Italic-VariableFont_wght.ttf-83dbca622d9ccf1eb3e9ae8da352fc93.fontdata::
+SourceSans3-VariableFont_wght.ttf::FontFile::6012398566027616800::1770709988::1770710245::1::::<><><>0<>0<>3fe5a345436b3f29dd7670e8b1205625<>res://.godot/imported/SourceSans3-VariableFont_wght.ttf-c503c5a62a81dde35f47ba6526137bd9.fontdata::
+::res://QuasiEngine/Default GUI/Printers/::1770709988
+dialogue_printer.tres::Resource/PrinterResource::7268310847621533224::1770709988::0::1::::<><><>0<>0<><>::uid://b7dp41t6spfom::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/Printers/main_text_printer.tscn<>uid://dd21cknh3qsex::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/Printers/printer_resource.gd
+ink_printer.tres::Resource/PrinterResource::5294848734453339418::1770709988::0::1::::<><><>0<>0<><>::uid://dd21cknh3qsex::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/Printers/printer_resource.gd<>uid://co0rnx2l7ohui::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/Printers/ink_text_printer.tscn
+::res://QuasiEngine/Default GUI/Printers/Ink_Printer/::1770709988
+choice_handler.gd::GDScript::7720699723849225203::1770709988::0::1::::ChoiceHandler<>PanelContainer<><>0<>0<><>::
+ink_cg.gd::GDScript::6404655425477045424::1770709988::0::1::::<>TextureRect<><>0<>0<><>::
+ink_cg.tscn::PackedScene::4974910438239720360::1770709988::0::1::::<><><>0<>0<><>::uid://cxip0eoulk7i7::::res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_cg.gd
+ink_choice.gd::GDScript::4389314099424575787::1770709988::0::1::::Choice<>HBoxContainer<><>0<>0<><>::
+ink_choice.tscn::PackedScene::1553692355217224682::1770709988::0::1::::<><><>0<>0<><>::uid://c0wmbdvfwlrdg::::res://QuasiEngine/Default GUI/Fonts/Changa-VariableFont_wght.ttf<>uid://b3shmknlbewpf::::res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_choice.gd
+ink_choice_handler.tscn::PackedScene::7002314147043878614::1770709988::0::1::::<><><>0<>0<><>::uid://dh872cxob30ex::::res://QuasiEngine/Default GUI/Printers/Ink_Printer/choice_handler.gd<>uid://wevc6r2mbfos::::res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_choice.tscn
+ink_icon.gd::GDScript::886614182158500458::1770709988::0::1::::<>PanelContainer<><>0<>0<><>::
+ink_icon.tscn::PackedScene::333613872278514885::1770709988::0::1::::<><><>0<>0<><>::uid://mvqn2nfqjffe::::res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_icon.gd<>uid://cm0fguah8gudo::::res://Game Files/Test Game/Visual Assets/Icons/PihquraNewIcon.png
+ink_section.gd::GDScript::3512223689336150950::1770709988::0::1::::InkSection<>PanelContainer<><>0<>0<><>::
+ink_section.tscn::PackedScene::2332490125692759210::1770709988::0::1::::<><><>0<>0<><>::uid://bqbl2tsmv5h7k::::res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_section.gd<>uid://e0uto6p3o1th::::res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_icon.tscn<>uid://crwplc2sfeb6o::::res://QuasiEngine/Default GUI/Fonts/SourceSans3-VariableFont_wght.ttf<>uid://c0wmbdvfwlrdg::::res://QuasiEngine/Default GUI/Fonts/Changa-VariableFont_wght.ttf<>uid://cc45bvtrob4oq::::res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_cg.tscn<>uid://oepbsiol1c6v::::res://QuasiEngine/Default GUI/Fonts/SourceSans3-Italic-VariableFont_wght.ttf<>uid://c608ddey8i8hu::::res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_choice_handler.tscn
+outline_shader_test.gdshader::Shader::6907311080931639815::1770709988::0::1::::<><><>0<>0<><>::
+::res://QuasiEngine/Scenes/::1770709988
+global_data.gd::GDScript::192120994087510731::1770709988::0::1::::Global_Data<>Node<><>0<>0<><>::
+main.gd::GDScript::522529699527042820::1770709988::0::1::::<>Node<><>0<>0<><>::
+main.tscn::PackedScene::3340255985826701077::1770709988::0::1::::<><><>0<>0<><>::uid://hpd8t53jtgu3::::res://QuasiEngine/Scenes/main.gd
+::res://QuasiEngine/Scenes/_Debug/::1770709988
+parser_test.gd::GDScript::4447968794096414674::1770709988::0::1::::<>Node2D<><>0<>0<><>::
+parser_test.tscn::PackedScene::7396705163938339752::1770709988::0::1::::<><><>0<>0<><>::uid://b4mvnp8s2cch3::::res://QuasiEngine/Scenes/_Debug/parser_test.gd
+::res://QuasiEngine/Scenes/_Debug/Test_saves/::1770709988
+test_game_save.tres::Resource/GameSave::8925225243634588640::1770709988::0::1::::<><><>0<>0<><>::uid://ckwrve8g1qv7a::::res://QuasiEngine/Scenes/Save System/GameFileSave.gd<>uid://8ts1mnrvujqm::::res://Godot/icon.svg
+test_game_save_2.tres::Resource/GameSave::3003599025229094279::1770709988::0::1::::<><><>0<>0<><>::uid://ckwrve8g1qv7a::::res://QuasiEngine/Scenes/Save System/GameFileSave.gd<>uid://8ts1mnrvujqm::::res://Godot/icon.svg
+test_global.tres::Resource/GlobalSave::4864270099326896174::1770709988::0::1::::<><><>0<>0<><>::uid://cypoxo5boern3::::res://QuasiEngine/Scenes/Save System/GlobalFileSave.gd<>uid://d3nd2a0lxmwi5::::res://QuasiEngine/Scenes/Save System/PlayerFileSave.gd<>uid://d1pf7pwlr8vaa::::res://QuasiEngine/Scenes/_Debug/Test_saves/test_player.tres<>uid://cdh8netcjwvm0::::res://QuasiEngine/Scenes/_Debug/Test_saves/test_player_2.tres
+test_global_fresh.tres::Resource/GlobalSave::5260854458451316935::1770709988::0::1::::<><><>0<>0<><>::uid://d3nd2a0lxmwi5::::res://QuasiEngine/Scenes/Save System/PlayerFileSave.gd<>uid://cypoxo5boern3::::res://QuasiEngine/Scenes/Save System/GlobalFileSave.gd
+test_player.tres::Resource/PlayerSave::9015499204707608780::1770709988::0::1::::<><><>0<>0<><>::uid://d3nd2a0lxmwi5::::res://QuasiEngine/Scenes/Save System/PlayerFileSave.gd<>uid://d0fpfkcoko553::::res://QuasiEngine/Scenes/_Debug/Test_saves/test_game_save.tres<>uid://ckwrve8g1qv7a::::res://QuasiEngine/Scenes/Save System/GameFileSave.gd
+test_player_2.tres::Resource/PlayerSave::4999885658209246405::1770709988::0::1::::<><><>0<>0<><>::uid://bi173px64h5sd::::res://QuasiEngine/Scenes/_Debug/Test_saves/test_game_save_2.tres<>uid://ckwrve8g1qv7a::::res://QuasiEngine/Scenes/Save System/GameFileSave.gd<>uid://d3nd2a0lxmwi5::::res://QuasiEngine/Scenes/Save System/PlayerFileSave.gd
+::res://QuasiEngine/Scenes/Core Scenes/::1770709988
+::res://QuasiEngine/Scenes/Core Scenes/VN Main/::1770709988
+vn_scene_main.gd::GDScript::2340287776808975251::1770709988::0::1::::<>Node2D<><>0<>0<><>::
+vn_scene_main.tscn::PackedScene::4670507937217353297::1770709988::0::1::::<><><>0<>0<><>::uid://8lwgyu51q0nv::::res://QuasiEngine/Scenes/Core Scenes/VN Main/vn_scene_main.gd
+::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/::1770709988
+game_database.gd::GDScript::7792338593480875::1770709988::0::1::::VN_Database<>Resource<><>0<>0<><>::
+scenario_script.gd::GDScript::3162301382854311089::1770709988::0::1::::ScenarioScript<>Resource<><>0<>0<><>::
+::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Actors/::1770709988
+character_resource.gd::GDScript::715054502725470717::1770709988::0::1::::Char_Resource<>Resource<><>0<>0<><>::
+::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/::1770709988
+episode_resource.gd::GDScript::2474062894980120930::1770709988::0::1::::Episode_Resource<>Resource<><>0<>0<><>::
+::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/::1770709988
+ribbon_ui.gd::GDScript::820124714192071283::1770709988::0::1::::<>PanelContainer<><>0<>0<><>::
+ribbon_ui.tscn::PackedScene::5347337733353220910::1770709988::0::1::::<><><>0<>0<><>::uid://lxjlmmht5n3h::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/ribbon_ui.gd
+::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/Printers/::1770709988
+ink_text_printer.gd::GDScript::4303734398285143682::1770709988::0::1::::InkTextPrinter<>TextPrinter<><>0<>0<><>::
+ink_text_printer.tscn::PackedScene::5808151276657827420::1770709988::0::1::::<><><>0<>0<><>::uid://b2k042sa834mg::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/Printers/ink_text_printer.gd<>uid://8h41h7sjlyis::::res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_section.tscn
+main_text_printer.gd::GDScript::2482919881558640443::1770709988::0::1::::DialogueTextPrinter<>TextPrinter<><>0<>0<><>::
+main_text_printer.tscn::PackedScene::4639620752678591284::1770709988::0::1::::<><><>0<>0<><>::uid://bbm0le2sejplb::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/Printers/main_text_printer.gd<>uid://dxf7n8oj6u3k7::::res://QuasiEngine/Default GUI/Fonts/Digimon_Digicode_Font_by_Mooshimon.ttf
+printer_resource.gd::GDScript::7427149540424826183::1770709988::0::1::::PrinterResource<>Resource<><>0<>0<><>::
+text_printer.gd::GDScript::4932805146398893218::1770709988::0::1::::TextPrinter<>Control<><>0<>0<><>::
+::res://QuasiEngine/Scenes/Core Scenes/VN Main/Story Player/::1770709988
+story_player.gd::GDScript::6206990137831593612::1770709988::0::1::::StoryPlayer<>Node<><>0<>0<><>::
+story_player.tscn::PackedScene::7300118745738613678::1770709988::0::1::::<><><>0<>0<><>::uid://cuoyhrfcygvai::::res://QuasiEngine/Scenes/Core Scenes/VN Main/Story Player/story_player.gd<>uid://bhmikluoql0iy::::res://QuasiEngine/Scenes/Shaders/balatroBG.gdshader<>uid://8ts1mnrvujqm::::res://Godot/icon.svg
+::res://QuasiEngine/Scenes/Core Scenes/VN Main/Story Player/Command Expansions/::1770709988
+actor_functions.gd::GDScript::3723787392319101035::1770709988::0::1::::ActorFunctions<>Node<><>0<>0<><>::
+custom_commands.gd::GDScript::1180507432618355642::1770709988::0::1::::CustomCommands<>SceneLexer<><>0<>0<><>::
+::res://QuasiEngine/Scenes/Core Scenes/VN Main/Story Player/Reader Functions/::1770709988
+expression_functions.gd::GDScript::6074366715168685330::1770709988::0::1::::ExpressionFunctions<>StoryPlayer<><>0<>0<><>::
+SceneLexer.gd::GDScript::4921035483746553953::1770709988::0::1::::SceneLexer<>RefCounted<><>0<>0<><>::
+SceneParser.gd::GDScript::6479005296215659368::1770709988::0::1::::SceneParser<>RefCounted<><>0<>0<><>::
+SceneTranspiler.gd::GDScript::1757853399062865895::1770709988::0::1::::SceneTranspiler<>RefCounted<><>0<>0<><>::
+TreeNode.gd::GDScript::5158149628466066929::1770709988::0::1::::TreeNode<>RefCounted<><>0<>0<><>::
+::res://QuasiEngine/Scenes/GlobalData/::1770709988
+settings.gd::GDScript::4514174608283200371::1770709988::0::1::::SettingValues<>Node<><>0<>0<><>::
+text_to_speech.gd::GDScript::8570096406297059281::1770709988::0::1::::<>RefCounted<><>0<>0<><>::
+::res://QuasiEngine/Scenes/Save System/::1770709988
+GameFileSave.gd::GDScript::5521216066284831540::1770709988::0::1::::GameSave<>RefCounted<><>0<>0<><>::
+GlobalFileSave.gd::GDScript::6489231173903775034::1770709988::0::1::::GlobalSave<>RefCounted<><>0<>0<><>::
+PlayerFileSave.gd::GDScript::9151616990311851766::1770709988::0::1::::PlayerSave<>RefCounted<><>0<>0<><>::
+::res://QuasiEngine/Scenes/Secondary Scenes/::1770709988
+::res://QuasiEngine/Scenes/Secondary Scenes/Boot_Screen/::1770709988
+boot_scene.gd::GDScript::1965728251514758811::1770709988::0::1::::<>Control<><>0<>0<><>::
+boot_scene.tscn::PackedScene::6007020034979236851::1770709988::0::1::::<><><>0<>0<><>::uid://jpoecyltyi75::::res://QuasiEngine/Default GUI/DuoDecLogo.png<>uid://3ahi0hj7evcd::::res://QuasiEngine/Scenes/Secondary Scenes/Boot_Screen/boot_scene.gd
+::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/::1770709988
+title_scene_main.gd::GDScript::4807958517669808666::1770709988::0::1::::<>Node2D<><>0<>0<><>::
+title_scene_main.tscn::PackedScene::4042305956123277882::1770709988::0::1::::<><><>0<>0<><>::uid://caramyy3wk70y::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/title_scene_main.gd<>uid://bhmikluoql0iy::::res://QuasiEngine/Scenes/Shaders/balatroBG.gdshader
+::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/::1770709988
+episode_selector_menu.gd::GDScript::7148724782605587730::1770709988::0::1::::<>VBoxContainer<><>0<>0<><>::
+episode_selector_menu.tscn::PackedScene::5486079549468990629::1770709988::0::1::::<><><>0<>0<><>::uid://c835pnmanmxlq::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/episode_selector_menu.gd<>uid://0cgsx50471h3::::res://Game Files/Test Game/Visual Assets/Backgrounds/industrial-building.jpg
+file_manager_menu.gd::GDScript::650714785520286829::1770709988::0::1::::FileManagerMenu<>Control<><>0<>0<><>::
+file_manager_menu.tscn::PackedScene::-1::1770709988::0::1::::<><><>0<>0<><>::
+status_menu.gd::GDScript::5293893343557385744::1770709988::0::1::::<>Control<><>0<>0<><>::
+status_menu.tscn::PackedScene::1956244646010734340::1770709988::0::1::::<><><>0<>0<><>::uid://chonwdkqxlqls::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/status_menu.gd<>uid://cm0fguah8gudo::::res://Game Files/Test Game/Visual Assets/Icons/PihquraNewIcon.png<>uid://cu7htfcobubds::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/Status_Menu/status_icon.tscn
+::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/::1770709988
+choice_popup_menu.gd::GDScript::3979339398889256253::1770709988::0::1::::<>Control<><>0<>0<><>::
+choice_popup_menu.tscn::PackedScene::8781714794735529210::1770709988::0::1::::<><><>0<>0<><>::uid://bwxveyebfpvpd::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/choice_popup_menu.gd
+settings_menu.gd::GDScript::6454091444287726971::1770709988::0::1::::<>Control<><>0<>0<><>::
+settings_menu.tscn::PackedScene::4326439623583958483::1770709988::0::1::::<><><>0<>0<><>::uid://cx7n7ci5njtct::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/settings_menu.gd<>uid://bo4m2uo4jdja3::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/SettingsMenu/volume_slider_option.tscn<>uid://cc1vu867ooxhl::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/SettingsMenu/keybind_option.tscn<>uid://cdmcm0cka7hhs::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/SettingsMenu/zenith_tab.tscn
+::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/::1770709988
+file_button.gd::GDScript::6109052750381294083::1770709988::0::1::::PlayerFileButton<>HBoxContainer<><>0<>0<><>::
+file_button.tscn::PackedScene::4628544877498598725::1770709988::0::1::::<><><>0<>0<><>::uid://ctbjhaov8rj6j::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/file_button.gd
+file_select_ui.gd::GDScript::3439664219917634140::1770709988::0::1::::<>PanelContainer<><>0<>0<><>::
+file_select_ui.tscn::PackedScene::2486670581228281354::1770709988::0::1::::<><><>0<>0<><>::uid://b67dptlbu1tw4::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/file_button.tscn<>uid://bpag1c3qu0slw::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/file_select_ui.gd
+loaded_file_ui.gd::GDScript::5351890150199531913::1770709988::0::1::::<>PanelContainer<><>0<>0<><>::
+loaded_file_ui.tscn::PackedScene::-1::1770709988::0::1::::<><><>0<>0<><>::
+new_game_ui.gd::GDScript::7857260659874229268::1770709988::0::1::::<>PanelContainer<><>0<>0<><>::
+new_game_ui.tscn::PackedScene::5616795797458384090::1770709988::0::1::::<><><>0<>0<><>::uid://dj7d618qpsbvg::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/new_game_ui.gd
+::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/SettingsMenu/::1770709988
+keybind_option.tscn::PackedScene::4968205431626725733::1770709988::0::1::::<><><>0<>0<><>::
+volume_slider_option.gd::GDScript::4679404553238877963::1770709988::0::1::::<>HBoxContainer<><>0<>0<><>::
+volume_slider_option.tscn::PackedScene::3429709343265965064::1770709988::0::1::::<><><>0<>0<><>::uid://b7w0dym2kjqwx::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/SettingsMenu/volume_slider_option.gd
+zenith_tab.tscn::PackedScene::5008324611490391004::1770709988::0::1::::<><><>0<>0<><>::uid://cc1vu867ooxhl::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/SettingsMenu/keybind_option.tscn
+::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/Status_Menu/::1770709988
+status_icon.gd::GDScript::3695466094329829982::1770709988::0::1::::<>Control<><>0<>0<><>::
+status_icon.tscn::PackedScene::6243137543654900076::1770709988::0::1::::<><><>0<>0<><>::uid://c5n7n0n4vmwex::::res://QuasiEngine/Default GUI/Printers/Ink_Printer/outline_shader_test.gdshader<>uid://cm0fguah8gudo::::res://Game Files/Test Game/Visual Assets/Icons/PihquraNewIcon.png<>uid://bswd10m4c8atq::::res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/Status_Menu/status_icon.gd<>uid://0xkj544aic0x::::res://Game Files/Zenith Day August 23/GUI Assets/staticfilter.png
+::res://QuasiEngine/Scenes/Shaders/::1770709988
+balatroBG.gdshader::Shader::2903019325400104484::1770709988::0::1::::<><><>0<>0<><>::
+::res://QuasiEngine/Utility/::1770709988
+utility.gd::GDScript::8601841625278497773::1770709988::0::1::::Utility_Functions<>Node<><>0<>0<><>::
+::res://QuasiEngine/Utility/Ciphers/::1770709988
+cipher_resource.gd::GDScript::4671631960819623361::1770709988::0::1::::Cipher<>Resource<><>0<>0<><>::
+cipher_text.gd::GDScript::3818699807251917003::1770709988::0::1::::Ciphers<>RefCounted<><>0<>0<><>::
+::res://QuasiEngine/Utility/Ciphers/Cipher_Resources/::1770709988
+high_aquolion.tres::Resource/Cipher::6862318467437076928::1770709988::0::1::::<><><>0<>0<><>::uid://b7s8di2ye2vtp::::res://QuasiEngine/Utility/Ciphers/cipher_resource.gd
+k_cipher.tres::Resource/Cipher::4732161889156708325::1770709988::0::1::::<><><>0<>0<><>::uid://b7s8di2ye2vtp::::res://QuasiEngine/Utility/Ciphers/cipher_resource.gd

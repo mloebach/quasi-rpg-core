@@ -8,13 +8,17 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Quasi RPG Core"
 run/main_scene="uid://bnubr7phxt3dx"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="DuoDecillion Games"
-config/features=PackedStringArray("4.5")
+config/features=PackedStringArray("4.6")
 
 [audio]
 

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://crt30ie582udv"]
+
+[ext_resource type="Texture2D" uid="uid://jpoecyltyi75" path="res://QuasiEngine/Default GUI/DuoDecLogo.png" id="1_as0yc"]
+[ext_resource type="Script" uid="uid://3ahi0hj7evcd" path="res://QuasiEngine/Scenes/Secondary Scenes/Boot_Screen/boot_scene.gd" id="1_dw48t"]
+
+[sub_resource type="Gradient" id="Gradient_as0yc"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dw48t"]
+gradient = SubResource("Gradient_as0yc")
+
+[node name="BootScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dw48t")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_dw48t")
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_as0yc")
+stretch_mode = 3

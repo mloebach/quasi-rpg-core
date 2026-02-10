@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://wevc6r2mbfos"]
+
+[ext_resource type="FontFile" uid="uid://c0wmbdvfwlrdg" path="res://QuasiEngine/Default GUI/Fonts/Changa-VariableFont_wght.ttf" id="1_6smvx"]
+[ext_resource type="Script" uid="uid://b3shmknlbewpf" path="res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_choice.gd" id="1_b2lfh"]
+
+[sub_resource type="FontVariation" id="FontVariation_6t3st"]
+base_font = ExtResource("1_6smvx")
+
+[sub_resource type="Gradient" id="Gradient_avwnj"]
+colors = PackedColorArray(0.141722, 0.0699557, 0.357262, 1, 0.08456, 0.0392, 0.14, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2cxll"]
+gradient = SubResource("Gradient_avwnj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oi365"]
+texture = SubResource("GradientTexture1D_2cxll")
+
+[node name="Choice" type="HBoxContainer"]
+script = ExtResource("1_b2lfh")
+
+[node name="Left" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_fonts/font = SubResource("FontVariation_6t3st")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_oi365")
+text = "Continue."
+
+[node name="Right" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

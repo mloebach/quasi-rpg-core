@@ -1,0 +1,143 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcah5h5nn3oqg"]
+
+[ext_resource type="Script" uid="uid://cuoyhrfcygvai" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Story Player/story_player.gd" id="1_ymrlv"]
+[ext_resource type="Shader" uid="uid://bhmikluoql0iy" path="res://QuasiEngine/Scenes/Shaders/balatroBG.gdshader" id="2_1k2x4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wemqa"]
+shader = ExtResource("2_1k2x4")
+shader_parameter/spin_rotation_speed = 3.5
+shader_parameter/move_speed = 4.0
+shader_parameter/offset = Vector2(0.5, 0)
+shader_parameter/colour_1 = Color(0.2695, 0.31625, 0.55, 1)
+shader_parameter/colour_2 = Color(0.46512, 0.3312, 0.48, 1)
+shader_parameter/colour_3 = Color(0.14516, 0.19, 0.1444, 1)
+shader_parameter/contrast = 2.0
+shader_parameter/lighting = 0.4
+shader_parameter/spin_amount = 0.25
+shader_parameter/pixel_filter = 740.0
+shader_parameter/is_rotating = false
+
+[sub_resource type="Gradient" id="Gradient_1k2x4"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wemqa"]
+gradient = SubResource("Gradient_1k2x4")
+
+[node name="StoryPlayer" type="Node"]
+script = ExtResource("1_ymrlv")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="SFX_Stage" type="Node" parent="Audio"]
+
+[node name="Voice_Stage" type="Node" parent="Audio"]
+
+[node name="BGM_Stage" type="Node" parent="Audio"]
+
+[node name="RootViewportStage" type="Node2D" parent="."]
+
+[node name="MainStage" type="Node" parent="."]
+
+[node name="Control" type="Control" parent="MainStage"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="TempBG" type="TextureRect" parent="MainStage/Control"]
+material = SubResource("ShaderMaterial_wemqa")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_wemqa")
+
+[node name="PrinterStage" type="Node" parent="."]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="MainUIVBox" type="VBoxContainer" parent="UILayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="PrimaryUIStage" type="Control" parent="UILayer/MainUIVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 12.0
+
+[node name="Printer Stage" type="Control" parent="UILayer/MainUIVBox/PrimaryUIStage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Status Stage" type="Control" parent="UILayer/MainUIVBox/PrimaryUIStage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RibbonUIStage" type="Control" parent="UILayer/MainUIVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UpperUI" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="MainUpperUI" type="Control" parent="UILayer/UpperUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Popup_Stage" type="Control" parent="UILayer/UpperUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopLevelUI" type="Control" parent="UILayer/UpperUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TTSEnabledText" type="RichTextLabel" parent="UILayer/UpperUI/TopLevelUI"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 12.0
+offset_right = 569.0
+offset_bottom = 239.0
+theme_override_colors/default_color = Color(1, 1, 1, 0.513726)
+theme_override_font_sizes/normal_font_size = 44
+text = "TTS Enabled"

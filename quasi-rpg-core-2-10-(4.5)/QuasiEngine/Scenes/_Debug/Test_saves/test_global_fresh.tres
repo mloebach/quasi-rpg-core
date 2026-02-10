@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GlobalSave" load_steps=3 format=3 uid="uid://cg7nre8n6p7s2"]
+
+[ext_resource type="Script" uid="uid://d3nd2a0lxmwi5" path="res://QuasiEngine/Scenes/Save System/PlayerFileSave.gd" id="1_fj2g6"]
+[ext_resource type="Script" uid="uid://cypoxo5boern3" path="res://QuasiEngine/Scenes/Save System/GlobalFileSave.gd" id="2_nx0dk"]
+
+[resource]
+script = ExtResource("2_nx0dk")
+player_saves = Array[ExtResource("1_fj2g6")]([null, null, null])
+current_player_slot = -1
+metadata/_custom_type_script = "uid://cypoxo5boern3"

@@ -1,0 +1,12 @@
+Quasi Engine Folder (green):
+	Everything that has to do with the Quasi Engine.
+	If you make two games with Quasi Engine, ideally the files both need would be here.
+	
+Game Files Folder (red):
+	Everything that has to do with assets specific to the game Quasi Engine is being used to make.
+	Games are separated by folders denoting their name.
+	Holotype Folder is meant to be empty and what a default folder looks like on creation.
+	Comes with a base script, Default Godot icon
+	
+Godot (blue):
+	Evertyhing that has to do with adjustments to the Godot Engine itself.

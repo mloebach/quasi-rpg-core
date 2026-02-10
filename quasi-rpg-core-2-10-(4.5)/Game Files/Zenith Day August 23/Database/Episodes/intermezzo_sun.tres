@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Episode_Resource" load_steps=3 format=3 uid="uid://cp4pjuvtilnov"]
+
+[ext_resource type="Script" uid="uid://bbipppklny7he" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd" id="1_smw8u"]
+[ext_resource type="Texture2D" uid="uid://0xkj544aic0x" path="res://Game Files/Zenith Day August 23/GUI Assets/staticfilter.png" id="2_a7gmy"]
+
+[resource]
+script = ExtResource("1_smw8u")
+main_title = "Mountain Roar"
+number = 5
+level = 2
+episode_title = "Episode 5 Part 2"
+select_background = ExtResource("2_a7gmy")
+metadata/_custom_type_script = "uid://bbipppklny7he"

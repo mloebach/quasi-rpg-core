@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7sot3mh6hiub"]
+
+[ext_resource type="Script" uid="uid://8lwgyu51q0nv" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/vn_scene_main.gd" id="1_yecny"]
+[ext_resource type="Resource" uid="uid://baavq2u41ffek" path="res://Game Files/Test Game/Database/game_database.tres" id="2_qjyaq"]
+
+[node name="VnSceneMain" type="Node2D"]
+script = ExtResource("1_yecny")
+game_db = ExtResource("2_qjyaq")
+
+[node name="StoryStage" type="Node" parent="."]

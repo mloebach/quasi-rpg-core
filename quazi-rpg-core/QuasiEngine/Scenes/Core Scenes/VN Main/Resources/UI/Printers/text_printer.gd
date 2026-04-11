@@ -270,13 +270,13 @@ func _process(delta: float) -> void:
 	
 	#print("process loop")
 	
-	if(GlobalData.game_db.sweep):
+	if(GlobalData.game_db.sweep || GlobalData.game_db.no_text_load):
 		minimum_print_time = 0.0
 	
 	if(_loading_text):
 		_input_timer += delta
 		#print("Waiting for input: " + str(_input_timer))
-		if((Input.is_action_just_pressed("advance_text") || GlobalData.game_db.sweep)&& _input_timer > minimum_print_time):
+		if((Input.is_action_just_pressed("advance_text") || GlobalData.game_db.sweep || GlobalData.game_db.no_text_load) && _input_timer > minimum_print_time):
 			#_early_text = true
 			#_input_timer = 0
 			#get_text_box().visible_characters = -1
@@ -295,7 +295,7 @@ func _process(delta: float) -> void:
 		print("AUTO TIMER: " + str(GlobalData.auto_timer))
 	if(GlobalData.auto_timer > GlobalData.auto_timer_wait ||GlobalData.game_db.sweep):
 		#auto timer trigger
-		if(!GlobalData.printer_paused):
+		if(!GlobalData.printer_paused && _current_node != null):
 			advance_text()
 
 func early_input():

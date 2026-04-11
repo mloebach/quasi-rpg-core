@@ -1,20 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://c608ddey8i8hu"]
+[gd_scene format=3 uid="uid://c608ddey8i8hu"]
 
 [ext_resource type="Script" uid="uid://dh872cxob30ex" path="res://QuasiEngine/Default GUI/Printers/Ink_Printer/choice_handler.gd" id="1_7pytu"]
 [ext_resource type="PackedScene" uid="uid://wevc6r2mbfos" path="res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_choice.tscn" id="2_7pytu"]
 
-[node name="ChoiceHandler" type="PanelContainer"]
+[node name="ChoiceHandler" type="PanelContainer" unique_id=625959981]
 script = ExtResource("1_7pytu")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1301846776]
 layout_mode = 2
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="ChoiceVbox" type="VBoxContainer" parent="MarginContainer"]
+[node name="ChoiceVbox" type="VBoxContainer" parent="MarginContainer" unique_id=1305200335]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Choice" parent="MarginContainer/ChoiceVbox" instance=ExtResource("2_7pytu")]
+[node name="Choice" parent="MarginContainer/ChoiceVbox" unique_id=478554017 instance=ExtResource("2_7pytu")]
 visible = false
 layout_mode = 2

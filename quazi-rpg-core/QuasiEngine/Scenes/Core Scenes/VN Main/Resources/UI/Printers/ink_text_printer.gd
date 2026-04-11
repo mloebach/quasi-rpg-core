@@ -185,7 +185,7 @@ func scroll_to_bottom() -> void:
 	
 	#set_deferred("scroll_vertical", scroll_container.get_v_scroll_bar().get_max())
 	var tween_time = 0.4
-	if(GlobalData.game_db.sweep):
+	if(GlobalData.game_db.sweep || GlobalData.game_db.no_text_load):
 		tween_time = 0.0
 	
 	tween.tween_property(

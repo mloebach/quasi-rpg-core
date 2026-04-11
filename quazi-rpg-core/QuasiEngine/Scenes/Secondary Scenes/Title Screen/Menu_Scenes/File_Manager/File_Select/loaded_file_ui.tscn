@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://do6c34g1gp37o"]
+[gd_scene format=3 uid="uid://do6c34g1gp37o"]
 
 [ext_resource type="Script" uid="uid://ciiq34jkveunp" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/loaded_file_ui.gd" id="1_55bgv"]
 [ext_resource type="Texture2D" uid="uid://cy3yc2cdnm43j" path="res://Game Files/Zenith Day August 23/Visual Assets/CGs/Ep4/JQ3Gun.png" id="2_4p883"]
@@ -9,7 +9,7 @@ bg_color = Color(0.192, 0.18, 0.24, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xw7ev"]
 bg_color = Color(0.338876, 0.359706, 0.724406, 1)
 
-[node name="SaveContainer" type="PanelContainer"]
+[node name="SaveContainer" type="PanelContainer" unique_id=1345331426]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,57 +19,57 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_27fhx")
 script = ExtResource("1_55bgv")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=446853656]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Start" type="Control" parent="VBoxContainer"]
+[node name="Start" type="Control" parent="VBoxContainer" unique_id=702944077]
 layout_mode = 2
 
-[node name="File" type="HBoxContainer" parent="VBoxContainer"]
+[node name="File" type="HBoxContainer" parent="VBoxContainer" unique_id=109151292]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="LeftSpace" type="Control" parent="VBoxContainer/File"]
+[node name="LeftSpace" type="Control" parent="VBoxContainer/File" unique_id=191120303]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.13
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/File"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/File" unique_id=196115327]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/File/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/File/VBoxContainer" unique_id=552876279]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.52
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/File/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/File/VBoxContainer/HBoxContainer" unique_id=551478416]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.29
 theme_override_styles/panel = SubResource("StyleBoxFlat_xw7ev")
 
-[node name="FileNumber" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/PanelContainer"]
+[node name="FileNumber" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/PanelContainer" unique_id=1805709316]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 60
 text = "FILE 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FakeButton" type="PanelContainer" parent="VBoxContainer/File/VBoxContainer/HBoxContainer"]
+[node name="FakeButton" type="PanelContainer" parent="VBoxContainer/File/VBoxContainer/HBoxContainer" unique_id=1857014591]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton" unique_id=324166359]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 20
 
-[node name="NewGameText" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton/MarginContainer"]
+[node name="NewGameText" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton/MarginContainer" unique_id=1606794195]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 72
@@ -77,14 +77,14 @@ text = "New Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FileInfo" type="VBoxContainer" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton/MarginContainer"]
+[node name="FileInfo" type="VBoxContainer" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton/MarginContainer" unique_id=1547090835]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton/MarginContainer/FileInfo"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton/MarginContainer/FileInfo" unique_id=1499302188]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Name" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton/MarginContainer/FileInfo/HBoxContainer"]
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton/MarginContainer/FileInfo/HBoxContainer" unique_id=652814798]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.13
@@ -92,7 +92,7 @@ theme_override_font_sizes/normal_font_size = 72
 text = "Madleomon"
 fit_content = true
 
-[node name="TimePlayed" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton/MarginContainer/FileInfo/HBoxContainer"]
+[node name="TimePlayed" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/HBoxContainer/FakeButton/MarginContainer/FileInfo/HBoxContainer" unique_id=1075721206]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 40
@@ -100,32 +100,32 @@ text = "00:00"
 fit_content = true
 horizontal_alignment = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/File/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/File/VBoxContainer" unique_id=1943225310]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer" unique_id=924913202]
 layout_mode = 2
 
-[node name="AutoSaveRibbon" type="HBoxContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer"]
+[node name="AutoSaveRibbon" type="HBoxContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer" unique_id=591245959]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.28
 alignment = 2
 
-[node name="LeftSpace" type="Control" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveRibbon"]
+[node name="LeftSpace" type="Control" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveRibbon" unique_id=1264568657]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="AutoSaveText" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveRibbon"]
+[node name="AutoSaveText" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveRibbon" unique_id=158102758]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 36
 text = "Auto Save:"
 fit_content = true
 
-[node name="DateText" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveRibbon"]
+[node name="DateText" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveRibbon" unique_id=284219042]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 40
@@ -133,27 +133,27 @@ text = "07/15/1999	"
 fit_content = true
 horizontal_alignment = 2
 
-[node name="RightSpace" type="Control" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveRibbon"]
+[node name="RightSpace" type="Control" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveRibbon" unique_id=868832948]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="AutoSaveInfo" type="HBoxContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer"]
+[node name="AutoSaveInfo" type="HBoxContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1554731590]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo" unique_id=879275334]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="InfoDock" type="VBoxContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2"]
+[node name="InfoDock" type="VBoxContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2" unique_id=1153429316]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Quest Marker" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock"]
+[node name="Quest Marker" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock" unique_id=1705240480]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -163,7 +163,7 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LocationText" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock"]
+[node name="LocationText" type="RichTextLabel" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock" unique_id=1186914755]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -173,32 +173,32 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock"]
+[node name="Control" type="Control" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock" unique_id=640553422]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock" unique_id=301357895]
 layout_mode = 2
 
-[node name="Wiki" type="Button" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock/HBoxContainer"]
+[node name="Wiki" type="Button" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock/HBoxContainer" unique_id=793503207]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
 text = "Wiki"
 
-[node name="Characters" type="Button" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock/HBoxContainer"]
+[node name="Characters" type="Button" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock/HBoxContainer" unique_id=381590726]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
 text = "Status"
 
-[node name="Control2" type="Control" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock"]
+[node name="Control2" type="Control" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock" unique_id=2036805666]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.24
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo" unique_id=1501668914]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.8
@@ -207,65 +207,65 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 20
 
-[node name="SaveThumbnail" type="TextureRect" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer"]
+[node name="SaveThumbnail" type="TextureRect" parent="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer" unique_id=1930136768]
 layout_mode = 2
 size_flags_horizontal = 8
 texture = ExtResource("2_4p883")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="RightSpace" type="Control" parent="VBoxContainer/File"]
+[node name="RightSpace" type="Control" parent="VBoxContainer/File" unique_id=1428041793]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.13
 
-[node name="BottomButtons" type="HBoxContainer" parent="VBoxContainer"]
+[node name="BottomButtons" type="HBoxContainer" parent="VBoxContainer" unique_id=1915947962]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BottomButtons"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BottomButtons" unique_id=1622758936]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="Start" type="Control" parent="VBoxContainer/BottomButtons/HBoxContainer"]
+[node name="Start" type="Control" parent="VBoxContainer/BottomButtons/HBoxContainer" unique_id=1036899580]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="ContinueButton" type="Button" parent="VBoxContainer/BottomButtons/HBoxContainer"]
+[node name="ContinueButton" type="Button" parent="VBoxContainer/BottomButtons/HBoxContainer" unique_id=23906680]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.94
 theme_override_font_sizes/font_size = 60
 text = "Resume"
 
-[node name="LoadButton" type="Button" parent="VBoxContainer/BottomButtons/HBoxContainer"]
+[node name="LoadButton" type="Button" parent="VBoxContainer/BottomButtons/HBoxContainer" unique_id=1052856713]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 60
 text = "Load Save"
 
-[node name="Chapterbnutton" type="Button" parent="VBoxContainer/BottomButtons/HBoxContainer"]
+[node name="Chapterbnutton" type="Button" parent="VBoxContainer/BottomButtons/HBoxContainer" unique_id=1180215699]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
 text = "Chapters"
 
-[node name="ReturnButton" type="Button" parent="VBoxContainer/BottomButtons/HBoxContainer"]
+[node name="ReturnButton" type="Button" parent="VBoxContainer/BottomButtons/HBoxContainer" unique_id=1230368467]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
 text = "Exit"
 
-[node name="End" type="Control" parent="VBoxContainer/BottomButtons/HBoxContainer"]
+[node name="End" type="Control" parent="VBoxContainer/BottomButtons/HBoxContainer" unique_id=1416453873]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="End" type="Control" parent="VBoxContainer"]
+[node name="End" type="Control" parent="VBoxContainer" unique_id=466299576]
 layout_mode = 2
 
 [connection signal="button_up" from="VBoxContainer/File/VBoxContainer/PanelContainer/VBoxContainer/AutoSaveInfo/MarginContainer2/InfoDock/HBoxContainer/Characters" to="." method="_on_characters_button_up"]

@@ -1,12 +1,12 @@
 extends RefCounted
 class_name Zenith_Global_Data
 
-var roster_stats: Dictionary[String, CharacterStatus]
+#var roster_stats: Dictionary[String, CharacterStatus]
 var episode_list: Dictionary[String, Episode]
 #var zenith_pronoun: Pronouns = Pronouns.He
 
 func _init() -> void:
-	init_roster_stats()
+	#init_roster_stats()
 	init_episode_list()
 
 
@@ -15,16 +15,16 @@ func init_episode_list() -> void:
 		print("loading episode " + episode.get_episode_name())
 		episode_list[episode.get_episode_name()] = Episode.new(episode)
 
-func init_roster_stats() -> void:
-	for character in GlobalData.characters:
-		print("checking character in global data!")
-		if GlobalData.characters[character].tags.has("Voyager"):
-			#roster_stats[character] = (StatusChar.new(GlobalData.characters[character]))
-			roster_stats[character] = CharacterStatus.Locked
+#func init_roster_stats() -> void:
+	#for character in GlobalData.characters:
+		#print("checking character in global data!")
+		#if GlobalData.characters[character].tags.has("Voyager"):
+			##roster_stats[character] = (StatusChar.new(GlobalData.characters[character]))
+			#roster_stats[character] = CharacterStatus.Locked
 
-func get_char_status(name: String):
-	return roster_stats[name]
-
+#func get_char_status(name: String):
+	#return roster_stats[name]
+##
 
 func z_pro(pronoun:String) -> String:
 	var pro :=  get_z_pro(pronoun.to_lower())

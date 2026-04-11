@@ -319,9 +319,12 @@ func _copy_file():
 func _on_status_menu(playersave: PlayerSave):
 	var _status_menu = status_menu.instantiate()
 	popup_stage.add_child(_status_menu)
-	var auto_json = FileAccess.open(playersave.auto_save_json, FileAccess.READ)
-	var auto_json_data = playersave.load_game_save(auto_json)
-	_status_menu.load_icons(auto_json_data.voyager_status)
+	#var auto_json = FileAccess.open(playersave.auto_save_json, FileAccess.READ)
+	#var auto_json_data = playersave.load_game_save(auto_json)
+	#_status_menu.load_icons(auto_json_data.voyager_status)
+	#var auto_json = FileAccess.open(playersave.roster_stats, FileAccess.READ)
+	#var auto_json_data = playersave.load_game_save(auto_json)
+	_status_menu.load_icons(playersave.roster_stats)
 
 func _on_erase_button_button_up() -> void:
 	print("Erasing file!")

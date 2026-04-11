@@ -1,6 +1,6 @@
 #MilgramVoting
 
-[VOTING]
+[lb]VOTING[rb]
 
 @goto .VotingStart if:episode>0
 ;@goto .VotingStart

@@ -122,7 +122,7 @@ func tokenize(input_text: String) -> Array[Token]:
 	
 	while not script.is_at_final_line():
 		var current_line = script.get_current_line()	
-		if current_line.length() > 0:
+		if current_line.length() > 0 && current_line.strip_edges() != "":
 			
 			var starting_index = _first_character_index(current_line, 0)
 			var line_indent_depth = indent_depth
@@ -220,9 +220,9 @@ func _tokenize_generic(current_line: String):
 	var author_id : String = ""
 	var print_text : String = ""
 	
-	if current_line.contains(":"):
+	if current_line.contains(": "):
 		#get author, which is everything before the first :
-		var authored_text = current_line.split(":", true, 1)
+		var authored_text = current_line.split(": ", true, 1)
 		author_id = authored_text[0].strip_edges()
 		print_text = authored_text[1].strip_edges().replace("\"", "\\"+"\"")
 	else:

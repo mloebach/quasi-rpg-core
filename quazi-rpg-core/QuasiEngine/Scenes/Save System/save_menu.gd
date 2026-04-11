@@ -314,6 +314,8 @@ func _save_game():
 
 func _write_game_save():
 	GlobalData.player_save.main_save.date_saved = Time.get_datetime_string_from_system(false, true)
+	GlobalData.player_save.main_save.variables = GlobalData.player_save.ingame_variables
+	GlobalData.player_save.main_save.voyager_status = GlobalData.player_save.roster_stats
 	var save_path = GlobalData.current_file_path()+"/Manual Saves/Save"+str(slot_selected.index)+".json"
 	var auto = FileAccess.open(save_path, FileAccess.WRITE)
 	

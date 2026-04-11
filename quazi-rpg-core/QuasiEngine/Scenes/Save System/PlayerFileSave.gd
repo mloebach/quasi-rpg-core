@@ -27,11 +27,33 @@ var z_renames_left := 2
 var z_color : String = Color.SLATE_GRAY.to_html()
 var z_pronouns : Zenith_Global_Data.Pronouns =  Zenith_Global_Data.Pronouns.They
 
+
+var ingame_variables : Dictionary[String, String]= {}
+var roster_stats: Dictionary[String, Zenith_Global_Data.CharacterStatus]
+
+
+func initialize() -> void:
+	init_roster_stats()
+
+func init_roster_stats() -> void:
+	for character in GlobalData.characters:
+		print("checking character in global data!")
+		if GlobalData.characters[character].tags.has("Voyager"):
+			#roster_stats[character] = (StatusChar.new(GlobalData.characters[character]))
+			roster_stats[character] = Zenith_Global_Data.CharacterStatus.Locked
+
+func get_char_status(name: String):
+	return roster_stats[name]
+
 var unlocked_episodes : Dictionary[String, bool] = {
 	#"Prelude" : true,
 	"Prologue" : false,
 	"Ep1" : false
 }
+
+
+func active_save() -> GameSave:
+	return point_saves[file_index]
 
 func load_save(opened_json: FileAccess) -> PlayerSave:
 	var new_save = PlayerSave.new()
@@ -49,7 +71,7 @@ func load_save(opened_json: FileAccess) -> PlayerSave:
 			new_save[i] = node_data[i]
 	return new_save
 
-
+#function where a game save is loaded form data
 func load_game_save(opened_json: FileAccess) -> GameSave:
 	var new_save = GameSave.new()
 	var save_json = opened_json.get_line()

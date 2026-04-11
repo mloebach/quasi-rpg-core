@@ -310,12 +310,13 @@ class ChoiceNode:
 	extends AsyncNode
 	
 	var choice_summary: String #text for choice
-	var lock : String #whether or not choice should be locked
+	var lock : String #whether or not choice should be hidden
 	var goto: String #path to go to when selected by user. ignored with nesting
 	var gosub: String #subroutine to go to when selected by user. ignored with nesting
 	var set_variable: String #set variable with choice. ignored with nesting
 	var show: String #whether or not to show handler. true by default
 	var play: String #boolean. if no goto or go sub, continues script from next line. ignored with nesting
+	var disable: String #shows choice which cannot be selected, different from lock
 	
 	func _init(_next: int, _text: String) -> void:
 		super(_next)

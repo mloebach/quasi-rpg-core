@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cigj4veevwr8i"]
+[gd_scene format=3 uid="uid://cigj4veevwr8i"]
 
 [ext_resource type="Script" uid="uid://lxjlmmht5n3h" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/ribbon_ui.gd" id="1_fnfd7"]
 
@@ -8,7 +8,7 @@ bg_color = Color(0.28512, 0.2448, 0.36, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnfd7"]
 bg_color = Color(0.267867, 0.35, 0.238, 1)
 
-[node name="RibbonUI" type="PanelContainer"]
+[node name="RibbonUI" type="PanelContainer" unique_id=518269706]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -24,23 +24,23 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_fnfd7")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=956650121]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 
-[node name="OptionsPanel" type="HBoxContainer" parent="MarginContainer"]
+[node name="OptionsPanel" type="HBoxContainer" parent="MarginContainer" unique_id=336514661]
 layout_mode = 2
 alignment = 1
 
-[node name="LeftSide" type="HBoxContainer" parent="MarginContainer/OptionsPanel"]
+[node name="LeftSide" type="HBoxContainer" parent="MarginContainer/OptionsPanel" unique_id=14619771]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 
-[node name="StatusButton" type="Button" parent="MarginContainer/OptionsPanel/LeftSide"]
+[node name="StatusButton" type="Button" parent="MarginContainer/OptionsPanel/LeftSide" unique_id=248454370]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
@@ -48,17 +48,17 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_wsgmd")
 text = "STATUS"
 
-[node name="SaveButton" type="Button" parent="MarginContainer/OptionsPanel/LeftSide"]
+[node name="SaveButton" type="Button" parent="MarginContainer/OptionsPanel/LeftSide" unique_id=1910624954]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "SAVE"
 
-[node name="LogButton" type="Button" parent="MarginContainer/OptionsPanel/LeftSide"]
+[node name="LogButton" type="Button" parent="MarginContainer/OptionsPanel/LeftSide" unique_id=1976173306]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "LOG"
 
-[node name="PauseDebug" type="Button" parent="MarginContainer/OptionsPanel/LeftSide"]
+[node name="PauseDebug" type="Button" parent="MarginContainer/OptionsPanel/LeftSide" unique_id=1627264114]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -66,7 +66,7 @@ focus_mode = 0
 toggle_mode = true
 text = "Pause"
 
-[node name="AutoButton" type="Button" parent="MarginContainer/OptionsPanel/LeftSide"]
+[node name="AutoButton" type="Button" parent="MarginContainer/OptionsPanel/LeftSide" unique_id=383376943]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -74,22 +74,22 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_fnfd7")
 toggle_mode = true
 text = "AUTO"
 
-[node name="RightSide" type="HBoxContainer" parent="MarginContainer/OptionsPanel"]
+[node name="RightSide" type="HBoxContainer" parent="MarginContainer/OptionsPanel" unique_id=1126845914]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 2
 
-[node name="LeftSpace" type="Control" parent="MarginContainer/OptionsPanel/RightSide"]
+[node name="LeftSpace" type="Control" parent="MarginContainer/OptionsPanel/RightSide" unique_id=1527323833]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="SettingsButton" type="Button" parent="MarginContainer/OptionsPanel/RightSide"]
+[node name="SettingsButton" type="Button" parent="MarginContainer/OptionsPanel/RightSide" unique_id=1821352386]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "SETTINGS"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/OptionsPanel/RightSide"]
+[node name="QuitButton" type="Button" parent="MarginContainer/OptionsPanel/RightSide" unique_id=581040092]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "QUIT"

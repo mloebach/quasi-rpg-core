@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://co0rnx2l7ohui"]
+[gd_scene format=3 uid="uid://co0rnx2l7ohui"]
 
 [ext_resource type="Script" uid="uid://b2k042sa834mg" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/UI/Printers/ink_text_printer.gd" id="1_aj48q"]
 [ext_resource type="PackedScene" uid="uid://8h41h7sjlyis" path="res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_section.tscn" id="2_byrco"]
@@ -11,7 +11,7 @@ bg_color = Color(0.06, 0.06, 0.06, 0.823529)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1k2x4"]
 gradient = SubResource("Gradient_ymrlv")
 
-[node name="InkTextPrinter" type="Control"]
+[node name="InkTextPrinter" type="Control" unique_id=1826048115]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aj48q")
 
-[node name="FullScreenVBox" type="VBoxContainer" parent="."]
+[node name="FullScreenVBox" type="VBoxContainer" parent="." unique_id=576543319]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,21 +28,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextHBox" type="HBoxContainer" parent="FullScreenVBox"]
+[node name="TextHBox" type="HBoxContainer" parent="FullScreenVBox" unique_id=364791644]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="LeftSpace" type="Control" parent="FullScreenVBox/TextHBox"]
+[node name="LeftSpace" type="Control" parent="FullScreenVBox/TextHBox" unique_id=1618484281]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MainPanel" type="PanelContainer" parent="FullScreenVBox/TextHBox"]
+[node name="MainPanel" type="PanelContainer" parent="FullScreenVBox/TextHBox" unique_id=2137893935]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 9.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_byrco")
 
-[node name="MarginContainer" type="MarginContainer" parent="FullScreenVBox/TextHBox/MainPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="FullScreenVBox/TextHBox/MainPanel" unique_id=757866372]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 50
@@ -50,50 +50,50 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="ScrollContainer" type="ScrollContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer" unique_id=724189068]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer" unique_id=71360332]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="InkScroll" type="VBoxContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer"]
+[node name="InkScroll" type="VBoxContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer" unique_id=15797184]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 12
 alignment = 2
 
-[node name="InkSectionVbox2" type="VBoxContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll"]
+[node name="InkSectionVbox2" type="VBoxContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll" unique_id=1146011699]
 visible = false
 layout_mode = 2
 
-[node name="TextContSeparator3" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2"]
+[node name="TextContSeparator3" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2" unique_id=413977389]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Icons" type="HBoxContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2"]
+[node name="Icons" type="HBoxContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2" unique_id=1979865248]
 layout_mode = 2
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="BaseIcon" type="TextureRect" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2/Icons"]
+[node name="BaseIcon" type="TextureRect" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2/Icons" unique_id=428345588]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = SubResource("GradientTexture2D_1k2x4")
 
-[node name="BaseIcon2" type="TextureRect" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2/Icons"]
+[node name="BaseIcon2" type="TextureRect" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2/Icons" unique_id=205657993]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = SubResource("GradientTexture2D_1k2x4")
 
-[node name="TextContSeparator2" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2"]
+[node name="TextContSeparator2" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2" unique_id=861552388]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="TextBody" type="RichTextLabel" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2"]
+[node name="TextBody" type="RichTextLabel" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2" unique_id=1975361722]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 40
 text = "Sample textSample textSample textSample textSample text"
@@ -101,29 +101,29 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextContSeparator" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2"]
+[node name="TextContSeparator" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2" unique_id=1627708026]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="ContinueHbox" type="HBoxContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2"]
+[node name="ContinueHbox" type="HBoxContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2" unique_id=1271769536]
 layout_mode = 2
 
-[node name="Left" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2/ContinueHbox"]
+[node name="Left" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2/ContinueHbox" unique_id=1785154545]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2/ContinueHbox"]
+[node name="Button" type="Button" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2/ContinueHbox" unique_id=1197790356]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 theme_override_font_sizes/font_size = 36
 text = "Continue."
 
-[node name="Right" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2/ContinueHbox"]
+[node name="Right" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2/ContinueHbox" unique_id=2086293077]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Separator" type="RichTextLabel" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2"]
+[node name="Separator" type="RichTextLabel" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox2" unique_id=1661776521]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 40
 text = "__________________________________________"
@@ -131,34 +131,34 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="InkSectionVbox3" type="VBoxContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll"]
+[node name="InkSectionVbox3" type="VBoxContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll" unique_id=627437949]
 visible = false
 layout_mode = 2
 
-[node name="TextContSeparator3" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3"]
+[node name="TextContSeparator3" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3" unique_id=939200564]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Icons" type="HBoxContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3"]
+[node name="Icons" type="HBoxContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3" unique_id=508294586]
 layout_mode = 2
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="BaseIcon" type="TextureRect" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3/Icons"]
+[node name="BaseIcon" type="TextureRect" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3/Icons" unique_id=926679327]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = SubResource("GradientTexture2D_1k2x4")
 
-[node name="BaseIcon2" type="TextureRect" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3/Icons"]
+[node name="BaseIcon2" type="TextureRect" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3/Icons" unique_id=2113027444]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = SubResource("GradientTexture2D_1k2x4")
 
-[node name="TextContSeparator2" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3"]
+[node name="TextContSeparator2" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3" unique_id=347508214]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="TextBody" type="RichTextLabel" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3"]
+[node name="TextBody" type="RichTextLabel" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3" unique_id=947233075]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 40
 text = "Sample textSample textSample textSample textSample text"
@@ -166,29 +166,29 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextContSeparator" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3"]
+[node name="TextContSeparator" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3" unique_id=2090181654]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="ContinueHbox" type="HBoxContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3"]
+[node name="ContinueHbox" type="HBoxContainer" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3" unique_id=1245344441]
 layout_mode = 2
 
-[node name="Left" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3/ContinueHbox"]
+[node name="Left" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3/ContinueHbox" unique_id=416627447]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3/ContinueHbox"]
+[node name="Button" type="Button" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3/ContinueHbox" unique_id=1519491682]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 theme_override_font_sizes/font_size = 36
 text = "Continue."
 
-[node name="Right" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3/ContinueHbox"]
+[node name="Right" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3/ContinueHbox" unique_id=775051353]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Separator" type="RichTextLabel" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3"]
+[node name="Separator" type="RichTextLabel" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll/InkSectionVbox3" unique_id=1462901714]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 40
 text = "__________________________________________"
@@ -196,18 +196,18 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="InkSection" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll"]
+[node name="InkSection" type="Control" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll" unique_id=1407342573]
 visible = false
 layout_mode = 2
 
-[node name="InkSectionVbox" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll" instance=ExtResource("2_byrco")]
+[node name="InkSectionVbox" parent="FullScreenVBox/TextHBox/MainPanel/MarginContainer/ScrollContainer/MarginContainer/InkScroll" unique_id=1736346741 instance=ExtResource("2_byrco")]
 layout_mode = 2
 
-[node name="RightSpace" type="Control" parent="FullScreenVBox/TextHBox"]
+[node name="RightSpace" type="Control" parent="FullScreenVBox/TextHBox" unique_id=1225094482]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HoverStage" type="Control" parent="."]
+[node name="HoverStage" type="Control" parent="." unique_id=1990426941]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

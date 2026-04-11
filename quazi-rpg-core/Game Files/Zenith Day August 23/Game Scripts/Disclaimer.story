@@ -1,12 +1,12 @@
 Pilgrimage to Zenith
 
 
-Ethereal Dream’s Awakening
+Ethereal Dream's Awakening
 
 (The Bizarro Draft )
 @cg TitleScreenPlaceholder
 
-[Title Screen]
+[lb]Title Screen[rb]
 ;[Depiction of a sacred spring, and a bell above that Spring.]
 ...
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd2cxpqhksiut"]
+[gd_scene format=3 uid="uid://cd2cxpqhksiut"]
 
 [ext_resource type="Script" uid="uid://jjhgbemxdobl" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/file_manager_menu.gd" id="1_pwdjv"]
 [ext_resource type="PackedScene" uid="uid://cma22n6kvtl7g" path="res://QuasiEngine/Scenes/Secondary Scenes/Title Screen/Menu_Scenes/File_Manager/File_Select/new_game_ui.tscn" id="2_55mvp"]
@@ -6,7 +6,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvjfp"]
 bg_color = Color(0.1008, 0.10608, 0.18, 1)
 
-[node name="FileManager" type="Control"]
+[node name="FileManager" type="Control" unique_id=564048450]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pwdjv")
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="." unique_id=510719508]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +23,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="UpperTitle" type="MarginContainer" parent="VBox"]
+[node name="UpperTitle" type="MarginContainer" parent="VBox" unique_id=233266688]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 100
@@ -31,25 +31,25 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 50
 
-[node name="PanelContainer" type="PanelContainer" parent="VBox/UpperTitle"]
+[node name="PanelContainer" type="PanelContainer" parent="VBox/UpperTitle" unique_id=688050482]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_dvjfp")
 
-[node name="MainStageVbox" type="VBoxContainer" parent="VBox/UpperTitle/PanelContainer"]
+[node name="MainStageVbox" type="VBoxContainer" parent="VBox/UpperTitle/PanelContainer" unique_id=1173686916]
 layout_mode = 2
 
-[node name="TextMargins" type="MarginContainer" parent="VBox/UpperTitle/PanelContainer/MainStageVbox"]
+[node name="TextMargins" type="MarginContainer" parent="VBox/UpperTitle/PanelContainer/MainStageVbox" unique_id=1400308811]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 
-[node name="FileText" type="RichTextLabel" parent="VBox/UpperTitle/PanelContainer/MainStageVbox/TextMargins"]
+[node name="FileText" type="RichTextLabel" parent="VBox/UpperTitle/PanelContainer/MainStageVbox/TextMargins" unique_id=418987157]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 60
 text = "	----"
 fit_content = true
 
-[node name="StageMargins" type="MarginContainer" parent="VBox/UpperTitle/PanelContainer/MainStageVbox"]
+[node name="StageMargins" type="MarginContainer" parent="VBox/UpperTitle/PanelContainer/MainStageVbox" unique_id=781394215]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 30
@@ -57,79 +57,79 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 20
 
-[node name="SaveContainer" parent="VBox/UpperTitle/PanelContainer/MainStageVbox/StageMargins" instance=ExtResource("2_55mvp")]
+[node name="SaveContainer" parent="VBox/UpperTitle/PanelContainer/MainStageVbox/StageMargins" unique_id=1251364830 instance=ExtResource("2_55mvp")]
 layout_mode = 2
 
-[node name="LowerTitle" type="MarginContainer" parent="VBox"]
+[node name="LowerTitle" type="MarginContainer" parent="VBox" unique_id=1638833904]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="LowerBox" type="HBoxContainer" parent="VBox/LowerTitle"]
+[node name="LowerBox" type="HBoxContainer" parent="VBox/LowerTitle" unique_id=1111061642]
 visible = false
 layout_mode = 2
 
-[node name="Copy Button" type="Button" parent="VBox/LowerTitle/LowerBox"]
+[node name="Copy Button" type="Button" parent="VBox/LowerTitle/LowerBox" unique_id=1632722597]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 text = "COPY"
 
-[node name="Erase Button" type="Button" parent="VBox/LowerTitle/LowerBox"]
+[node name="Erase Button" type="Button" parent="VBox/LowerTitle/LowerBox" unique_id=774219794]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 text = "ERASE"
 
-[node name="MiddleLeftSpace" type="Control" parent="VBox/LowerTitle/LowerBox"]
+[node name="MiddleLeftSpace" type="Control" parent="VBox/LowerTitle/LowerBox" unique_id=641041709]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.47
 
-[node name="SettingsButton" type="Button" parent="VBox/LowerTitle/LowerBox"]
+[node name="SettingsButton" type="Button" parent="VBox/LowerTitle/LowerBox" unique_id=1869542491]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 text = "SETTINGS"
 
-[node name="TitleButton" type="Button" parent="VBox/LowerTitle/LowerBox"]
+[node name="TitleButton" type="Button" parent="VBox/LowerTitle/LowerBox" unique_id=1234577648]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 text = "TITLE"
 
-[node name="CancelBox" type="HBoxContainer" parent="VBox/LowerTitle"]
+[node name="CancelBox" type="HBoxContainer" parent="VBox/LowerTitle" unique_id=597646595]
 visible = false
 layout_mode = 2
 
-[node name="MiddleLeftSpace" type="Control" parent="VBox/LowerTitle/CancelBox"]
+[node name="MiddleLeftSpace" type="Control" parent="VBox/LowerTitle/CancelBox" unique_id=725353522]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.47
 
-[node name="Cancel Button" type="Button" parent="VBox/LowerTitle/CancelBox"]
+[node name="Cancel Button" type="Button" parent="VBox/LowerTitle/CancelBox" unique_id=639857125]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 text = "CANCEL"
 
-[node name="MiddleLeftSpace2" type="Control" parent="VBox/LowerTitle/CancelBox"]
+[node name="MiddleLeftSpace2" type="Control" parent="VBox/LowerTitle/CancelBox" unique_id=394722826]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.47
 
-[node name="ChosenFileLower" type="HBoxContainer" parent="VBox/LowerTitle"]
+[node name="ChosenFileLower" type="HBoxContainer" parent="VBox/LowerTitle" unique_id=885292200]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Control" type="Control" parent="VBox/LowerTitle/ChosenFileLower"]
+[node name="Control" type="Control" parent="VBox/LowerTitle/ChosenFileLower" unique_id=1030112152]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.41
 
-[node name="NGButton" type="Button" parent="VBox/LowerTitle/ChosenFileLower"]
+[node name="NGButton" type="Button" parent="VBox/LowerTitle/ChosenFileLower" unique_id=1037408353]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -137,58 +137,58 @@ size_flags_stretch_ratio = 0.7
 theme_override_font_sizes/font_size = 50
 text = "New Game+"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBox/LowerTitle/ChosenFileLower"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBox/LowerTitle/ChosenFileLower" unique_id=1855790991]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ChapterSelect" type="Button" parent="VBox/LowerTitle/ChosenFileLower/VBoxContainer"]
+[node name="ChapterSelect" type="Button" parent="VBox/LowerTitle/ChosenFileLower/VBoxContainer" unique_id=710285940]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
 text = "Chapter Select"
 
-[node name="ExtraButton" type="Button" parent="VBox/LowerTitle/ChosenFileLower/VBoxContainer"]
+[node name="ExtraButton" type="Button" parent="VBox/LowerTitle/ChosenFileLower/VBoxContainer" unique_id=2017003257]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
 text = "Extra"
 
-[node name="QuitButton" type="Button" parent="VBox/LowerTitle/ChosenFileLower/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="VBox/LowerTitle/ChosenFileLower/VBoxContainer" unique_id=1685507279]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
 text = "Cancel"
 
-[node name="Control2" type="Control" parent="VBox/LowerTitle/ChosenFileLower"]
+[node name="Control2" type="Control" parent="VBox/LowerTitle/ChosenFileLower" unique_id=1513736447]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.41
 
-[node name="AutoloadLower" type="HBoxContainer" parent="VBox/LowerTitle"]
+[node name="AutoloadLower" type="HBoxContainer" parent="VBox/LowerTitle" unique_id=354603905]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Control" type="Control" parent="VBox/LowerTitle/AutoloadLower"]
+[node name="Control" type="Control" parent="VBox/LowerTitle/AutoloadLower" unique_id=1214197689]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.41
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBox/LowerTitle/AutoloadLower"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBox/LowerTitle/AutoloadLower" unique_id=838657898]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FileSelectButton" type="Button" parent="VBox/LowerTitle/AutoloadLower/VBoxContainer"]
+[node name="FileSelectButton" type="Button" parent="VBox/LowerTitle/AutoloadLower/VBoxContainer" unique_id=1720921355]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
 text = "File Select"
 
-[node name="ExtraButton" type="Button" parent="VBox/LowerTitle/AutoloadLower/VBoxContainer"]
+[node name="ExtraButton" type="Button" parent="VBox/LowerTitle/AutoloadLower/VBoxContainer" unique_id=1837071397]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -196,19 +196,19 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
 text = "Extra"
 
-[node name="QuitButton" type="Button" parent="VBox/LowerTitle/AutoloadLower/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="VBox/LowerTitle/AutoloadLower/VBoxContainer" unique_id=219266176]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
 text = "Cancel"
 
-[node name="Control2" type="Control" parent="VBox/LowerTitle/AutoloadLower"]
+[node name="Control2" type="Control" parent="VBox/LowerTitle/AutoloadLower" unique_id=1524494596]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.41
 
-[node name="Settings Stage" type="Control" parent="."]
+[node name="Settings Stage" type="Control" parent="." unique_id=346935953]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -217,7 +217,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Popup Stage" type="Control" parent="."]
+[node name="Popup Stage" type="Control" parent="." unique_id=1102438467]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -68,3 +68,6 @@ class_name VN_Database
 @export_group("Debug")
 ## Zero wait time in dialogue, instantly skips to next line. Purely for testing.
 @export var sweep : bool = false
+
+## Instantly loads messages, no text scroll animation. Purely for testing.
+@export var no_text_load : bool = false

@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://wevc6r2mbfos"]
+[gd_scene format=3 uid="uid://wevc6r2mbfos"]
 
 [ext_resource type="FontFile" uid="uid://c0wmbdvfwlrdg" path="res://QuasiEngine/Default GUI/Fonts/Changa-VariableFont_wght.ttf" id="1_6smvx"]
 [ext_resource type="Script" uid="uid://b3shmknlbewpf" path="res://QuasiEngine/Default GUI/Printers/Ink_Printer/ink_choice.gd" id="1_b2lfh"]
+[ext_resource type="FontFile" uid="uid://dh14e7xiunlto" path="res://QuasiEngine/Default GUI/Fonts/Changa-Bold.ttf" id="3_u5qwu"]
 
 [sub_resource type="FontVariation" id="FontVariation_6t3st"]
 base_font = ExtResource("1_6smvx")
 
 [sub_resource type="Gradient" id="Gradient_avwnj"]
-colors = PackedColorArray(0.141722, 0.0699557, 0.357262, 1, 0.08456, 0.0392, 0.14, 1)
+colors = PackedColorArray(0.23385304, 0.13041306, 0.54875565, 1, 0.1981313, 0.116401695, 0.2982763, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_2cxll"]
 gradient = SubResource("Gradient_avwnj")
@@ -15,24 +16,72 @@ gradient = SubResource("Gradient_avwnj")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oi365"]
 texture = SubResource("GradientTexture1D_2cxll")
 
-[node name="Choice" type="HBoxContainer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2lfh"]
+bg_color = Color(0.0050292634, 0.005033365, 0.08663615, 0.5764706)
+
+[node name="Choice" type="HBoxContainer" unique_id=1194932629]
+size_flags_vertical = 3
 script = ExtResource("1_b2lfh")
 
-[node name="Left" type="Control" parent="."]
+[node name="Left" type="Control" parent="." unique_id=981246763]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1072551322]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Button" type="Button" parent="MarginContainer" unique_id=1337998488]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 theme_override_fonts/font = SubResource("FontVariation_6t3st")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxTexture_oi365")
-text = "Continue."
+theme_override_styles/disabled = SubResource("StyleBoxFlat_b2lfh")
+text = " "
 
-[node name="Right" type="Control" parent="."]
+[node name="Margins" type="VBoxContainer" parent="MarginContainer/Button" unique_id=420009356]
+visible = false
+layout_mode = 0
+offset_right = 1.0
+offset_bottom = 612.0
+alignment = 1
+
+[node name="ButtonText" type="RichTextLabel" parent="MarginContainer/Button/Margins" unique_id=768964267]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_6t3st")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "Continue."
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonText" type="RichTextLabel" parent="MarginContainer" unique_id=1511525441]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_6t3st")
+theme_override_fonts/bold_font = ExtResource("3_u5qwu")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut sem sed turpis ornare vulputate non non urna. Donec feugiat augue lacus, at pretium augue tincidunt venenatis. Nulla efficitur euismod dapibus. Nullam suscipit, dui ac sodales auctor, urna ligula gravida ex, at pretium massa sem eu ante. Nullam turpis urna, cursus a mollis eu, pulvinar quis velit. Aliquam erat volutpat. Nulla tincidunt sit amet magna id consequat. Proin laoreet sed eros in efficitur. Aenean facilisis justo lorem. Curabitur dictum nisl eget lacus auctor, vel pellentesque leo viverra. Vivamus auctor faucibus commodo. Integer magna libero, elementum a lectus id, sodales hendrerit eros. Phasellus lectus metus, lobortis vel neque sit amet, condimentum maximus enim."
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="Control" parent="." unique_id=374789759]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="MarginContainer/Button" to="." method="_on_button_button_up"]

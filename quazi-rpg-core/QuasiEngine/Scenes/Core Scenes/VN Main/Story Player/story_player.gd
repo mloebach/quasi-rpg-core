@@ -415,7 +415,7 @@ func _on_create_status_menu() -> void:
 	upper_ui_stage.add_child(new_status_menu)
 	main_stage.visible = false
 	new_status_menu.restore_ui.connect(_restore_ui)
-	new_status_menu.load_icons(GlobalData.custom_global_data.roster_stats)
+	new_status_menu.load_icons(GlobalData.player_save.roster_stats)
 
 
 func _on_create_save_menu() -> void:

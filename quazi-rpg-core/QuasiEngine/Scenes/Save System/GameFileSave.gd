@@ -24,14 +24,19 @@ var variables := {}
 var voyager_status := {}
 
 
+
+
+
 func _init() -> void:
 	script_name = GlobalData.opening_script
 	script_index = 0
 	current_location = GlobalData.starting_location
 	current_quest = GlobalData.starting_quest
 	date_saved = Time.get_datetime_string_from_system(false, true)
-	variables = GlobalData.ingame_variables
-	voyager_status = GlobalData.custom_global_data.roster_stats
+#	variables = GlobalData.player_save.ing
+	#init_roster_stats()
+	variables = GlobalData.player_save.ingame_variables
+	voyager_status = GlobalData.player_save.roster_stats
 	#current_location = 
 
 #func load_save(opened_json: FileAccess) -> GameSave:

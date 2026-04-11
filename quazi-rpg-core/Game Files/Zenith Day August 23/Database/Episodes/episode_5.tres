@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Episode_Resource" load_steps=4 format=3 uid="uid://b50torhn41c10"]
+[gd_resource type="Resource" script_class="Episode_Resource" format=3 uid="uid://b50torhn41c10"]
 
 [ext_resource type="Script" uid="uid://bbipppklny7he" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd" id="1_rm6sc"]
 

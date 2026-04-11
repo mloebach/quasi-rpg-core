@@ -58,11 +58,11 @@ func update_status(node : StatusNode):
 	
 	match node.status.to_lower():
 		"active":
-			GlobalData.custom_global_data.roster_stats[node.character] = Zenith_Global_Data.CharacterStatus.Active
+			GlobalData.player_save.roster_stats[node.character] = Zenith_Global_Data.CharacterStatus.Active
 		"eliminated":
-			GlobalData.custom_global_data.roster_stats[node.character] = Zenith_Global_Data.CharacterStatus.Eliminated
+			GlobalData.player_save.roster_stats[node.character] = Zenith_Global_Data.CharacterStatus.Eliminated
 		"unknown":
-			GlobalData.custom_global_data.roster_stats[node.character] = Zenith_Global_Data.CharacterStatus.Unknown
+			GlobalData.player_save.roster_stats[node.character] = Zenith_Global_Data.CharacterStatus.Unknown
 		_:
 			push_error("Unknown status from @status: " + node.status)
 	

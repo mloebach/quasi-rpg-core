@@ -42,9 +42,9 @@ var printer_paused := false
 
 #add variable restriction that makes it so certain variables are locked
 #and cannot be edited by @set
-var ingame_variables := {
-	
-}
+#var ingame_variables := {
+	#
+#}
 
 var characters : Dictionary[String, Char_Resource] ={
 	
@@ -162,11 +162,13 @@ func get_default_icon(_id: String):
 	
 func create_new_save(player_name: String, slot: int):
 	print("New file for " + player_name + " created at slot " + str(slot))
-	ingame_variables["zenith_name"] = "[" + player_name.to_upper() + "]"
+	#ingame_variables["zenith_name"] = "[" + player_name.to_upper() + "]"
 	var new_save = PlayerSave.new()
 	
 	new_save.player_name = player_name
 	new_save.file_index = slot
+	new_save.ingame_variables["zenith_name"] = "[b][" + player_name.to_upper() + "][/b]"
+	new_save.initialize()
 	#new_save.auto_save = GameSave.new()
 	global_save.player_names[slot] = player_name
 	global_save.player_saves["Slot_" + str(slot)] = create_player_files(new_save)
@@ -286,8 +288,8 @@ func load_game_save(path: String):
 	global_save.current_player_slot = player_save.file_index
 	save_global()
 	current_scene_status = SceneTypes.in_game
-	custom_global_data.roster_stats = player_save.main_save.voyager_status
-	ingame_variables = player_save.main_save.variables
+	#custom_global_data.roster_stats = player_save.main_save.voyager_status
+	#ingame_variables = player_save.main_save.variables
 	
 	
 func get_screenshot(file_name: String):
@@ -322,6 +324,8 @@ func remove_player_save(index: int):
 func create_autosave():
 	
 	player_save.main_save.date_saved = Time.get_datetime_string_from_system(false, true)
+	player_save.main_save.voyager_status = player_save.roster_stats
+	player_save.main_save.variables = player_save.ingame_variables
 	var auto = FileAccess.open(player_save.auto_save_json, FileAccess.WRITE)
 	
 	auto.store_line(JSON.stringify(player_save.main_save.main_to_json().data))

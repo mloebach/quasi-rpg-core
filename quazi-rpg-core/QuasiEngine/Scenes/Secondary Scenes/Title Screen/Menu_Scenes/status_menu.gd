@@ -15,7 +15,7 @@ func load_icons(icons: Dictionary) -> void:
 		print("loading character: " + character)
 		var new_icon = status_icon.instantiate()
 		grid_stage.add_child(new_icon)
-		new_icon.load_icon(character, GlobalData.custom_global_data.get_char_status(character))
+		new_icon.load_icon(character, GlobalData.player_save.get_char_status(character))
 
 
 func _on_exit_button_button_up() -> void:

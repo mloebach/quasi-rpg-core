@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="VN_Database" load_steps=21 format=3 uid="uid://isas5au1qpcf"]
+[gd_resource type="Resource" script_class="VN_Database" format=3 uid="uid://isas5au1qpcf"]
 
 [ext_resource type="Script" uid="uid://d1lrrn21y00" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/game_database.gd" id="1_5qp4a"]
 [ext_resource type="Script" uid="uid://bbipppklny7he" path="res://QuasiEngine/Scenes/Core Scenes/VN Main/Resources/Game/episode_resource.gd" id="1_liopo"]
@@ -62,7 +62,7 @@ metadata/_custom_type_script = "uid://blb3v24v1q1u8"
 [sub_resource type="Resource" id="Resource_g43kq"]
 script = ExtResource("2_liopo")
 script_name = "ScriptTesting"
-script_file = "res://Game Files/Zenith Day August 23/Game Scripts/ScriptTesting.story"
+script_file = "res://Game Files/Zenith Day August 23/Game Scripts/Debug/ScriptTesting.story"
 metadata/_custom_type_script = "uid://blb3v24v1q1u8"
 
 [sub_resource type="Resource" id="Resource_rgtlm"]
@@ -120,8 +120,9 @@ cgs = Dictionary[String, String]({
 "ZenithianClock": "res://Game Files/Zenith Day August 23/Visual Assets/CGs/Prologue/ZenithianClock.png"
 })
 title_screen_subtitle = "Bizarro Draft (2023 Version)"
-initial_script = "ScriptTesting"
+initial_script = "Disclaimer"
 script_pool = Array[ExtResource("2_liopo")]([SubResource("Resource_c356s"), SubResource("Resource_5qp4a"), SubResource("Resource_liopo"), SubResource("Resource_d2dka"), SubResource("Resource_vwo38"), SubResource("Resource_pyngs"), SubResource("Resource_7pjyd"), SubResource("Resource_phvnm"), SubResource("Resource_g43kq"), SubResource("Resource_rgtlm")])
 episodes = Array[ExtResource("1_liopo")]([ExtResource("2_c356s"), ExtResource("3_g43kq"), ExtResource("4_rgtlm"), ExtResource("5_wo37o"), ExtResource("6_4qrbf"), ExtResource("7_bu5a7"), ExtResource("8_g43kq")])
 boot_screen = false
+no_text_load = true
 metadata/_custom_type_script = "uid://d1lrrn21y00"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c21dxr6m6i16q"]
+[gd_scene format=3 uid="uid://c21dxr6m6i16q"]
 
 [ext_resource type="Script" uid="uid://qigf8u4ilafd" path="res://QuasiEngine/Scenes/Save System/save_menu.gd" id="1_08ny3"]
 [ext_resource type="Texture2D" uid="uid://8ts1mnrvujqm" path="res://Godot/icon.svg" id="1_52o3p"]
@@ -9,7 +9,7 @@ bg_color = Color(0.2622, 0.53314, 0.69, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wemqa"]
 bg_color = Color(0.2079, 0.291335, 0.33, 1)
 
-[node name="SaveMenu" type="PanelContainer"]
+[node name="SaveMenu" type="PanelContainer" unique_id=363141164]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,10 +17,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_08ny3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1327938079]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=483609072]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 80
@@ -28,71 +28,71 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 80
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=2059293800]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SaveLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="SaveLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=858716158]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 72
 text = "LOAD MENU"
 fit_content = true
 vertical_alignment = 1
 
-[node name="FileSelect" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="FileSelect" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=604301664]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect" unique_id=169345747]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer" unique_id=1090706435]
 layout_mode = 2
 
-[node name="SaveColumns" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer"]
+[node name="SaveColumns" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer" unique_id=1112657053]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 80
 
-[node name="SpecialSave" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns"]
+[node name="SpecialSave" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns" unique_id=1706406773]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
 
-[node name="AutoVBox" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave"]
+[node name="AutoVBox" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave" unique_id=1376102864]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Right" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/AutoVBox"]
+[node name="Right" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/AutoVBox" unique_id=123723080]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 
-[node name="AutosaveStage" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/AutoVBox"]
+[node name="AutosaveStage" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/AutoVBox" unique_id=1490771051]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Left" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/AutoVBox"]
+[node name="Left" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/AutoVBox" unique_id=1891807829]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 
-[node name="PointsaveStage" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave"]
+[node name="PointsaveStage" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave" unique_id=1560991024]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Pointsave1" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage"]
+[node name="Pointsave1" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage" unique_id=770506720]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PointsaveLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave1"]
+[node name="PointsaveLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave1" unique_id=93759764]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32
 text = "Point 1"
@@ -100,18 +100,18 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AutoSave" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave1"]
+[node name="AutoSave" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave1" unique_id=595016935]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_52o3p")
 
-[node name="Pointsave2" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage"]
+[node name="Pointsave2" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage" unique_id=679310957]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PointsaveLabel2" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave2"]
+[node name="PointsaveLabel2" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave2" unique_id=678092991]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32
 text = "Point 2"
@@ -119,7 +119,7 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AutosaveLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave2"]
+[node name="AutosaveLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave2" unique_id=1881109285]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 42
@@ -128,18 +128,18 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AutoSave" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave2"]
+[node name="AutoSave" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave2" unique_id=436305289]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_52o3p")
 
-[node name="Pointsave3" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage"]
+[node name="Pointsave3" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage" unique_id=604496550]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PointsaveLabel3" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave3"]
+[node name="PointsaveLabel3" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave3" unique_id=410245297]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32
 text = "Point 3"
@@ -147,7 +147,7 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AutosaveLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave3"]
+[node name="AutosaveLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave3" unique_id=443632317]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 42
@@ -156,52 +156,52 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AutoSave" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave3"]
+[node name="AutoSave" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage/Pointsave3" unique_id=1968106231]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_52o3p")
 
-[node name="PointSave" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage"]
+[node name="PointSave" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage" unique_id=586737447]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("1_52o3p")
 
-[node name="PointSave2" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage"]
+[node name="PointSave2" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage" unique_id=378848436]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("1_52o3p")
 
-[node name="PointSave3" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage"]
+[node name="PointSave3" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave/PointsaveStage" unique_id=1445573109]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("1_52o3p")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/SpecialSave" unique_id=1197816171]
 layout_mode = 2
 
-[node name="BaseSave" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns"]
+[node name="BaseSave" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns" unique_id=1942622346]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_override_constants/separation = 12
 
-[node name="HBox" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave"]
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave" unique_id=1180082981]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="LeftControl" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox"]
+[node name="LeftControl" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox" unique_id=2001285291]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="SaveGrid" type="GridContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox"]
+[node name="SaveGrid" type="GridContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox" unique_id=507122015]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -209,146 +209,146 @@ theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 4
 columns = 3
 
-[node name="SaveItem" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid"]
+[node name="SaveItem" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid" unique_id=903578861]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem"]
+[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem" unique_id=1024919687]
 layout_mode = 2
 
-[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem/SaveBox"]
+[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem/SaveBox" unique_id=1785833680]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_52o3p")
 
-[node name="SaveItem2" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid"]
+[node name="SaveItem2" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid" unique_id=1338963400]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem2"]
+[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem2" unique_id=1632744749]
 layout_mode = 2
 
-[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem2/SaveBox"]
+[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem2/SaveBox" unique_id=446540671]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_52o3p")
 
-[node name="SaveItem3" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid"]
+[node name="SaveItem3" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid" unique_id=1163615413]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem3"]
+[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem3" unique_id=686835476]
 layout_mode = 2
 
-[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem3/SaveBox"]
+[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem3/SaveBox" unique_id=1997044528]
 visible = false
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_52o3p")
 
-[node name="SaveItem4" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid"]
+[node name="SaveItem4" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid" unique_id=1466879220]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem4"]
+[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem4" unique_id=295843616]
 visible = false
 layout_mode = 2
 
-[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem4/SaveBox"]
+[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem4/SaveBox" unique_id=1432443102]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_52o3p")
 
-[node name="SaveItem5" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid"]
+[node name="SaveItem5" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid" unique_id=1867454857]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem5"]
+[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem5" unique_id=1365284441]
 layout_mode = 2
 
-[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem5/SaveBox"]
+[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem5/SaveBox" unique_id=715530871]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_52o3p")
 
-[node name="SaveItem6" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid"]
+[node name="SaveItem6" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid" unique_id=2084634807]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem6"]
+[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem6" unique_id=993866213]
 layout_mode = 2
 
-[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem6/SaveBox"]
+[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem6/SaveBox" unique_id=1504693057]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_52o3p")
 
-[node name="SaveItem7" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid"]
+[node name="SaveItem7" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid" unique_id=1034939264]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem7"]
+[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem7" unique_id=294698503]
 layout_mode = 2
 
-[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem7/SaveBox"]
+[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem7/SaveBox" unique_id=1634377649]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_52o3p")
 
-[node name="SaveItem8" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid"]
+[node name="SaveItem8" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid" unique_id=359092259]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem8"]
+[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem8" unique_id=1409418571]
 layout_mode = 2
 
-[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem8/SaveBox"]
+[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem8/SaveBox" unique_id=52766373]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_52o3p")
 
-[node name="SaveItem9" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid"]
+[node name="SaveItem9" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid" unique_id=274103716]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem9"]
+[node name="SaveBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem9" unique_id=424810642]
 layout_mode = 2
 
-[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem9/SaveBox"]
+[node name="SaveIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox/SaveGrid/SaveItem9/SaveBox" unique_id=1612123522]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_52o3p")
 
-[node name="RightControl" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox"]
+[node name="RightControl" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave/HBox" unique_id=1502819680]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="PageButtonStage" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave"]
+[node name="PageButtonStage" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/FileSelect/MarginContainer/VBoxContainer/SaveColumns/BaseSave" unique_id=1234051689]
 layout_mode = 2
 
-[node name="FileInfo" type="MarginContainer" parent="VBoxContainer"]
+[node name="FileInfo" type="MarginContainer" parent="VBoxContainer" unique_id=153776839]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.4
@@ -357,32 +357,32 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/FileInfo"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/FileInfo" unique_id=2134162657]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Control2" type="Control" parent="VBoxContainer/FileInfo/HBoxContainer"]
+[node name="Control2" type="Control" parent="VBoxContainer/FileInfo/HBoxContainer" unique_id=1721678653]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 
-[node name="FileInfo" type="PanelContainer" parent="VBoxContainer/FileInfo/HBoxContainer"]
+[node name="FileInfo" type="PanelContainer" parent="VBoxContainer/FileInfo/HBoxContainer" unique_id=1380048205]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/FileInfo/HBoxContainer/FileInfo"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/FileInfo/HBoxContainer/FileInfo" unique_id=1898472792]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/FileInfo/HBoxContainer/FileInfo/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/FileInfo/HBoxContainer/FileInfo/MarginContainer" unique_id=577328123]
 layout_mode = 2
 
-[node name="SlotLabel" type="RichTextLabel" parent="VBoxContainer/FileInfo/HBoxContainer/FileInfo/MarginContainer/VBoxContainer"]
+[node name="SlotLabel" type="RichTextLabel" parent="VBoxContainer/FileInfo/HBoxContainer/FileInfo/MarginContainer/VBoxContainer" unique_id=1425456764]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 42
 theme_override_font_sizes/bold_font_size = 42
@@ -390,29 +390,29 @@ bbcode_enabled = true
 text = "Slot 1"
 fit_content = true
 
-[node name="QuestLocationLabel" type="RichTextLabel" parent="VBoxContainer/FileInfo/HBoxContainer/FileInfo/MarginContainer/VBoxContainer"]
+[node name="QuestLocationLabel" type="RichTextLabel" parent="VBoxContainer/FileInfo/HBoxContainer/FileInfo/MarginContainer/VBoxContainer" unique_id=1279798877]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 36
 text = "Episode 1 - Burning Inferno"
 fit_content = true
 
-[node name="DateLabel" type="RichTextLabel" parent="VBoxContainer/FileInfo/HBoxContainer/FileInfo/MarginContainer/VBoxContainer"]
+[node name="DateLabel" type="RichTextLabel" parent="VBoxContainer/FileInfo/HBoxContainer/FileInfo/MarginContainer/VBoxContainer" unique_id=1923365746]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 36
 text = "201/8/12 12:32 PM"
 fit_content = true
 
-[node name="Control3" type="Control" parent="VBoxContainer/FileInfo/HBoxContainer"]
+[node name="Control3" type="Control" parent="VBoxContainer/FileInfo/HBoxContainer" unique_id=1638959351]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/FileInfo/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/FileInfo/HBoxContainer" unique_id=1594471033]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="LoadButton" type="Button" parent="VBoxContainer/FileInfo/HBoxContainer/VBoxContainer"]
+[node name="LoadButton" type="Button" parent="VBoxContainer/FileInfo/HBoxContainer/VBoxContainer" unique_id=1867550208]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -422,7 +422,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_cro4p")
 disabled = true
 text = "LOAD"
 
-[node name="SaveButton" type="Button" parent="VBoxContainer/FileInfo/HBoxContainer/VBoxContainer"]
+[node name="SaveButton" type="Button" parent="VBoxContainer/FileInfo/HBoxContainer/VBoxContainer" unique_id=876204764]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -433,7 +433,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_cro4p")
 disabled = true
 text = "SAVE"
 
-[node name="ExitButton" type="Button" parent="VBoxContainer/FileInfo/HBoxContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="VBoxContainer/FileInfo/HBoxContainer/VBoxContainer" unique_id=1689095512]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -441,12 +441,12 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_wemqa")
 text = "EXIT"
 
-[node name="Control" type="Control" parent="VBoxContainer/FileInfo/HBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/FileInfo/HBoxContainer" unique_id=2103466616]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 
-[node name="PopupStage" type="Control" parent="."]
+[node name="PopupStage" type="Control" parent="." unique_id=1408936162]
 layout_mode = 2
 mouse_filter = 2
 

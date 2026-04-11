@@ -9,7 +9,7 @@ func check_conditional(statement: String) -> bool:
 	#_current_node = node
 	var expression: Expression = Expression.new()
 	var conditional : String = statement.trim_suffix("\"").trim_prefix("\"")
-	var error = expression.parse(conditional, GlobalData.ingame_variables.keys())
+	var error = expression.parse(conditional, GlobalData.player_save.ingame_variables.keys())
 	
 	print("Checking conditional - " + conditional)
 	
@@ -18,7 +18,7 @@ func check_conditional(statement: String) -> bool:
 		push_error("In other words, something is up with: " + conditional)
 		return false
 		
-	var result : bool = expression.execute( GlobalData.ingame_variables.values(), self)
+	var result : bool = expression.execute( GlobalData.player_save.ingame_variables.values(), self)
 	if expression.has_execute_failed():
 		push_error("Conditional (" + conditional + ") makes no ham sense!" )
 		return false
@@ -31,7 +31,7 @@ func display_variable(conditional: String, node: TreeNode.CommandNode) -> String
 
 	_current_node = node
 	var expression: Expression = Expression.new()
-	var var_dict = GlobalData.ingame_variables.duplicate()
+	var var_dict = GlobalData.player_save.ingame_variables.duplicate()
 	var_dict["GlobalData"] = "GlobalData"
 	
 	conditional = conditional.replace("(\\\"", "(\"").replace("\\\")", "\")")
@@ -108,24 +108,24 @@ func set_variable_step(command: String) -> void:
 			expression_to_set = assignment_commands[1].replace(' ','')
 			
 	var expression: Expression = Expression.new()
-	var error = expression.parse(expression_to_set, GlobalData.ingame_variables.keys())
+	var error = expression.parse(expression_to_set, GlobalData.player_save.ingame_variables.keys())
 	if error != OK:
 		push_error("Expression " + command + " parse error: " + expression.get_error_text())
 		push_error("Hey! There is actuallly a variable named " + expression_to_set + "in ingame variables, right?")
-	var result = expression.execute(GlobalData.ingame_variables.values(), self)
+	var result = expression.execute(GlobalData.player_save.ingame_variables.values(), self)
 	if expression.has_execute_failed():
 		push_error("Setter (" + expression_to_set + ") makes no sense!" )
 	else: #then set the value
 		if(
-			!GlobalData.ingame_variables.has(variable_to_change) ||
-			typeof(GlobalData.ingame_variables[variable_to_change]) == typeof(result)
+			!GlobalData.player_save.ingame_variables.has(variable_to_change) ||
+			typeof(GlobalData.player_save.ingame_variables[variable_to_change]) == typeof(result)
 		):
-			GlobalData.ingame_variables[variable_to_change] = result
+			GlobalData.player_save.ingame_variables[variable_to_change] = result
 		else:
 			push_warning("Variable %s of type %s can't be cast into %s" %
 				[
 					variable_to_change,
-					type_string(typeof(GlobalData.ingame_variables[variable_to_change])),
+					type_string(typeof(GlobalData.player_save.ingame_variables[variable_to_change])),
 					type_string(typeof(result))
 				]
 			)
